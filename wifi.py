@@ -24,6 +24,17 @@ initialized = {}
 
 
 database = {
+    'wifi|probe:0,1,45,221(001018,2),221(00904c,51),htcap:081e|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:081e':
+        ('BCM94321', 'Apple TV (1st gen)', '5GHz'),
+    'wifi|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:581c|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:581c':
+        ('BCM94321', 'Apple TV (1st gen)', '2.4GHz'),
+    'wifi|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:181c|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:581c':
+        ('BCM94321', 'Apple TV (1st gen)', '2.4GHz'),
+    'wifi|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:581c|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:181c':
+        ('BCM94321', 'Apple TV (1st gen)', '2.4GHz'),
+    'wifi|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:181c|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:181c':
+        ('BCM94321', 'Apple TV (1st gen)', '2.4GHz'),
+
     'wifi|probe:0,1,45,221(001018,2),221(00904c,51),htcap:080c|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:080c':
         ('BCM4329', 'iPad (1st/2nd gen)', '5GHz'),
     'wifi|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:180c|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:180c':
@@ -34,30 +45,59 @@ database = {
     'wifi|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:01bc|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:01bc':
         ('BCM4334', 'iPad (4th gen)', '2.4GHz'),
 
+    'wifi|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:01fe|assoc:0,1,33,36,48,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:01fe':
+        ('BCM43241', 'iPad Air (1st gen)', '5GHz'),
+    'wifi|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:01bc|assoc:0,1,33,36,48,50,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:01bc':
+        ('BCM43241', 'iPad Air (1st gen)', '2.4GHz'),
+
     'wifi|probe:0,1,45,127,107,191,221(0050f2,8),221(001018,2),htcap:006f,vhtcap:0f815832|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,vhtcap:0f815832':
         ('BCM4335', 'iPad Air (2nd gen)', '5GHz'),
     'wifi|probe:0,1,50,3,45,127,107,221(0050f2,8),221(001018,2),htcap:002d|assoc:0,1,50,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:002d':
         ('BCM4335', 'iPad Air (2nd gen)', '2.4GHz'),
 
+    'wifi|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:0100|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0100':
+        ('BCM4330', 'iPhone 4S', '2.4GHz'),
+
+    'wifi|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062|assoc:0,1,33,36,48,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062':
+        ('BCM4334', 'iPhone 5', '5GHz'),
+    'wifi|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020|assoc:0,1,33,36,48,50,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020':
+        ('BCM4334', 'iPhone 5', '2.4GHz'),
+
     'wifi|probe:0,1,45,127,107,191,221(0050f2,8),221(001018,2),htcap:0063,vhtcap:0f805032|assoc:0,1,33,36,48,70,45,127,191,221(001018,2),221(0050f2,2),htcap:0063,vhtcap:0f805032':
-        ('BCM4339', 'iPhone 6 Plus', '5GHz'),
+        ('BCM4339', 'iPhone 6/6+', '5GHz'),
     'wifi|probe:0,1,50,3,45,127,107,221(0050f2,8),221(001018,2),htcap:0021|assoc:0,1,50,33,36,48,70,45,127,221(001018,2),221(0050f2,2),htcap:0021':
-        ('BCM4339', 'iPhone 6 Plus', '2.4GHz'),
+        ('BCM4339', 'iPhone 6/6+', '2.4GHz'),
+
+    'wifi|probe:0,1,50,45,221(00904c,51),htcap:182c|assoc:0,1,33,36,48,50,45,221(00904c,51),221(0050f2,2),htcap:182c':
+        ('BCM4322', 'MacBook - late 2008 (A1278)', '5GHz'),
+    'wifi|probe:0,1,50,3,45,221(00904c,51),htcap:182c|assoc:0,1,33,36,48,50,45,221(00904c,51),221(0050f2,2),htcap:182c':
+        ('BCM4322', 'MacBook - late 2008 (A1278)', '2.4GHz'),
+
+    'wifi|probe:0,1,45,127,191,htcap:09ef,vhtcap:0f8159b2|assoc:0,1,33,36,48,45,127,191,221(0050f2,2),htcap:09ef,vhtcap:0f8159b2':
+        ('BCM4360', 'MacBook Air - late 2014 (A1466)', '5GHz'),
+    'wifi|probe:0,1,50,45,127,221(00904c,51),htcap:59ad|assoc:0,1,33,36,48,50,45,127,221(00904c,51),221(0050f2,2),htcap:59ad':
+        ('BCM4360', 'MacBook Air - late 2014 (A1466)', '5GHz'),
+    'wifi|probe:0,1,45,127,191,221(00904c,51),htcap:09ef,vhtcap:0f8159b2|assoc:0,1,33,36,48,45,127,191,221(00904c,51),221(0050f2,2),htcap:09ef,vhtcap:0f8159b2':
+        ('BCM4360', 'MacBook Air - late 2014 (A1466)', '5GHz'),
+    'wifi|probe:0,1,50,3,45,127,htcap:49ad|assoc:0,1,50,33,36,48,45,127,221(0050f2,2),htcap:49ad':
+        ('BCM4360', 'MacBook Air - late 2014 (A1466)', '2.4GHz'),
+
+    'wifi|probe:0,1,50,3,45,127,221(00904c,51),htcap:59ad|assoc:0,1,33,36,48,50,45,127,221(00904c,51),221(0050f2,2),htcap:59ad':
+        ('BCM4360', 'MacBook Air or Pro - 2014', '2.4GHz'),
 
     'wifi|probe:0,1,45,221(00904c,51),htcap:09ef|assoc:0,1,33,36,48,45,221(00904c,51),221(0050f2,2),htcap:09ef':
         ('BCM4331', 'MacBook Pro - late 2013 (A1398)', '5GHz'),
     'wifi|probe:0,1,50,3,45,221(00904c,51),htcap:19ad|assoc:0,1,33,36,48,50,45,221(00904c,51),221(0050f2,2),htcap:19ad':
         ('BCM4331', 'MacBook Pro - late 2013 (A1398)', '2.4GHz'),
 
-    'wifi|probe:0,1,45,127,191,htcap:09ef,vhtcap:0f8159b2|assoc:0,1,33,36,48,45,127,191,221(0050f2,2),htcap:09ef,vhtcap:0f8159b2':
-        ('BCM4360', 'MacBook Air - late 2014 (A1466)', '5GHz'),
-    'wifi|probe:0,1,50,3,45,127,htcap:49ad|assoc:0,1,50,33,36,48,45,127,221(0050f2,2),htcap:49ad':
-        ('BCM4360', 'MacBook Air - late 2014 (A1466)', '2.4GHz'),
-
     'wifi|probe:0,1,45,127,191,221(00904c,51),htcap:09ef,vhtcap:0f8259b2|assoc:0,1,33,36,48,45,127,191,221(00904c,51),221(0050f2,2),htcap:09ef,vhtcap:0f8259b2':
         ('BCM4360', 'MacBook Pro - early 2014 (A1502)', '5GHz'),
-    'wifi|probe:0,1,50,3,45,127,221(00904c,51),htcap:59ad|assoc:0,1,33,36,48,50,45,127,221(00904c,51),221(0050f2,2),htcap:59ad':
-        ('BCM4360', 'MacBook Pro - early 2014 (A1502)', '2.4GHz'),
+    # 2.4 GHz signature for this device is listed above as 'MacBook Air or Pro - 2014'
+
+    'wifi|probe:0,1,45,221(0050f2,8),191,htcap:016e,vhtcap:31800120|assoc:0,1,33,36,48,45,221(0050f2,2),191,127,htcap:016e,vhtcap:31800120':
+        ('QCA_WCN3680', 'MOTO-X 2013 version', '5GHz'),
+    'wifi|probe:0,1,50,3,45,221(0050f2,8),191,htcap:012c,vhtcap:31800120|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c':
+        ('QCA_WCN3680', 'MOTO-X 2013 version', '2.4GHz'),
 
     'wifi|probe:0,1,50,45,htcap:0130|assoc:0,1,50,48,45,221(0050f2,2),htcap:013c':
         ('TI_WL1270', 'Nest Thermostat v1', '2.4GHz'),
@@ -66,10 +106,24 @@ database = {
         ('QCA_WCN3360', 'Nexus 4', '5GHz'),
     'wifi|probe:0,1,45,221(0050f2,8),191,221(0050f2,4),221(506f9a,9),htcap:012c,vhtcap:31811120,wps:Nexus_4|assoc:0,1,33,36,48,45,221(0050f2,2),htcap:012c':
         ('QCA_WCN3360', 'Nexus 4', '5GHz'),
+    'wifi|probe:0,1,45,221(0050f2,8),191,htcap:012c,vhtcap:31811120|assoc:0,1,33,36,48,45,221(0050f2,2),htcap:012c':
+        ('QCA_WCN3360', 'Nexus 4', '5GHz'),
     'wifi|probe:0,1,50,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,wps:Nexus_4|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c':
         ('QCA_WCN3360', 'Nexus 4', '2.4GHz'),
     'wifi|probe:0,1,50,45,221(0050f2,8),191,221(0050f2,4),221(506f9a,9),htcap:012c,vhtcap:31811120,wps:Nexus_4|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c':
         ('QCA_WCN3360', 'Nexus 4', '2.4GHz'),
+    'wifi|probe:0,1,50,45,221(0050f2,8),191,221(0050f2,4),221(506f9a,9),htcap:012c,vhtcap:31811120|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c':
+        ('QCA_WCN3360', 'Nexus 4', '2.4GHz'),
+
+    'wifi|probe:0,1,45,127,191,221(001018,2),221(00904c,51),htcap:016f,vhtcap:0f805932|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:016f,vhtcap:0f805932':
+        ('BCM4339', 'Nexus 5', '5GHz'),
+    'wifi|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),htcap:112d|assoc:0,1,33,36,48,50,45,221(001018,2),221(0050f2,2),htcap:112d':
+        ('BCM4339', 'Nexus 5', '2.4GHz'),
+
+    'wifi|probe:0,1,45,127,191,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:006f,vhtcap:0f815832,wps:Nexus_6|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,vhtcap:0f815832':
+        ('BCM4356', 'Nexus 6', '5GHz'),
+    'wifi|probe:0,1,50,3,45,127,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:002d,wps:Nexus_6|assoc:0,1,50,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:002d':
+        ('BCM4356', 'Nexus 6', '2.4GHz'),
 
     'wifi|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:110c|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:110c':
         ('BCM4330', 'Nexus 7 (2012)', '2.4GHz'),
@@ -172,7 +226,7 @@ def identify_wifi_device(signature):
   if 'database' not in initialized:
     init_database()
 
-  key = signature.strip().lower()
+  key = signature.strip()
   result = database.get(key, None)
   if result is not None:
     return '%s;%s' % (result[0], result[1])

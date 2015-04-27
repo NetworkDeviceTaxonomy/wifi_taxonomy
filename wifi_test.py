@@ -34,13 +34,7 @@ class WifiTaxonomyTest(unittest.TestCase):
         'wifi|probe:0,1,50,3,45,127,221(00904c,51),htcap:59ad|'
         'assoc:0,1,33,36,48,50,45,127,221(00904c,51),221(0050f2,2),htcap:59ad')
     taxonomy = wifi.identify_wifi_device(signature)
-    self.assertEqual(taxonomy, 'BCM4360;MacBook Pro - early 2014 (A1502)')
-
-  def testALLCAPS(self):
-    signature = ('WIFI|PROBE:0,1,50,45,HTCAP:186E|'
-                 'ASSOC:0,1,50,48,221(0050F2,2),45,127,HTCAP:086C')
-    taxonomy = wifi.identify_wifi_device(signature)
-    self.assertEqual(taxonomy, 'RTL8192CU;')
+    self.assertEqual(taxonomy, 'BCM4360;MacBook Air or Pro - 2014')
 
   def testChecksumWhenNoIdentification(self):
     taxonomy = wifi.identify_wifi_device('wifi|probe:1,2,3,4,htcap:0|assoc:1')

@@ -13,3 +13,4 @@ build:
 
 install:
 	PYTHONPATH=$(TARGETPYTHONPATH) $(HOSTDIR)/usr/bin/python setup.py install --prefix=$(DESTDIR)$(PREFIX)
+	install -D -m 755 wtax $(DESTDIR)/bin
