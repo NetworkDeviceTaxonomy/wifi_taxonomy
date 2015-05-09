@@ -16,6 +16,14 @@ dhcpname() {
   done </config/dhcp.leases
 }
 
+dhcpsig() {
+  mac="$1"
+  while read -r leasemac sig; do
+    if contains "$leasemac" "$mac"; then
+      echo "$sig"
+    fi
+  done </config/dhcp.fingerprints
+}
 
 stations24=""
 stations5=""
@@ -31,25 +39,29 @@ watch-dir /tmp/wifi/fingerprints | while read junk; do
     mac=$(basename "$file")
     name=$(dhcpname "$mac")
     tax=$(taxonomize "$sig")
+    dhcpsig=$(dhcpsig "$mac")
+    stationskey="$mac|$sig"
 
     if contains "$wifi24" "$mac"; then
-      contains "$stations24" "$mac" && continue
+      contains "$stations24" "$stationskey" && continue
       date
-      echo 2.4GHz: "$name"
+      echo 2.4GHz: "$name" "$mac"
       echo "$tax"
       echo "$sig"
+      echo "dhcp|$dhcpsig"
       echo
-      stations24="${stations24},$mac"
+      stations24="${stations24},$stationskey"
     fi
 
     if contains "$wifi5" "$mac"; then
-      contains "$stations5" "$mac" && continue
+      contains "$stations5" "$stationskey" && continue
       date
-      echo 5.0GHz: "$name"
+      echo 5.0GHz: "$name" "$mac"
       echo "$tax"
       echo "$sig"
+      echo "dhcp|$dhcpsig"
       echo
-      stations5="${stations5},$mac"
+      stations5="${stations5},$stationskey"
     fi
   done
 done
