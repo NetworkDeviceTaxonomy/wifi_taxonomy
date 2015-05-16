@@ -50,6 +50,11 @@ database = {
     'wifi|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:180c|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:180c':
         ('BCM4329', 'iPad (1st/2nd gen)', '2.4GHz'),
 
+    'wifi|probe:0,1,45,3,221(001018,2),221(00904c,51),htcap:0100|assoc:0,1,33,36,48,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0100':
+        ('BCM4330', 'iPad (3rd gen)', '5GHz'),
+    'wifi|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:0100|assoc:0,1,33,36,48,50,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0100':
+        ('BCM4330', 'iPad (3rd gen)', '2.4GHz'),
+
     'wifi|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:01fe|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:01fe':
         ('BCM4334', 'iPad (4th gen)', '5GHz'),
     'wifi|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:01bc|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:01bc':
@@ -270,7 +275,15 @@ def identify_wifi_device(signature):
     return '%s;Unknown' % (result[0])
 
   # We have no idea what the client is.
-  if 'htcap' not in key:
-    return 'Unknown;802.11a/b/g device'
 
-  return 'SHA:' + hashlib.sha256(key).hexdigest() + ';Unknown'
+  slug = 'SHA:' + hashlib.sha256(key).hexdigest()
+  if 'vhtcap' in key:
+    return slug + ';Unknown 802.11ac'
+  if 'htcap' in key:
+    return slug + ';Unknown 802.11n'
+  return 'Unknown;802.11a/b/g device'
+
+
+if __name__ == '__main__':
+  for k, v in database.iteritems():
+    print 'SHA:' + hashlib.sha256(k).hexdigest() + ' ' + v[1]

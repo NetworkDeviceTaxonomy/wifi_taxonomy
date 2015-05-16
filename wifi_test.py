@@ -38,9 +38,8 @@ class WifiTaxonomyTest(unittest.TestCase):
 
   def testChecksumWhenNoIdentification(self):
     taxonomy = wifi.identify_wifi_device('wifi|probe:1,2,3,4,htcap:0|assoc:1')
-    h = ('SHA:27b78dbb1bc795961ddad0686137eb9fddbbc7f8766bd8947b4deca563b830be'
-         ';Unknown')
-    self.assertEqual(taxonomy, h)
+    h = 'SHA:27b78dbb1bc795961ddad0686137eb9fddbbc7f8766bd8947b4deca563b830be'
+    self.assertTrue(h in taxonomy)
 
   def test80211abg(self):
     taxonomy = wifi.identify_wifi_device('wifi|probe:1|assoc:1')
@@ -57,6 +56,23 @@ class WifiTaxonomyTest(unittest.TestCase):
                  'htcap:012c')
     taxonomy = wifi.identify_wifi_device(signature)
     self.assertEqual(taxonomy, 'QCA_WCN3360;Unknown')
+
+  def testUnknown(self):
+    signature = 'wifi|probe:0,1,2,vhtcap:0033|assoc:3,4,vhtcap:0033'
+    taxonomy = wifi.identify_wifi_device(signature)
+    self.assertTrue('802.11ac' in taxonomy)
+    self.assertFalse('802.11n' in taxonomy)
+    self.assertFalse('802.11a/b/g' in taxonomy)
+    signature = 'wifi|probe:0,1,2,htcap:0033|assoc:3,4,htcap:0033'
+    taxonomy = wifi.identify_wifi_device(signature)
+    self.assertFalse('802.11ac' in taxonomy)
+    self.assertTrue('802.11n' in taxonomy)
+    self.assertFalse('802.11a/b/g' in taxonomy)
+    signature = 'wifi|probe:0,1,2|assoc:3,4'
+    taxonomy = wifi.identify_wifi_device(signature)
+    self.assertFalse('802.11ac' in taxonomy)
+    self.assertFalse('802.11n' in taxonomy)
+    self.assertTrue('802.11a/b/g' in taxonomy)
 
 
 if __name__ == '__main__':
