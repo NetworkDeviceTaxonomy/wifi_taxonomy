@@ -35,6 +35,9 @@ database = {
     'wifi|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:181c|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:181c':
         ('BCM94321', 'Apple TV (1st gen)', '2.4GHz'),
 
+    'wifi|probe:0,1,3,45,50,htcap:0120|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:012c|name:Chromecast':
+        ('Marvell_88W8797', 'Chromecast', '2.4GHz'),
+
     'wifi|probe:0,1,45,127,191,221(506f9a,16),221(001018,2),221(00904c,51),htcap:006f,vhtcap:03800032|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,vhtcap:03800032':
         ('BCM4335', 'HTC One', '5GHz'),
     'wifi|probe:0,1,50,3,45,127,221(506f9a,16),221(001018,2),221(00904c,51),htcap:102d|assoc:0,1,33,36,48,50,45,221(001018,2),221(0050f2,2),htcap:102d':
@@ -82,6 +85,12 @@ database = {
         ('BCM4339', 'iPhone 6/6+', '5GHz'),
     'wifi|probe:0,1,50,3,45,127,107,221(0050f2,8),221(001018,2),htcap:0021|assoc:0,1,50,33,36,48,70,45,127,221(001018,2),221(0050f2,2),htcap:0021':
         ('BCM4339', 'iPhone 6/6+', '2.4GHz'),
+
+    'wifi|probe:0,1,3,50|assoc:0,1,48,50|name:iPod':
+        ('Marvell_W8686B22', 'iPod Touch 1st gen', '2.4GHz'),
+
+    'wifi|probe:0,1,50,221(001018,2)|assoc:0,1,48,50,221(001018,2),221(0050f2,2)|name:iPod-touch':
+        ('BCM4329', 'iPod Touch 3rd gen', '2.4GHz'),
 
     'wifi|probe:0,1,50,45,221(00904c,51),htcap:182c|assoc:0,1,33,36,48,50,45,221(00904c,51),221(0050f2,2),htcap:182c':
         ('BCM4322', 'MacBook - late 2008 (A1278)', '5GHz'),
@@ -155,6 +164,11 @@ database = {
         ('QCA_WCN3660', 'Nexus 7 (2013)', '2.4GHz'),
     'wifi|probe:0,1,50,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,wps:Nexus_7|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c':
         ('QCA_WCN3660', 'Nexus 7 (2013)', '2.4GHz'),
+    'wifi|probe:0,1,50,45,221(0050f2,8),221(0050f2,4),221(506f9a,10),221(506f9a,9),htcap:012c,wps:Nexus_7|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c':
+        ('QCA_WCN3660', 'Nexus 7 (2013)', '2.4GHz'),
+
+    'wifi|probe:0,1,3,50|assoc:0,1,48,50,221(0050f2,2),45,htcap:112c':
+        ('Marvell_88W8797', 'Playstation 4', '2.4GHz'),
 
     'wifi|probe:0,1,45,221(0050f2,4),221(001018,2),221(00904c,51),htcap:010c,wps:Galaxy_Nexus|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:010c':
         ('BCM4330', 'Samsung Galaxy Nexus', '5GHz'),
@@ -183,6 +197,11 @@ database = {
         ('BCM4335', 'Samsung Galaxy S4', '5GHz'),
     'wifi|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:102d|assoc:0,1,33,36,48,50,45,221(001018,2),221(0050f2,2),htcap:102d':
         ('BCM4335', 'Samsung Galaxy S4', '2.4GHz'),
+
+    'wifi|probe:0,1,3,45,50,htcap:058f|assoc:0,1,48,50,221(0050f2,2),45,htcap:058d|name:Xbox-SystemOS':
+        ('Marvell_88W8897', 'Xbox One', '5GHz'),
+    'wifi|probe:0,1,45,50,htcap:058f|assoc:0,1,48,221(0050f2,2),45,htcap:058f|name:Xbox-SystemOS':
+        ('Marvell_88W8897', 'Xbox One', '2.4GHz'),
 
     'wifi|probe:0,1,50|assoc:0,1,33,36,50,48,221(0050f2,2),221(00904c,51),45,htcap:104c':
         ('AR9170', '', '2.4GHz'),
@@ -239,11 +258,12 @@ def init_database():
         database[new_k] = v
   initialized['database'] = True
 
-def identify_wifi_device(signature):
+def identify_wifi_device(signature, name=None):
   """Look up a wifi device by signature.
 
   Arguments:
     signature: a string of the form 'wifi:probe:X,Y,Z|assoc:Q,R,S'
+    name: the DHCP hostname supplied by the client.
 
   Returns:
     A string describing the Wifi chipset and the type of device.
@@ -263,10 +283,14 @@ def identify_wifi_device(signature):
   if 'database' not in initialized:
     init_database()
 
-  key = signature.strip()
-  result = database.get(key, None)
-  if result is not None:
-    return '%s;%s' % (result[0], result[1])
+  signature = signature.strip()
+  keys = [signature]
+  if name:
+    keys.append(signature + '|name:' + name)
+  for key in keys:
+    result = database.get(key, None)
+    if result is not None:
+      return '%s;%s' % (result[0], result[1])
 
   # Try again with no WPS identifier, identify chipset only.
   new_key = remove_wps(key)
@@ -281,7 +305,7 @@ def identify_wifi_device(signature):
     return slug + ';Unknown 802.11ac'
   if 'htcap' in key:
     return slug + ';Unknown 802.11n'
-  return 'Unknown;802.11a/b/g device'
+  return slug + ';Unknown 802.11a/b/g'
 
 
 if __name__ == '__main__':
