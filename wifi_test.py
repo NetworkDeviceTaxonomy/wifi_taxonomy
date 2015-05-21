@@ -36,14 +36,19 @@ class WifiTaxonomyTest(unittest.TestCase):
     taxonomy = wifi.identify_wifi_device(signature)
     self.assertEqual(taxonomy, 'BCM4360;MacBook Air or Pro - 2014')
 
+  def testNameLookup(self):
+    signature = 'wifi|probe:0,1,3,50|assoc:0,1,48,50'
+    taxonomy = wifi.identify_wifi_device(signature)
+    self.assertTrue('Unknown' in taxonomy)
+    taxonomy = wifi.identify_wifi_device(signature, name='WrongName')
+    self.assertTrue('Unknown' in taxonomy)
+    taxonomy = wifi.identify_wifi_device(signature, name='iPod')
+    self.assertTrue('iPod Touch 1st gen' in taxonomy)
+
   def testChecksumWhenNoIdentification(self):
     taxonomy = wifi.identify_wifi_device('wifi|probe:1,2,3,4,htcap:0|assoc:1')
     h = 'SHA:27b78dbb1bc795961ddad0686137eb9fddbbc7f8766bd8947b4deca563b830be'
     self.assertTrue(h in taxonomy)
-
-  def test80211abg(self):
-    taxonomy = wifi.identify_wifi_device('wifi|probe:1|assoc:1')
-    self.assertEqual(taxonomy, 'Unknown;802.11a/b/g device')
 
   def testWpsRemoval(self):
     signature = 'wifi|probe:1,2,3,4,wps:Model_Name|assoc:1,2,3,wps:Foo,4'
