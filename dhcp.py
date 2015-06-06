@@ -19,19 +19,57 @@
 
 # Unit tests can override these.
 DHCP_LEASES_FILE = '/config/dhcp.leases'
+DHCP_SIGNATURE_FILE = '/config/dhcp.fingerprints'
+
+
+# There is an enormous database of DHCP fingerprints at fingerbank.org.
+# It is a 15 MByte SQLite DB. Thus far we're only using the DHCP
+# signature as an additive when wifi signatures are indistinct, so
+# we're only including the DHCP signatures which we will actually use.
+database = {
+    '1,33,3,6,15,26,28,51,58,59': 'android',
+    '1,33,3,6,15,28,51,58,59': 'android',
+
+    '1,121,33,3,6,12,15,26,28,51,54,58,59,119,252': 'chromeos',
+    '1,121,33,3,6,12,15,26,28,51,54,58,59,119': 'chromeos',
+
+    '1,3,6,15,119,252': 'ios',
+
+    '1,3,6,15,119,95,252,44,46,101': 'macos',
+    '1,3,6,15,119,95,252,44,46': 'macos',
+}
+
+
+def LookupOperatingSystem(mac):
+  """Lookup the operating system using a DHCP signature."""
+  mac = mac.lower()
+  try:
+    with open(DHCP_SIGNATURE_FILE) as f:
+      for line in f:
+        try:
+          (physaddr, signature) = line.split()
+        except ValueError:
+          continue
+        if physaddr.lower() == mac:
+          return database.get(signature, None)
+  except IOError:
+    pass
+  return None
 
 
 def LookupHostname(mac):
   """Lookup the hostname for a MAC address."""
   mac = mac.lower()
-  name = None
-  with open(DHCP_LEASES_FILE) as f:
-    for line in f:
-      try:
-        (unused_ts, physaddr, unused_ip, name, _) = line.split()
-      except ValueError:
-        # there are other formats of lines in dhcp.leases, like DUID.
-        continue
-      if physaddr.lower() == mac:
-        return None if name == '*' else name
+  try:
+    with open(DHCP_LEASES_FILE) as f:
+      for line in f:
+        try:
+          (_, physaddr, _, name, _) = line.split()
+        except ValueError:
+          # There are other formats of lines in dhcp.leases, like DUID.
+          continue
+        if physaddr.lower() == mac:
+          return None if name == '*' else name
+  except IOError:
+    pass
   return None

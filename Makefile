@@ -3,7 +3,7 @@ all: build
 test:
 	set -e; \
 	for d in $(wildcard *_test.py); do \
-		$(PYTHON) $$d; \
+		PYTHONPATH=. $(PYTHON) $$d; \
 	done
 
 PREFIX=/usr
