@@ -17,6 +17,8 @@
 """Database of signatures for known Wifi devices."""
 
 
+import dhcp
+import ethernet
 import hashlib
 
 
@@ -49,6 +51,16 @@ database = {
     'wifi|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020|name:Apple-TV':
         ('BCM4330', 'Apple TV (3rd gen)', '2.4GHz'),
 
+    'wifi|probe:0,1,45,htcap:11ef|assoc:0,1,48,45,221(0050f2,2),htcap:11ef|os:chromeos':
+        ('AR5822', 'Chromebook 14" HP', '5GHz'),
+    'wifi|probe:0,1,50,3,45,htcap:11ef|assoc:0,1,50,48,45,221(0050f2,2),htcap:11ef|os:chromeos':
+        ('AR5822', 'Chromebook 14" HP', '2.4GHz'),
+
+    'wifi|probe:0,1,45,50,htcap:016e|assoc:0,1,48,127,221(0050f2,2),45,htcap:016e|os:chromeos':
+        ('AR9382', 'Chromebook 11" Samsung', '5GHz'),
+    'wifi|probe:0,1,3,45,50,htcap:016e|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:016e|os:chromeos':
+        ('AR9382', 'Chromebook 11" Samsung', '2.4GHz'),
+
     'wifi|probe:0,1,3,45,50,htcap:0120|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:012c|name:Chromecast':
         ('Marvell_88W8797', 'Chromecast', '2.4GHz'),
 
@@ -79,6 +91,15 @@ database = {
     'wifi|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:01bc|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:01bc':
         ('BCM4334', 'iPad (4th gen)', '2.4GHz'),
 
+    'wifi|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062|assoc:0,1,33,36,48,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062|name:ipad':
+        ('BCM4334', 'iPad Mini (1st gen)', '5GHz'),
+    'wifi|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062|name:ipad':
+        ('BCM4334', 'iPad Mini (1st gen)', '5GHz'),
+    'wifi|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020|assoc:0,1,33,36,48,50,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020|name:ipad':
+        ('BCM4334', 'iPad Mini (1st gen)', '2.4GHz'),
+    'wifi|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020|name:ipad':
+        ('BCM4334', 'iPad Mini (1st gen)', '2.4GHz'),
+
     'wifi|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:01fe|assoc:0,1,33,36,48,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:01fe':
         ('BCM43241', 'iPad Air (1st gen)', '5GHz'),
     'wifi|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:01bc|assoc:0,1,33,36,48,50,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:01bc':
@@ -92,14 +113,23 @@ database = {
     'wifi|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:0100|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0100':
         ('BCM4330', 'iPhone 4S', '2.4GHz'),
 
+    'wifi|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062|assoc:0,1,33,36,48,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062|name:iphone':
+        ('BCM4334', 'iPhone 5/5S', '5GHz'),
+    'wifi|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062|name:iphone':
+        ('BCM4334', 'iPhone 5/5S', '5GHz'),
+    'wifi|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020|assoc:0,1,33,36,48,50,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020|name:iphone':
+        ('BCM4334', 'iPhone 5/5S', '2.4GHz'),
+    'wifi|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020|name:iphone':
+        ('BCM4334', 'iPhone 5/5S', '2.4GHz'),
+
     'wifi|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062|assoc:0,1,33,36,48,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062':
-        ('BCM4334', 'iPhone 5/5S', '5GHz'),
+        ('BCM4334', 'iPhone 5/5S or iPad Mini (1st gen)', '5GHz'),
     'wifi|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062':
-        ('BCM4334', 'iPhone 5/5S', '5GHz'),
+        ('BCM4334', 'iPhone 5/5S or iPad Mini (1st gen)', '5GHz'),
     'wifi|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020|assoc:0,1,33,36,48,50,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020':
-        ('BCM4334', 'iPhone 5/5S', '2.4GHz'),
+        ('BCM4334', 'iPhone 5/5S or iPad Mini (1st gen)', '2.4GHz'),
     'wifi|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020':
-        ('BCM4334', 'iPhone 5/5S', '2.4GHz'),
+        ('BCM4334', 'iPhone 5/5S or iPad Mini (1st gen)', '2.4GHz'),
 
     'wifi|probe:0,1,45,127,107,191,221(0050f2,8),221(001018,2),htcap:0063,vhtcap:0f805032|assoc:0,1,33,36,48,70,45,127,191,221(001018,2),221(0050f2,2),htcap:0063,vhtcap:0f805032':
         ('BCM4339', 'iPhone 6/6+', '5GHz'),
@@ -115,6 +145,13 @@ database = {
 
     'wifi|probe:0,1,50,221(001018,2)|assoc:0,1,48,50,221(001018,2),221(0050f2,2)|name:iPod-touch':
         ('BCM4329', 'iPod Touch 3rd gen', '2.4GHz'),
+
+    'wifi|probe:0,1,50,45,127,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:102d|assoc:0,1,33,36,48,50,45,127,221(001018,2),221(0050f2,2),htcap:102d|oui:lg':
+        ('BCM4335', 'LG G2', '5GHz'),
+    'wifi|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:102d|assoc:0,1,33,36,48,50,45,127,221(001018,2),221(0050f2,2),htcap:102d|oui:lg':
+        ('BCM4335', 'LG G2', '2.4GHz'),
+    'wifi|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:102d|assoc:0,1,33,36,48,50,45,221(001018,2),221(0050f2,2),htcap:102d|oui:lg':
+        ('BCM4335', 'LG G2', '2.4GHz'),
 
     'wifi|probe:0,1,50,45,221(00904c,51),htcap:182c|assoc:0,1,33,36,48,50,45,221(00904c,51),221(0050f2,2),htcap:182c':
         ('BCM4322', 'MacBook - late 2008 (A1278)', '5GHz'),
@@ -137,6 +174,8 @@ database = {
         ('BCM4331', 'MacBook Pro - late 2013 (A1398)', '5GHz'),
     'wifi|probe:0,1,3,45,221(00904c,51),htcap:09ef|assoc:0,1,33,36,48,45,221(00904c,51),221(0050f2,2),htcap:09ef':
         ('BCM4331', 'MacBook Pro - late 2013 (A1398)', '5GHz'),
+    'wifi|probe:0,1,45,127,htcap:09ef|assoc:0,1,33,36,48,45,127,221(0050f2,2),htcap:09ef|os:macos':
+        ('BCM4331', 'MacBook Pro - late 2013 (A1398)', '5GHz'),
     'wifi|probe:0,1,50,3,45,221(00904c,51),htcap:19ad|assoc:0,1,33,36,48,50,45,221(00904c,51),221(0050f2,2),htcap:19ad':
         ('BCM4331', 'MacBook Pro - late 2013 (A1398)', '2.4GHz'),
 
@@ -149,7 +188,7 @@ database = {
     'wifi|probe:0,1,50,3,45,221(0050f2,8),191,htcap:012c,vhtcap:31800120|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c':
         ('QCA_WCN3680', 'MOTO-X 2013 version', '2.4GHz'),
 
-    'wifi|probe:0,1,50,45,htcap:0130|assoc:0,1,50,48,45,221(0050f2,2),htcap:013c':
+    'wifi|probe:0,1,50,45,htcap:0130|assoc:0,1,50,48,45,221(0050f2,2),htcap:013c|oui:nest':
         ('TI_WL1270', 'Nest Thermostat v1', '2.4GHz'),
 
     'wifi|probe:0,1,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,wps:Nexus_4|assoc:0,1,48,45,221(0050f2,2),htcap:012c':
@@ -240,8 +279,17 @@ database = {
         ('BCM4334', 'Samsung Galaxy S3', '2.4GHz'),
 
     'wifi|probe:0,1,45,127,191,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:006f,vhtcap:0f805832|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(00904c,4),221(0050f2,2),htcap:006f,vhtcap:0f805832':
-        ('BCM4335', 'Samsung Galaxy S4', '5GHz'),
+        ('BCM4335', 'Samsung Galaxy S4 or LG G2', '5GHz'),
     'wifi|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:102d|assoc:0,1,33,36,48,50,45,221(001018,2),221(0050f2,2),htcap:102d':
+        ('BCM4335', 'Samsung Galaxy S4 or LG G2', '2.4GHz'),
+    'wifi|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:102d|assoc:0,1,33,36,48,50,45,127,221(001018,2),221(0050f2,2),htcap:102d':
+        ('BCM4335', 'Samsung Galaxy S4 or LG G2', '2.4GHz'),
+
+    'wifi|probe:0,1,45,127,191,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:006f,vhtcap:0f805832|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(00904c,4),221(0050f2,2),htcap:006f,vhtcap:0f805832|oui:samsung':
+        ('BCM4335', 'Samsung Galaxy S4', '5GHz'),
+    'wifi|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:102d|assoc:0,1,33,36,48,50,45,221(001018,2),221(0050f2,2),htcap:102d|oui:samsung':
+        ('BCM4335', 'Samsung Galaxy S4', '2.4GHz'),
+    'wifi|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:102d|assoc:0,1,33,36,48,50,45,127,221(001018,2),221(0050f2,2),htcap:102d|oui:samsung':
         ('BCM4335', 'Samsung Galaxy S4', '2.4GHz'),
 
     'wifi|probe:0,1,45,221(0050f2,8),htcap:016e|assoc:0,1,33,36,48,45,221(0050f2,2),221(004096,3),htcap:016e':
@@ -363,12 +411,24 @@ def performance_info(signature):
   return '802.11a/b/g'
 
 
-def identify_wifi_device(signature, name=None):
+def depersonalize_hostname(hostname):
+  """Remove autopersonalization like 'Dentons-iPad', just return 'ipad'."""
+  h = hostname.lower()
+  if h.startswith('android-'):
+    return 'android'
+  if 'ipad' in h:
+    return 'ipad'
+  if 'iphone' in h:
+    return 'iphone'
+  return hostname
+
+
+def identify_wifi_device(signature, mac):
   """Look up a wifi device by signature.
 
   Arguments:
     signature: a string of the form 'wifi:probe:X,Y,Z|assoc:Q,R,S'
-    name: the DHCP hostname supplied by the client.
+    mac: MAC address of the client, a string of the form 'qq:rr:ss:tt:uu:vv'
 
   Returns:
     A string describing the Wifi chipset and the type of device.
@@ -387,9 +447,16 @@ def identify_wifi_device(signature, name=None):
 
   signature = signature.strip()
   perf = performance_info(signature)
+  name = dhcp.LookupHostname(mac)
+  opersys = dhcp.LookupOperatingSystem(mac)
+  oui = ethernet.LookupOUI(mac)
   keys = []
   if name:
-    keys.append(signature + '|name:' + name)
+    keys.append(signature + '|name:' + depersonalize_hostname(name))
+  if opersys:
+    keys.append(signature + '|os:' + opersys)
+  if oui:
+    keys.append(signature + '|oui:' + oui)
   keys.append(signature)
   for key in keys:
     result = database.get(key, None)

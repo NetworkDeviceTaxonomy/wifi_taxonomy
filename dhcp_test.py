@@ -26,12 +26,18 @@ class DhcpTaxonomyTest(unittest.TestCase):
 
   def setUp(self):
     dhcp.DHCP_LEASES_FILE = 'testdata/dhcp.leases'
+    dhcp.DHCP_SIGNATURE_FILE = 'testdata/dhcp.signatures'
 
   def testLookupName(self):
     self.assertEqual(dhcp.LookupHostname('28:18:78:ff:ff:01'), 'Xbox-SystemOS')
     self.assertEqual(dhcp.LookupHostname('28:18:78:FF:FF:01'), 'Xbox-SystemOS')
     self.assertEqual(dhcp.LookupHostname('00:00:00:00:00:01'), None)
     self.assertEqual(dhcp.LookupHostname('d8:50:e6:ff:ff:02'), None)
+
+  def testLookupOperatingSystem(self):
+    self.assertEqual(dhcp.LookupOperatingSystem('28:18:78:ff:ff:01'), 'android')
+    self.assertEqual(dhcp.LookupOperatingSystem('00:00:00:00:00:01'), None)
+
 
 if __name__ == '__main__':
   unittest.main()
