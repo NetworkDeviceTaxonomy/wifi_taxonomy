@@ -42,19 +42,25 @@ database = {
     'wifi|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:180c|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:180c|name:Apple-TV':
         ('BCM4329', 'Apple TV (2nd gen)', '2.4GHz'),
 
+    'wifi|probe:0,1,45,3,221(001018,2),221(00904c,51),htcap:0100|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0100|name:Apple-TV':
+        ('BCM4330', 'Apple TV (3rd gen)', '2.4GHz'),
+
     'wifi|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062|assoc:0,1,33,36,48,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062|name:Apple-TV':
-        ('BCM4330', 'Apple TV (3rd gen)', '5GHz'),
+        ('BCM4334', 'Apple TV (3rd gen rev A)', '5GHz'),
     'wifi|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062|name:Apple-TV':
-        ('BCM4330', 'Apple TV (3rd gen)', '5GHz'),
+        ('BCM4334', 'Apple TV (3rd gen rev A)', '5GHz'),
     'wifi|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020|assoc:0,1,33,36,48,50,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020|name:Apple-TV':
-        ('BCM4330', 'Apple TV (3rd gen)', '2.4GHz'),
+        ('BCM4334', 'Apple TV (3rd gen rev A)', '2.4GHz'),
     'wifi|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020|name:Apple-TV':
-        ('BCM4330', 'Apple TV (3rd gen)', '2.4GHz'),
+        ('BCM4334', 'Apple TV (3rd gen rev A)', '2.4GHz'),
 
     'wifi|probe:0,1,45,htcap:11ef|assoc:0,1,48,45,221(0050f2,2),htcap:11ef|os:chromeos':
         ('AR5822', 'Chromebook 14" HP', '5GHz'),
     'wifi|probe:0,1,50,3,45,htcap:11ef|assoc:0,1,50,48,45,221(0050f2,2),htcap:11ef|os:chromeos':
         ('AR5822', 'Chromebook 14" HP', '2.4GHz'),
+
+    'wifi|probe:0,1,3,45,50,htcap:01ff|assoc:0,1,50,127,221(0050f2,1),221(0050f2,2),45,htcap:01ff|os:chromeos':
+        ('Marvell_88W8897', 'Chromebook 14" HP (Tegra)', '2.4GHz'),
 
     'wifi|probe:0,1,45,50,htcap:016e|assoc:0,1,48,127,221(0050f2,2),45,htcap:016e|os:chromeos':
         ('AR9382', 'Chromebook 11" Samsung', '5GHz'),
@@ -63,6 +69,9 @@ database = {
 
     'wifi|probe:0,1,3,45,50,htcap:0120|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:012c|name:Chromecast':
         ('Marvell_88W8797', 'Chromecast', '2.4GHz'),
+
+    'wifi|probe:0,1,45,221(001018,2),221(00904c,51),htcap:007c|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:007c':
+        ('', 'DirecTV HR-44', ''),
 
     'wifi|probe:0,1,45,127,191,221(506f9a,16),221(001018,2),221(00904c,51),htcap:006f,vhtcap:03800032|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,vhtcap:03800032':
         ('BCM4335', 'HTC One', '5GHz'),
@@ -79,6 +88,8 @@ database = {
     'wifi|probe:0,1,45,221(001018,2),221(00904c,51),htcap:0800|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0800':
         ('BCM4329', 'iPad (1st/2nd gen)', '5GHz'),
     'wifi|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:180c|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:180c':
+        ('BCM4329', 'iPad (1st/2nd gen)', '2.4GHz'),
+    'wifi|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:1800|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:1800':
         ('BCM4329', 'iPad (1st/2nd gen)', '2.4GHz'),
 
     'wifi|probe:0,1,45,3,221(001018,2),221(00904c,51),htcap:0100|assoc:0,1,33,36,48,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0100':
@@ -109,6 +120,9 @@ database = {
         ('BCM4335', 'iPad Air (2nd gen)', '5GHz'),
     'wifi|probe:0,1,50,3,45,127,107,221(0050f2,8),221(001018,2),htcap:002d|assoc:0,1,50,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:002d':
         ('BCM4335', 'iPad Air (2nd gen)', '2.4GHz'),
+
+    'wifi|probe:0,1,50,3,221(001018,2)|assoc:0,1,48,50,221(001018,2),221(0050f2,2)|name:iphone':
+        ('BCM4325', 'iPhone 3GS', '2.4GHz'),
 
     'wifi|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:0100|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0100':
         ('BCM4330', 'iPhone 4S', '2.4GHz'),
@@ -153,6 +167,9 @@ database = {
     'wifi|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:102d|assoc:0,1,33,36,48,50,45,221(001018,2),221(0050f2,2),htcap:102d|oui:lg':
         ('BCM4335', 'LG G2', '2.4GHz'),
 
+    'wifi|probe:0,1,50,3,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,wps:LGMS323|assoc:0,1,50,48,45,221(0050f2,2),221(004096,3),htcap:012c':
+        ('QCA_WCN3360', 'LG Optimus L70', '2.4GHz'),
+
     'wifi|probe:0,1,50,45,221(00904c,51),htcap:182c|assoc:0,1,33,36,48,50,45,221(00904c,51),221(0050f2,2),htcap:182c':
         ('BCM4322', 'MacBook - late 2008 (A1278)', '5GHz'),
     'wifi|probe:0,1,50,3,45,221(00904c,51),htcap:182c|assoc:0,1,33,36,48,50,45,221(00904c,51),221(0050f2,2),htcap:182c':
@@ -163,6 +180,8 @@ database = {
     'wifi|probe:0,1,50,45,127,221(00904c,51),htcap:59ad|assoc:0,1,33,36,48,50,45,127,221(00904c,51),221(0050f2,2),htcap:59ad':
         ('BCM4360', 'MacBook Air - late 2014 (A1466)', '5GHz'),
     'wifi|probe:0,1,45,127,191,221(00904c,51),htcap:09ef,vhtcap:0f8159b2|assoc:0,1,33,36,48,45,127,191,221(00904c,51),221(0050f2,2),htcap:09ef,vhtcap:0f8159b2':
+        ('BCM4360', 'MacBook Air - late 2014 (A1466)', '5GHz'),
+    'wifi|probe:0,1,45,127,191,221(00904c,51),htcap:09ef,vhtcap:0f8159b2|assoc:0,1,33,36,48,45,127,221(00904c,51),221(0050f2,2),htcap:09ef':
         ('BCM4360', 'MacBook Air - late 2014 (A1466)', '5GHz'),
     'wifi|probe:0,1,50,3,45,127,htcap:49ad|assoc:0,1,50,33,36,48,45,127,221(0050f2,2),htcap:49ad':
         ('BCM4360', 'MacBook Air - late 2014 (A1466)', '2.4GHz'),
@@ -175,6 +194,8 @@ database = {
     'wifi|probe:0,1,3,45,221(00904c,51),htcap:09ef|assoc:0,1,33,36,48,45,221(00904c,51),221(0050f2,2),htcap:09ef':
         ('BCM4331', 'MacBook Pro - late 2013 (A1398)', '5GHz'),
     'wifi|probe:0,1,45,127,htcap:09ef|assoc:0,1,33,36,48,45,127,221(0050f2,2),htcap:09ef|os:macos':
+        ('BCM4331', 'MacBook Pro - late 2013 (A1398)', '5GHz'),
+    'wifi|probe:0,1,45,127,191,htcap:09ef,vhtcap:0f8259b2|assoc:0,1,33,36,48,45,127,191,221(0050f2,2),htcap:09ef,vhtcap:0f8259b2':
         ('BCM4331', 'MacBook Pro - late 2013 (A1398)', '5GHz'),
     'wifi|probe:0,1,50,3,45,221(00904c,51),htcap:19ad|assoc:0,1,33,36,48,50,45,221(00904c,51),221(0050f2,2),htcap:19ad':
         ('BCM4331', 'MacBook Pro - late 2013 (A1398)', '2.4GHz'),
@@ -209,6 +230,8 @@ database = {
         ('QCA_WCN3360', 'Nexus 4', '2.4GHz'),
     'wifi|probe:0,1,50,45,221(0050f2,8),191,221(0050f2,4),221(506f9a,9),htcap:012c,vhtcap:31811120|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c':
         ('QCA_WCN3360', 'Nexus 4', '2.4GHz'),
+    'wifi|probe:0,1,50,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,wps:Nexus_4|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c':
+        ('QCA_WCN3360', 'Nexus 4', '2.4GHz'),
 
     'wifi|probe:0,1,45,127,191,221(001018,2),221(00904c,51),htcap:016f,vhtcap:0f805932|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:016f,vhtcap:0f805932':
         ('BCM4339', 'Nexus 5', '5GHz'),
@@ -233,7 +256,11 @@ database = {
         ('QCA_WCN3660', 'Nexus 7 (2013)', '5GHz'),
     'wifi|probe:0,1,45,221(0050f2,8),htcap:016e|assoc:0,1,48,45,221(0050f2,2),127,htcap:016e':
         ('QCA_WCN3660', 'Nexus 7 (2013)', '5GHz'),
+    'wifi|probe:0,1,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:016e,wps:Nexus_7|assoc:0,1,48,45,221(0050f2,2),127,htcap:012c':
+        ('QCA_WCN3660', 'Nexus 7 (2013)', '5GHz'),
     'wifi|probe:0,1,50,45,221(0050f2,8),htcap:012c|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c':
+        ('QCA_WCN3660', 'Nexus 7 (2013)', '2.4GHz'),
+    'wifi|probe:0,1,50,3,45,221(0050f2,8),htcap:012c|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c':
         ('QCA_WCN3660', 'Nexus 7 (2013)', '2.4GHz'),
     'wifi|probe:0,1,50,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,wps:Nexus_7|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c':
         ('QCA_WCN3660', 'Nexus 7 (2013)', '2.4GHz'),
