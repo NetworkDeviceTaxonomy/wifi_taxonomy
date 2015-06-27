@@ -23,16 +23,20 @@
 # otherwise very similar, such as distinguishing LG G2 from Samsung
 # Galaxy S4.
 database = {
+    'c4:43:8f': 'lg',
     'f8:a9:d0': 'lg',
 
     '18:b4:30': 'nest',
 
     '10:a5:d0': 'samsung',
     '14:7d:c5': 'samsung',
+    '40:0e:85': 'samsung',
     '5c:0a:5b': 'samsung',
     'c0:bd:d1': 'samsung',
     'c4:42:02': 'samsung',
     'cc:3a:61': 'samsung',
+    'd0:22:be': 'samsung',
+    'f0:25:b7': 'samsung',
 }
 
 
