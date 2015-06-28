@@ -17,12 +17,9 @@
 """Database of signatures for known Wifi devices."""
 
 
+import hashlib
 import dhcp
 import ethernet
-import hashlib
-
-
-initialized = {}
 
 
 database = {
@@ -136,14 +133,14 @@ database = {
     'wifi|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020|name:iphone':
         ('BCM4334', 'iPhone 5/5S', '2.4GHz'),
 
-    'wifi|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062|assoc:0,1,33,36,48,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062':
-        ('BCM4334', 'iPhone 5/5S or iPad Mini (1st gen)', '5GHz'),
-    'wifi|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062':
-        ('BCM4334', 'iPhone 5/5S or iPad Mini (1st gen)', '5GHz'),
-    'wifi|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020|assoc:0,1,33,36,48,50,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020':
-        ('BCM4334', 'iPhone 5/5S or iPad Mini (1st gen)', '2.4GHz'),
-    'wifi|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020':
-        ('BCM4334', 'iPhone 5/5S or iPad Mini (1st gen)', '2.4GHz'),
+    'defaultwifi|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062|assoc:0,1,33,36,48,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062':
+        ('BCM4334', 'iPhone 5/5S, Apple TV (3rd gen rev A), or iPad Mini (1st gen)', '5GHz'),
+    'defaultwifi|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062':
+        ('BCM4334', 'iPhone 5/5S, Apple TV (3rd gen rev A), or iPad Mini (1st gen)', '5GHz'),
+    'defaultwifi|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020|assoc:0,1,33,36,48,50,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020':
+        ('BCM4334', 'iPhone 5/5S, Apple TV (3rd gen rev A), or iPad Mini (1st gen)', '2.4GHz'),
+    'defaultwifi|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020':
+        ('BCM4334', 'iPhone 5/5S, Apple TV (3rd gen rev A), or iPad Mini (1st gen)', '2.4GHz'),
 
     'wifi|probe:0,1,45,127,107,191,221(0050f2,8),221(001018,2),htcap:0063,vhtcap:0f805032|assoc:0,1,33,36,48,70,45,127,191,221(001018,2),221(0050f2,2),htcap:0063,vhtcap:0f805032':
         ('BCM4339', 'iPhone 6/6+', '5GHz'),
@@ -305,11 +302,11 @@ database = {
     'wifi|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:1020|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:1020':
         ('BCM4334', 'Samsung Galaxy S3', '2.4GHz'),
 
-    'wifi|probe:0,1,45,127,191,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:006f,vhtcap:0f805832|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(00904c,4),221(0050f2,2),htcap:006f,vhtcap:0f805832':
+    'defaultwifi|probe:0,1,45,127,191,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:006f,vhtcap:0f805832|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(00904c,4),221(0050f2,2),htcap:006f,vhtcap:0f805832':
         ('BCM4335', 'Samsung Galaxy S4 or LG G2', '5GHz'),
-    'wifi|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:102d|assoc:0,1,33,36,48,50,45,221(001018,2),221(0050f2,2),htcap:102d':
+    'defaultwifi|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:102d|assoc:0,1,33,36,48,50,45,221(001018,2),221(0050f2,2),htcap:102d':
         ('BCM4335', 'Samsung Galaxy S4 or LG G2', '2.4GHz'),
-    'wifi|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:102d|assoc:0,1,33,36,48,50,45,127,221(001018,2),221(0050f2,2),htcap:102d':
+    'defaultwifi|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:102d|assoc:0,1,33,36,48,50,45,127,221(001018,2),221(0050f2,2),htcap:102d':
         ('BCM4335', 'Samsung Galaxy S4 or LG G2', '2.4GHz'),
 
     'wifi|probe:0,1,45,127,191,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:006f,vhtcap:0f805832|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(00904c,4),221(0050f2,2),htcap:006f,vhtcap:0f805832|oui:samsung':
@@ -356,37 +353,37 @@ database = {
 }
 
 
-def remove_wps(signature):
-  """Remove a 'wps:Model_Name' from a signature.
+def v2only(field):
+  """Return true if field only occurs in a v2 signature."""
+  labels = set(['htagg', 'htmcs', 'vhtrxmcs', 'vhttxmcs', 'intwrk', 'extcap'])
+  for l in labels:
+    if l in field:
+      return True
+  return False
 
-  Many devices include their model in the signature, but there are likely
-  a number of different devices using the same Wifi chipset. If we have the
-  signature for a different model which matches except for the WPS ID,
-  then we should conclude it is the same chipset.
+
+def make_v1_signature(sig):
+  """Degrade a v2 signature to match the equivalent v1 signature.
+
+  v2 signatures include additional information from the Wifi MLME
+  frames, based on experience of working with v1. Return a string
+  which matches what the v1 signature would have been, by removing
+  the additional information.
+
+  This allows us to retain the base of v1 signatures.
+
+  Args:
+    sig: the text signature.
+
+  Returns:
+    a v1 signature.
   """
-  fields = signature.split('|')
-  new_fields = []
-  for field in fields:
-    attributes = field.split(',')
-    attributes = [x for x in attributes if 'wps:' not in x]
-    new_fields.append(','.join(attributes))
-  return '|'.join(new_fields)
-
-
-def init_database():
-  """Initialize the signature database.
-
-  A number of the signatures contain WPS model names.
-  We want to also match similar devices using the same chipset.
-  We iterate through the database and add a non-WPS version of
-  any signature which includes one.
-  """
-  for (k, v) in database.items():
-    if 'wps:' in k:
-      new_k = remove_wps(k)
-      if new_k not in database:
-        database[new_k] = v
-  initialized['database'] = True
+  new_sig = []
+  for s in sig.split('|'):
+    fields = s.split(',')
+    new_fields = [x for x in fields if not v2only(x)]
+    new_sig.append(','.join(new_fields))
+  return '|'.join(new_sig)
 
 
 def performance_info(signature):
@@ -411,7 +408,7 @@ def performance_info(signature):
   if not assoc:
     return ''
   fields = assoc.split(',')
-  nss = '?'
+  vht_nss = ht_nss = '?'
   vht_width = ht_width = ''
   for field in fields:
     if field.startswith('vhtcap:'):
@@ -421,7 +418,7 @@ def performance_info(signature):
         vht_width = '??'
       else:
         scw = (bitmap >> 2) & 0x3
-        widths = {0: '80', 1: '160', 2:'80+80'}
+        widths = {0: '80', 1: '160', 2: '80+80'}
         vht_width = widths.get(scw, '??')
     elif field.startswith('htcap:'):
       try:
@@ -429,12 +426,29 @@ def performance_info(signature):
       except ValueError:
         ht_width = '??'
       else:
-        nss = str(((bitmap >> 8) & 0x3) + 1)
         ht_width = '40' if bitmap & 0x2 else '20'
+    elif field.startswith('htmcs:'):
+      try:
+        mcs = int(field[len('htmcs:'):], base=16)
+      except ValueError:
+        pass
+      else:
+        ht_nss = ((mcs & 0x000000ff != 0) + (mcs & 0x0000ff00 != 0) +
+                  (mcs & 0x00ff0000 != 0) + (mcs & 0xff000000 != 0))
+    elif field.startswith('vhtrxmcs:'):
+      try:
+        mcs = int(field[len('vhtrxmcs:'):], base=16)
+      except ValueError:
+        pass
+      else:
+        vht_nss = ((mcs & 0x0003 != 0x0003) + (mcs & 0x000c != 0x000c) +
+                   (mcs & 0x0030 != 0x0030) + (mcs & 0x00c0 != 0x00c0) +
+                   (mcs & 0x0300 != 0x0300) + (mcs & 0x0c00 != 0x0c00) +
+                   (mcs & 0x3000 != 0x3000) + (mcs & 0xc000 != 0xc000))
   if vht_width:
-    return '802.11ac n:%s,w:%s' % (nss, vht_width)
+    return '802.11ac n:%s,w:%s' % (vht_nss, vht_width)
   if ht_width:
-    return '802.11n n:%s,w:%s' % (nss, ht_width)
+    return '802.11n n:%s,w:%s' % (ht_nss, ht_width)
   return '802.11a/b/g'
 
 
@@ -469,32 +483,31 @@ def identify_wifi_device(signature, mac):
     If the signature is not known, return a SHA256 of the signature
     followed by 'Unknown;PerformanceInfo'
   """
-  if 'database' not in initialized:
-    init_database()
 
   signature = signature.strip()
   perf = performance_info(signature)
   name = dhcp.LookupHostname(mac)
   opersys = dhcp.LookupOperatingSystem(mac)
   oui = ethernet.LookupOUI(mac)
+  v1_sig = make_v1_signature(signature)
   keys = []
   if name:
     keys.append(signature + '|name:' + depersonalize_hostname(name))
+    keys.append(v1_sig + '|name:' + depersonalize_hostname(name))
   if opersys:
     keys.append(signature + '|os:' + opersys)
+    keys.append(v1_sig + '|os:' + opersys)
   if oui:
     keys.append(signature + '|oui:' + oui)
+    keys.append(v1_sig + '|oui:' + oui)
   keys.append(signature)
+  keys.append(v1_sig)
+  keys.append('default' + signature)
+  keys.append('default' + v1_sig)
   for key in keys:
     result = database.get(key, None)
     if result is not None:
       return '%s;%s;%s' % (result[0], result[1], perf)
-
-  # Try again with no WPS identifier, identify chipset only.
-  new_key = remove_wps(key)
-  result = database.get(new_key, None)
-  if result is not None:
-    return '%s;Unknown;%s' % (result[0], perf)
 
   # We have no idea what the client is.
 
