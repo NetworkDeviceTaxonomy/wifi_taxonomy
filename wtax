@@ -4,7 +4,8 @@
 
 taxonomize() {
   sig="$1"
-  python -c "import taxonomy; print taxonomy.identify_wifi_device('$sig')"
+  mac="$2"
+  python -c "import taxonomy; print taxonomy.identify_wifi_device('$sig', '$mac')"
 }
 
 dhcpname() {
@@ -38,7 +39,7 @@ watch-dir /tmp/wifi/fingerprints | while read junk; do
     sig=$(cat "$file")
     mac=$(basename "$file")
     name=$(dhcpname "$mac")
-    tax=$(taxonomize "$sig")
+    tax=$(taxonomize "$sig" "$mac")
     dhcpsig=$(dhcpsig "$mac")
     stationskey="$mac|$sig"
 
