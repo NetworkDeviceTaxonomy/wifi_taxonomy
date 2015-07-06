@@ -242,22 +242,24 @@ database = {
     'wifi|probe:0,1,50,3,45,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:002d,wps:Nexus_6|assoc:0,1,50,33,36,48,45,221(001018,2),221(0050f2,2),htcap:002d':
         ('BCM4356', 'Nexus 6', '2.4GHz'),
 
-    'wifi|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:110c|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:110c':
+    'wifi|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:110c|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:110c|oui:asus':
         ('BCM4330', 'Nexus 7 (2012)', '2.4GHz'),
 
-    'wifi|probe:0,1,45,221(0050f2,8),htcap:016e|assoc:0,1,48,45,221(0050f2,2),htcap:016e':
+    'wifi|probe:0,1,45,221(0050f2,8),htcap:016e|assoc:0,1,48,45,221(0050f2,2),htcap:016e|oui:asus':
         ('QCA_WCN3660', 'Nexus 7 (2013)', '5GHz'),
     'wifi|probe:0,1,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:016e,wps:Nexus_7|assoc:0,1,48,45,221(0050f2,2),htcap:016e':
         ('QCA_WCN3660', 'Nexus 7 (2013)', '5GHz'),
     'wifi|probe:0,1,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:016e,wps:Nexus_7|assoc:0,1,48,45,221(0050f2,2),127,htcap:016e':
         ('QCA_WCN3660', 'Nexus 7 (2013)', '5GHz'),
-    'wifi|probe:0,1,45,221(0050f2,8),htcap:016e|assoc:0,1,48,45,221(0050f2,2),127,htcap:016e':
+    'wifi|probe:0,1,45,221(0050f2,8),htcap:016e|assoc:0,1,48,45,221(0050f2,2),127,htcap:016e|oui:asus':
         ('QCA_WCN3660', 'Nexus 7 (2013)', '5GHz'),
     'wifi|probe:0,1,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:016e,wps:Nexus_7|assoc:0,1,48,45,221(0050f2,2),127,htcap:012c':
         ('QCA_WCN3660', 'Nexus 7 (2013)', '5GHz'),
-    'wifi|probe:0,1,50,45,221(0050f2,8),htcap:012c|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c':
+    'wifi|probe:0,1,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:016e,htagg:03,htmcs:000000ff,wps:Nexus_7|assoc:0,1,33,36,48,45,221(0050f2,2),127,htcap:016e,htagg:03,htmcs:000000ff,extcap:020a0000':
+        ('QCA_WCN3660', 'Nexus 7 (2013)', '5GHz'),
+    'wifi|probe:0,1,50,45,221(0050f2,8),htcap:012c|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c|oui:asus':
         ('QCA_WCN3660', 'Nexus 7 (2013)', '2.4GHz'),
-    'wifi|probe:0,1,50,3,45,221(0050f2,8),htcap:012c|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c':
+    'wifi|probe:0,1,50,3,45,221(0050f2,8),htcap:012c|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c|oui:asus':
         ('QCA_WCN3660', 'Nexus 7 (2013)', '2.4GHz'),
     'wifi|probe:0,1,50,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,wps:Nexus_7|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c':
         ('QCA_WCN3660', 'Nexus 7 (2013)', '2.4GHz'),
@@ -315,6 +317,9 @@ database = {
         ('BCM4335', 'Samsung Galaxy S4', '2.4GHz'),
     'wifi|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:102d|assoc:0,1,33,36,48,50,45,127,221(001018,2),221(0050f2,2),htcap:102d|oui:samsung':
         ('BCM4335', 'Samsung Galaxy S4', '2.4GHz'),
+
+    'wifi|probe:0,1,45,127,107,191,221(506f9a,16),221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,intwrk:5c,extcap:80080000|assoc:0,1,33,36,48,45,127,107,191,221(001018,2),221(00904c,4),221(0050f2,2),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,intwrk:5c,extcap:80000000|oui:samsung',
+        ('BCM4354', 'Samsung Galaxy S5', '5GHz'),
 
     'wifi|probe:0,1,45,221(0050f2,8),htcap:016e|assoc:0,1,33,36,48,45,221(0050f2,2),221(004096,3),htcap:016e':
         ('APQ8026', 'Samsung Galaxy Tab 4', '5GHz'),
