@@ -5,7 +5,8 @@
 taxonomize() {
   sig="$1"
   mac="$2"
-  python -c "import taxonomy; print taxonomy.identify_wifi_device('$sig', '$mac')"
+  python -c "import taxonomy; \
+      print ';'.join(taxonomy.identify_wifi_device('$sig', '$mac'))"
 }
 
 dhcpname() {

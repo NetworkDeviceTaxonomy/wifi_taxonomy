@@ -477,16 +477,12 @@ def identify_wifi_device(signature, mac):
     mac: MAC address of the client, a string of the form 'qq:rr:ss:tt:uu:vv'
 
   Returns:
-    A string describing the Wifi chipset and the type of device.
+    A tuple describing the Wifi chipset and the type of device.
 
-    If we know what it is, this will be 'ChipName;ModelName;PerformanceInfo'
+    If we know what it is, this will be (ChipName, ModelName, PerformanceInfo)
 
-    If we don't know what the device is but we can identify the chipset
-    as being the same as some other device we know about, this will be
-    'ChipName;Unknown;PerformanceInfo'
-
-    If the signature is not known, return a SHA256 of the signature
-    followed by 'Unknown;PerformanceInfo'
+    If the signature is not known, calculate a SHA256 of the signature and
+    return (SHA256, 'Unknown', PerformanceInfo)
   """
 
   signature = signature.strip()
@@ -512,12 +508,11 @@ def identify_wifi_device(signature, mac):
   for key in keys:
     result = database.get(key, None)
     if result is not None:
-      return '%s;%s;%s' % (result[0], result[1], perf)
+      return (result[0], result[1], perf)
 
   # We have no idea what the client is.
-
   slug = 'SHA:' + hashlib.sha256(signature).hexdigest()
-  return slug + ';Unknown;' + perf
+  return (slug, 'Unknown', perf)
 
 
 if __name__ == '__main__':
