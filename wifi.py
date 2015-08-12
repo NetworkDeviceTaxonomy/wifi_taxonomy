@@ -391,14 +391,17 @@ def make_v1_signature(sig):
   return '|'.join(new_sig)
 
 
-def performance_info(signature):
+def performance_characteristics(signature):
   """Parse 802.11n/ac capabilities bitmasks from sig.
 
   Args:
     signature: the Wifi signature string.
 
   Returns:
-    a text string suitable for logging.
+    (standard, nss, width) where:
+    standard: 802.11 standard like 'a/b/g', 'n', 'ac', etc.
+    nss: number of spatial streams as an int, 0 for unknown.
+    width: channel width as a string: '20', '40', '80', '160', '80+80', '??'
   """
   segments = signature.split('|')
   assoc = ''
@@ -413,7 +416,7 @@ def performance_info(signature):
   if not assoc:
     return ''
   fields = assoc.split(',')
-  vht_nss = ht_nss = '?'
+  vht_nss = ht_nss = 0
   vht_width = ht_width = ''
   for field in fields:
     if field.startswith('vhtcap:'):
@@ -451,10 +454,24 @@ def performance_info(signature):
                    (mcs & 0x0300 != 0x0300) + (mcs & 0x0c00 != 0x0c00) +
                    (mcs & 0x3000 != 0x3000) + (mcs & 0xc000 != 0xc000))
   if vht_width:
-    return '802.11ac n:%s,w:%s' % (vht_nss, vht_width)
+    return ('802.11ac', vht_nss, vht_width)
   if ht_width:
-    return '802.11n n:%s,w:%s' % (ht_nss, ht_width)
-  return '802.11a/b/g'
+    return ('802.11n', ht_nss, ht_width)
+  return ('802.11a/b/g', 1, '20')
+
+
+def performance_info(standard, nss, width):
+  """Return a readable string from output of performance_characteristics.
+
+  Arguments:
+    standard: 802.11 standard like 'a/b/g', 'n', 'ac', etc.
+    nss: number of spatial streams as an int, 0 for unknown.
+    width: channel width as a string: '20', '40', '80', '160', '80+80', '??'
+
+  Returns:
+    A string combining the arguments passed in.
+  """
+  return '%s n:%s,w:%s' % (standard, nss or '?', width)
 
 
 def depersonalize_hostname(hostname):
@@ -486,7 +503,7 @@ def identify_wifi_device(signature, mac):
   """
 
   signature = signature.strip()
-  perf = performance_info(signature)
+  perf = performance_info(*performance_characteristics(signature))
   name = dhcp.LookupHostname(mac)
   opersys = dhcp.LookupOperatingSystem(mac)
   oui = ethernet.LookupOUI(mac)

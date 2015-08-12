@@ -109,7 +109,7 @@ class WifiTaxonomyTest(unittest.TestCase):
     self.assertEqual('802.11n n:4,w:40', taxonomy[2])
     signature = 'wifi|probe:0|assoc:1'
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
-    self.assertEqual('802.11a/b/g', taxonomy[2])
+    self.assertEqual('802.11a/b/g n:1,w:20', taxonomy[2])
 
   def test802_11ac_Width(self):
     signature = ('wifi|probe:0|assoc:1,htcap:0302,htmcs:000000ff,'
@@ -138,7 +138,7 @@ class WifiTaxonomyTest(unittest.TestCase):
   def testPerformanceInfoBroken(self):
     signature = ('wifi|probe:0,htmcs:000000ff|assoc:0,htmcs:000000ff')
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
-    self.assertEqual('802.11a/b/g', taxonomy[2])
+    self.assertEqual('802.11a/b/g n:1,w:20', taxonomy[2])
     signature = ('wifi|probe:0,htcap:wrong,htmcs:ffffffff|'
                  'assoc:0,htcap:wrong,htmcs:ffffffff')
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
