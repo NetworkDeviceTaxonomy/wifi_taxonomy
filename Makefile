@@ -1,5 +1,3 @@
-PYTHON?=python
-
 all: build
 
 test:
@@ -16,6 +14,3 @@ build:
 install:
 	PYTHONPATH=$(TARGETPYTHONPATH) $(HOSTDIR)/usr/bin/python setup.py install --prefix=$(DESTDIR)$(PREFIX)
 	install -D -m 755 wtax $(DESTDIR)/bin
-
-install-libs:
-	@echo "No libs to install."
