@@ -23,23 +23,46 @@
 # otherwise very similar, such as distinguishing LG G2 from Samsung
 # Galaxy S4.
 database = {
+    'f0:a2:25': 'amazon',
+
     '30:85:a9': 'asus',
+    '5c:ff:35': 'asus',
     'ac:22:0b': 'asus',
 
+    '10:68:3f': 'lg',
+    '40:b0:fa': 'lg',
     'c4:43:8f': 'lg',
+    'c4:9a:02': 'lg',
     'f8:a9:d0': 'lg',
+
+    '60:45:bd': 'microsoft',
+
+    '98:4b:4a': 'motorola',
+    '9c:d9:17': 'motorola',
+    'f8:cf:c5': 'motorola',
+    'f8:e0:79': 'motorola',
 
     '18:b4:30': 'nest',
 
     '10:a5:d0': 'samsung',
     '14:7d:c5': 'samsung',
+    '38:aa:3c': 'samsung',
     '40:0e:85': 'samsung',
     '5c:0a:5b': 'samsung',
+    '6c:2f:2c': 'samsung',
+    '8c:77:12': 'samsung',
+    '90:b6:86': 'samsung',
+    '90:e7:c4': 'samsung',
     'c0:bd:d1': 'samsung',
     'c4:42:02': 'samsung',
     'cc:3a:61': 'samsung',
     'd0:22:be': 'samsung',
+    'e8:50:8b': 'samsung',
     'f0:25:b7': 'samsung',
+    'f4:09:d8': 'samsung',
+
+    '40:b8:37': 'sony',
+    'b4:52:7e': 'sony',
 }
 
 
