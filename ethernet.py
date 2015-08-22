@@ -26,20 +26,30 @@ database = {
     '30:85:a9': 'asus',
     'ac:22:0b': 'asus',
 
+    '9c:d9:17': 'motorola',
+    'f8:e0:79': 'motorola',
+
+    '10:68:3f': 'lg',
+    '40:b0:fa': 'lg',
     'c4:43:8f': 'lg',
+    'c4:9a:02': 'lg',
     'f8:a9:d0': 'lg',
 
     '18:b4:30': 'nest',
 
     '10:a5:d0': 'samsung',
     '14:7d:c5': 'samsung',
+    '38:aa:3c': 'samsung',
     '40:0e:85': 'samsung',
     '5c:0a:5b': 'samsung',
+    '90:e7:c4': 'samsung',
     'c0:bd:d1': 'samsung',
     'c4:42:02': 'samsung',
     'cc:3a:61': 'samsung',
     'd0:22:be': 'samsung',
+    'e8:50:8b': 'samsung',
     'f0:25:b7': 'samsung',
+    'f4:09:d8': 'samsung',
 }
 
 
