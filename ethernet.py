@@ -29,6 +29,14 @@ database = {
     '5c:ff:35': 'asus',
     'ac:22:0b': 'asus',
 
+    '00:23:76': 'htc',
+    '1c:b0:94': 'htc',
+    '38:e7:d8': 'htc',
+    '50:2e:5c': 'htc',
+    '7c:61:93': 'htc',
+    '90:e7:c4': 'htc',
+    'e8:99:c4': 'htc',
+
     '10:68:3f': 'lg',
     '40:b0:fa': 'lg',
     'c4:43:8f': 'lg',
@@ -39,6 +47,7 @@ database = {
 
     '98:4b:4a': 'motorola',
     '9c:d9:17': 'motorola',
+    'f8:7b:7a': 'motorola',
     'f8:cf:c5': 'motorola',
     'f8:e0:79': 'motorola',
 
@@ -53,6 +62,7 @@ database = {
     '8c:77:12': 'samsung',
     '90:b6:86': 'samsung',
     '90:e7:c4': 'samsung',
+    'a0:0b:ba': 'samsung',
     'c0:bd:d1': 'samsung',
     'c4:42:02': 'samsung',
     'cc:3a:61': 'samsung',
@@ -61,6 +71,7 @@ database = {
     'f0:25:b7': 'samsung',
     'f4:09:d8': 'samsung',
 
+    '30:17:c8': 'sony',
     '40:b8:37': 'sony',
     'b4:52:7e': 'sony',
 }

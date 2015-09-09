@@ -78,20 +78,26 @@ database = {
     'wifi|probe:0,1,45,221(001018,2),221(00904c,51),htcap:007c|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:007c':
         ('', 'DirecTV HR-44', ''),
 
-    'wifi|probe:0,1,45,127,191,221(506f9a,16),221(001018,2),221(00904c,51),htcap:006f,vhtcap:03800032|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,vhtcap:03800032':
+    'wifi|probe:0,1,45,127,191,221(506f9a,16),221(001018,2),221(00904c,51),htcap:006f,vhtcap:03800032|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,vhtcap:03800032|oui:htc':
         ('BCM4335', 'HTC One', '5GHz'),
-    'wifi|probe:0,1,50,3,45,127,221(506f9a,16),221(001018,2),221(00904c,51),htcap:102d|assoc:0,1,33,36,48,50,45,221(001018,2),221(0050f2,2),htcap:102d':
+    'wifi|probe:0,1,50,3,45,127,221(506f9a,16),221(001018,2),221(00904c,51),htcap:102d|assoc:0,1,33,36,48,50,45,221(001018,2),221(0050f2,2),htcap:102d|oui:htc':
         ('BCM4335', 'HTC One', '2.4GHz'),
+
+    'wifi|probe:0,1,3,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,wps:HTC_VLE_U|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff':
+        ('', 'HTC One-S', '2.4GHz'),
 
     'wifi|probe:0,1,3,45,221(0050f2,8),191,127,107,221(0050f2,4),221(506f9a,9),221(506f9a,16),htcap:016e,vhtcap:31800120,wps:HTC_One_M8|assoc:0,1,33,36,48,70,45,221(0050f2,2),191,127,htcap:016e,vhtcap:31800120':
         ('WCN3680', 'HTC One M8', '5GHz'),
     'wifi|probe:0,1,50,3,45,221(0050f2,8),127,107,221(0050f2,4),221(506f9a,9),221(506f9a,16),htcap:012c,wps:HTC_One_M8|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,htcap:012c':
         ('WCN3680', 'HTC One M8', '2.4GHz'),
 
-    'wifi|probe:0,1,45,127,191,221(506f9a,16),221(0050f2,8),221(001018,2),htcap:0063,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:80080000|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:0063,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:80080000':
+    'wifi|probe:0,1,45,127,191,221(506f9a,16),221(0050f2,8),221(001018,2),htcap:0063,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:80080000|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:0063,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:80080000|oui:htc':
         ('BCM4356', 'HTC One M9', '5GHz'),
-    'wifi|probe:0,1,50,3,45,127,221(506f9a,16),221(0050f2,8),221(001018,2),htcap:1063,htagg:17,htmcs:000000ff,extcap:80080000|assoc:0,1,50,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:1063,htagg:17,htmcs:000000ff,extcap:80080000':
+    'wifi|probe:0,1,50,3,45,127,221(506f9a,16),221(0050f2,8),221(001018,2),htcap:1063,htagg:17,htmcs:000000ff,extcap:80080000|assoc:0,1,50,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:1063,htagg:17,htmcs:000000ff,extcap:80080000|oui:htc':
         ('BCM4356', 'HTC One M9', '2.4GHz'),
+
+    'wifi|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:182c,htagg:1b,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:182c,htagg:1b,htmcs:000000ff|oui:htc':
+        ('BCM4329', 'HTC Thunderbolt', '2.4GHz'),
 
     'wifi|probe:0,1,45,221(001018,2),221(00904c,51),htcap:0800,htagg:1b,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0800,htagg:1b,htmcs:000000ff':
         ('BCM4329', 'iPad (1st/2nd gen)', '5GHz'),
@@ -253,6 +259,15 @@ database = {
     'wifi|probe:0,1,50,3,45,221(0050f2,8),191,htcap:012c,vhtcap:31800120|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c|oui:motorola':
         ('QCA_WCN3680', 'MOTO-X 2013 version', '2.4GHz'),
 
+    'wifi|probe:0,1,50,45,htcap:1020,htagg:18,htmcs:000000ff|assoc:0,1,50,46,48,45,221(0050f2,2),htcap:1020,htagg:18,htmcs:000000ff|oui:motorola':
+        ('TI_WL1271b', 'Motorola Droid 2', '2.4GHz'),
+
+    'wifi|probe:0,1,50,45,htcap:1130,htagg:18,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),htcap:1130,htagg:18,htmcs:000000ff|oui:motorola':
+        ('TI_WL1285c', 'Motorola Droid 3', '2.4GHz'),
+
+    'wifi|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:182c,htagg:1b,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:182c,htagg:1b,htmcs:000000ff|oui:motorola':
+        ('', 'Motorola Droid X2', '2.4GHz'),
+
     'wifi|probe:0,1,45,221(001018,2),221(00904c,51),htcap:082c,htagg:1b,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:082c,htagg:1b,htmcs:000000ff|oui:motorola':
         ('BCM4329', 'Motorola Xoom', '5GHz'),
     'wifi|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:182c,htagg:1b,htmcs:000000ff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:182c,htagg:1b,htmcs:000000ff|oui:motorola':
@@ -260,6 +275,9 @@ database = {
 
     'wifi|probe:0,1,50,45,htcap:0130,htagg:18,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),htcap:013c,htagg:18,htmcs:000000ff|oui:nest':
         ('TI_WL1270', 'Nest Thermostat v1/v2', '2.4GHz'),
+
+    'wifi|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:182c,htagg:1b,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:182c,htagg:1b,htmcs:000000ff|oui:htc':
+        ('BCM4329', 'Nexus One', '2.4GHz'),
 
     'wifi|probe:0,1,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,wps:Nexus_4|assoc:0,1,48,45,221(0050f2,2),htcap:012c':
         ('QCA_WCN3360', 'Nexus 4', '5GHz'),
@@ -327,6 +345,8 @@ database = {
         ('QCA_WCN3660', 'Nexus 7 (2013)', '2.4GHz'),
     'wifi|probe:0,1,50,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,wps:Nexus_7|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:020a0000':
         ('QCA_WCN3660', 'Nexus 7 (2013)', '2.4GHz'),
+    'wifi|probe:0,1,50,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:020a0000|oui:asus':
+        ('QCA_WCN3660', 'Nexus 7 (2013)', '2.4GHz'),
 
     'wifi|probe:0,1,50,3,45,127,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:002d,wps:Nexus_9|assoc:0,1,50,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:002d':
         ('BCM4354', 'Nexus 9', '5GHz'),
@@ -346,8 +366,14 @@ database = {
 
     'wifi|probe:0,1,45,221(0050f2,4),221(001018,2),221(00904c,51),htcap:010c,wps:Galaxy_Nexus|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:010c':
         ('BCM4330', 'Samsung Galaxy Nexus', '5GHz'),
+    'wifi|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:110c,htagg:19,htmcs:000000ff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:110c,htagg:19,htmcs:000000ff|oui:samsung':
+        ('BCM4330', 'Samsung Galaxy Nexus', '2.4GHz'),
     'wifi|probe:0,1,50,45,3,221(0050f2,4),221(001018,2),221(00904c,51),htcap:110c,wps:Galaxy_Nexus|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:110c':
         ('BCM4330', 'Samsung Galaxy Nexus', '2.4GHz'),
+
+    # Samsung Galaxy Note 5GHz signature is the same as Galaxy S2
+    'wifi|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:100c,htagg:19,htmcs:000000ff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:100c,htagg:19,htmcs:000000ff|oui:samsung':
+        ('', 'Samsung Galaxy Note', '2.4GHz'),
 
     'wifi|probe:0,1,45,221(001018,2),221(00904c,51),htcap:0062,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062,htagg:1a,htmcs:000000ff|oui:samsung':
         ('BCM4330', 'Samsung Galaxy Note 2', '5GHz'),
@@ -367,7 +393,7 @@ database = {
         ('BCM4358', 'Samsung Galaxy Note 4', '2.4GHz'),
 
     'wifi|probe:0,1,45,221(001018,2),221(00904c,51),htcap:000c|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:000c|oui:samsung':
-        ('BCM4330', 'Samsung Galaxy S2', ''),
+        ('BCM4330', 'Samsung Galaxy S2 or Galaxy Note', ''),
 
     'wifi|probe:0,1,45,221(001018,2),221(00904c,51),htcap:0062|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062|oui:samsung':
         ('BCM4334', 'Samsung Galaxy S3', '5GHz'),
@@ -430,6 +456,9 @@ database = {
         ('BCM4330', 'Samsung Galaxy Tab 10.1', '5GHz'),
     'wifi|probe:0,1,50,45,3,221(0050f2,4),221(001018,2),221(00904c,51),htcap:100c,htagg:19,htmcs:000000ff,wps:_|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:100c,htagg:19,htmcs:000000ff|oui:samsung':
         ('BCM4330', 'Samsung Galaxy Tab 10.1', '2.4GHz'),
+
+    'wifi|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:182c,htagg:1b,htmcs:000000ff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:182c,htagg:1b,htmcs:000000ff|oui:sony':
+        ('', 'Sony Ericsson Play R800x', '2.4GHz'),
 
     'wifi|probe:0,1,3,45,221(0050f2,8),191,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffc,vhttxmcs:0000fffc|assoc:0,1,33,36,48,70,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:020a0000|oui:sony':
         ('WCN3680', 'Sony Xperia Z Ultra', '5GHz'),
@@ -594,7 +623,7 @@ def performance_info(standard, nss, width):
 def depersonalize_hostname(hostname):
   """Remove autopersonalization like 'Dentons-iPad', just return 'ipad'."""
   h = hostname.lower()
-  if h.startswith('android-'):
+  if h.startswith('android'):
     return 'android'
   if 'ipad' in h:
     return 'ipad'
