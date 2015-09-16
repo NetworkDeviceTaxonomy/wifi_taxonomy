@@ -4,7 +4,7 @@ all: build
 
 test:
 	set -e; \
-	for d in $(wildcard *_test.py); do \
+	for d in $(wildcard tests/*_test.py); do \
 		PYTHONPATH=. $(PYTHON) $$d; \
 	done
 
