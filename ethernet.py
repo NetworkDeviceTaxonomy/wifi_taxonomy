@@ -63,6 +63,7 @@ database = {
     '90:b6:86': 'samsung',
     '90:e7:c4': 'samsung',
     'a0:0b:ba': 'samsung',
+    'b0:df:3a': 'samsung',
     'c0:bd:d1': 'samsung',
     'c4:42:02': 'samsung',
     'cc:3a:61': 'samsung',
