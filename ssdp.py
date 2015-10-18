@@ -26,6 +26,7 @@ database = {
     'Linux UPnP/1.0 Sonos/28.1-83040 (ZP90)': 'Sonos ZP90',
     'Linux UPnP/1.0 Sonos/28.1-83040 (ZP120)': 'Sonos ZP120',
     'WNDR3700v2 UPnP/1.0 miniupnpd/1.0': 'Netgear WNDR3700',
+    'Microsoft-Windows-NT/5.1 UPnP/1.0 UPnP-Device-Host/1.0': 'Windows XP',
 }
 
 
