@@ -46,6 +46,7 @@ database = {
 
     '60:45:bd': 'microsoft',
 
+    '5c:51:88': 'motorola',
     '98:4b:4a': 'motorola',
     '9c:d9:17': 'motorola',
     'f8:7b:7a': 'motorola',
@@ -54,12 +55,17 @@ database = {
 
     '18:b4:30': 'nest',
 
+    '00:27:09': 'nintendo',
+    '34:af:2c': 'nintendo',
+
     '10:a5:d0': 'samsung',
     '14:7d:c5': 'samsung',
+    '34:23:ba': 'samsung',
     '38:aa:3c': 'samsung',
     '40:0e:85': 'samsung',
     '5c:0a:5b': 'samsung',
     '6c:2f:2c': 'samsung',
+    '88:32:9b': 'samsung',
     '8c:77:12': 'samsung',
     '90:b6:86': 'samsung',
     '90:e7:c4': 'samsung',
@@ -67,12 +73,15 @@ database = {
     'b0:df:3a': 'samsung',
     'c0:bd:d1': 'samsung',
     'c4:42:02': 'samsung',
+    'cc:07:ab': 'samsung',
     'cc:3a:61': 'samsung',
     'd0:22:be': 'samsung',
     'e8:50:8b': 'samsung',
+    'ec:1f:72': 'samsung',
     'f0:25:b7': 'samsung',
     'f4:09:d8': 'samsung',
 
+    '00:d9:d1': 'sony',
     '30:17:c8': 'sony',
     '40:b8:37': 'sony',
     'b4:52:7e': 'sony',
