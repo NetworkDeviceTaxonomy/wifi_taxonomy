@@ -74,10 +74,10 @@ database = {
 
     'wifi|probe:0,1,3,45,50,htcap:0120|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:012c|name:Chromecast':
         ('Marvell_88W8797', 'Chromecast', '2.4GHz'),
-    'wifi|probe:0,1,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:00000000|assoc:0,1,33,36,48,127,221(0050f2,2),45,191,htcap:006e,htagg:03,htmcs:000000ff,vhtcap:33c07030,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:00000004|name:Chromecast':
+    'wifi|probe:0,1,3,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:00000000|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:002c,htagg:03,htmcs:000000ff,extcap:00000000|oui:google':
         ('Marvell_88W8887', 'Chromecast', '2.4GHz'),
-    'wifi|probe:0,1,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:00000000|assoc:0,1,33,36,48,127,221(0050f2,2),45,191,htcap:006e,htagg:03,htmcs:000000ff,vhtcap:33c07030,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:00000004|name:Hendrix':
-        ('Marvell_88W8887', 'Chromecast Audio', '2.4GHz'),
+    'wifi|probe:0,1,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:00000000|assoc:0,1,33,36,48,127,221(0050f2,2),45,191,htcap:006e,htagg:03,htmcs:000000ff,vhtcap:33c07030,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:00000004|oui:google':
+        ('Marvell_88W8887', 'Chromecast', '5GHz'),
 
     'wifi|probe:0,1,45,221(001018,2),221(00904c,51),htcap:007c|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:007c':
         ('', 'DirecTV HR-44', ''),

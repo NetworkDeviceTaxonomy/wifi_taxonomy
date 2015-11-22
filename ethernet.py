@@ -29,6 +29,12 @@ database = {
     '5c:ff:35': 'asus',
     'ac:22:0b': 'asus',
 
+    '00:1a:11': 'google',
+    '54:60:09': 'google',
+    '94:eb:2c': 'google',
+    'a4:77:33': 'google',
+    'f8:8f:ca': 'google',
+
     '00:23:76': 'htc',
     '1c:b0:94': 'htc',
     '38:e7:d8': 'htc',
