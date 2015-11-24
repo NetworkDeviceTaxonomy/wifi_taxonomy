@@ -26,6 +26,11 @@ database = {
     'wifi|probe:0,1,50,3,45,221(0050f2,8),htcap:1130,htagg:18,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),htcap:1130,htagg:18,htmcs:000000ff|oui:amazon':
         ('TI_WL1271', 'Kindle Fire', '2.4GHz'),
 
+    'wifi|probe:0,1,45,221(001018,2),221(00904c,51),htcap:007e,htagg:1b,htmcs:0000ffff|assoc:0,1,33,36,48,45,221(001018,2),221(0050f2,2),htcap:007e,htagg:1b,htmcs:0000ffff|oui:amazon':
+        ('', 'Amazon Fire TV Stick', '5GHz'),
+    'wifi|probe:0,1,50,3,45,221(001018,2),221(00904c,51),htcap:003c,htagg:1b,htmcs:0000ffff|assoc:0,1,33,36,48,50,45,221(001018,2),221(0050f2,2),htcap:003c,htagg:1b,htmcs:0000ffff|oui:amazon':
+        ('', 'Amazon Fire TV Stick', '2.4GHz'),
+
     'wifi|probe:0,1,45,221(001018,2),221(00904c,51),htcap:081e|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:081e':
         ('BCM94321', 'Apple TV (1st gen)', '5GHz'),
     'wifi|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:581c|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:581c':
@@ -56,6 +61,11 @@ database = {
     'wifi|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020,htagg:1a,htmcs:000000ff,intwrk:0f,extcap:04000000|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020,htagg:1a,htmcs:000000ff|name:Apple-TV':
         ('BCM4334', 'Apple TV (3rd gen rev A)', '2.4GHz'),
 
+    'wifi|probe:0,1,45,127,107,191,221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,intwrk:0f,extcap:84080004|assoc:0,1,33,36,48,70,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:00000004|name:Apple-TV':
+        ('', 'Apple TV (4th gen)', '5GHz'),
+    'wifi|probe:0,1,50,3,45,127,107,221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,intwrk:0f,extcap:84080004|assoc:0,1,50,33,36,48,70,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:00000000|name:Apple-TV':
+        ('', 'Apple TV (4th gen)', '2.4GHz'),
+
     'wifi|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:182c,htagg:1b,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:182c,htagg:1b,htmcs:000000ff|oui:asus':
         ('BCM4329', 'ASUS Transformer TF300', '2.4GHz'),
 
@@ -75,9 +85,9 @@ database = {
     'wifi|probe:0,1,3,45,50,htcap:0120|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:012c|name:Chromecast':
         ('Marvell_88W8797', 'Chromecast', '2.4GHz'),
     'wifi|probe:0,1,3,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:00000000|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:002c,htagg:03,htmcs:000000ff,extcap:00000000|oui:google':
-        ('Marvell_88W8887', 'Chromecast', '2.4GHz'),
+        ('Marvell_88W8887', 'Chromecast v2', '2.4GHz'),
     'wifi|probe:0,1,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:00000000|assoc:0,1,33,36,48,127,221(0050f2,2),45,191,htcap:006e,htagg:03,htmcs:000000ff,vhtcap:33c07030,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:00000004|oui:google':
-        ('Marvell_88W8887', 'Chromecast', '5GHz'),
+        ('Marvell_88W8887', 'Chromecast v2', '5GHz'),
 
     'wifi|probe:0,1,45,221(001018,2),221(00904c,51),htcap:007c|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:007c':
         ('', 'DirecTV HR-44', ''),
@@ -380,6 +390,11 @@ database = {
 
     'wifi|probe:0,1,3,50|assoc:0,1,48,50,221(0050f2,2),45,htcap:112c|os:playstation':
         ('Marvell_88W8797', 'Playstation 4', '2.4GHz'),
+
+    'wifi|probe:0,1,45,191,221(001018,2),htcap:01ad,htagg:17,htmcs:0000ffff,vhtcap:0f8159b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa|assoc:0,1,33,36,48,45,191,199,221(001018,2),221(0050f2,2),htcap:01ad,htagg:17,htmcs:0000ffff,vhtcap:0f8159b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa|os:roku':
+        ('', 'Roku 4', '5GHz'),
+    'wifi|probe:0,1,50,3,45,221(001018,2),htcap:01ad,htagg:17,htmcs:0000ffff|assoc:0,1,50,33,36,48,45,221(001018,2),221(0050f2,2),htcap:01ad,htagg:17,htmcs:0000ffff|os:roku':
+        ('', 'Roku 4', '2.4GHz'),
 
     'wifi|probe:0,1,45,221(0050f2,4),221(001018,2),221(00904c,51),htcap:010c,wps:Galaxy_Nexus|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:010c':
         ('BCM4330', 'Samsung Galaxy Nexus', '5GHz'),

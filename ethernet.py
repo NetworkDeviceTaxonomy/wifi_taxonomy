@@ -23,6 +23,7 @@
 # otherwise very similar, such as distinguishing LG G2 from Samsung
 # Galaxy S4.
 database = {
+    '10:ae:60': 'amazon',
     'f0:a2:25': 'amazon',
 
     '30:85:a9': 'asus',
