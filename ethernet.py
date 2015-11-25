@@ -28,12 +28,15 @@ database = {
 
     '30:85:a9': 'asus',
     '5c:ff:35': 'asus',
+    '74:d0:2b': 'asus',
     'ac:22:0b': 'asus',
 
     '00:1a:11': 'google',
     '54:60:09': 'google',
+    '6c:ad:f8': 'google',
     '94:eb:2c': 'google',
     'a4:77:33': 'google',
+    'f4:f5:e8': 'google',
     'f8:8f:ca': 'google',
 
     '00:23:76': 'htc',
@@ -47,13 +50,16 @@ database = {
     '0c:48:85': 'lg',
     '10:68:3f': 'lg',
     '40:b0:fa': 'lg',
+    '64:bc:0c': 'lg',
     'c4:43:8f': 'lg',
     'c4:9a:02': 'lg',
     'f8:a9:d0': 'lg',
 
     '60:45:bd': 'microsoft',
 
+    '3c:43:8e': 'motorola',
     '5c:51:88': 'motorola',
+    '90:68:c3': 'motorola',
     '98:4b:4a': 'motorola',
     '9c:d9:17': 'motorola',
     'f8:7b:7a': 'motorola',

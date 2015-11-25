@@ -23,6 +23,9 @@ import ethernet
 
 
 database = {
+    'wifi|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:110c,htagg:19,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:110c,htagg:19,htmcs:000000ff|os:dashbutton':
+        ('BCM43362', 'Amazon Dash Button', '2.4GHz'),
+
     'wifi|probe:0,1,50,3,45,221(0050f2,8),htcap:1130,htagg:18,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),htcap:1130,htagg:18,htmcs:000000ff|oui:amazon':
         ('TI_WL1271', 'Kindle Fire', '2.4GHz'),
 
@@ -82,7 +85,7 @@ database = {
     'wifi|probe:0,1,3,45,50,htcap:016e|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:016e|os:chromeos':
         ('AR9382', 'Chromebook 11" Samsung', '2.4GHz'),
 
-    'wifi|probe:0,1,3,45,50,htcap:0120|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:012c|name:Chromecast':
+    'wifi|probe:0,1,3,45,50,htcap:0120,htagg:03,htmcs:00000000|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000000|oui:google':
         ('Marvell_88W8797', 'Chromecast', '2.4GHz'),
     'wifi|probe:0,1,3,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:00000000|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:002c,htagg:03,htmcs:000000ff,extcap:00000000|oui:google':
         ('Marvell_88W8887', 'Chromecast v2', '2.4GHz'),
@@ -716,3 +719,8 @@ def identify_wifi_device(signature, mac):
 if __name__ == '__main__':
   for k, v in database.iteritems():
     print 'SHA:' + hashlib.sha256(k).hexdigest() + ' ' + v[1]
+    # Remove os, oui, etc qualifiers if present.
+    a = k.split('|')
+    if len(a) > 3:
+      k1 = '|'.join(a[0:3])
+      print 'SHA:' + hashlib.sha256(k1).hexdigest() + ' ' + v[1] + ' (unqualified)'
