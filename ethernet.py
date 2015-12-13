@@ -23,13 +23,18 @@
 # otherwise very similar, such as distinguishing LG G2 from Samsung
 # Galaxy S4.
 database = {
+    '00:bb:3a': 'amazon',
     '10:ae:60': 'amazon',
+    '74:75:48': 'amazon',
+    'f0:4f:7c': 'amazon',
     'f0:a2:25': 'amazon',
 
     '30:85:a9': 'asus',
     '5c:ff:35': 'asus',
     '74:d0:2b': 'asus',
     'ac:22:0b': 'asus',
+
+    '30:8c:fb': 'dropcam',
 
     '00:1a:11': 'google',
     '54:60:09': 'google',
@@ -49,22 +54,34 @@ database = {
 
     '0c:48:85': 'lg',
     '10:68:3f': 'lg',
+    '2c:54:cf': 'lg',
     '40:b0:fa': 'lg',
+    '58:3f:54': 'lg',
+    '64:89:9a': 'lg',
     '64:bc:0c': 'lg',
+    'a0:39:f7': 'lg',
+    'a0:91:69': 'lg',
     'c4:43:8f': 'lg',
     'c4:9a:02': 'lg',
     'f8:a9:d0': 'lg',
 
+    '50:1a:c5': 'microsoft',
     '60:45:bd': 'microsoft',
+    '7c:ed:8d': 'microsoft',
 
+    '14:30:c6': 'motorola',
+    '1c:56:fe': 'motorola',
     '3c:43:8e': 'motorola',
     '5c:51:88': 'motorola',
+    '60:be:b5': 'motorola',
+    '84:10:0d': 'motorola',
     '90:68:c3': 'motorola',
     '98:4b:4a': 'motorola',
     '9c:d9:17': 'motorola',
     'f8:7b:7a': 'motorola',
     'f8:cf:c5': 'motorola',
     'f8:e0:79': 'motorola',
+    'f8:f1:b6': 'motorola',
 
     '18:b4:30': 'nest',
 
@@ -72,14 +89,18 @@ database = {
     '34:af:2c': 'nintendo',
 
     '10:a5:d0': 'samsung',
+    '14:32:d1': 'samsung',
     '14:7d:c5': 'samsung',
     '34:23:ba': 'samsung',
     '38:aa:3c': 'samsung',
     '40:0e:85': 'samsung',
     '5c:0a:5b': 'samsung',
+    '5c:f6:dc': 'samsung',
     '6c:2f:2c': 'samsung',
+    '84:38:38': 'samsung',
     '88:32:9b': 'samsung',
     '8c:77:12': 'samsung',
+    '90:18:7c': 'samsung',
     '90:b6:86': 'samsung',
     '90:e7:c4': 'samsung',
     'a0:0b:ba': 'samsung',
@@ -95,6 +116,7 @@ database = {
     'f4:09:d8': 'samsung',
 
     '00:d9:d1': 'sony',
+    '28:0d:fc': 'sony',
     '30:17:c8': 'sony',
     '40:b8:37': 'sony',
     'b4:52:7e': 'sony',

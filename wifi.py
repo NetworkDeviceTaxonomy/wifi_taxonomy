@@ -95,6 +95,15 @@ database = {
     'wifi|probe:0,1,45,221(001018,2),221(00904c,51),htcap:007c|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:007c':
         ('', 'DirecTV HR-44', ''),
 
+    'wifi|probe:0,1,50,45,htcap:002c,htagg:01,htmcs:000000ff|assoc:0,1,50,45,48,221(0050f2,2),htcap:002c,htagg:01,htmcs:000000ff|oui:dropcam':
+        ('', 'Dropcam', '2.4GHz'),
+
+    'wifi|probe:0,1,3,45,50,htcap:0162,htagg:00,htmcs:000000ff|assoc:0,1,45,48,127,50,221(0050f2,2),htcap:016e,htagg:1b,htmcs:000000ff|os:epsonprinter':
+        ('', 'Epson Printer', '2.4GHz'),
+
+    'wifi|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:100c,htagg:19,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:100c,htagg:19,htmcs:000000ff|os:hpprinter':
+        ('', 'HP Printer', '2.4GHz'),
+
     'wifi|probe:0,1,45,127,191,221(506f9a,16),221(001018,2),221(00904c,51),htcap:006f,vhtcap:03800032|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,vhtcap:03800032|oui:htc':
         ('BCM4335', 'HTC One', '5GHz'),
     'wifi|probe:0,1,50,3,45,127,221(506f9a,16),221(001018,2),221(00904c,51),htcap:102d|assoc:0,1,33,36,48,50,45,221(001018,2),221(0050f2,2),htcap:102d|oui:htc':
@@ -234,6 +243,9 @@ database = {
     'wifi|probe:0,1,50,3,45,221(00904c,51),htcap:182c|assoc:0,1,33,36,48,50,45,221(00904c,51),221(0050f2,2),htcap:182c':
         ('BCM4322', 'MacBook - late 2008 (A1278)', '2.4GHz'),
 
+    'wifi|probe:0,1,45,221(00904c,51),htcap:086e,htagg:1b,htmcs:0000ffff|assoc:0,1,33,36,48,45,221(00904c,51),221(0050f2,2),htcap:086e,htagg:1b,htmcs:0000ffff|os:macos':
+        ('BCM4322', 'MacBook Air - late 2011', '5GHz'),
+
     'wifi|probe:0,1,45,127,191,htcap:09ef,vhtcap:0f8159b2|assoc:0,1,33,36,48,45,127,191,221(0050f2,2),htcap:09ef,vhtcap:0f8159b2':
         ('BCM4360', 'MacBook Air - late 2014 (A1466)', '5GHz'),
     'wifi|probe:0,1,50,45,127,221(00904c,51),htcap:59ad|assoc:0,1,33,36,48,50,45,127,221(00904c,51),221(0050f2,2),htcap:59ad':
@@ -356,6 +368,10 @@ database = {
     'wifi|probe:0,1,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:016e,htagg:03,htmcs:000000ff,wps:Nexus_7|assoc:0,1,33,36,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:020a0000':
         ('QCA_WCN3660', 'Nexus 7 (2013)', '5GHz'),
     'wifi|probe:0,1,45,221(0050f2,8),htcap:016e,htagg:03,htmcs:000000ff|assoc:0,1,33,36,48,45,221(0050f2,2),127,htcap:016e,htagg:03,htmcs:000000ff,extcap:020a0000|oui:asus':
+        ('QCA_WCN3660', 'Nexus 7 (2013)', '5GHz'),
+    'wifi|probe:0,1,45,221(0050f2,8),127,221(0050f2,4),221(506f9a,9),htcap:016e,htagg:03,htmcs:000000ff,extcap:020a0000,wps:Nexus_7|assoc:0,1,33,36,48,45,221(0050f2,2),127,htcap:016e,htagg:03,htmcs:000000ff,extcap:020a0000':
+        ('QCA_WCN3660', 'Nexus 7 (2013)', '5GHz'),
+    'wifi|probe:0,1,45,221(0050f2,8),221(0050f2,4),221(506f9a,10),221(506f9a,9),htcap:016e,htagg:03,htmcs:000000ff,wps:Nexus_7|assoc:0,1,33,36,48,45,221(0050f2,2),127,htcap:016e,htagg:03,htmcs:000000ff,extcap:020a0000':
         ('QCA_WCN3660', 'Nexus 7 (2013)', '5GHz'),
     'wifi|probe:0,1,50,45,221(0050f2,8),htcap:012c|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c|oui:asus':
         ('QCA_WCN3660', 'Nexus 7 (2013)', '2.4GHz'),
@@ -492,6 +508,11 @@ database = {
     'wifi|probe:0,1,50,45,3,221(0050f2,4),221(001018,2),221(00904c,51),htcap:100c,htagg:19,htmcs:000000ff,wps:_|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:100c,htagg:19,htmcs:000000ff|oui:samsung':
         ('BCM4330', 'Samsung Galaxy Tab 10.1', '2.4GHz'),
 
+    'wifi|probe:0,1,45,htcap:11ee,htagg:02,htmcs:0000ffff|assoc:0,1,45,127,33,36,48,221(0050f2,2),htcap:11ee,htagg:02,htmcs:0000ffff|os:samsungtv':
+        ('', 'Samsung Smart TV', '5GHz'),
+    'wifi|probe:0,1,50,45,htcap:01ac,htagg:02,htmcs:0000ffff|assoc:0,1,50,45,127,48,221(0050f2,2),htcap:01ac,htagg:02,htmcs:0000ffff|os:samsungtv':
+        ('', 'Samsung Smart TV', '2.4GHz'),
+
     'wifi|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:182c,htagg:1b,htmcs:000000ff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:182c,htagg:1b,htmcs:000000ff|oui:sony':
         ('', 'Sony Ericsson Play R800x', '2.4GHz'),
 
@@ -507,15 +528,27 @@ database = {
     'wifi|probe:0,1,50,3,45,127,107,221(506f9a,16),221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,intwrk:0f,extcap:80080000|assoc:0,1,50,33,36,48,70,45,127,107,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,intwrk:0f,extcap:80080000|oui:sony':
         ('', 'Sony Xperia Z4 Tablet', '2.4GHz'),
 
+    'wifi|probe:0,1,50,221(0050f2,4),wps:Ralink_Wireless_Linux_Client|assoc:0,1,50,45,127,221(000c43,6),221(0050f2,2),48,htcap:000c,htagg:12,htmcs:000000ff,extcap:00000001|os:visiotv':
+        ('', 'Visio Smart TV', '2.4GHz'),
+
     'wifi|probe:0,1,50,221(001018,2)|assoc:0,1,48,50,221(001018,2)|os:wii':
         ('BCM4318', 'Wii', '2.4GHz'),
 
     'wifi|probe:0,1,50,45,3,221(00904c,51),htcap:100c|assoc:0,1,48,50,45,221(00904c,51),221(0050f2,2),htcap:100c|os:wii':
         ('BCM43362', 'Wii-U', '2.4GHz'),
 
-    'wifi|probe:0,1,3,45,50,htcap:058f|assoc:0,1,48,50,221(0050f2,2),45,htcap:058d|name:Xbox-SystemOS':
+    'wifi|probe:0,1,3,45,50,127,htcap:010c,htagg:1b,htmcs:0000ffff|assoc:0,1,45,48,50,221(0050f2,2),htcap:010c,htagg:1b,htmcs:000000ff|oui:microsoft':
+        ('', 'Xbox', '5GHz'),
+    'wifi|probe:0,1,3,45,50,htcap:016e,htagg:03,htmcs:0000ffff|assoc:0,1,33,48,50,127,221(0050f2,2),45,htcap:012c,htagg:03,htmcs:0000ffff,extcap:00000000|oui:microsoft':
+        ('', 'Xbox', '5GHz'),
+
+    'wifi|probe:0,1,3,45,50,htcap:058f,htagg:03,htmcs:0000ffff|assoc:0,1,48,50,221(0050f2,2),45,htcap:058d,htagg:03,htmcs:0000ffff|name:Xbox-SystemOS':
+        ('Marvell_88W8897', 'Xbox One', '5GHz'),
+    'wifi|probe:0,1,3,45,50,htcap:058f,htagg:03,htmcs:0000ffff|assoc:0,1,48,50,221(0050f2,2),45,htcap:058d,htagg:03,htmcs:0000ffff|oui:microsoft':
         ('Marvell_88W8897', 'Xbox One', '5GHz'),
     'wifi|probe:0,1,45,50,htcap:058f|assoc:0,1,48,221(0050f2,2),45,htcap:058f|name:Xbox-SystemOS':
+        ('Marvell_88W8897', 'Xbox One', '2.4GHz'),
+    'wifi|probe:0,1,45,50,htcap:058f|assoc:0,1,48,221(0050f2,2),45,htcap:058f|oui:microsoft':
         ('Marvell_88W8897', 'Xbox One', '2.4GHz'),
 
     'wifi|probe:0,1,50|assoc:0,1,33,36,50,48,221(0050f2,2),221(00904c,51),45,htcap:104c':
