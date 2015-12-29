@@ -26,6 +26,7 @@ database = {
     '00:bb:3a': 'amazon',
     '10:ae:60': 'amazon',
     '74:75:48': 'amazon',
+    '84:d6:d0': 'amazon',
     'f0:4f:7c': 'amazon',
     'f0:a2:25': 'amazon',
 
@@ -74,6 +75,7 @@ database = {
     '14:30:c6': 'motorola',
     '1c:56:fe': 'motorola',
     '3c:43:8e': 'motorola',
+    '44:80:eb': 'motorola',
     '5c:51:88': 'motorola',
     '60:be:b5': 'motorola',
     '84:10:0d': 'motorola',
@@ -90,6 +92,7 @@ database = {
     '00:27:09': 'nintendo',
     '34:af:2c': 'nintendo',
 
+    '08:d4:2b': 'samsung',
     '10:a5:d0': 'samsung',
     '14:32:d1': 'samsung',
     '14:7d:c5': 'samsung',
@@ -125,6 +128,8 @@ database = {
     '30:17:c8': 'sony',
     '40:b8:37': 'sony',
     'b4:52:7e': 'sony',
+
+    '00:24:e4': 'withings',
 }
 
 
