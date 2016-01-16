@@ -29,7 +29,7 @@ dhcpsig() {
 
 stations24=""
 stations5=""
-watch-dir /tmp/wifi/fingerprints | while read junk; do
+(echo start; watch-dir /tmp/wifi/fingerprints) | while read junk; do
   sleep 0.25
   wifi24=$(wifi show -b 2.4 2>&1)
   wifi5=$(wifi show -b 5 2>&1)

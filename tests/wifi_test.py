@@ -76,6 +76,12 @@ class WifiTaxonomyTest(unittest.TestCase):
     self.assertEqual('Samsung Galaxy S4', taxonomy[1])
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
     self.assertEqual('Samsung Galaxy S4 or LG G2', taxonomy[1])
+    # Test one of the OUIs with multiple vendors listed.
+    signature = ('wifi|probe:0,1,3,45,50,htcap:0120,htagg:03,htmcs:00000000|'
+                 'assoc:0,1,48,50,127,221(0050f2,2),45,htcap:012c,htagg:03,'
+                 'htmcs:000000ff,extcap:00000000|oui:google')
+    taxonomy = wifi.identify_wifi_device(signature, '6c:ad:f8:00:00:01')
+    self.assertEqual('Chromecast', taxonomy[1])
 
   def testUnknown(self):
     signature = 'wifi|probe:0,1,2,vhtcap:0033|assoc:3,4,vhtcap:0033'
@@ -235,7 +241,7 @@ class WifiTaxonomyTest(unittest.TestCase):
     self.assertNotIn('Apple TV', taxonomy[1])
     sig = ('wifi|probe:0,1,45,127,107,221(001018,2),221(00904c,51),'
            '221(0050f2,8),htcap:0062|assoc:0,1,33,36,48,45,70,221(001018,2),'
-           '221(00904c,51),221(0050f2,2),htcap:0062')
+           '221(00904c,51),221(0050f2,2),htcap:0062|os:ios')
     taxonomy = wifi.identify_wifi_device(sig, '00:00:01:00:00:01')
     self.assertIn('Apple TV', taxonomy[1])
 

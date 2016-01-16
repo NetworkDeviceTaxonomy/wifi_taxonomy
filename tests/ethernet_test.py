@@ -24,8 +24,8 @@ import ethernet
 
 class EthernetTaxonomyTest(unittest.TestCase):
   def testLookupOS(self):
-    self.assertEqual(ethernet.LookupOUI('f8:a9:d0'), 'lg')
-    self.assertEqual(ethernet.LookupOUI('ff:ff:ff'), None)
+    self.assertEqual(ethernet.LookupOUI('f8:a9:d0'), ['lg'])
+    self.assertEqual(ethernet.LookupOUI('ff:ff:ff'), [])
 
 
 if __name__ == '__main__':
