@@ -27,37 +27,44 @@ DHCP_SIGNATURE_FILE = '/config/dhcp.fingerprints'
 # signature as an additive when wifi signatures are indistinct, so
 # we're only including the DHCP signatures which we will actually use.
 database = {
-    '1,33,3,6,15,26,28,51,58,59': 'android',
-    '1,33,3,6,15,28,51,58,59': 'android',
+    '1,33,3,6,15,26,28,51,58,59': ['android'],
+    '1,33,3,6,15,28,51,58,59': ['android'],
+    '1,3,6,28,33,51,58,59,121': ['android'],
+    '1,121,33,3,6,15,28,51,58,59,119': ['android'],
 
-    '1,121,33,3,6,12,15,26,28,51,54,58,59,119,252': 'chromeos',
-    '1,121,33,3,6,12,15,26,28,51,54,58,59,119': 'chromeos',
+    '1,3,6,15,112,113,78,79,95,252': ['appletv1'],
 
-    '1,3,6': 'dashbutton',
+    '6,3,1,15,66,67,13,44,2,42,12': ['brotherprinter'],
 
-    '1,3,6,12,15,17,28,40,41,42': 'epsonprinter',
+    '1,121,33,3,6,12,15,26,28,51,54,58,59,119,252': ['chromeos'],
+    '1,121,33,3,6,12,15,26,28,51,54,58,59,119': ['chromeos'],
 
-    '6,3,1,15,66,67,13,44,12,81': 'hpprinter',
+    '1,3,6': ['dashbutton'],
 
-    '1,3,6,15,119,252': 'ios',
-    '1,121,3,6,15,119,252': 'ios',
+    '1,3,6,12,15,17,28,40,41,42': ['epsonprinter'],
 
-    '1,3,6,15,119,95,252,44,46,101': 'macos',
-    '1,3,6,15,119,95,252,44,46': 'macos',
-    '1,121,3,6,15,119,252,95,44,46': 'macos',
+    '6,3,1,15,66,67,13,44,12,81': ['hpprinter'],
+    '6,3,1,15,66,67,13,44,119,12,81,252': ['hpprinter'],
 
-    '1,3,15,6': 'playstation',
+    '1,3,6,15,119,252': ['ios'],
+    '1,121,3,6,15,119,252': ['ios'],
 
-    '1,3,6,15,12': 'roku',
+    '1,3,6,15,119,95,252,44,46,101': ['macos'],
+    '1,3,6,15,119,95,252,44,46': ['macos'],
+    '1,121,3,6,15,119,252,95,44,46': ['macos'],
 
-    '1,3,6,12,15,28,42,125': 'samsungtv',
+    '1,3,15,6': ['playstation'],
 
-    '1,3,6,12,15,28,40,41,42': 'visiotv',
+    '1,3,6,15,12': ['roku'],
 
-    '1,3,6,15,28,33': 'wii',
-    '1,3,6,15': 'wii',
+    '1,3,6,12,15,28,42,125': ['samsungtv'],
 
-    '1,15,3,6,44,46,47,31,33,121,249,252,43': 'windows-phone',
+    '1,3,6,12,15,28,40,41,42': ['visiotv', 'kindle'],
+
+    '1,3,6,15,28,33': ['wii'],
+    '1,3,6,15': ['wii'],
+
+    '1,15,3,6,44,46,47,31,33,121,249,252,43': ['windows-phone'],
 }
 
 
@@ -72,10 +79,10 @@ def LookupOperatingSystem(mac):
         except ValueError:
           continue
         if physaddr.lower() == mac:
-          return database.get(signature, None)
+          return database.get(signature, [])
   except IOError:
     pass
-  return None
+  return []
 
 
 def LookupHostname(mac):

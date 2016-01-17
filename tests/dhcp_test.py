@@ -35,8 +35,8 @@ class DhcpTaxonomyTest(unittest.TestCase):
     self.assertEqual(dhcp.LookupHostname('d8:50:e6:ff:ff:02'), None)
 
   def testLookupOperatingSystem(self):
-    self.assertEqual(dhcp.LookupOperatingSystem('28:18:78:ff:ff:01'), 'android')
-    self.assertEqual(dhcp.LookupOperatingSystem('00:00:00:00:00:01'), None)
+    self.assertEqual(dhcp.LookupOperatingSystem('28:18:78:ff:ff:01'), ['android'])
+    self.assertEqual(dhcp.LookupOperatingSystem('00:00:00:00:00:01'), [])
 
 
 if __name__ == '__main__':
