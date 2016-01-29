@@ -93,6 +93,7 @@ database = {
     '98:4b:4a': ['motorola'],
     '9c:d9:17': ['motorola'],
     'cc:c3:ea': ['motorola'],
+    'e8:91:20': ['motorola'],
     'f8:7b:7a': ['motorola'],
     'f8:cf:c5': ['motorola'],
     'f8:e0:79': ['motorola'],

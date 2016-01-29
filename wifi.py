@@ -85,11 +85,13 @@ database = {
     'wifi|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:112c,htagg:19,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:112c,htagg:19,htmcs:000000ff|os:brotherprinter':
         ('', 'Brother Printer', '2.4GHz'),
 
-    'wifi|probe:0,1,45,191,htcap:11e2,htagg:17,htmcs:0000ffff,vhtcap:038071a0,vhtrxmcs:0000fffa,vhttxmcs:0000fffa|assoc:0,1,33,36,48,45,127,191,221(0050f2,2),htcap:11e6,htagg:17,htmcs:0000ffff,vhtcap:038001a0,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:00000000|os:chromeos':
+    'wifi3|probe:0,1,45,191,htcap:11e2,htagg:17,htmcs:0000ffff,vhtcap:038071a0,vhtrxmcs:0000fffa,vhttxmcs:0000fffa|assoc:0,1,48,45,127,191,221(0050f2,2),cap:0011,htcap:11e6,htagg:17,htmcs:0000ffff,vhtcap:038001a0,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000000000000040|os:chromeos':
         ('Intel_7260', 'Chromebook Pixel 2', '5GHz'),
-    'wifi|probe:0,1,45,191,htcap:11e2,htagg:17,htmcs:0000ffff,vhtcap:038071a0,vhtrxmcs:0000fffa,vhttxmcs:0000fffa|assoc:0,1,48,45,127,191,221(0050f2,2),htcap:11e6,htagg:17,htmcs:0000ffff,vhtcap:038001a0,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:00000000|os:chromeos':
+    'wifi3|probe:0,1,45,191,htcap:11e2,htagg:17,htmcs:0000ffff,vhtcap:038071a0,vhtrxmcs:0000fffa,vhttxmcs:0000fffa|assoc:0,1,48,45,127,191,221(0050f2,2),cap:0011,htcap:11ee,htagg:17,htmcs:0000ffff,vhtcap:038001a0,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000000000000040|os:chromeos':
         ('Intel_7260', 'Chromebook Pixel 2', '5GHz'),
-    'wifi|probe:0,1,50,45,htcap:11e2,htagg:17,htmcs:0000ffff|assoc:0,1,50,48,45,127,221(0050f2,2),htcap:11a4,htagg:17,htmcs:0000ffff,extcap:00000000|os:chromeos':
+    'wifi3|probe:0,1,50,45,htcap:11e2,htagg:17,htmcs:0000ffff|assoc:0,1,50,48,45,127,221(0050f2,2),cap:0431,htcap:11a4,htagg:17,htmcs:0000ffff,extcap:0000000000000040|os:chromeos':
+        ('Intel_7260', 'Chromebook Pixel 2', '2.4GHz'),
+    'wifi3|probe:0,1,50,45,htcap:11e2,htagg:17,htmcs:0000ffff|assoc:0,1,50,48,45,127,221(0050f2,2),cap:0431,htcap:11ac,htagg:17,htmcs:0000ffff,extcap:0000000000000040|os:chromeos':
         ('Intel_7260', 'Chromebook Pixel 2', '2.4GHz'),
 
     'wifi|probe:0,1,45,htcap:11ef|assoc:0,1,48,45,221(0050f2,2),htcap:11ef|os:chromeos':
@@ -222,6 +224,9 @@ database = {
 
     'wifi|probe:0,1,50,3,221(001018,2)|assoc:0,1,48,50,221(001018,2),221(0050f2,2)|name:iphone':
         ('BCM4325', 'iPhone 3GS', '2.4GHz'),
+
+    'wifi3|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:1800,htagg:1b,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0431,htcap:1800,htagg:1b,htmcs:000000ff|os:ios':
+        ('BCM4329', 'iPhone 4', '2.4GHz'),
 
     'wifi|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:0100,htagg:19,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0100,htagg:19,htmcs:000000ff|os:ios':
         ('BCM4330', 'iPhone 4S', '2.4GHz'),
@@ -358,16 +363,26 @@ database = {
     'wifi|probe:0,1,3,45,50,htcap:0102,htagg:03,htmcs:0000ffff|assoc:0,1,48,50,221(0050f2,2),45,htcap:012c,htagg:03,htmcs:0000ffff|oui:microsoft':
         ('Marvell_88W8797', 'Microsoft Surface RT', '2.4GHz'),
 
-    'wifi|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:020a0000|oui:motorola':
-        ('QCA_WCN3620', 'Moto-E (2nd gen)', '2.4GHz'),
+    'wifi3|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),127,cap:0411,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a0200000000|oui:motorola':
+        ('QCA_WCN3620', 'Moto E (2nd gen)', '2.4GHz'),
 
-    'wifi|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:020a0000|oui:motorola':
-        ('QCA_WCN3620', 'Moto-G', '2.4GHz'),
+    'wifi3|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),127,cap:8431,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02|oui:motorola':
+        ('QCA_WCN3620', 'Moto G', '2.4GHz'),
 
     'wifi|probe:0,1,45,221(0050f2,8),191,htcap:016e,vhtcap:31800120|assoc:0,1,33,36,48,45,221(0050f2,2),191,127,htcap:016e,vhtcap:31800120|oui:motorola':
-        ('QCA_WCN3680', 'MOTO-X 2013 version', '5GHz'),
+        ('QCA_WCN3680', 'Moto X', '5GHz'),
     'wifi|probe:0,1,50,3,45,221(0050f2,8),191,htcap:012c,vhtcap:31800120|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c|oui:motorola':
-        ('QCA_WCN3680', 'MOTO-X 2013 version', '2.4GHz'),
+        ('QCA_WCN3680', 'Moto X', '2.4GHz'),
+
+    'wifi3|probe:0,1,3,45,221(0050f2,8),191,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31805120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe|assoc:0,1,48,45,221(0050f2,2),191,127,127,cap:8431,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31805120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:00000a02|oui:motorola':
+        ('QCA_WCN3680', 'Moto X (2nd gen)', '5GHz'),
+    'wifi3|probe:0,1,50,3,45,221(0050f2,8),191,htcap:012c,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe|assoc:0,1,50,48,45,221(0050f2,2),127,cap:8431,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02|oui:motorola':
+        ('QCA_WCN3680', 'Moto X (2nd gen)', '2.4GHz'),
+
+    'wifi3|probe:0,1,127,45,htcap:01ef,htagg:03,htmcs:0000ffff,extcap:00000a0201|assoc:0,1,48,45,221(0050f2,2),191,127,cap:0011,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:338001b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:00000a020100004040|oui:motorola':
+        ('', 'Moto X Style', '5GHz'),
+    'wifi3|probe:0,1,50,127,45,htcap:01ef,htagg:03,htmcs:0000ffff,extcap:00000a0201|assoc:0,1,50,48,45,221(0050f2,2),127,cap:0411,htcap:01ad,htagg:03,htmcs:0000ffff,extcap:00000a020100000040|oui:motorola':
+        ('', 'Moto X Style', '2.4GHz'),
 
     'wifi|probe:0,1,50,45,htcap:1020,htagg:18,htmcs:000000ff|assoc:0,1,50,46,48,45,221(0050f2,2),htcap:1020,htagg:18,htmcs:000000ff|oui:motorola':
         ('TI_WL1271b', 'Motorola Droid 2', '2.4GHz'),
@@ -558,10 +573,14 @@ database = {
     'wifi3|probe:0,1,50,3,45,127,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,intwrk:0f,extcap:0000088001400040|assoc:0,1,50,33,36,48,70,45,127,221(001018,2),221(0050f2,2),cap:0431,htcap:002d,htagg:17,htmcs:0000ffff,txpow:1509,intwrk:0f,extcap:0000088001400040|oui:murata':
         ('BCM4358', 'Samsung Galaxy Note 4', '2.4GHz'),
 
-    'wifi|probe:0,1,45,221(001018,2),221(00904c,51),htcap:000c|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:000c|oui:samsung':
-        ('BCM4330', 'Samsung Galaxy S2 or Galaxy Note', ''),
-    'wifi|probe:0,1,45,221(001018,2),221(00904c,51),htcap:000c|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:000c|oui:samsung':
-        ('BCM4330', 'Samsung Galaxy S2 or Galaxy Note', ''),
+    'wifi3|probe:0,1,45,127,107,191,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:01ef,htagg:17,htmcs:0000ffff,vhtcap:0f9118b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,intwrk:0f,extcap:00080f8401400040|assoc:0,1,33,36,48,45,127,191,199,221(00904c,4),221(001018,2),221(0050f2,2),cap:0011,htcap:01ef,htagg:17,htmcs:0000ffff,vhtcap:0f9118b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:1102,extcap:0000000000000040|oui:samsung':
+        ('BCM4359' 'Samsung Galaxy Note 5', '5GHz'),
+    'wifi3|probe:0,1,45,127,107,191,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:01ef,htagg:17,htmcs:0000ffff,vhtcap:0f9118b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,intwrk:0f,extcap:00080f8401400040|assoc:0,1,33,36,48,45,127,191,199,221(00904c,4),221(001018,2),221(0050f2,2),cap:0011,htcap:01ef,htagg:17,htmcs:0000ffff,vhtcap:0f9118b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:1102,extcap:0000000000000040|oui:murata':
+        ('BCM4359' 'Samsung Galaxy Note 5', '5GHz'),
+    'wifi3|probe:0,1,50,3,45,127,107,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:01ad,htagg:17,htmcs:0000ffff,intwrk:0f,extcap:00080f840140|assoc:0,1,50,33,36,48,45,221(001018,2),221(0050f2,2),cap:0431,htcap:01ad,htagg:17,htmcs:0000ffff,txpow:1202|oui:samsung':
+        ('BCM4359' 'Samsung Galaxy Note 5', '2.4GHz'),
+    'wifi3|probe:0,1,50,3,45,127,107,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:01ad,htagg:17,htmcs:0000ffff,intwrk:0f,extcap:00080f840140|assoc:0,1,50,33,36,48,45,221(001018,2),221(0050f2,2),cap:0431,htcap:01ad,htagg:17,htmcs:0000ffff,txpow:1202|oui:murata':
+        ('BCM4359' 'Samsung Galaxy Note 5', '2.4GHz'),
 
     'wifi|probe:0,1,45,221(001018,2),221(00904c,51),htcap:0062|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062|oui:samsung':
         ('BCM4334', 'Samsung Galaxy S3', '5GHz'),
