@@ -34,6 +34,7 @@ class WifiTaxonomyTest(unittest.TestCase):
                  '221(0050f2,2),45,127,htcap:086c,htmcs:000000ff')
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
     self.assertEqual(3, len(taxonomy))
+    self.assertEqual('RTL8192CU', taxonomy[0])
     self.assertEqual('802.11n n:1,w:20', taxonomy[2])
 
     signature = ('wifi3|probe:0,1,45,221(00904c,51),htcap:09ef,htagg:1b,'
@@ -48,8 +49,7 @@ class WifiTaxonomyTest(unittest.TestCase):
     self.assertEqual('802.11n n:2,w:40', taxonomy[2])
 
   def testNameLookup(self):
-    signature = ('wifi|probe:0,1,50,3,221(001018,2)|assoc:0,1,48,50,'
-                 '221(001018,2),221(0050f2,2)')
+    signature = 'wifi3|probe:0,1,3,50|assoc:0,1,48,50,cap:0411'
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
     self.assertEqual(3, len(taxonomy))
     self.assertEqual('Unknown', taxonomy[1])
@@ -57,7 +57,7 @@ class WifiTaxonomyTest(unittest.TestCase):
     self.assertEqual(3, len(taxonomy))
     self.assertEqual('Unknown', taxonomy[1])
     taxonomy = wifi.identify_wifi_device(signature, '2c:1f:23:ff:ff:01')
-    self.assertEqual('iPhone 3GS', taxonomy[1])
+    self.assertEqual('iPod Touch 1st/2nd gen', taxonomy[1])
 
   def testChecksumWhenNoIdentification(self):
     taxonomy = wifi.identify_wifi_device('wifi|probe:1,2,3,4,htcap:0|assoc:1',
@@ -79,9 +79,9 @@ class WifiTaxonomyTest(unittest.TestCase):
     self.assertIn('Nexus 7', taxonomy[1])
 
     # Test one of the OUIs with multiple vendors listed.
-    signature = ('wifi3|probe:0,1,3,45,50,htcap:0120,htagg:03,htmcs:00000000|'
-                 'assoc:0,1,48,50,127,221(0050f2,2),45,cap:0411,htcap:012c,'
-                 'htagg:03,htmcs:000000ff,extcap:0000000000000140|oui:google')
+    signature = ('wifi|probe:0,1,3,45,50,htcap:0120,htagg:03,htmcs:00000000|'
+                 'assoc:0,1,48,50,127,221(0050f2,2),45,htcap:012c,htagg:03,'
+                 'htmcs:000000ff,extcap:00000000|oui:google')
     taxonomy = wifi.identify_wifi_device(signature, '6c:ad:f8:00:00:01')
     self.assertEqual('Chromecast', taxonomy[1])
 
