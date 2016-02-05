@@ -48,7 +48,7 @@ class WifiTaxonomyTest(unittest.TestCase):
     self.assertEqual('802.11n n:2,w:40', taxonomy[2])
 
   def testNameLookup(self):
-    signature = ('wifi|probe:0,1,50,3,221(001018,2)|assoc:0,1,48,50,'
+    signature = ('wifi|probe:0,1,50,221(001018,2)|assoc:0,1,48,50,'
                  '221(001018,2),221(0050f2,2)')
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
     self.assertEqual(3, len(taxonomy))
@@ -57,7 +57,7 @@ class WifiTaxonomyTest(unittest.TestCase):
     self.assertEqual(3, len(taxonomy))
     self.assertEqual('Unknown', taxonomy[1])
     taxonomy = wifi.identify_wifi_device(signature, '2c:1f:23:ff:ff:01')
-    self.assertEqual('iPhone 3GS', taxonomy[1])
+    self.assertEqual('iPod Touch 3rd gen', taxonomy[1])
 
   def testChecksumWhenNoIdentification(self):
     taxonomy = wifi.identify_wifi_device('wifi|probe:1,2,3,4,htcap:0|assoc:1',
@@ -67,16 +67,16 @@ class WifiTaxonomyTest(unittest.TestCase):
 
   def testOUI(self):
     # Devices with a generic signature, distinguished via MAC OUI
-    signature = ('wifi|probe:0,1,50,45,3,221(001018,2),221(00904c,51),'
-                 'htcap:110c,htagg:19,htmcs:000000ff|assoc:0,1,48,50,45,'
-                 '221(001018,2),221(00904c,51),221(0050f2,2),htcap:110c,'
-                 'htagg:19,htmcs:000000ff')
+    signature = ('wifi3|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,'
+                 'htmcs:000000ff|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,'
+                 'cap:1411,htcap:012c,htagg:03,htmcs:000000ff,txpow:170d,'
+                 'extcap:00000a0200000000')
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
     self.assertIn('Unknown', taxonomy[1])
-    taxonomy = wifi.identify_wifi_device(signature, '00:24:e4:00:00:01')
-    self.assertIn('Withings', taxonomy[1])
-    taxonomy = wifi.identify_wifi_device(signature, 'ac:22:0b:00:00:01')
-    self.assertIn('Nexus 7', taxonomy[1])
+    taxonomy = wifi.identify_wifi_device(signature, 'b4:52:7e:00:00:01')
+    self.assertIn('Sony Xperia Z Ultra', taxonomy[1])
+    taxonomy = wifi.identify_wifi_device(signature, 'f8:f1:b6:00:00:01')
+    self.assertIn('Moto E (2nd gen)', taxonomy[1])
 
     # Test one of the OUIs with multiple vendors listed.
     signature = ('wifi3|probe:0,1,3,45,50,htcap:0120,htagg:03,htmcs:00000000|'
@@ -91,6 +91,25 @@ class WifiTaxonomyTest(unittest.TestCase):
     self.assertIn('Unknown', taxonomy[1])
     taxonomy = wifi.identify_wifi_device(signature, '28:ef:01:00:00:01')
     self.assertIn('Kindle', taxonomy[1])
+
+  def testCommonSignature(self):
+    signature = ('wifi3|probe:0,1,50,45,221(001018,2),221(00904c,51),'
+                 'htcap:182c,htagg:1b,htmcs:000000ff|assoc:0,1,48,50,45,'
+                 '221(001018,2),221(00904c,51),221(0050f2,2),cap:0431,'
+                 'htcap:182c,htagg:1b,htmcs:000000ff')
+    # This is a very common signature among devices issued in 2010.
+    # It will match:
+    # Samsung Captivate, Epic 2, Fascinate, Continuum, Charge, Vibrant
+    # Samsung Galaxy Tab 2
+    # HTC Thunderbolt
+    # ASUS Transformer TF300
+    # Nexus One
+    taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
+    self.assertIn('Unknown', taxonomy[1])
+    taxonomy = wifi.identify_wifi_device(signature, 'b4:ce:f6:00:00:01')
+    self.assertIn('Unknown', taxonomy[1])
+    taxonomy = wifi.identify_wifi_device(signature, 'ac:22:0b:00:00:01')
+    self.assertIn('Unknown', taxonomy[1])
 
   def testUnknown(self):
     signature = 'wifi|probe:0,1,2,vhtcap:0033|assoc:3,4,vhtcap:0033'

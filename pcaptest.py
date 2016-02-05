@@ -8,8 +8,19 @@ import sys
 import wifi
 
 regression = [
+  # devices for which we have a pcap but have decided not to add
+  # to the database, generally because the device is not common
+  # enough.
+  ('Unknown', './testdata/pcaps/iPhone 2 2.4GHz.pcap'),
+  ('Unknown', './testdata/pcaps/iPhone 3 2.4GHz.pcap'),
+  ('Unknown', './testdata/pcaps/iPhone 3GS 2.4GHz.pcap'),
+  ('Unknown', './testdata/pcaps/iPhone 3GS 2.4GHz M137LL.pcap'),
   ('Unknown', './testdata/pcaps/HTC Evo 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/HTC Thunderbolt 2.4GHz.pcap'),
+  ('Unknown', './testdata/pcaps/Lenovo_T440_80211ac_2x2_Windows8_2_4_GHz.pcap'),
+  ('Unknown', './testdata/pcaps/MediaTek MT7610U 2.4GHz.pcap'),
+  ('Unknown', './testdata/pcaps/Motorola Droid 2 2.4GHz.pcap'),
+  ('Unknown', './testdata/pcaps/Motorola Droid 3 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/Nexus One 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/Samsung Charge 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/Samsung Captivate 2.4GHz.pcap'),
@@ -18,10 +29,12 @@ regression = [
   ('Unknown', './testdata/pcaps/Samsung Fascinate 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/Samsung Galaxy Tab 2 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/Samsung Vibrant 2.4GHz.pcap'),
-  ('Unknown', './testdata/pcaps/Lenovo_T440_80211ac_2x2_Windows8_2_4_GHz.pcap'),
-  ('Unknown', './testdata/pcaps/MediaTek MT7610U 2.4GHz.pcap'),
+  ('Unknown', './testdata/pcaps/Sony Xperia Z5 2.4GHz.pcap'),
+  ('Unknown', './testdata/pcaps/Sony Xperia Z5 5GHz.pcap'),
 
-  # names contain a slash ('/'), which Linux filenames do not tolerate
+  # Names which contain a slash ('/'), which Linux filenames do not
+  # tolerate. Inferring the expected result from the filename doesn't
+  # work for these, instead we add them explicitly.
   ('iPad (1st/2nd gen)', './testdata/pcaps/iPad 1st gen 5GHz.pcap'),
   ('iPad (1st/2nd gen)', './testdata/pcaps/iPad 2nd gen 5GHz.pcap'),
   ('iPhone 6/6+', './testdata/pcaps/iPhone 6+ 5GHz.pcap'),

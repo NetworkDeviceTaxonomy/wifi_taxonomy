@@ -1,7 +1,13 @@
+# The astute observer will note that many of these are mis-spelled.
+# This is deliberate: we want to prevent "name:iphone" (etc) entries
+# from being added to wifi.py without deliberate effort. This
+# file conveys that "iPhoone-4" is the MAC address for the
+# iPhone 4 in testdata/pcaps, but won't match a signature
+# containing "name:iphone".
 1432269507 28:18:78:ff:ff:01 192.168.42.1 Xbox-SystemOS 01:02:03:04:05:06:07
 1432236005 d8:50:e6:ff:ff:02 192.168.42.2 * 01:02:03:04:05:06:08
 1432237015 f8:e0:79:ff:ff:03 192.168.42.3 android-fedcba9876543210 *
-1432237016 2c:1f:23:ff:ff:01 192.168.42.4 iPhone *
+1432237016 2c:1f:23:ff:ff:01 192.168.42.4 iPod *
 duid 00:01:00:01:00:00:11:03:f4:f5:e8:00:00:01
 1432237016 c8:69:cd:5e:b5:43 192.168.42.5 Apple-TV *
 1432237016 6c:29:95:7c:25:fe 192.168.42.6 * *
@@ -30,3 +36,6 @@ duid 00:01:00:01:00:00:11:03:f4:f5:e8:00:00:01
 1432237016 9c:f3:87:cc:38:1e 192.168.42.29 MacBoookAir2014
 1432237016 34:23:87:5c:86:39 192.168.42.30 HPChromeboook
 1432237016 34:af:2c:ff:80:ef 192.168.42.31 WiiU
+1432237016 00:26:4a:e6:b7:4e 192.168.42.32 iPhoone-3GS
+1432237016 d0:23:db:a2:e5:02 192.168.42.33 iPhoone-4s
+1432237016 00:26:4a:c2:89:58 192.168.42.33 iPhoone-3GS
