@@ -2,14 +2,12 @@ PYTHON?=python
 
 all: build
 
-test: pcaptest
+test: tax_signature
 	set -e; \
 	for d in $(wildcard tests/*_test.py); do \
 		PYTHONPATH=. $(PYTHON) $$d; \
 	done
-
-pcaptest: tax_signature
-    PYTHONPATH=. python ./pcaptest.py
+	PYTHONPATH=. $(PYTHON) ./pcaptest.py
 
 PREFIX=/usr
 

@@ -11,6 +11,7 @@ regression = [
   # devices for which we have a pcap but have decided not to add
   # to the database, generally because the device is not common
   # enough.
+  ('Unknown', './testdata/pcaps/ASUS Transformer TF300 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/iPhone 2 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/iPhone 3 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/iPhone 3GS 2.4GHz.pcap'),
@@ -18,10 +19,14 @@ regression = [
   ('Unknown', './testdata/pcaps/HTC Evo 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/HTC Thunderbolt 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/Lenovo_T440_80211ac_2x2_Windows8_2_4_GHz.pcap'),
+  ('Unknown', './testdata/pcaps/LG E900 2.4GHz.pcap'),
+  ('Unknown', './testdata/pcaps/LG G2X 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/MediaTek MT7610U 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/Motorola Droid 2 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/Motorola Droid 3 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/Nexus One 2.4GHz.pcap'),
+  ('Unknown', './testdata/pcaps/Nokia Lumia 920 2.4GHz.pcap'),
+  ('Unknown', './testdata/pcaps/Nokia Lumia 920 5GHz.pcap'),
   ('Unknown', './testdata/pcaps/Samsung Charge 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/Samsung Captivate 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/Samsung Continuum 2.4GHz.pcap'),
@@ -37,6 +42,7 @@ regression = [
   # work for these, instead we add them explicitly.
   ('iPad (1st/2nd gen)', './testdata/pcaps/iPad 1st gen 5GHz.pcap'),
   ('iPad (1st/2nd gen)', './testdata/pcaps/iPad 2nd gen 5GHz.pcap'),
+  ('iPhone 6/6+', './testdata/pcaps/iPhone 6 5GHz.pcap'),
   ('iPhone 6/6+', './testdata/pcaps/iPhone 6+ 5GHz.pcap'),
   ('iPhone 6s/6s+', './testdata/pcaps/iPhone 6s 2.4GHz.pcap'),
   ('iPhone 6s/6s+', './testdata/pcaps/iPhone 6s+ 2.4GHz.pcap'),

@@ -145,6 +145,7 @@ database = {
     'a8:06:00': ['samsung'],
     'ac:36:13': ['samsung'],
     'b0:df:3a': ['samsung'],
+    'b0:ec:71': ['samsung'],
     'b4:07:f9': ['samsung'],
     'c0:bd:d1': ['samsung'],
     'c4:42:02': ['samsung'],
