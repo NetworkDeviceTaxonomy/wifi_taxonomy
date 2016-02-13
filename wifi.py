@@ -23,7 +23,7 @@ import ethernet
 
 
 database = {
-    'wifi|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:110c,htagg:19,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:110c,htagg:19,htmcs:000000ff|os:dashbutton':
+    'wifi3|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:110c,htagg:19,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0431,htcap:110c,htagg:19,htmcs:000000ff|os:dashbutton':
         ('BCM43362', 'Amazon Dash Button', '2.4GHz'),
 
     'wifi|probe:0,1,50|assoc:0,1,50,48,221(0050f2,2)|os:kindle':
@@ -366,6 +366,11 @@ database = {
     'wifi|probe:0,1,50,3,45,221(00904c,51),htcap:182c|assoc:0,1,33,36,48,50,45,221(00904c,51),221(0050f2,2),htcap:182c|os:macos':
         ('BCM4322', 'MacBook late 2008 (A1278)', '2.4GHz'),
 
+    'wifi3|probe:0,1,45,221(001018,2),221(00904c,51),htcap:087e,htagg:1b,htmcs:0000ffff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0011,htcap:087e,htagg:1b,htmcs:0000ffff,txpow:0f07|os:macos':
+        ('BCM43224', 'MacBook Air late 2010 (A1369)', '5GHz'),
+    'wifi3|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:187c,htagg:1b,htmcs:0000ffff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0431,htcap:187c,htagg:1b,htmcs:0000ffff,txpow:1207|os:macos':
+        ('BCM43224', 'MacBook Air late 2010 (A1369)', '2.4GHz'),
+
     'wifi|probe:0,1,45,221(00904c,51),htcap:086e,htagg:1b,htmcs:0000ffff|assoc:0,1,33,36,48,45,221(00904c,51),221(0050f2,2),htcap:086e,htagg:1b,htmcs:0000ffff|os:macos':
         ('BCM4322', 'MacBook Air late 2011', '5GHz'),
 
@@ -580,6 +585,14 @@ database = {
     'wifi3|probe:0,1,45,221(001018,2),221(00904c,51),htcap:0062,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0011,htcap:0062,htagg:1a,htmcs:000000ff,txpow:0e09|oui:samsung':
         ('BCM4330', 'Samsung Galaxy Note 2', '5GHz'),
     'wifi3|probe:0,1,45,221(001018,2),221(00904c,51),htcap:0062,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0011,htcap:0062,htagg:1a,htmcs:000000ff,txpow:0e09|oui:murata':
+        ('BCM4330', 'Samsung Galaxy Note 2', '5GHz'),
+    'wifi3|probe:0,1,45,3,221(001018,2),221(00904c,51),htcap:0062,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0011,htcap:0062,htagg:1a,htmcs:000000ff,txpow:0e09|oui:samsung':
+        ('BCM4330', 'Samsung Galaxy Note 2', '5GHz'),
+    'wifi3|probe:0,1,45,3,221(001018,2),221(00904c,51),htcap:0062,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0011,htcap:0062,htagg:1a,htmcs:000000ff,txpow:0e09|oui:murata':
+        ('BCM4330', 'Samsung Galaxy Note 2', '5GHz'),
+    'wifi3|probe:0,1,45,3,221(001018,2),221(00904c,51),htcap:0062,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0011,htcap:0062,htagg:1a,htmcs:000000ff,txpow:0e09|oui:samsung':
+        ('BCM4330', 'Samsung Galaxy Note 2', '5GHz'),
+    'wifi3|probe:0,1,45,3,221(001018,2),221(00904c,51),htcap:0062,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0011,htcap:0062,htagg:1a,htmcs:000000ff,txpow:0e09|oui:murata':
         ('BCM4330', 'Samsung Galaxy Note 2', '5GHz'),
     'wifi3|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:1020,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,50,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0431,htcap:1020,htagg:1a,htmcs:000000ff,txpow:1209|oui:samsung':
         ('BCM4330', 'Samsung Galaxy Note 2', '2.4GHz'),
