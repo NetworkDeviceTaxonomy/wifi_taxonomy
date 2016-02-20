@@ -25,6 +25,7 @@
 database = {
     '00:bb:3a': ['amazon'],
     '10:ae:60': ['amazon'],
+    '28:ef:01': ['amazon'],
     '74:75:48': ['amazon'],
     '84:d6:d0': ['amazon'],
     'a0:02:dc': ['amazon'],
@@ -52,6 +53,7 @@ database = {
 
     '00:23:76': ['htc'],
     '00:ee:bd': ['htc'],
+    '18:87:96': ['htc'],
     '1c:b0:94': ['htc'],
     '38:e7:d8': ['htc'],
     '50:2e:5c': ['htc'],
@@ -138,6 +140,7 @@ database = {
     '6c:83:36': ['samsung'],
     '78:d6:f0': ['samsung'],
     '80:65:6d': ['samsung'],
+    '84:25:db': ['samsung'],
     '84:38:38': ['samsung'],
     '88:32:9b': ['samsung'],
     '8c:77:12': ['samsung'],

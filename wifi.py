@@ -31,11 +31,8 @@ database = {
     'wifi|probe:0,1,50,45,htcap:01ac,htagg:02,htmcs:0000ffff|assoc:0,1,50,48,221(0050f2,2),45,127,htcap:01ac,htagg:02,htmcs:0000ffff|os:kindle':
         ('', 'Amazon Kindle', '2.4GHz'),
 
-    'wifi|probe:0,1,50,3,45,221(0050f2,8),htcap:1130,htagg:18,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),htcap:1130,htagg:18,htmcs:000000ff|oui:amazon':
-        ('TI_WL1271', 'Amazon Kindle Fire', '2.4GHz'),
-    'wifi|probe:0,1,50|assoc:0,1,50,45,48,127,221(0050f2,2),htcap:1172,htagg:03,htmcs:000000ff|oui:amazon':
-        ('', 'Amazon Kindle Fire', '2.4GHz'),
-
+    'wifi3|probe:0,1,50,3,45,221(0050f2,8),htcap:1130,htagg:18,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),cap:8431,htcap:1130,htagg:18,htmcs:000000ff|oui:amazon':
+        ('TI_WL1271', 'Amazon Kindle Fire 7" (2011 edition)', '2.4GHz'),
     'wifi|probe:0,1,50,221(0050f2,4),221(506f9a,9),wps:KFASWI|assoc:0,1,50,45,127,221(0050f2,2),48,htcap:1172,htagg:03,htmcs:000000ff':
         ('', 'Amazon Kindle Fire 7" (2014 edition)', '2.4GHz'),
     'wifi|probe:0,1,50,221(0050f2,4),221(506f9a,9),wps:KFFOWI|assoc:0,1,50,45,48,127,221(0050f2,2),htcap:1172,htagg:03,htmcs:000000ff':
@@ -331,7 +328,9 @@ database = {
     'wifi3|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:180c,htagg:1b,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0431,htcap:180c,htagg:1b,htmcs:000000ff|os:ios':
         ('BCM4329', 'iPod Touch 4th gen', '2.4GHz'),
 
-    'wifi|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062,htagg:1a,htmcs:000000ff,intwrk:0f,extcap:04000000|assoc:0,1,33,36,48,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062,htagg:1a,htmcs:000000ff|name:ipod':
+    'wifi3|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020,htagg:1a,htmcs:000000ff,intwrk:0f,extcap:00000004|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0431,htcap:0020,htagg:1a,htmcs:000000ff,txpow:1504|os:ios':
+        ('BCM4334', 'iPod Touch 5th gen', '5GHz'),
+    'wifi3|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062,htagg:1a,htmcs:000000ff,intwrk:0f,extcap:00000004|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0011,htcap:0062,htagg:1a,htmcs:000000ff,txpow:1706|os:ios':
         ('BCM4334', 'iPod Touch 5th gen', '2.4GHz'),
 
     'wifi|probe:0,1,45,127,191,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:006f,vhtcap:0f805832|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(00904c,4),221(0050f2,2),htcap:006f,vhtcap:0f805832|oui:lg':
@@ -671,6 +670,10 @@ database = {
         ('BCM4335', 'Samsung Galaxy S4', '5GHz'),
     'wifi3|probe:0,1,3,45,127,107,191,221(506f9a,16),221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,intwrk:0f,extcap:0000088000400040|assoc:0,1,33,36,48,45,127,107,191,221(001018,2),221(00904c,4),221(0050f2,2),cap:0011,htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e001,intwrk:0f,extcap:0000008000400040|oui:murata':
         ('BCM4335', 'Samsung Galaxy S4', '5GHz'),
+    'wifi3|probe:0,1,45,127,191,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000080000000040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(00904c,4),221(0050f2,2),cap:0011,htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e001,extcap:0000000000000040|oui:samsung':
+        ('BCM4335', 'Samsung Galaxy S4', '5GHz'),
+    'wifi3|probe:0,1,45,127,191,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000080000000040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(00904c,4),221(0050f2,2),cap:0011,htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e001,extcap:0000000000000040|oui:murata':
+        ('BCM4335', 'Samsung Galaxy S4', '5GHz'),
     'wifi3|probe:0,1,50,3,45,127,107,221(506f9a,16),221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:102d,htagg:17,htmcs:000000ff,intwrk:0f,extcap:0000088000400040|assoc:0,1,33,36,48,50,45,127,107,221(001018,2),221(0050f2,2),cap:0431,htcap:102d,htagg:17,htmcs:000000ff,txpow:1201,intwrk:0f,extcap:000000800040|oui:samsung':
         ('BCM4335', 'Samsung Galaxy S4', '2.4GHz'),
     'wifi3|probe:0,1,50,3,45,127,107,221(506f9a,16),221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:102d,htagg:17,htmcs:000000ff,intwrk:0f,extcap:0000088000400040|assoc:0,1,33,36,48,50,45,127,107,221(001018,2),221(0050f2,2),cap:0431,htcap:102d,htagg:17,htmcs:000000ff,txpow:1201,intwrk:0f,extcap:000000800040|oui:murata':
@@ -709,6 +712,15 @@ database = {
         ('BCM4358', 'Samsung Galaxy S6', '2.4GHz'),
     'wifi3|probe:0,1,50,3,45,127,221(00904c,4),221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0000088001400040|assoc:0,1,50,33,36,48,45,127,221(001018,2),221(0050f2,2),cap:1431,htcap:002d,htagg:17,htmcs:0000ffff,txpow:1402,extcap:0000088001400040|oui:murata':
         ('BCM4358', 'Samsung Galaxy S6', '2.4GHz'),
+
+    'wifi3|probe:0,1,45,221(001018,2),221(00904c,51),htcap:082c,htagg:1b,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0011,htcap:082c,htagg:1b,htmcs:000000ff,txpow:0f08|oui:samsung':
+        ('BCM4329', 'Samsung Galaxy Tab', '5GHz'),
+    'wifi3|probe:0,1,45,221(001018,2),221(00904c,51),htcap:082c,htagg:1b,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0011,htcap:082c,htagg:1b,htmcs:000000ff,txpow:0f08|oui:murata':
+        ('BCM4329', 'Samsung Galaxy Tab', '5GHz'),
+    'wifi3|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:182c,htagg:1b,htmcs:000000ff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0431,htcap:182c,htagg:1b,htmcs:000000ff,txpow:1208|oui:samsung':
+        ('BCM4329', 'Samsung Galaxy Tab', '2.4GHz'),
+    'wifi3|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:182c,htagg:1b,htmcs:000000ff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0431,htcap:182c,htagg:1b,htmcs:000000ff,txpow:1208|oui:murata':
+        ('BCM4329', 'Samsung Galaxy Tab', '2.4GHz'),
 
     'wifi3|probe:0,1,45,50,htcap:0162,htagg:03,htmcs:00000000|assoc:0,1,48,127,221(0050f2,2),45,cap:0011,htcap:016e,htagg:03,htmcs:000000ff,extcap:0400000000000140|oui:samsung':
         ('Marvell_88W8787', 'Samsung Galaxy Tab 3', '5GHz'),
