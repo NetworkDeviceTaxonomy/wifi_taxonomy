@@ -11,7 +11,13 @@ regression = [
   # devices for which we have a pcap but have decided not to add
   # to the database, generally because the device is not common
   # enough.
+  ('Unknown', './testdata/pcaps/Amazon Fire Phone 2.4GHz.pcap'),
+  ('Unknown', './testdata/pcaps/Amazon Fire Phone 5GHz Broadcast.pcap'),
+  ('Unknown', './testdata/pcaps/Amazon Fire Phone 5GHz Specific.pcap'),
+  ('Unknown', './testdata/pcaps/Amazon Fire Phone 5GHz.pcap'),
   ('Unknown', './testdata/pcaps/ASUS Transformer TF300 2.4GHz.pcap'),
+  ('Unknown', './testdata/pcaps/Blackberry Bold 9930 2.4GHz.pcap'),
+  ('Unknown', './testdata/pcaps/Blackberry Bold 9930 5GHz.pcap'),
   ('Unknown', './testdata/pcaps/iPhone 2 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/iPhone 3 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/iPhone 3GS 2.4GHz.pcap'),
@@ -29,6 +35,7 @@ regression = [
   ('Unknown', './testdata/pcaps/MediaTek MT7610U 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/Motorola Droid 2 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/Motorola Droid 3 2.4GHz.pcap'),
+  ('Unknown', './testdata/pcaps/Motorola Droid Razr Maxx 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/Nexus One 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/Nokia Lumia 920 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/Nokia Lumia 920 5GHz.pcap'),

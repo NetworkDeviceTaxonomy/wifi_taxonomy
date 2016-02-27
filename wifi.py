@@ -130,9 +130,13 @@ database = {
     'wifi|probe:0,1,3,45,50,htcap:0060,htagg:03,htmcs:000000ff|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:006c,htagg:03,htmcs:000000ff|os:hpprinter':
         ('', 'HP Printer', '2.4GHz'),
 
-    'wifi|probe:0,1,45,127,191,221(506f9a,16),221(001018,2),221(00904c,51),htcap:006f,vhtcap:03800032|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,vhtcap:03800032|oui:htc':
+    'wifi3|probe:0,1,45,127,191,221(001018,2),221(00904c,51),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:03800032,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000000000000040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),cap:0011,htcap:006f,htagg:17,htmcs:000000ff,vhtcap:03800032,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e008,extcap:0000000000000040|oui:htc':
         ('BCM4335', 'HTC One', '5GHz'),
-    'wifi|probe:0,1,50,3,45,127,221(506f9a,16),221(001018,2),221(00904c,51),htcap:102d|assoc:0,1,33,36,48,50,45,221(001018,2),221(0050f2,2),htcap:102d|oui:htc':
+    'wifi3|probe:0,1,3,45,127,191,221(001018,2),221(00904c,51),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:03800032,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000000000000040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),cap:0011,htcap:006f,htagg:17,htmcs:000000ff,vhtcap:03800032,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e008,extcap:0000000000000040|oui:htc':
+        ('BCM4335', 'HTC One', '5GHz'),
+    'wifi3|probe:0,1,50,45,127,221(001018,2),221(00904c,51),htcap:102d,htagg:17,htmcs:000000ff,extcap:0000000000000040|assoc:0,1,33,36,48,50,45,221(001018,2),221(0050f2,2),cap:0431,htcap:102d,htagg:17,htmcs:000000ff,txpow:1408|oui:htc':
+        ('BCM4335', 'HTC One', '2.4GHz'),
+    'wifi3|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),htcap:102d,htagg:17,htmcs:000000ff,extcap:0000000000000040|assoc:0,1,33,36,48,50,45,221(001018,2),221(0050f2,2),cap:0431,htcap:102d,htagg:17,htmcs:000000ff,txpow:1408|oui:htc':
         ('BCM4335', 'HTC One', '2.4GHz'),
 
     'wifi3|probe:0,1,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,wps:HTC_VLE_U|assoc:0,1,50,48,45,221(0050f2,2),cap:0431,htcap:012c,htagg:03,htmcs:000000ff':
@@ -266,6 +270,13 @@ database = {
     'wifi3|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020,htagg:1a,htmcs:000000ff,intwrk:ff,extcap:00000004|assoc:0,1,33,36,48,50,45,70,221(001018,2),221(00904c,51),221(0050f2,2),cap:0431,htcap:0020,htagg:1a,htmcs:000000ff,txpow:1403|os:ios':
         ('BCM4334', 'iPhone 5', '2.4GHz'),
 
+    'wifi3|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062,htagg:1a,htmcs:000000ff,intwrk:02,extcap:00000004|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0011,htcap:0062,htagg:1a,htmcs:000000ff,txpow:1805|os:ios':
+        ('BCM4334', 'iPhone 5c', '5GHz'),
+    'wifi3|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020,htagg:1a,htmcs:000000ff,intwrk:02,extcap:00000004|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0431,htcap:0020,htagg:1a,htmcs:000000ff,txpow:1704|os:ios':
+        ('BCM4334', 'iPhone 5c', '2.4GHz'),
+    'wifi3|probe:0,1,50,3,45,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020,htagg:1a,htmcs:000000ff,intwrk:02|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0431,htcap:0020,htagg:1a,htmcs:000000ff,txpow:1704|os:ios':
+        ('BCM4334', 'iPhone 5c', '2.4GHz'),
+
     'wifi3|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062,htagg:1a,htmcs:000000ff,intwrk:ff,extcap:00000804|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0011,htcap:0062,htagg:1a,htmcs:000000ff,txpow:1603|os:ios':
         ('BCM4334', 'iPhone 5s', '5GHz'),
     'wifi3|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062,htagg:1a,htmcs:000000ff,intwrk:ff,extcap:00000804|assoc:0,1,33,36,48,45,70,221(001018,2),221(00904c,51),221(0050f2,2),cap:0011,htcap:0062,htagg:1a,htmcs:000000ff,txpow:1603|os:ios':
@@ -333,15 +344,11 @@ database = {
     'wifi3|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062,htagg:1a,htmcs:000000ff,intwrk:0f,extcap:00000004|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0011,htcap:0062,htagg:1a,htmcs:000000ff,txpow:1706|os:ios':
         ('BCM4334', 'iPod Touch 5th gen', '2.4GHz'),
 
-    'wifi|probe:0,1,45,127,191,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:006f,vhtcap:0f805832|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(00904c,4),221(0050f2,2),htcap:006f,vhtcap:0f805832|oui:lg':
+    'wifi3|probe:0,1,3,45,127,191,221(001018,2),221(00904c,51),221(0050f2,8),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000080000000040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),cap:0011,htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e001,extcap:0000000000000040|oui:lg':
         ('BCM4335', 'LG G2', '5GHz'),
-    'wifi|probe:0,1,45,127,191,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:00080000|assoc:0,1,33,36,45,127,191,221(001018,2),221(00904c,4),221(0050f2,2),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:00000000|oui:lg':
-        ('BCM4335', 'LG G2', '5GHz'),
-    'wifi|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:102d|assoc:0,1,33,36,48,50,45,127,221(001018,2),221(0050f2,2),htcap:102d|oui:lg':
+    'wifi3|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),221(0050f2,8),htcap:102d,htagg:17,htmcs:000000ff,extcap:0000080000000040|assoc:0,1,33,36,48,50,45,127,221(001018,2),221(0050f2,2),cap:0431,htcap:102d,htagg:17,htmcs:000000ff,txpow:11ff|oui:lg':
         ('BCM4335', 'LG G2', '2.4GHz'),
-    'wifi|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:102d|assoc:0,1,33,36,48,50,45,221(001018,2),221(0050f2,2),htcap:102d|oui:lg':
-        ('BCM4335', 'LG G2', '2.4GHz'),
-    'wifi|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:102d,htagg:17,htmcs:000000ff,extcap:00080000|assoc:0,1,33,36,50,45,221(001018,2),221(0050f2,2),htcap:102d,htagg:17,htmcs:000000ff|oui:lg':
+    'wifi3|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),221(0050f2,8),htcap:102d,htagg:17,htmcs:000000ff,extcap:0000080000000040|assoc:0,1,33,36,48,50,45,221(001018,2),221(0050f2,2),cap:0431,htcap:102d,htagg:17,htmcs:000000ff,txpow:11ff|oui:lg':
         ('BCM4335', 'LG G2', '2.4GHz'),
 
     'wifi3|probe:0,1,45,221(0050f2,8),191,127,107,221(506f9a,16),htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,intwrk:0f,extcap:000000800040|assoc:0,1,33,36,48,45,221(0050f2,2),191,127,cap:0111,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31805120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:170d,extcap:00000a8201400040|oui:lg':
@@ -437,9 +444,15 @@ database = {
         ('QCA_WCN3360', 'Nexus 4', '5GHz'),
     'wifi3|probe:0,1,45,221(0050f2,8),191,221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,vhtcap:31811120,vhtrxmcs:01b2fffc,vhttxmcs:01b2fffc,wps:Nexus_4|assoc:0,1,48,45,221(0050f2,2),cap:0431,htcap:012c,htagg:03,htmcs:000000ff':
         ('QCA_WCN3360', 'Nexus 4', '5GHz'),
+    'wifi3|probe:0,1,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,wps:Nexus_4|assoc:0,1,48,45,221(0050f2,2),127,cap:0431,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02':
+        ('QCA_WCN3360', 'Nexus 4', '5GHz'),
+    'wifi3|probe:0,1,45,221(0050f2,8),191,221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,vhtcap:31811120,vhtrxmcs:01b2fffc,vhttxmcs:01b2fffc,wps:Nexus_4|assoc:0,1,50,48,45,221(0050f2,2),cap:0431,htcap:012c,htagg:03,htmcs:000000ff':
+        ('QCA_WCN3360', 'Nexus 4', '5GHz'),
     'wifi3|probe:0,1,50,45,221(0050f2,8),191,221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,vhtcap:31811120,vhtrxmcs:01b2fffc,vhttxmcs:01b2fffc,wps:Nexus_4|assoc:0,1,50,48,45,221(0050f2,2),cap:0431,htcap:012c,htagg:03,htmcs:000000ff':
         ('QCA_WCN3360', 'Nexus 4', '2.4GHz'),
     'wifi3|probe:0,1,50,3,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,wps:Nexus_4|assoc:0,1,50,48,45,221(0050f2,2),cap:0431,htcap:012c,htagg:03,htmcs:000000ff':
+        ('QCA_WCN3360', 'Nexus 4', '2.4GHz'),
+    'wifi3|probe:0,1,50,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),127,cap:0431,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02|oui:lg':
         ('QCA_WCN3360', 'Nexus 4', '2.4GHz'),
 
     'wifi3|probe:0,1,45,127,191,221(001018,2),221(00904c,51),htcap:016f,htagg:17,htmcs:000000ff,vhtcap:0f805932,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000000000000040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),cap:0011,htcap:016f,htagg:17,htmcs:000000ff,vhtcap:0f805932,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e003,extcap:0000000000000040|oui:lg':
@@ -645,13 +658,26 @@ database = {
     'wifi3|probe:0,1,50,3,45,127,107,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:01ad,htagg:17,htmcs:0000ffff,intwrk:0f,extcap:00080f8401400040|assoc:0,1,50,33,36,48,45,221(001018,2),221(0050f2,2),cap:0431,htcap:01ad,htagg:17,htmcs:0000ffff,txpow:1202|oui:murata':
         ('BCM4359', 'Samsung Galaxy Note 5', '2.4GHz'),
 
-    'wifi|probe:0,1,45,221(001018,2),221(00904c,51),htcap:0062|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062|oui:samsung':
+    'wifi3|probe:0,1,45,3,221(001018,2),221(00904c,51),htcap:000c,htagg:19,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0011,htcap:000c,htagg:19,htmcs:000000ff,txpow:0f09|oui:samsung':
+        ('', 'Samsung Galaxy S2+', '5GHz'),
+    'wifi3|probe:0,1,45,3,221(001018,2),221(00904c,51),htcap:000c,htagg:19,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0011,htcap:000c,htagg:19,htmcs:000000ff,txpow:0f09|oui:murata':
+        ('', 'Samsung Galaxy S2+', '5GHz'),
+    'wifi3|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:100c,htagg:19,htmcs:000000ff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0431,htcap:100c,htagg:19,htmcs:000000ff,txpow:1209|oui:samsung':
+        ('', 'Samsung Galaxy S2+', '2.4GHz'),
+    'wifi3|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:100c,htagg:19,htmcs:000000ff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0431,htcap:100c,htagg:19,htmcs:000000ff,txpow:1209|oui:murata':
+        ('', 'Samsung Galaxy S2+', '2.4GHz'),
+
+    'wifi3|probe:0,1,45,221(001018,2),221(00904c,51),htcap:0062,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0011,htcap:0062,htagg:1a,htmcs:000000ff,txpow:1409|oui:samsung':
         ('BCM4334', 'Samsung Galaxy S3', '5GHz'),
-    'wifi|probe:0,1,45,221(001018,2),221(00904c,51),htcap:0062|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062|oui:murata':
+    'wifi3|probe:0,1,45,221(001018,2),221(00904c,51),htcap:0062,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0011,htcap:0062,htagg:1a,htmcs:000000ff,txpow:1409|oui:murata':
         ('BCM4334', 'Samsung Galaxy S3', '5GHz'),
-    'wifi|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:1020|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:1020|oui:samsung':
+    'wifi3|probe:0,1,45,3,221(001018,2),221(00904c,51),htcap:0062,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0011,htcap:0062,htagg:1a,htmcs:000000ff,txpow:1409|oui:samsung':
+        ('BCM4334', 'Samsung Galaxy S3', '5GHz'),
+    'wifi3|probe:0,1,45,3,221(001018,2),221(00904c,51),htcap:0062,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0011,htcap:0062,htagg:1a,htmcs:000000ff,txpow:1409|oui:murata':
+        ('BCM4334', 'Samsung Galaxy S3', '5GHz'),
+    'wifi3|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:1020,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0431,htcap:1020,htagg:1a,htmcs:000000ff,txpow:1409|oui:samsung':
         ('BCM4334', 'Samsung Galaxy S3', '2.4GHz'),
-    'wifi|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:1020|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:1020|oui:murata':
+    'wifi3|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:1020,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),cap:0431,htcap:1020,htagg:1a,htmcs:000000ff,txpow:1409|oui:murata':
         ('BCM4334', 'Samsung Galaxy S3', '2.4GHz'),
 
     'wifi3|probe:0,1,45,127,191,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000080000000040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(00904c,4),221(0050f2,2),cap:1111,htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e001,extcap:0000000000000040|oui:samsung':
@@ -673,6 +699,10 @@ database = {
     'wifi3|probe:0,1,45,127,191,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000080000000040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(00904c,4),221(0050f2,2),cap:0011,htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e001,extcap:0000000000000040|oui:samsung':
         ('BCM4335', 'Samsung Galaxy S4', '5GHz'),
     'wifi3|probe:0,1,45,127,191,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000080000000040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(00904c,4),221(0050f2,2),cap:0011,htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e001,extcap:0000000000000040|oui:murata':
+        ('BCM4335', 'Samsung Galaxy S4', '5GHz'),
+    'wifi3|probe:0,1,45,127,191,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000080000400040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(00904c,4),221(0050f2,2),cap:0011,htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e001,extcap:0000000000400040|oui:samsung':
+        ('BCM4335', 'Samsung Galaxy S4', '5GHz'),
+    'wifi3|probe:0,1,45,127,191,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000080000400040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(00904c,4),221(0050f2,2),cap:0011,htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e001,extcap:0000000000400040|oui:murata':
         ('BCM4335', 'Samsung Galaxy S4', '5GHz'),
     'wifi3|probe:0,1,50,3,45,127,107,221(506f9a,16),221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:102d,htagg:17,htmcs:000000ff,intwrk:0f,extcap:0000088000400040|assoc:0,1,33,36,48,50,45,127,107,221(001018,2),221(0050f2,2),cap:0431,htcap:102d,htagg:17,htmcs:000000ff,txpow:1201,intwrk:0f,extcap:000000800040|oui:samsung':
         ('BCM4335', 'Samsung Galaxy S4', '2.4GHz'),
