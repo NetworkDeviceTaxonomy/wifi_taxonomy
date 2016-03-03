@@ -25,6 +25,9 @@ regression = [
   ('Unknown', './testdata/pcaps/HTC Evo 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/HTC Incredible 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/HTC Inspire 2.4GHz.pcap'),
+  ('Unknown', './testdata/pcaps/HTC One V 2.4GHz.pcap'),
+  ('Unknown', './testdata/pcaps/HTC One X 2.4GHz.pcap'),
+  ('Unknown', './testdata/pcaps/HTC One X 5GHz.pcap'),
   ('Unknown', './testdata/pcaps/HTC Sensation 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/HTC Thunderbolt 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/HTC Titan 2.4GHz.pcap'),
@@ -46,7 +49,6 @@ regression = [
   ('Unknown', './testdata/pcaps/Samsung Exhibit 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/Samsung Fascinate 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/Samsung Galaxy Tab 2 2.4GHz.pcap'),
-  ('Unknown', './testdata/pcaps/Samsung Infuse 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/Samsung Infuse 5GHz.pcap'),
   ('Unknown', './testdata/pcaps/Samsung Vibrant 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/Sony Xperia Z5 2.4GHz.pcap'),
@@ -57,6 +59,10 @@ regression = [
   # work for these, instead we add them explicitly.
   ('iPad (1st/2nd gen)', './testdata/pcaps/iPad 1st gen 5GHz.pcap'),
   ('iPad (1st/2nd gen)', './testdata/pcaps/iPad 2nd gen 5GHz.pcap'),
+  ('iPad (4th gen or Air)', './testdata/pcaps/iPad (4th gen) 5GHz.pcap'),
+  ('iPad (4th gen or Air)', './testdata/pcaps/iPad (4th gen) 2.4GHz.pcap'),
+  ('iPad (4th gen or Air)', './testdata/pcaps/iPad Air 5GHz.pcap'),
+  ('iPad (4th gen or Air)', './testdata/pcaps/iPad Air 2.4GHz.pcap'),
   ('iPhone 6/6+', './testdata/pcaps/iPhone 6 5GHz.pcap'),
   ('iPhone 6/6+', './testdata/pcaps/iPhone 6+ 5GHz.pcap'),
   ('iPhone 6s/6s+', './testdata/pcaps/iPhone 6s 2.4GHz.pcap'),
@@ -65,6 +71,8 @@ regression = [
   ('iPhone 6s/6s+', './testdata/pcaps/iPhone 6s+ 5GHz.pcap'),
   ('iPod Touch 1st/2nd gen', './testdata/pcaps/iPod Touch 1st gen 2.4GHz.pcap'),
   ('Nest Thermostat v1/v2', './testdata/pcaps/Nest Thermostat 2.4GHz.pcap'),
+  ('Samsung Galaxy S2 or Infuse', './testdata/pcaps/Samsung Galaxy S2 2.4GHz.pcap'),
+  ('Samsung Galaxy S2 or Infuse', './testdata/pcaps/Samsung Infuse 2.4GHz.pcap'),
 ]
 
 
