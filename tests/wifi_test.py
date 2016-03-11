@@ -36,9 +36,9 @@ class WifiTaxonomyTest(unittest.TestCase):
     self.assertEqual(3, len(taxonomy))
     self.assertEqual('802.11n n:1,w:20', taxonomy[2])
 
-    signature = ('wifi3|probe:0,1,45,221(00904c,51),htcap:09ef,htagg:1b,'
+    signature = ('wifi4|probe:0,1,45,221(00904c,51),htcap:09ef,htagg:1b,'
         'htmcs:0000ffff|assoc:0,1,33,36,48,45,221(00904c,51),221(0050f2,2),'
-        'cap:0011,htcap:09ef,htagg:1b,htmcs:0000ffff,txpow:0005')
+        'htcap:09ef,htagg:1b,htmcs:0000ffff,txpow:0005')
     taxonomy = wifi.identify_wifi_device(signature, '3c:15:c2:00:00:01')
     expected = 'BCM4331;MacBook Pro 17" late 2011 (A1297);802.11n n:2,w:40'
     self.assertEqual(';'.join(taxonomy), expected)
@@ -67,9 +67,9 @@ class WifiTaxonomyTest(unittest.TestCase):
 
   def testOUI(self):
     # Devices with a generic signature, distinguished via MAC OUI
-    signature = ('wifi3|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,'
+    signature = ('wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,'
                  'htmcs:000000ff|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,'
-                 'cap:1411,htcap:012c,htagg:03,htmcs:000000ff,txpow:170d,'
+                 'htcap:012c,htagg:03,htmcs:000000ff,txpow:170d,'
                  'extcap:00000a0200000000')
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
     self.assertIn('Unknown', taxonomy[1])
@@ -79,8 +79,8 @@ class WifiTaxonomyTest(unittest.TestCase):
     self.assertIn('Moto E (2nd gen)', taxonomy[1])
 
     # Test one of the OUIs with multiple vendors listed.
-    signature = ('wifi3|probe:0,1,3,45,50,htcap:0120,htagg:03,htmcs:00000000|'
-                 'assoc:0,1,48,50,127,221(0050f2,2),45,cap:0411,htcap:012c,'
+    signature = ('wifi4|probe:0,1,3,45,50,htcap:0120,htagg:03,htmcs:00000000|'
+                 'assoc:0,1,48,50,127,221(0050f2,2),45,htcap:012c,'
                  'htagg:03,htmcs:000000ff,extcap:0000000000000140|oui:google')
     taxonomy = wifi.identify_wifi_device(signature, '6c:ad:f8:00:00:01')
     self.assertEqual('Chromecast', taxonomy[1])
@@ -93,9 +93,9 @@ class WifiTaxonomyTest(unittest.TestCase):
     self.assertIn('Kindle', taxonomy[1])
 
   def testCommonSignature(self):
-    signature = ('wifi3|probe:0,1,50,45,221(001018,2),221(00904c,51),'
+    signature = ('wifi4|probe:0,1,50,45,221(001018,2),221(00904c,51),'
                  'htcap:182c,htagg:1b,htmcs:000000ff|assoc:0,1,48,50,45,'
-                 '221(001018,2),221(00904c,51),221(0050f2,2),cap:0431,'
+                 '221(001018,2),221(00904c,51),221(0050f2,2),'
                  'htcap:182c,htagg:1b,htmcs:000000ff')
     # This is a very common signature among devices issued in 2010.
     # It will match:
@@ -262,22 +262,22 @@ class WifiTaxonomyTest(unittest.TestCase):
     self.assertEqual(v1, expected)
 
   def testV2Signature(self):
-    sig = 'wifi3|probe:0,1,50|assoc:0,1,50,cap:0123,htcap:012c,txpow:3210'
+    sig = 'wifi4|probe:0,1,50|assoc:0,1,50,htcap:012c,txpow:3210'
     exp = 'wifi|probe:0,1,50|assoc:0,1,50,htcap:012c'
     v2 = wifi.make_v2_signature(sig)
     self.assertEqual(v2, exp)
-    sig = 'wifi3|probe:0,1,50|assoc:0,1,50,extcap:0123456789abcdef'
+    sig = 'wifi4|probe:0,1,50|assoc:0,1,50,extcap:0123456789abcdef'
     exp = 'wifi|probe:0,1,50|assoc:0,1,50,extcap:67452301'
     v2 = wifi.make_v2_signature(sig)
     self.assertEqual(v2, exp)
     # iPhone 6s signature
-    sig = ('wifi3|probe:0,1,50,3,45,127,107,221(0050f2,8),221(001018,2),'
-           'htcap:002d,htagg:17,htmcs:0000ffff,intwrk:0f,'
+    sig = ('wifi4|probe:0,1,50,3,45,127,107,221(0050f2,8),221(001018,2),'
+           'htcap:002d,htagg:17,htmcs:0000ffff,'
            'extcap:0400088400000040|assoc:0,1,50,33,36,48,45,127,221(001018,2),'
-           '221(0050f2,2),cap:0431,htcap:002d,htagg:17,htmcs:0000ffff,'
+           '221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,'
            'txpow:1202,extcap:0000000000000040|os:ios')
     exp = ('wifi|probe:0,1,50,3,45,127,107,221(0050f2,8),221(001018,2),'
-           'htcap:002d,htagg:17,htmcs:0000ffff,intwrk:0f,'
+           'htcap:002d,htagg:17,htmcs:0000ffff,'
            'extcap:84080004|assoc:0,1,50,33,36,48,45,127,221(001018,2),'
            '221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,'
            'extcap:00000000|os:ios')
@@ -285,19 +285,19 @@ class WifiTaxonomyTest(unittest.TestCase):
     self.assertEqual(v2, exp)
 
   def testV2SignatureSmallExtcap(self):
-    sig = 'wifi3|probe:0,1,50|assoc:0,1,50,extcap:01234567'
+    sig = 'wifi4|probe:0,1,50|assoc:0,1,50,extcap:01234567'
     exp = 'wifi|probe:0,1,50|assoc:0,1,50,extcap:67452301'
     v2 = wifi.make_v2_signature(sig)
     self.assertEqual(v2, exp)
-    sig = 'wifi3|probe:0,1,50|assoc:0,1,50,extcap:012345'
+    sig = 'wifi4|probe:0,1,50|assoc:0,1,50,extcap:012345'
     exp = 'wifi|probe:0,1,50|assoc:0,1,50,extcap:452301'
     v2 = wifi.make_v2_signature(sig)
     self.assertEqual(v2, exp)
-    sig = 'wifi3|probe:0,1,50|assoc:0,1,50,extcap:0123'
+    sig = 'wifi4|probe:0,1,50|assoc:0,1,50,extcap:0123'
     exp = 'wifi|probe:0,1,50|assoc:0,1,50,extcap:2301'
     v2 = wifi.make_v2_signature(sig)
     self.assertEqual(v2, exp)
-    sig = 'wifi3|probe:0,1,50|assoc:0,1,50,extcap:01'
+    sig = 'wifi4|probe:0,1,50|assoc:0,1,50,extcap:01'
     exp = 'wifi|probe:0,1,50|assoc:0,1,50,extcap:01'
     v2 = wifi.make_v2_signature(sig)
     self.assertEqual(v2, exp)

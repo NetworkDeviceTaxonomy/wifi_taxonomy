@@ -70,7 +70,11 @@ regression = [
   ('iPhone 6s/6s+', './testdata/pcaps/iPhone 6s 5GHz.pcap'),
   ('iPhone 6s/6s+', './testdata/pcaps/iPhone 6s+ 5GHz.pcap'),
   ('iPod Touch 1st/2nd gen', './testdata/pcaps/iPod Touch 1st gen 2.4GHz.pcap'),
+  ('Moto G or Moto X', './testdata/pcaps/Moto X 2.4GHz Specific.pcap'),
+  ('Moto G or Moto X', './testdata/pcaps/Moto X 2.4GHz.pcap'),
   ('Nest Thermostat v1/v2', './testdata/pcaps/Nest Thermostat 2.4GHz.pcap'),
+  ('Samsung Galaxy Note or S2+', './testdata/pcaps/Samsung Galaxy S2+ 5GHz.pcap'),
+  ('Samsung Galaxy Note or S2+', './testdata/pcaps/Samsung Galaxy Note 5GHz.pcap'),
   ('Samsung Galaxy S2 or Infuse', './testdata/pcaps/Samsung Galaxy S2 2.4GHz.pcap'),
   ('Samsung Galaxy S2 or Infuse', './testdata/pcaps/Samsung Infuse 2.4GHz.pcap'),
 ]

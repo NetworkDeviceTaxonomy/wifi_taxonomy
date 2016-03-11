@@ -99,7 +99,6 @@ static int get_wps_name(char *name, size_t name_len,
 }
 
 static void ie_to_string(char *fstr, size_t fstr_len,
-                         const char *capability,
                          const u8 *ie, size_t ie_len)
 {
   size_t flen = fstr_len - 1;
@@ -109,7 +108,6 @@ static void ie_to_string(char *fstr, size_t fstr_len,
   char vhtcap[8 + 8 + 1];  // ",vhtcap:" + %08x + trailing NUL
   char vhtrxmcs[10 + 8 + 1];  // ",vhtrxmcs:" + %08x + trailing NUL
   char vhttxmcs[10 + 8 + 1];  // ",vhttxmcs:" + %08x + trailing NUL
-  char intwrk[8 + 2 + 1];  // ",intwrk:" + %02hx + trailing NUL
   #define MAX_EXTCAP  254
   char extcap[8 + (2 * MAX_EXTCAP) + 1];  // ",extcap:" + hex + trailing NUL
   char txpow[7 + 4 + 1];  // ",txpow:" + %04hx + trailing NUL
@@ -123,7 +121,6 @@ static void ie_to_string(char *fstr, size_t fstr_len,
   memset(vhtcap, 0, sizeof(vhtcap));
   memset(vhtrxmcs, 0, sizeof(vhtrxmcs));
   memset(vhttxmcs, 0, sizeof(vhttxmcs));
-  memset(intwrk, 0, sizeof(intwrk));
   memset(extcap, 0, sizeof(extcap));
   memset(txpow, 0, sizeof(txpow));
   memset(wps, 0, sizeof(wps));
@@ -200,10 +197,6 @@ static void ie_to_string(char *fstr, size_t fstr_len,
         snprintf(vhttxmcs, sizeof(vhttxmcs), ",vhttxmcs:%08x",
                  le_to_host32(mcs));
       }
-      if ((id == 107) && (elen >= 1)) {
-        /* Interworking */
-        snprintf(intwrk, sizeof(intwrk), ",intwrk:%02hx", *ie);
-      }
       if (id == 127) {
         /* Extended Capabilities */
         int i;
@@ -234,10 +227,6 @@ static void ie_to_string(char *fstr, size_t fstr_len,
     ie_len -= elen;
   }
 
-  if (capability) {
-    strncat(fstr, capability, flen);
-    flen = fstr_len - strlen(fstr) - 1;
-  }
   if (strlen(htcap)) {
     strncat(fstr, htcap, flen);
     flen = fstr_len - strlen(fstr) - 1;
@@ -264,10 +253,6 @@ static void ie_to_string(char *fstr, size_t fstr_len,
   }
   if (strlen(txpow)) {
     strncat(fstr, txpow, flen);
-    flen = fstr_len - strlen(fstr) - 1;
-  }
-  if (strlen(intwrk)) {
-    strncat(fstr, intwrk, flen);
     flen = fstr_len - strlen(fstr) - 1;
   }
   if (strlen(extcap)) {
@@ -337,12 +322,9 @@ int main(int argc, char **argv)
     subtype = (fc >> 4) & 0x000f;
 
     if (type == 0 && subtype == ASSOC_REQ) {
-      char cap[5 + 4 + 1];  // ",cap:" + %04x + trailing NUL
-
-      snprintf(cap, sizeof(cap), ",cap:%04hx", mlme->u.assoc_req.cap);
       ie = mlme->u.assoc_req.variable;
       ie_len = hdr.caplen - (ie - (const uint8_t *)mlme) - rtap->it_len - 4;
-      ie_to_string(assoc_sig, sizeof(assoc_sig), cap, ie, ie_len);
+      ie_to_string(assoc_sig, sizeof(assoc_sig), ie, ie_len);
     }
 
     if (type == 0 && subtype == PROBE_REQ) {
@@ -352,11 +334,11 @@ int main(int argc, char **argv)
 
       ie = mlme->u.probe_req.variable;
       ie_len = hdr.caplen - (ie - (const uint8_t *)mlme) - rtap->it_len - 4;
-      ie_to_string(probe_sig, sizeof(probe_sig), NULL, ie, ie_len);
+      ie_to_string(probe_sig, sizeof(probe_sig), ie, ie_len);
     }
   }
 
-  printf("%s wifi3|probe:%s|assoc:%s\n", mac, probe_sig, assoc_sig);
+  printf("%s wifi4|probe:%s|assoc:%s\n", mac, probe_sig, assoc_sig);
 
   if (strlen(probe_sig) && strlen(assoc_sig) && strlen(mac)) {
     exit(0);
