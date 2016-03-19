@@ -48,16 +48,18 @@ class WifiTaxonomyTest(unittest.TestCase):
     self.assertEqual('802.11n n:2,w:40', taxonomy[2])
 
   def testNameLookup(self):
-    signature = ('wifi|probe:0,1,50,221(001018,2)|assoc:0,1,48,50,'
-                 '221(001018,2),221(0050f2,2)')
+    signature = ('wifi4|probe:0,1,45,3,221(001018,2),221(00904c,51),htcap:0100,'
+                 'htagg:19,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),'
+                 '221(00904c,51),221(0050f2,2),htcap:0100,htagg:19,'
+                 'htmcs:000000ff,txpow:180f')
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
     self.assertEqual(3, len(taxonomy))
     self.assertEqual('Unknown', taxonomy[1])
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
     self.assertEqual(3, len(taxonomy))
     self.assertEqual('Unknown', taxonomy[1])
-    taxonomy = wifi.identify_wifi_device(signature, '2c:1f:23:ff:ff:01')
-    self.assertEqual('iPod Touch 3rd gen', taxonomy[1])
+    taxonomy = wifi.identify_wifi_device(signature, 'c8:69:cd:5e:b5:43')
+    self.assertEqual('Apple TV (3rd gen)', taxonomy[1])
 
   def testChecksumWhenNoIdentification(self):
     taxonomy = wifi.identify_wifi_device('wifi|probe:1,2,3,4,htcap:0|assoc:1',

@@ -21,8 +21,11 @@ import hashlib
 
 
 database = {
+    'Canon IJ-UPnP/1.0 UPnP/1.0 UPnP-Device-Host/1.0': 'Canon Printer',
     'OpenRG/6.0.7.1.4 UPnP/1.0': 'Google Fiber GFRG1x0',
     'HDHomeRun/1.0 UPnP/1.0': 'HDHomeRun',
+    'Linux UPnP/1.0 Sonos/31.9-26010 (ZPS1)': 'Sonos ZPS1',
+    'Linux UPnP/1.0 Sonos/31.9-26010 (ZPS5)': 'Somos ZPS5',
     'Linux UPnP/1.0 Sonos/28.1-83040 (ZP90)': 'Sonos ZP90',
     'Linux UPnP/1.0 Sonos/28.1-83040 (ZP120)': 'Sonos ZP120',
     'WNDR3700v2 UPnP/1.0 miniupnpd/1.0': 'Netgear WNDR3700',
