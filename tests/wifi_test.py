@@ -88,7 +88,7 @@ class WifiTaxonomyTest(unittest.TestCase):
     self.assertEqual('Chromecast', taxonomy[1])
 
   def testOS(self):
-    signature = 'wifi|probe:0,1,50|assoc:0,1,50,48,221(0050f2,2)'
+    signature = 'wifi4|probe:0,1,50|assoc:0,1,50,48,221(0050f2,2)'
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
     self.assertIn('Unknown', taxonomy[1])
     taxonomy = wifi.identify_wifi_device(signature, '28:ef:01:00:00:01')
