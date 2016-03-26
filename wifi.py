@@ -366,6 +366,8 @@ database = {
 
     'wifi4|probe:0,1,45,127,191,221(00904c,51),htcap:09ef,htagg:17,htmcs:0000ffff,vhtcap:0f8259b2,vhtrxmcs:0000ffea,vhttxmcs:0000ffea,extcap:0000000000000040|assoc:0,1,33,36,48,45,127,191,221(00904c,51),221(0050f2,2),htcap:09ef,htagg:17,htmcs:0000ffff,vhtcap:0f8259b2,vhtrxmcs:0000ffea,vhttxmcs:0000ffea,txpow:e808,extcap:0000000000000040|os:macos':
         ('BCM4360', 'MacBook Pro early 2014 (A1502)', '5GHz'),
+    'wifi4|probe:0,1,50,45,127,221(00904c,51),htcap:59ad,htagg:17,htmcs:0000ffff,extcap:0000000000000040|assoc:0,1,33,36,48,50,45,127,221(00904c,51),221(0050f2,2),htcap:59ad,htagg:17,htmcs:0000ffff,txpow:1906,extcap:0000000000000040|os:macos':
+        ('BCM4360', 'MacBook Pro early 2014 (A1502)', '2.4GHz'),
 
     'wifi4|probe:0,1,45,50,htcap:0102,htagg:03,htmcs:0000ffff|assoc:0,1,48,221(0050f2,2),45,htcap:010e,htagg:03,htmcs:0000ffff|oui:microsoft':
         ('Marvell_88W8797', 'Microsoft Surface RT', '5GHz'),
@@ -410,9 +412,15 @@ database = {
         ('QCA_WCN3360', 'Nexus 4', '5GHz'),
     'wifi4|probe:0,1,45,221(0050f2,8),191,221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,vhtcap:31811120,vhtrxmcs:01b2fffc,vhttxmcs:01b2fffc,wps:Nexus_4|assoc:0,1,48,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff':
         ('QCA_WCN3360', 'Nexus 4', '5GHz'),
+    'wifi4|probe:0,1,45,221(0050f2,8),191,221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,vhtcap:31811120,vhtrxmcs:01b2fffc,vhttxmcs:01b2fffc,wps:Nexus_4|assoc:0,1,33,36,48,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff,txpow:130d':
+        ('QCA_WCN3360', 'Nexus 4', '5GHz'),
     'wifi4|probe:0,1,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,wps:Nexus_4|assoc:0,1,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02':
         ('QCA_WCN3360', 'Nexus 4', '5GHz'),
     'wifi4|probe:0,1,45,221(0050f2,8),191,221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,vhtcap:31811120,vhtrxmcs:01b2fffc,vhttxmcs:01b2fffc,wps:Nexus_4|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff':
+        ('QCA_WCN3360', 'Nexus 4', '5GHz'),
+    'wifi4|probe:0,1,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,wps:Nexus_4|assoc:0,1,33,36,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,txpow:170d,extcap:00000a02':
+        ('QCA_WCN3360', 'Nexus 4', '5GHz'),
+    'wifi4|probe:0,1,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,33,36,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,txpow:170d,extcap:00000a02|oui:lg':
         ('QCA_WCN3360', 'Nexus 4', '5GHz'),
     'wifi4|probe:0,1,50,45,221(0050f2,8),191,221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,vhtcap:31811120,vhtrxmcs:01b2fffc,vhttxmcs:01b2fffc,wps:Nexus_4|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff':
         ('QCA_WCN3360', 'Nexus 4', '2.4GHz'),
@@ -421,6 +429,10 @@ database = {
     'wifi4|probe:0,1,50,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02|oui:lg':
         ('QCA_WCN3360', 'Nexus 4', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02|oui:lg':
+        ('QCA_WCN3360', 'Nexus 4', '2.4GHz'),
+    'wifi4|probe:0,1,50,3,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,wps:Nexus_4|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02':
+        ('QCA_WCN3360', 'Nexus 4', '2.4GHz'),
+    'wifi4|probe:0,1,50,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,wps:Nexus_4|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02|oui:lg':
         ('QCA_WCN3360', 'Nexus 4', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,191,221(001018,2),221(00904c,51),htcap:016f,htagg:17,htmcs:000000ff,vhtcap:0f805932,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000000000000040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:016f,htagg:17,htmcs:000000ff,vhtcap:0f805932,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e003,extcap:0000000000000040|oui:lg':
@@ -442,11 +454,25 @@ database = {
         ('QCA6174', 'Nexus 5X', '5GHz'),
     'wifi4|probe:0,1,127,45,191,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:338001b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:00000a020100004080|assoc:0,1,48,45,221(0050f2,2),191,127,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:339071b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:000000000000004080|oui:lg':
         ('QCA6174', 'Nexus 5X', '5GHz'),
+    'wifi4|probe:0,1,127,45,191,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:338061b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:00000a020100004080|assoc:0,1,33,36,48,70,45,221(0050f2,2),191,127,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:339071b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,txpow:1e08,extcap:000000000000004080|oui:lg':
+        ('QCA6174', 'Nexus 5X', '5GHz'),
+    'wifi4|probe:0,1,127,extcap:00000a020100004080|assoc:0,1,33,36,48,70,45,221(0050f2,2),191,127,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:339071b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,txpow:1e08,extcap:000000000000004080|oui:lg':
+        ('QCA6174', 'Nexus 5X', '5GHz'),
+    'wifi4|probe:0,1,45,221(0050f2,8),191,127,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:339071b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:000000000000004080|assoc:0,1,33,36,48,70,45,221(0050f2,2),191,127,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:339071b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,txpow:1e08,extcap:000000000000004080|oui:lg':
+        ('QCA6174', 'Nexus 5X', '5GHz'),
     'wifi4|probe:0,1,50,127,45,191,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:338061b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:00000a0201000040|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:01ad,htagg:03,htmcs:0000ffff,extcap:0000000000000000|oui:lg':
         ('QCA6174', 'Nexus 5X', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),127,htcap:01ad,htagg:03,htmcs:0000ffff,extcap:000000000000000080|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:01ad,htagg:03,htmcs:0000ffff,extcap:000000000000000080|oui:lg':
         ('QCA6174', 'Nexus 5X', '2.4GHz'),
     'wifi4|probe:0,1,50,127,45,191,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:338061b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:00000a020100004080|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:01ad,htagg:03,htmcs:0000ffff,extcap:000000000000000080|oui:lg':
+        ('QCA6174', 'Nexus 5X', '2.4GHz'),
+    'wifi4|probe:0,1,127,45,191,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:338061b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:00000a020100004080|assoc:0,1,33,36,48,70,45,221(0050f2,2),191,127,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:339071b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,txpow:1e08,extcap:000000000000004080|oui:lg':
+        ('QCA6174', 'Nexus 5X', '2.4GHz'),
+    'wifi4|probe:0,1,50,127,45,191,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:338061b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:00000a020100004080|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,htcap:01ad,htagg:03,htmcs:0000ffff,txpow:1e08,extcap:000000000000000080|oui:lg':
+        ('QCA6174', 'Nexus 5X', '2.4GHz'),
+    'wifi4|probe:0,1,50,127,extcap:00000a020100004080|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,htcap:01ad,htagg:03,htmcs:0000ffff,txpow:1e08,extcap:000000000000000080|oui:lg':
+        ('QCA6174', 'Nexus 5X', '2.4GHz'),
+    'wifi4|probe:0,1,50,3,45,221(0050f2,8),127,htcap:01ad,htagg:03,htmcs:0000ffff,extcap:000000000000000080|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,htcap:01ad,htagg:03,htmcs:0000ffff,txpow:1e08,extcap:000000000000000080|oui:lg':
         ('QCA6174', 'Nexus 5X', '2.4GHz'),
 
     'wifi4|probe:0,1,45,191,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:000008800140,wps:Nexus_6|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e009,extcap:000008800140':
@@ -496,11 +522,15 @@ database = {
         ('QCA_WCN3660', 'Nexus 7 (2013)', '5GHz'),
     'wifi4|probe:0,1,45,221(0050f2,8),127,221(0050f2,4),221(506f9a,9),htcap:016e,htagg:03,htmcs:000000ff,extcap:00000a02,wps:Nexus_7|assoc:0,1,33,36,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,txpow:1e0d,extcap:00000a02':
         ('QCA_WCN3660', 'Nexus 7 (2013)', '5GHz'),
+    'wifi4|probe:0,1,45,221(0050f2,8),htcap:016e,htagg:03,htmcs:000000ff|assoc:0,1,33,36,48,45,221(0050f2,2),127,htcap:016e,htagg:03,htmcs:000000ff,txpow:1e0d,extcap:00000a02|oui:asus':
+        ('QCA_WCN3660', 'Nexus 7 (2013)', '5GHz'),
     'wifi4|probe:0,1,50,45,221(0050f2,8),127,221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02,wps:Nexus_7|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02':
         ('QCA_WCN3660', 'Nexus 7 (2013)', '2.4GHz'),
     'wifi4|probe:0,1,50,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,wps:Nexus_7|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02':
         ('QCA_WCN3660', 'Nexus 7 (2013)', '2.4GHz'),
     'wifi4|probe:0,1,50,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02|oui:asus':
+        ('QCA_WCN3660', 'Nexus 7 (2013)', '2.4GHz'),
+    'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02|oui:asus':
         ('QCA_WCN3660', 'Nexus 7 (2013)', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,191,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:000008800140,wps:Nexus_9|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e009,extcap:000008800140':
