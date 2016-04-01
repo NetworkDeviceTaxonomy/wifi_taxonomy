@@ -24,6 +24,7 @@
 # Galaxy S4.
 database = {
     '00:bb:3a': ['amazon'],
+    '0c:47:c9': ['amazon'],
     '10:ae:60': ['amazon'],
     '28:ef:01': ['amazon'],
     '74:75:48': ['amazon'],
@@ -35,6 +36,7 @@ database = {
 
     '30:85:a9': ['asus'],
     '5c:ff:35': ['asus'],
+    '60:a4:4c': ['asus'],
     '74:d0:2b': ['asus'],
     'ac:22:0b': ['asus'],
     'bc:ee:7b': ['asus'],
@@ -78,6 +80,7 @@ database = {
     '64:89:9a': ['lg'],
     '64:bc:0c': ['lg'],
     '78:f8:82': ['lg'],
+    '88:c9:d0': ['lg'],
     '8c:3a:e3': ['lg'],
     'a0:39:f7': ['lg'],
     'a0:91:69': ['lg'],
