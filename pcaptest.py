@@ -9,25 +9,13 @@ import wifi
 
 regression = [
   # devices for which we have a pcap but have decided not to add
-  # to the database, generally because the device is not common
-  # enough.
-  ('Unknown', './testdata/pcaps/Amazon Fire Phone 2.4GHz.pcap'),
-  ('Unknown', './testdata/pcaps/Amazon Fire Phone 5GHz Broadcast.pcap'),
-  ('Unknown', './testdata/pcaps/Amazon Fire Phone 5GHz Specific.pcap'),
-  ('Unknown', './testdata/pcaps/Amazon Fire Phone 5GHz.pcap'),
+  # to the database
   ('Unknown', './testdata/pcaps/ASUS Transformer TF300 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/Blackberry Bold 9930 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/Blackberry Bold 9930 5GHz.pcap'),
-  ('Unknown', './testdata/pcaps/iPhone 2 2.4GHz.pcap'),
-  ('Unknown', './testdata/pcaps/iPhone 3 2.4GHz.pcap'),
-  ('Unknown', './testdata/pcaps/iPhone 3GS 2.4GHz.pcap'),
-  ('Unknown', './testdata/pcaps/iPhone 3GS 2.4GHz M137LL.pcap'),
   ('Unknown', './testdata/pcaps/HTC Evo 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/HTC Incredible 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/HTC Inspire 2.4GHz.pcap'),
-  ('Unknown', './testdata/pcaps/HTC One V 2.4GHz.pcap'),
-  ('Unknown', './testdata/pcaps/HTC One X 2.4GHz.pcap'),
-  ('Unknown', './testdata/pcaps/HTC One X 5GHz.pcap'),
   ('Unknown', './testdata/pcaps/HTC Sensation 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/HTC Thunderbolt 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/HTC Titan 2.4GHz.pcap'),
@@ -44,8 +32,6 @@ regression = [
   ('Unknown', './testdata/pcaps/Motorola Droid Razr 5GHz XT910.pcap'),
   ('Unknown', './testdata/pcaps/Motorola Droid Razr Maxx 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/Nexus One 2.4GHz.pcap'),
-  ('Unknown', './testdata/pcaps/Nokia Lumia 920 2.4GHz.pcap'),
-  ('Unknown', './testdata/pcaps/Nokia Lumia 920 5GHz.pcap'),
   ('Unknown', './testdata/pcaps/Samsung Charge 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/Samsung Captivate 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/Samsung Continuum 2.4GHz.pcap'),
@@ -55,12 +41,11 @@ regression = [
   ('Unknown', './testdata/pcaps/Samsung Galaxy Tab 2 2.4GHz.pcap'),
   ('Unknown', './testdata/pcaps/Samsung Infuse 5GHz.pcap'),
   ('Unknown', './testdata/pcaps/Samsung Vibrant 2.4GHz.pcap'),
-  ('Unknown', './testdata/pcaps/Sony Xperia Z5 2.4GHz.pcap'),
-  ('Unknown', './testdata/pcaps/Sony Xperia Z5 5GHz.pcap'),
 
-  # Names which contain a slash ('/'), which Linux filenames do not
-  # tolerate. Inferring the expected result from the filename doesn't
-  # work for these, instead we add them explicitly.
+  # Names where the identified species doesn't exactly match the filename,
+  # usually because multiple devices are too similar to distinguish. We name
+  # the file for the specific device which was captured, and add an entry
+  # here for the best identification which we can manage.
   ('iPad (1st/2nd gen)', './testdata/pcaps/iPad 1st gen 5GHz.pcap'),
   ('iPad (1st/2nd gen)', './testdata/pcaps/iPad 2nd gen 5GHz.pcap'),
   ('iPad (4th gen or Air)', './testdata/pcaps/iPad (4th gen) 5GHz.pcap'),
@@ -81,6 +66,10 @@ regression = [
   ('Samsung Galaxy Note or S2+', './testdata/pcaps/Samsung Galaxy Note 5GHz.pcap'),
   ('Samsung Galaxy S2 or Infuse', './testdata/pcaps/Samsung Galaxy S2 2.4GHz.pcap'),
   ('Samsung Galaxy S2 or Infuse', './testdata/pcaps/Samsung Infuse 2.4GHz.pcap'),
+  ('Sony Xperia Z4/Z5', './testdata/pcaps/Sony Xperia Z5 5GHz.pcap'),
+  ('Sony Xperia Z4/Z5', './testdata/pcaps/Sony Xperia Z5 2.4GHz.pcap'),
+  ('Sony Xperia Z4/Z5', './testdata/pcaps/Sony Xperia Z4 Tablet 5GHz.pcap'),
+  ('Sony Xperia Z4/Z5', './testdata/pcaps/Sony Xperia Z4 Tablet 2.4GHz.pcap'),
 ]
 
 

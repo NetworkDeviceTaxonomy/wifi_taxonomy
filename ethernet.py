@@ -63,6 +63,8 @@ database = {
     'b0:ee:45': ['azurewave', 'google'],
     'd0:e7:82': ['azurewave', 'google'],
 
+    '44:61:32': ['ecobee'],
+
     '00:23:76': ['htc'],
     '00:ee:bd': ['htc'],
     '18:87:96': ['htc'],
@@ -157,6 +159,8 @@ database = {
     '00:27:09': ['nintendo'],
     '34:af:2c': ['nintendo'],
 
+    'c0:ee:fb': ['oneplus'],
+
     '00:15:99': ['samsung'],
     '00:26:37': ['samsung'],
     '08:d4:2b': ['samsung'],
@@ -228,9 +232,12 @@ database = {
     '28:0d:fc': ['sony'],
     '30:17:c8': ['sony'],
     '40:b8:37': ['sony'],
+    '58:48:22': ['sony'],
     'b4:52:7e': ['sony'],
 
     '00:24:e4': ['withings'],
+
+    '64:cc:2e': ['xiaomi'],
 }
 
 
