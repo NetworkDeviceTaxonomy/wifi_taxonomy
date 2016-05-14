@@ -42,8 +42,6 @@ database = {
 
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:1130,htagg:18,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),htcap:1130,htagg:18,htmcs:000000ff|oui:amazon':
         ('TI_WL1271', 'Amazon Kindle Fire 7" (2011 edition)', '2.4GHz'),
-    'wifi|probe:0,1,50,221(0050f2,4),221(506f9a,9),wps:KFASWI|assoc:0,1,50,45,127,221(0050f2,2),48,htcap:1172,htagg:03,htmcs:000000ff':
-        ('', 'Amazon Kindle Fire 7" (2014 edition)', '2.4GHz'),
     'wifi4|probe:0,1,50,221(0050f2,4),221(506f9a,9),wps:KFFOWI|assoc:0,1,50,45,48,127,221(0050f2,2),htcap:1172,htagg:03,htmcs:000000ff,extcap:01':
         ('', 'Amazon Kindle Fire 7" (2015 edition)', '2.4GHz'),
 
@@ -96,6 +94,9 @@ database = {
     'wifi4|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:112c,htagg:19,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:112c,htagg:19,htmcs:000000ff|os:brotherprinter':
         ('', 'Brother Printer', '2.4GHz'),
 
+    'wifi4|probe:0,1,3,45,50,htcap:007e,htagg:00,htmcs:000000ff|assoc:0,1,45,48,50,221(0050f2,2),htcap:000c,htagg:1b,htmcs:000000ff|os:canonprinter':
+        ('', 'Canon Printer', '2.4GHz'),
+
     'wifi4|probe:0,1,45,191,htcap:11e2,htagg:17,htmcs:0000ffff,vhtcap:038071a0,vhtrxmcs:0000fffa,vhttxmcs:0000fffa|assoc:0,1,48,45,127,191,221(0050f2,2),htcap:11e6,htagg:17,htmcs:0000ffff,vhtcap:038001a0,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000000000000040|os:chromeos':
         ('Intel_7260', 'Chromebook Pixel 2', '5GHz'),
     'wifi4|probe:0,1,45,191,htcap:11e2,htagg:17,htmcs:0000ffff,vhtcap:038071a0,vhtrxmcs:0000fffa,vhttxmcs:0000fffa|assoc:0,1,48,45,127,191,221(0050f2,2),htcap:11ee,htagg:17,htmcs:0000ffff,vhtcap:038001a0,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000000000000040|os:chromeos':
@@ -111,9 +112,6 @@ database = {
         ('AR5822', 'Chromebook 14" HP', '5GHz'),
     'wifi4|probe:0,1,50,3,45,htcap:11ef,htagg:1b,htmcs:0000ffff|assoc:0,1,50,48,45,221(0050f2,2),htcap:11ef,htagg:1b,htmcs:0000ffff|os:chromeos':
         ('AR5822', 'Chromebook 14" HP', '2.4GHz'),
-
-    'wifi|probe:0,1,3,45,50,htcap:01ff|assoc:0,1,50,127,221(0050f2,1),221(0050f2,2),45,htcap:01ff|os:chromeos':
-        ('Marvell_88W8897', 'Chromebook 14" HP (Tegra)', '2.4GHz'),
 
     'wifi4|probe:0,1,45,50,htcap:016e,htagg:03,htmcs:0000ffff|assoc:0,1,48,127,221(0050f2,2),45,htcap:016e,htagg:03,htmcs:0000ffff,extcap:00':
         ('AR9382', 'Chromebook 11" Samsung', '5GHz'),
@@ -139,14 +137,14 @@ database = {
     'wifi4|probe:0,1,50,45,htcap:002c,htagg:01,htmcs:000000ff|assoc:0,1,50,45,48,221(0050f2,2),htcap:002c,htagg:01,htmcs:000000ff|oui:ecobee':
         ('', 'ecobee thermostat', '2.4GHz'),
 
-    'wifi|probe:0,1,3,45,50,htcap:0162,htagg:00,htmcs:000000ff|assoc:0,1,45,48,127,50,221(0050f2,2),htcap:016e,htagg:1b,htmcs:000000ff|os:epsonprinter':
+    'wifi4|probe:0,1,3,45,50,htcap:0162,htagg:00,htmcs:000000ff|assoc:0,1,45,48,127,50,221(0050f2,2),htcap:016e,htagg:1b,htmcs:000000ff,extcap:00|os:epsonprinter':
         ('', 'Epson Printer', '2.4GHz'),
     'wifi4|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:182c,htagg:1b,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:182c,htagg:1b,htmcs:000000ff|os:epsonprinter':
         ('', 'Epson Printer', '2.4GHz'),
     'wifi4|probe:0,1,50,221(001018,2)|assoc:0,1,48,50,221(001018,2)|os:epsonprinter':
         ('', 'Epson Printer', '2.4GHz'),
 
-    'wifi|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:100c,htagg:19,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:100c,htagg:19,htmcs:000000ff|os:hpprinter':
+    'wifi4|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:100c,htagg:19,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:100c,htagg:19,htmcs:000000ff|os:hpprinter':
         ('', 'HP Printer', '2.4GHz'),
     'wifi4|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:102c,htagg:1b,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:102c,htagg:1b,htmcs:000000ff|os:hpprinter':
         ('', 'HP Printer', '2.4GHz'),
@@ -156,9 +154,11 @@ database = {
         ('', 'HP Printer', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,221(001018,2),221(00904c,51),htcap:0020,htagg:1a,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(0050f2,2),221(506f9a,9),htcap:0020,htagg:1a,htmcs:000000ff|os:hpprinter':
         ('', 'HP Printer', '2.4GHz'),
-    'wifi|probe:0,1,3,45,50,htcap:0060,htagg:03,htmcs:000000ff|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:006c,htagg:03,htmcs:000000ff|os:hpprinter':
+    'wifi4|probe:0,1,3,45,50,htcap:0060,htagg:03,htmcs:000000ff|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:006c,htagg:03,htmcs:000000ff,extcap:00|os:hpprinter':
         ('', 'HP Printer', '2.4GHz'),
     'wifi4|probe:0,1,3,45,50,127,htcap:010c,htagg:1b,htmcs:0000ffff,extcap:00|assoc:0,1,45,48,127,50,221(0050f2,2),htcap:016c,htagg:1b,htmcs:000000ff,extcap:00|os:hpprinter':
+        ('', 'HP Printer', '2.4GHz'),
+    'wifi4|probe:0,1,50,221(001018,2)|assoc:0,1,48,50,221(001018,2)|os:hpprinter':
         ('', 'HP Printer', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,191,221(001018,2),221(00904c,51),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:03800032,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000000000000040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:03800032,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e008,extcap:0000000000000040|oui:htc':
@@ -222,6 +222,8 @@ database = {
     'wifi4|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:01fe,htagg:1b,htmcs:0000ffff,extcap:00000804|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:01fe,htagg:1b,htmcs:0000ffff,txpow:e708|os:ios':
         ('BCM4334', 'iPad (4th gen or Air)', '5GHz'),
     'wifi4|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:01fe,htagg:1b,htmcs:0000ffff,extcap:00000804|assoc:0,1,33,36,48,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:01fe,htagg:1b,htmcs:0000ffff,txpow:e708|os:ios':
+        ('BCM4334', 'iPad (4th gen or Air)', '5GHz'),
+    'wifi4|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:01fe,htagg:1b,htmcs:0000ffff,extcap:00000004|assoc:0,1,33,36,48,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:01fe,htagg:1b,htmcs:0000ffff,txpow:e708|os:ios':
         ('BCM4334', 'iPad (4th gen or Air)', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:01bc,htagg:1b,htmcs:0000ffff,extcap:00000804|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:01bc,htagg:1b,htmcs:0000ffff,txpow:1805|os:ios':
         ('BCM4334', 'iPad (4th gen or Air)', '2.4GHz'),
@@ -352,6 +354,8 @@ database = {
         ('BCM4350', 'iPhone 6s/6s+', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:000000ff,extcap:0400088400000040|assoc:0,1,50,33,36,48,70,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:000000ff,txpow:1202,extcap:0000000000000040|os:ios':
         ('BCM4350', 'iPhone 6s/6s+', '2.4GHz'),
+    'wifi4|probe:0,1,50,3,45,127,107,221(00904c,51),221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0400088400000040|assoc:0,1,50,33,36,48,70,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1202,extcap:0000000000000040|os:ios':
+        ('BCM4350', 'iPhone 6s/6s+', '2.4GHz'),
 
     'wifi4|probe:0,1,3,50|assoc:0,1,48,50|os:ipodtouch1':
         ('Marvell_W8686B22', 'iPod Touch 1st/2nd gen', '2.4GHz'),
@@ -397,6 +401,9 @@ database = {
 
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,wps:LGMS323|assoc:0,1,50,48,45,221(0050f2,2),221(004096,3),htcap:012c,htagg:03,htmcs:000000ff':
         ('QCA_WCN3360', 'LG Optimus L70', '2.4GHz'),
+
+    'wifi4|probe:0,1,3,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:016e,htagg:03,htmcs:000000ff,wps:LG_V400|assoc:0,1,33,36,48,70,45,221(0050f2,2),127,htcap:016e,htagg:03,htmcs:000000ff,txpow:170d,extcap:00000a0200000000':
+        ('', 'LG Pad v400', '5GHz'),
 
     'wifi4|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),htcap:11ac,htagg:16,htmcs:0000ffff,extcap:0000000000000040|assoc:0,1,33,36,48,50,45,127,221(001018,2),221(0050f2,2),htcap:11ac,htagg:16,htmcs:0000ffff,txpow:140a,extcap:0000000000000040|os:lgtv':
         ('', 'LG Smart TV', '2.4GHz'),
@@ -535,8 +542,6 @@ database = {
         ('QCA6174', 'Nexus 5X', '2.4GHz'),
     'wifi4|probe:0,1,50,127,45,191,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:338061b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:00000a020100004080|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:01ad,htagg:03,htmcs:0000ffff,extcap:000000000000000080|oui:lg':
         ('QCA6174', 'Nexus 5X', '2.4GHz'),
-    'wifi4|probe:0,1,127,45,191,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:338061b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:00000a020100004080|assoc:0,1,33,36,48,70,45,221(0050f2,2),191,127,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:339071b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,txpow:1e08,extcap:000000000000004080|oui:lg':
-        ('QCA6174', 'Nexus 5X', '2.4GHz'),
     'wifi4|probe:0,1,50,127,45,191,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:338061b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:00000a020100004080|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,htcap:01ad,htagg:03,htmcs:0000ffff,txpow:1e08,extcap:000000000000000080|oui:lg':
         ('QCA6174', 'Nexus 5X', '2.4GHz'),
     'wifi4|probe:0,1,50,127,extcap:00000a020100004080|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,htcap:01ad,htagg:03,htmcs:0000ffff,txpow:1e08,extcap:000000000000000080|oui:lg':
@@ -605,6 +610,8 @@ database = {
         ('QCA_WCN3660', 'Nexus 7 (2013)', '2.4GHz'),
     'wifi4|probe:0,1,50,45,htcap:016e,htagg:03,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02|oui:asus':
         ('QCA_WCN3660', 'Nexus 7 (2013)', '2.4GHz'),
+    'wifi4|probe:0,1,50,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,wps:Nexus_7|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff':
+        ('QCA_WCN3660', 'Nexus 7 (2013)', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,191,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:000008800140,wps:Nexus_9|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e009,extcap:000008800140':
         ('BCM4354', 'Nexus 9', '5GHz'),
@@ -641,6 +648,8 @@ database = {
         ('', 'Oneplus X', '2.4GHz'),
 
     'wifi4|probe:0,1,50,48|assoc:0,1,33,36,50,221(0050f2,2),45,221(00037f,1),221(00037f,4),48,htcap:1004,htagg:1b,htmcs:0000ffff,txpow:0f0f|os:panasonictv':
+        ('', 'Panasonic TV', '2.4GHz'),
+    'wifi4|probe:0,1,50,45,221(0050f2,4),htcap:01ad,htagg:02,htmcs:0000ffff,wps:WPS_SUPPLICANT_STATION|assoc:0,1,50,45,48,221(0050f2,2),htcap:01ad,htagg:02,htmcs:0000ffff|os:panasonictv':
         ('', 'Panasonic TV', '2.4GHz'),
 
     'wifi4|probe:0,1,50|assoc:0,1,50,48,221(005043,1)|os:playstation':
@@ -685,10 +694,12 @@ database = {
         ('BCM4336', 'Roku 2', '2.4GHz'),
 
     # Roku 3 model 4230, 4200, 4200X and Roku 2 model 4210 and Roku Streaming Stick model 3500
+    'wifi4|probe:0,1,45,127,221(001018,2),221(00904c,51),htcap:09bc,htagg:16,htmcs:0000ffff,extcap:0000000000000040|assoc:0,1,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:09bc,htagg:16,htmcs:0000ffff,txpow:100a,extcap:0000000000000040|os:roku':
+        ('BCM43236', 'Roku 3/SS', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),htcap:19bc,htagg:16,htmcs:0000ffff,extcap:0000000000000040|assoc:0,1,33,36,48,50,45,127,221(001018,2),221(0050f2,2),htcap:19bc,htagg:16,htmcs:0000ffff,txpow:140a,extcap:0000000000000040|os:roku':
-        ('BCM43236', 'Roku 3', '2.4GHz'),
+        ('BCM43236', 'Roku 3/SS', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),htcap:193c,htagg:16,htmcs:0000ffff,extcap:0000000000000040|assoc:0,1,33,36,48,50,45,127,221(001018,2),221(0050f2,2),htcap:193c,htagg:16,htmcs:0000ffff,txpow:140a,extcap:0000000000000040|os:roku':
-        ('BCM43236', 'Roku 3', '2.4GHz'),
+        ('BCM43236', 'Roku 3/SS', '2.4GHz'),
 
     # Roku 4 model 4400
     'wifi4|probe:0,1,45,127,191,221(001018,2),htcap:01ad,htagg:17,htmcs:0000ffff,vhtcap:0f8159b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000000000000040|assoc:0,1,33,36,48,45,127,191,199,221(001018,2),221(0050f2,2),htcap:01ad,htagg:17,htmcs:0000ffff,vhtcap:0f8159b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:1109,extcap:0000000000000040|os:roku':
@@ -757,6 +768,8 @@ database = {
         ('BCM4359', 'Samsung Galaxy Note 5', '5GHz'),
     'wifi4|probe:0,1,45,127,107,191,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:01ef,htagg:17,htmcs:0000ffff,vhtcap:0f9118b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:00080f8401400040|assoc:0,1,33,36,48,70,45,127,191,199,221(00904c,4),221(001018,2),221(0050f2,2),htcap:01ef,htagg:17,htmcs:0000ffff,vhtcap:0f9118b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:1202,extcap:0000000000000040|oui:samsung':
         ('BCM4359', 'Samsung Galaxy Note 5', '5GHz'),
+    'wifi4|probe:0,1,45,127,107,191,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:01ef,htagg:17,htmcs:0000ffff,vhtcap:0f9118b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:00080f840140|assoc:0,1,33,36,48,70,45,191,199,221(00904c,4),221(001018,2),221(0050f2,2),htcap:01ef,htagg:17,htmcs:0000ffff,vhtcap:0f9118b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:1202|oui:samsung':
+        ('BCM4359', 'Samsung Galaxy Note 5', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:01ad,htagg:17,htmcs:0000ffff,extcap:00080f8401400040|assoc:0,1,50,33,36,48,45,221(001018,2),221(0050f2,2),htcap:01ad,htagg:17,htmcs:0000ffff,txpow:1202|oui:samsung':
         ('BCM4359', 'Samsung Galaxy Note 5', '2.4GHz'),
 
@@ -809,6 +822,8 @@ database = {
     'wifi4|probe:0,1,50,3,45,127,107,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:000008800140|assoc:0,1,50,33,36,48,45,127,107,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1209,extcap:000008800140|oui:samsung':
         ('BCM4354', 'Samsung Galaxy S5', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0000088001400040|assoc:0,1,50,33,36,48,45,127,107,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1209,extcap:000008800140|oui:samsung':
+        ('BCM4354', 'Samsung Galaxy S5', '2.4GHz'),
+    'wifi4|probe:0,1,50,3,45,127,107,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:000008800140|assoc:0,1,50,33,36,48,70,45,127,107,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1209,extcap:000008800140|oui:samsung':
         ('BCM4354', 'Samsung Galaxy S5', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,191,221(00904c,4),221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000088001400040|assoc:0,1,33,36,48,45,127,191,221(00904c,4),221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e002,extcap:0000088001400040|oui:samsung':
@@ -900,7 +915,7 @@ database = {
         ('', 'Vizio Smart TV', '2.4GHz'),
     'wifi4|probe:0,1,50,45,127,221(0050f2,4),htcap:106e,htagg:12,htmcs:000000ff,extcap:00,wps:Ralink_Wireless_Linux_Client|assoc:0,1,50,45,127,221(000c43,6),221(0050f2,2),48,htcap:000c,htagg:12,htmcs:000000ff,extcap:01000000|os:visiotv':
         ('', 'Vizio Smart TV', '2.4GHz'),
-    'wifi|probe:0,1,50,48|assoc:0,1,50,221(0050f2,2),45,51,127,48,htcap:012c,htagg:1b,htmcs:000000ff|os:visiotv':
+    'wifi4|probe:0,1,50,48|assoc:0,1,50,221(0050f2,2),45,51,127,48,htcap:012c,htagg:1b,htmcs:000000ff,extcap:01|os:visiotv':
         ('', 'Vizio Smart TV', '2.4GHz'),
 
     'wifi4|probe:0,1,50,221(001018,2)|assoc:0,1,48,50,221(001018,2)|os:wii':
@@ -919,13 +934,15 @@ database = {
         ('', 'Xbox', '5GHz'),
     'wifi4|probe:0,1,3|assoc:0,1,48,33,36,221(0050f2,2),txpow:1405|oui:microsoft':
         ('', 'Xbox', '5GHz'),
-    'wifi|probe:0,1,3,45,50,htcap:016e,htagg:03,htmcs:0000ffff|assoc:0,1,33,48,50,127,221(0050f2,2),45,htcap:012c,htagg:03,htmcs:0000ffff,extcap:00000000|oui:microsoft':
+    'wifi4|probe:0,1,3,45,50,htcap:016e,htagg:03,htmcs:0000ffff|assoc:0,1,33,48,50,127,221(0050f2,2),45,htcap:012c,htagg:03,htmcs:0000ffff,txpow:1208,extcap:0000000000000140|oui:microsoft':
         ('', 'Xbox', '5GHz'),
     'wifi4|probe:0,1,50|assoc:0,1,3,33,36,50,221(0050f2,2),45,221(00037f,1),221(00037f,4),48,htcap:104c,htagg:00,htmcs:000000ff,txpow:0f0f|oui:microsoft':
         ('', 'Xbox', '2.4GHz'),
     'wifi4|probe:0,1,50,48|assoc:0,1,3,33,36,50,221(0050f2,2),45,221(00037f,1),221(00037f,4),48,htcap:104c,htagg:00,htmcs:0000ffff,txpow:0f0f|oui:microsoft':
         ('', 'Xbox', '2.4GHz'),
     'wifi4|probe:0,1,45,50,htcap:058f,htagg:03,htmcs:0000ffff|assoc:0,1,33,36,48,221(0050f2,2),45,htcap:058f,htagg:03,htmcs:0000ffff,txpow:1208|oui:microsoft':
+        ('', 'Xbox', '2.4GHz'),
+    'wifi4|probe:0,1,3,50|assoc:0,1,33,48,50,127,127,221(0050f2,2),45,htcap:012c,htagg:03,htmcs:0000ffff,txpow:1208,extcap:0000000000000140|oui:microsoft':
         ('', 'Xbox', '2.4GHz'),
 
     'wifi4|probe:0,1,3,45,50,htcap:058f,htagg:03,htmcs:0000ffff|assoc:0,1,48,50,221(0050f2,2),45,htcap:058d,htagg:03,htmcs:0000ffff|oui:microsoft':
@@ -940,82 +957,6 @@ database = {
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,33,48,70,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff,txpow:170d|oui:xiaomi':
         ('', 'Xiaomi Redmi 3', '2.4GHz'),
 }
-
-
-def make_v2_signature(sig):
-  """Degrade a v3 / v4 signature to match the equivalent v2 signature.
-
-  v3/v4 signatures include additional information from the Wifi MLME
-  frames, based on experience of working with v1 and v2. Return a string
-  which matches what the v2 signature would have been, by removing
-  the additional information.
-
-  This allows us to retain the base of v2 signatures.
-
-  Args:
-    sig: the text signature.
-
-  Returns:
-    a v2 signature.
-  """
-  new_sig = []
-  for s in sig.split('|'):
-    fields = s.split(',')
-    new_fields = []
-    for x in fields:
-      if x.startswith('extcap:'):
-        val = x[7:]
-        # v2 sig includes only the first 4 bytes, swapped.
-        swapped = ''
-        if len(val) >= 8:
-          swapped = swapped + val[6:8]
-        if len(val) >= 6:
-          swapped = swapped + val[4:6]
-        if len(val) >= 4:
-          swapped = swapped + val[2:4]
-        if len(val) >= 2:
-          swapped = swapped + val[0:2]
-        x = 'extcap:' + swapped
-      if x.startswith('cap') or x.startswith('txpow'):
-        # new fields in v3, omit from v2 sig
-        continue
-      new_fields.append(x)
-    new_sig.append(','.join(new_fields))
-  new_sig[0] = 'wifi'
-  return '|'.join(new_sig)
-
-
-def v2only(field):
-  """Return true if field only occurs in a v2 signature."""
-  labels = set(['htagg', 'htmcs', 'vhtrxmcs', 'vhttxmcs', 'intwrk', 'extcap'])
-  for l in labels:
-    if l in field:
-      return True
-  return False
-
-
-def make_v1_signature(sig):
-  """Degrade a v2 signature to match the equivalent v1 signature.
-
-  v2 signatures include additional information from the Wifi MLME
-  frames, based on experience of working with v1. Return a string
-  which matches what the v1 signature would have been, by removing
-  the additional information.
-
-  This allows us to retain the base of v1 signatures.
-
-  Args:
-    sig: the text signature.
-
-  Returns:
-    a v1 signature.
-  """
-  new_sig = []
-  for s in sig.split('|'):
-    fields = s.split(',')
-    new_fields = [x for x in fields if not v2only(x)]
-    new_sig.append(','.join(new_fields))
-  return '|'.join(new_sig)
 
 
 def performance_characteristics(signature):
@@ -1133,10 +1074,8 @@ def identify_wifi_device(signature, mac):
     return (SHA256, 'Unknown', PerformanceInfo)
   """
 
-  v4_sig = signature.strip()
-  v2_sig = make_v2_signature(v4_sig)
-  v1_sig = make_v1_signature(v2_sig)
-  perf = performance_info(*performance_characteristics(v4_sig))
+  sig = signature.strip()
+  perf = performance_info(*performance_characteristics(sig))
   name = dhcp.LookupHostname(mac)
   opersys = dhcp.LookupOperatingSystem(mac)
   oui = ethernet.LookupOUI(mac)
@@ -1148,11 +1087,10 @@ def identify_wifi_device(signature, mac):
   for o in oui:
     suffixes.append('|oui:' + o)
   suffixes.append('')
-  for sig in [v4_sig, v2_sig, v1_sig]:
-    for suffix in suffixes:
-      result = database.get(sig + suffix, None)
-      if result is not None:
-        return (result[0], result[1], perf)
+  for suffix in suffixes:
+    result = database.get(sig + suffix, None)
+    if result is not None:
+      return (result[0], result[1], perf)
 
   # We have no idea what the client is.
   slug = 'SHA:' + hashlib.sha256(signature).hexdigest()
@@ -1165,13 +1103,5 @@ if __name__ == '__main__':
     # Remove os, oui, etc qualifiers if present.
     a = k.split('|')
     if len(a) > 3:
-      v4_sig = '|'.join(a[0:3])
-      print 'SHA:' + hashlib.sha256(v4_sig).hexdigest() + ' ' + v[1] + ' (unqualified)'
-
-      v2_sig = make_v2_signature(v4_sig)
-      if v2_sig != v4_sig:
-        print 'SHA:' + hashlib.sha256(v2_sig).hexdigest() + ' ' + v[1] + ' (unqualified, v2)'
-
-      v1_sig = make_v1_signature(v2_sig)
-      if v1_sig != v2_sig:
-        print 'SHA:' + hashlib.sha256(v1_sig).hexdigest() + ' ' + v[1] + ' (unqualified, v1)'
+      sig = '|'.join(a[0:3])
+      print 'SHA:' + hashlib.sha256(sig).hexdigest() + ' ' + v[1] + ' (unqualified)'

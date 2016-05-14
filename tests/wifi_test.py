@@ -30,7 +30,7 @@ class WifiTaxonomyTest(unittest.TestCase):
     dhcp.DHCP_SIGNATURE_FILE = 'testdata/dhcp.signatures'
 
   def testLookup(self):
-    signature = ('wifi|probe:0,1,50,45,htcap:186e|assoc:0,1,50,48,'
+    signature = ('wifi4|probe:0,1,50,45,htcap:186e|assoc:0,1,50,48,'
                  '221(0050f2,2),45,127,htcap:086c,htmcs:000000ff')
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
     self.assertEqual(3, len(taxonomy))
@@ -114,76 +114,76 @@ class WifiTaxonomyTest(unittest.TestCase):
     self.assertIn('Unknown', taxonomy[1])
 
   def testUnknown(self):
-    signature = 'wifi|probe:0,1,2,vhtcap:0033|assoc:3,4,vhtcap:0033'
+    signature = 'wifi4|probe:0,1,2,vhtcap:0033|assoc:3,4,vhtcap:0033'
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
     self.assertIn('802.11ac', taxonomy[2])
     self.assertNotIn('802.11n', taxonomy[2])
     self.assertNotIn('802.11a/b/g', taxonomy[2])
-    signature = 'wifi|probe:0,1,2,htcap:0033|assoc:3,4,htcap:0033'
+    signature = 'wifi4|probe:0,1,2,htcap:0033|assoc:3,4,htcap:0033'
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
     self.assertNotIn('802.11ac', taxonomy[2])
     self.assertIn('802.11n', taxonomy[2])
     self.assertNotIn('802.11a/b/g', taxonomy[2])
-    signature = 'wifi|probe:0,1,2|assoc:3,4'
+    signature = 'wifi4|probe:0,1,2|assoc:3,4'
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
     self.assertNotIn('802.11ac', taxonomy[2])
     self.assertNotIn('802.11n', taxonomy[2])
     self.assertIn('802.11a/b/g', taxonomy[2])
 
   def test802_11n_NssWidth(self):
-    signature = 'wifi|probe:0|assoc:1,htcap:012c,htagg:03,htmcs:000000ff'
+    signature = 'wifi4|probe:0|assoc:1,htcap:012c,htagg:03,htmcs:000000ff'
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
     self.assertEqual('802.11n n:1,w:20', taxonomy[2])
-    signature = 'wifi|probe:0|assoc:1,htcap:0102,htagg:03,htmcs:0000ffff'
+    signature = 'wifi4|probe:0|assoc:1,htcap:0102,htagg:03,htmcs:0000ffff'
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
     self.assertEqual('802.11n n:2,w:40', taxonomy[2])
-    signature = 'wifi|probe:0|assoc:1,htcap:0200,htagg:03,htmcs:00ffffff'
+    signature = 'wifi4|probe:0|assoc:1,htcap:0200,htagg:03,htmcs:00ffffff'
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
     self.assertEqual('802.11n n:3,w:20', taxonomy[2])
-    signature = 'wifi|probe:0|assoc:1,htcap:0302,htagg:03,htmcs:ffffffff'
+    signature = 'wifi4|probe:0|assoc:1,htcap:0302,htagg:03,htmcs:ffffffff'
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
     self.assertEqual('802.11n n:4,w:40', taxonomy[2])
-    signature = 'wifi|probe:0|assoc:1'
+    signature = 'wifi4|probe:0|assoc:1'
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
     self.assertEqual('802.11a/b/g n:1,w:20', taxonomy[2])
 
   def test802_11ac_Width(self):
-    signature = ('wifi|probe:0|assoc:1,htcap:0302,htmcs:000000ff,'
+    signature = ('wifi4|probe:0|assoc:1,htcap:0302,htmcs:000000ff,'
                  'vhtcap:00000000,vhtrxmcs:0000ffaa,vhttxmcs:0000ffaa')
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
     self.assertEqual('802.11ac n:4,w:80', taxonomy[2])
-    signature = ('wifi|probe:0|assoc:1,htcap:0200,htmcs:000000ff,'
+    signature = ('wifi4|probe:0|assoc:1,htcap:0200,htmcs:000000ff,'
                  'vhtcap:00000004,vhtrxmcs:0000ffea,vhttxmcs:0000ffea')
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
     self.assertEqual('802.11ac n:3,w:160', taxonomy[2])
-    signature = ('wifi|probe:0|assoc:1,htcap:0200,htmcs:000000ff,'
+    signature = ('wifi4|probe:0|assoc:1,htcap:0200,htmcs:000000ff,'
                  'vhtcap:00000004,vhtrxmcs:0000fffa,vhttxmcs:0000fffa')
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
     self.assertEqual('802.11ac n:2,w:160', taxonomy[2])
-    signature = ('wifi|probe:0|assoc:1,htcap:0200,htmcs:000000ff,'
+    signature = ('wifi4|probe:0|assoc:1,htcap:0200,htmcs:000000ff,'
                  'vhtcap:00000004,vhtrxmcs:0000fffe,vhttxmcs:0000fffe')
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
     self.assertEqual('802.11ac n:1,w:160', taxonomy[2])
-    signature = 'wifi|probe:0|assoc:1,vhtcap:00000008'
+    signature = 'wifi4|probe:0|assoc:1,vhtcap:00000008'
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
     self.assertEqual('802.11ac n:?,w:80+80', taxonomy[2])
-    signature = 'wifi|probe:0|assoc:1,vhtcap:0000000c'
+    signature = 'wifi4|probe:0|assoc:1,vhtcap:0000000c'
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
     self.assertEqual('802.11ac n:?,w:??', taxonomy[2])
 
   def testPerformanceInfoBroken(self):
-    signature = ('wifi|probe:0,htmcs:000000ff|assoc:0,htmcs:000000ff')
+    signature = ('wifi4|probe:0,htmcs:000000ff|assoc:0,htmcs:000000ff')
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
     self.assertEqual('802.11a/b/g n:1,w:20', taxonomy[2])
-    signature = ('wifi|probe:0,htcap:wrong,htmcs:ffffffff|'
+    signature = ('wifi4|probe:0,htcap:wrong,htmcs:ffffffff|'
                  'assoc:0,htcap:wrong,htmcs:ffffffff')
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
     self.assertEqual('802.11n n:4,w:??', taxonomy[2])
-    signature = ('wifi|probe:0,htcap:012c,htmcs:wrong|'
+    signature = ('wifi4|probe:0,htcap:012c,htmcs:wrong|'
                  'assoc:0,htcap:012c,htmcs:wrong')
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
     self.assertEqual('802.11n n:?,w:20', taxonomy[2])
-    signature = ('wifi|probe:0,htcap:wrong,htmcs:wrong|'
+    signature = ('wifi4|probe:0,htcap:wrong,htmcs:wrong|'
                  'assoc:0,htcap:wrong,htmcs:wrong')
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
     self.assertEqual('802.11n n:?,w:??', taxonomy[2])
@@ -191,13 +191,13 @@ class WifiTaxonomyTest(unittest.TestCase):
   def testRealClientsPerformance(self):
     """Test the performance information for a few real clients."""
     # Nest Thermostat
-    sig = ('wifi|probe:0,1,50,45,htcap:0130,htagg:18,htmcs:000000ff|assoc:'
+    sig = ('wifi4|probe:0,1,50,45,htcap:0130,htagg:18,htmcs:000000ff|assoc:'
            '0,1,50,48,45,221(0050f2,2),htcap:013c,htagg:18,htmcs:000000ff')
     taxonomy = wifi.identify_wifi_device(sig, '18:b4:30:00:00:01')
     self.assertEqual('802.11n n:1,w:20', taxonomy[2])
     # Samsung Galaxy S4
     sig = (
-        'wifi|probe:0,1,45,127,191,221(001018,2),221(00904c,51),221(00904c,'
+        'wifi4|probe:0,1,45,127,191,221(001018,2),221(00904c,51),221(00904c,'
         '4),221(0050f2,8),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,'
         'vhtrxmcs:0000fffe,vhttxmcs:0000fffe|assoc:0,1,33,36,48,45,127,191,'
         '221(001018,2),221(00904c,4),221(0050f2,2),htcap:006f,htagg:17,htmcs:'
@@ -206,7 +206,7 @@ class WifiTaxonomyTest(unittest.TestCase):
     self.assertEqual('802.11ac n:1,w:80', taxonomy[2])
     # MacBook Pro 802.11ac
     sig = (
-        'wifi|probe:0,1,45,127,191,221(00904c,51),htcap:09ef,htagg:17,'
+        'wifi4|probe:0,1,45,127,191,221(00904c,51),htcap:09ef,htagg:17,'
         'htmcs:0000ffff,vhtcap:0f8259b2,vhtrxmcs:0000ffea,vhttxmcs:0000ffea|'
         'assoc:0,1,33,36,48,45,127,191,221(00904c,51),221(0050f2,2),htcap:09ef,'
         'htagg:17,htmcs:0000ffff,vhtcap:0f8259b2,vhtrxmcs:0000ffea,'
@@ -225,7 +225,7 @@ class WifiTaxonomyTest(unittest.TestCase):
     look at the Association for determining client
     performance characteristics.
     """
-    signature = ('wifi|probe:0,1,50,45,221(0050f2,8),191,221(0050f2,4),'
+    signature = ('wifi4|probe:0,1,50,45,221(0050f2,8),191,221(0050f2,4),'
                  '221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,'
                  'vhtcap:31811120,vhtrxmcs:01b2fffc,vhttxmcs:01b2fffc,'
                  'wps:Nexus_4|assoc:0,1,50,48,45,221(0050f2,2),'
@@ -234,75 +234,12 @@ class WifiTaxonomyTest(unittest.TestCase):
     self.assertEqual('802.11n n:1,w:20', taxonomy[2])
 
   def testCorruptFiles(self):
-    signature = 'wifi|probe:0|assoc:1,htcap:this_is_not_a_number'
+    signature = 'wifi4|probe:0|assoc:1,htcap:this_is_not_a_number'
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
     self.assertIn('802.11n', taxonomy[2])
-    signature = 'wifi|probe:0|assoc:1,vhtcap:this_is_not_a_number'
+    signature = 'wifi4|probe:0|assoc:1,vhtcap:this_is_not_a_number'
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
     self.assertIn('802.11ac', taxonomy[2])
-
-  def testV1Signature(self):
-    sig = ('wifi|probe:0,1,50,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),'
-           'htcap:012c,htagg:03,htmcs:000000ff,wps:Nexus_4|assoc:0,1,50,48,45,'
-           '221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff')
-    expected = (
-        'wifi|probe:0,1,50,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),'
-        'htcap:012c,wps:Nexus_4|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c')
-    v1 = wifi.make_v1_signature(sig)
-    self.assertEqual(v1, expected)
-    sig = ('wifi|probe:0,1,45,127,191,221(001018,2),221(00904c,51),'
-           '221(00904c,4),221(0050f2,8),htcap:006f,htagg:17,htmcs:000000ff,'
-           'vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe|assoc:0,1,33,'
-           '36,48,45,127,191,221(001018,2),221(00904c,4),221(0050f2,2),'
-           'htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,'
-           'vhtrxmcs:0000fffe,vhttxmcs:0000fffe')
-    expected = ('wifi|probe:0,1,45,127,191,221(001018,2),221(00904c,51),'
-                '221(00904c,4),221(0050f2,8),htcap:006f,vhtcap:0f805832|assoc:'
-                '0,1,33,36,48,45,127,191,221(001018,2),221(00904c,4),'
-                '221(0050f2,2),htcap:006f,vhtcap:0f805832')
-    v1 = wifi.make_v1_signature(sig)
-    self.assertEqual(v1, expected)
-
-  def testV2Signature(self):
-    sig = 'wifi4|probe:0,1,50|assoc:0,1,50,htcap:012c,txpow:3210'
-    exp = 'wifi|probe:0,1,50|assoc:0,1,50,htcap:012c'
-    v2 = wifi.make_v2_signature(sig)
-    self.assertEqual(v2, exp)
-    sig = 'wifi4|probe:0,1,50|assoc:0,1,50,extcap:0123456789abcdef'
-    exp = 'wifi|probe:0,1,50|assoc:0,1,50,extcap:67452301'
-    v2 = wifi.make_v2_signature(sig)
-    self.assertEqual(v2, exp)
-    # iPhone 6s signature
-    sig = ('wifi4|probe:0,1,50,3,45,127,107,221(0050f2,8),221(001018,2),'
-           'htcap:002d,htagg:17,htmcs:0000ffff,'
-           'extcap:0400088400000040|assoc:0,1,50,33,36,48,45,127,221(001018,2),'
-           '221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,'
-           'txpow:1202,extcap:0000000000000040|os:ios')
-    exp = ('wifi|probe:0,1,50,3,45,127,107,221(0050f2,8),221(001018,2),'
-           'htcap:002d,htagg:17,htmcs:0000ffff,'
-           'extcap:84080004|assoc:0,1,50,33,36,48,45,127,221(001018,2),'
-           '221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,'
-           'extcap:00000000|os:ios')
-    v2 = wifi.make_v2_signature(sig)
-    self.assertEqual(v2, exp)
-
-  def testV2SignatureSmallExtcap(self):
-    sig = 'wifi4|probe:0,1,50|assoc:0,1,50,extcap:01234567'
-    exp = 'wifi|probe:0,1,50|assoc:0,1,50,extcap:67452301'
-    v2 = wifi.make_v2_signature(sig)
-    self.assertEqual(v2, exp)
-    sig = 'wifi4|probe:0,1,50|assoc:0,1,50,extcap:012345'
-    exp = 'wifi|probe:0,1,50|assoc:0,1,50,extcap:452301'
-    v2 = wifi.make_v2_signature(sig)
-    self.assertEqual(v2, exp)
-    sig = 'wifi4|probe:0,1,50|assoc:0,1,50,extcap:0123'
-    exp = 'wifi|probe:0,1,50|assoc:0,1,50,extcap:2301'
-    v2 = wifi.make_v2_signature(sig)
-    self.assertEqual(v2, exp)
-    sig = 'wifi4|probe:0,1,50|assoc:0,1,50,extcap:01'
-    exp = 'wifi|probe:0,1,50|assoc:0,1,50,extcap:01'
-    v2 = wifi.make_v2_signature(sig)
-    self.assertEqual(v2, exp)
 
 
 if __name__ == '__main__':
