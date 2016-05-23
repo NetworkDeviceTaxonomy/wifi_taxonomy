@@ -239,6 +239,7 @@ database = {
     'ec:9b:f3': ['samsung'],
     'f0:25:b7': ['samsung'],
     'f4:09:d8': ['samsung'],
+    'fc:f1:36': ['samsung'],
 
     '00:d9:d1': ['sony'],
     '28:0d:fc': ['sony'],

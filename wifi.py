@@ -45,6 +45,9 @@ database = {
     'wifi4|probe:0,1,50,221(0050f2,4),221(506f9a,9),wps:KFFOWI|assoc:0,1,50,45,48,127,221(0050f2,2),htcap:1172,htagg:03,htmcs:000000ff,extcap:01':
         ('', 'Amazon Kindle Fire 7" (2015 edition)', '2.4GHz'),
 
+    'wifi4|probe:0,1,50,45,127,221(0050f2,4),221(506f9a,9),htcap:01ed,htagg:1f,htmcs:0000ffff,extcap:00,wps:AFTS|assoc:0,1,50,45,127,221(000c43,6),221(0050f2,2),48,127,htcap:008c,htagg:1f,htmcs:0000ffff,extcap:00000a02':
+        ('', 'Amazon Fire TV', '2.4GHz'),
+
     'wifi4|probe:0,1,45,221(001018,2),221(00904c,51),htcap:007e,htagg:1b,htmcs:0000ffff|assoc:0,1,33,36,48,45,221(001018,2),221(0050f2,2),htcap:007e,htagg:1b,htmcs:0000ffff,txpow:e50d|oui:amazon':
         ('', 'Amazon Fire TV Stick', '5GHz'),
     'wifi4|probe:0,1,50,3,45,221(001018,2),221(00904c,51),htcap:003c,htagg:1b,htmcs:0000ffff|assoc:0,1,33,36,48,50,45,221(001018,2),221(0050f2,2),htcap:003c,htagg:1b,htmcs:0000ffff,txpow:170c|oui:amazon':
@@ -178,6 +181,8 @@ database = {
     'wifi4|probe:0,1,45,221(0050f2,8),191,127,107,221(0050f2,4),221(506f9a,9),221(506f9a,16),htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:00000a820040,wps:HTC_One_M8|assoc:0,1,48,45,221(0050f2,2),191,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:00000a8201400040':
         ('WCN3680', 'HTC One M8', '5GHz'),
     'wifi4|probe:0,1,3,45,221(0050f2,8),191,127,107,221(0050f2,4),221(506f9a,9),221(506f9a,16),htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:00000a820040,wps:HTC_One_M8|assoc:0,1,48,45,221(0050f2,2),191,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:00000a8201400040':
+        ('WCN3680', 'HTC One M8', '5GHz'),
+    'wifi4|probe:0,1,3,45,221(0050f2,8),191,127,107,221(0050f2,4),221(506f9a,10),221(506f9a,9),221(506f9a,16),htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:000000800040,wps:HTC_One_M8|assoc:0,1,33,36,48,70,45,221(0050f2,2),191,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:1e0d,extcap:0000008001400040':
         ('WCN3680', 'HTC One M8', '5GHz'),
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),127,107,221(0050f2,4),221(506f9a,9),221(506f9a,16),htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a820040,wps:HTC_One_M8|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a8201400000':
         ('WCN3680', 'HTC One M8', '2.4GHz'),
@@ -555,6 +560,10 @@ database = {
         ('BCM4356', 'Nexus 6', '5GHz'),
     'wifi4|probe:0,1,45,191,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,wps:Nexus_6|assoc:0,1,33,36,48,45,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e009':
         ('BCM4356', 'Nexus 6', '5GHz'),
+    'wifi4|probe:0,1,45,127,191,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000088001400040,wps:Nexus_6|assoc:0,1,33,36,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e009,extcap:0000088001400040':
+        ('BCM4356', 'Nexus 6', '5GHz'),
+    'wifi4|probe:0,1,45,127,191,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:000008800140,wps:Nexus_6|assoc:0,1,33,36,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e009,extcap:000008800140':
+        ('BCM4356', 'Nexus 6', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0000088001400040,wps:Nexus_6|assoc:0,1,50,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1209,extcap:000008800140':
         ('BCM4356', 'Nexus 6', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:000008800140,wps:Nexus_6|assoc:0,1,50,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1209,extcap:000008800140':
@@ -618,6 +627,8 @@ database = {
     'wifi4|probe:0,1,50,3,45,127,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0000088001400040,wps:Nexus_9|assoc:0,1,50,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1309,extcap:000008800140':
         ('BCM4354', 'Nexus 9', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:000008800140,wps:Nexus_9|assoc:0,1,50,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:150b,extcap:000008800140':
+        ('BCM4354', 'Nexus 9', '2.4GHz'),
+    'wifi4|probe:0,1,50,3,45,127,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:000008800140,wps:Nexus_9|assoc:0,1,50,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1309,extcap:000008800140':
         ('BCM4354', 'Nexus 9', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(00904c,4),221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:000008800140|assoc:0,1,50,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1309,extcap:000008800140|oui:samsung':
         ('BCM4354', 'Nexus 9', '2.4GHz'),
