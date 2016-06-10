@@ -22,1052 +22,1032 @@ import dhcp
 import ethernet
 
 
+# Associated with each signature is a tuple:
+# Field #1 = Genus = a human-recognizeable name for the device. If the device
+#   has branding silkscreened on it (ex: "Samsung Galaxy S4" on the back), that
+#   should probably be the Genus though this isn't rigidly adhered to.
+#   We want someone reading the Genus to recognize it without thinking to
+#   themselves "Wow, that is comically detailed."
+# Field #2 = Species = the most specific designation we know of, such as the
+#   version or model number or vintage. Not all entries will have a Species,
+#   if the Genus is very specific we may not have any additional information
+#   to put in the species.
+#   We want someone reading the Species to think to themselves "Wow, that is
+#   comically detailed."
+# Field #3 = Frequency = band of this signature, '2.4GHz' or '5GHz'.
+
 database = {
     'wifi4|probe:0,1,50,127,107,221(0050f2,4),221(506f9a,9),221(506f9a,16),extcap:00000080,wps:5042T|assoc:0,1,50,45,48,127,221(0050f2,2),htcap:1172,htagg:03,htmcs:000000ff,extcap:01':
-        ('', 'Alcatel Pop Astro', '2.4GHz'),
+        ('Alcatel OneTouch', 'Pop Astro', '2.4GHz'),
 
     'wifi4|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:110c,htagg:19,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:110c,htagg:19,htmcs:000000ff|os:dashbutton':
-        ('BCM43362', 'Amazon Dash Button', '2.4GHz'),
+        ('Amazon Dash Button', '', '2.4GHz'),
 
     'wifi4|probe:0,1,3,45,221(0050f2,8),191,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31805120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe|assoc:0,1,48,45,221(0050f2,2),191,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31805120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:00000a0200000040|oui:amazon':
-        ('', 'Amazon Fire Phone', '5GHz'),
+        ('Amazon Fire Phone', '', '5GHz'),
     'wifi4|probe:0,1,45,221(0050f2,8),191,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe|assoc:0,1,48,45,221(0050f2,2),191,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31805120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:00000a0200000040|oui:amazon':
-        ('', 'Amazon Fire Phone', '5GHz'),
+        ('Amazon Fire Phone', '', '5GHz'),
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a0200000000|oui:amazon':
-        ('', 'Amazon Fire Phone', '2.4GHz'),
-
-    'wifi4|probe:0,1,45,htcap:11ee,htagg:02,htmcs:0000ffff|assoc:0,1,33,36,48,221(0050f2,2),45,127,htcap:11ee,htagg:02,htmcs:0000ffff,txpow:0e00,extcap:01|oui:amazon':
-        ('', 'Amazon Kindle', '5GHz'),
-    'wifi4|probe:0,1,50|assoc:0,1,50,48,221(0050f2,2)|oui:amazon':
-        ('', 'Amazon Kindle', '2.4GHz'),
-    'wifi4|probe:0,1,50,45,htcap:01ac,htagg:02,htmcs:0000ffff|assoc:0,1,50,48,221(0050f2,2),45,127,htcap:01ac,htagg:02,htmcs:0000ffff,extcap:01|oui:amazon':
-        ('', 'Amazon Kindle', '2.4GHz'),
-
-    'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:1130,htagg:18,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),htcap:1130,htagg:18,htmcs:000000ff|oui:amazon':
-        ('TI_WL1271', 'Amazon Kindle Fire 7" (2011 edition)', '2.4GHz'),
-    'wifi4|probe:0,1,50,221(0050f2,4),221(506f9a,9),wps:KFFOWI|assoc:0,1,50,45,48,127,221(0050f2,2),htcap:1172,htagg:03,htmcs:000000ff,extcap:01':
-        ('', 'Amazon Kindle Fire 7" (2015 edition)', '2.4GHz'),
+        ('Amazon Fire Phone', '', '2.4GHz'),
 
     'wifi4|probe:0,1,50,45,127,221(0050f2,4),221(506f9a,9),htcap:01ed,htagg:1f,htmcs:0000ffff,extcap:00,wps:AFTS|assoc:0,1,50,45,127,221(000c43,6),221(0050f2,2),48,127,htcap:008c,htagg:1f,htmcs:0000ffff,extcap:00000a02':
-        ('', 'Amazon Fire TV', '2.4GHz'),
+        ('Amazon Fire TV', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,221(001018,2),221(00904c,51),htcap:007e,htagg:1b,htmcs:0000ffff|assoc:0,1,33,36,48,45,221(001018,2),221(0050f2,2),htcap:007e,htagg:1b,htmcs:0000ffff,txpow:e50d|oui:amazon':
-        ('', 'Amazon Fire TV Stick', '5GHz'),
+        ('Amazon Fire TV Stick', '', '5GHz'),
     'wifi4|probe:0,1,50,3,45,221(001018,2),221(00904c,51),htcap:003c,htagg:1b,htmcs:0000ffff|assoc:0,1,33,36,48,50,45,221(001018,2),221(0050f2,2),htcap:003c,htagg:1b,htmcs:0000ffff,txpow:170c|oui:amazon':
-        ('', 'Amazon Fire TV Stick', '2.4GHz'),
+        ('Amazon Fire TV Stick', '', '2.4GHz'),
+
+    'wifi4|probe:0,1,45,htcap:11ee,htagg:02,htmcs:0000ffff|assoc:0,1,33,36,48,221(0050f2,2),45,127,htcap:11ee,htagg:02,htmcs:0000ffff,txpow:0e00,extcap:01|oui:amazon':
+        ('Amazon Kindle', '', '5GHz'),
+    'wifi4|probe:0,1,50|assoc:0,1,50,48,221(0050f2,2)|oui:amazon':
+        ('Amazon Kindle', '', '2.4GHz'),
+    'wifi4|probe:0,1,50,45,htcap:01ac,htagg:02,htmcs:0000ffff|assoc:0,1,50,48,221(0050f2,2),45,127,htcap:01ac,htagg:02,htmcs:0000ffff,extcap:01|oui:amazon':
+        ('Amazon Kindle', '', '2.4GHz'),
+
+    'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:1130,htagg:18,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),htcap:1130,htagg:18,htmcs:000000ff|oui:amazon':
+        ('Amazon Kindle', 'Fire 7" (2011 edition)', '2.4GHz'),
+    'wifi4|probe:0,1,50,221(0050f2,4),221(506f9a,9),wps:KFFOWI|assoc:0,1,50,45,48,127,221(0050f2,2),htcap:1172,htagg:03,htmcs:000000ff,extcap:01':
+        ('Amazon Kindle', 'Fire 7" (2015 edition)', '2.4GHz'),
 
     'wifi4|probe:0,1,45,221(001018,2),221(00904c,51),htcap:081e,htagg:1b,htmcs:0000ffff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:081e,htagg:1b,htmcs:0000ffff,txpow:0008|os:appletv1':
-        ('BCM94321', 'Apple TV (1st gen)', '5GHz'),
+        ('Apple TV', '1st gen', '5GHz'),
     'wifi4|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:181c,htagg:1b,htmcs:0000ffff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:181c,htagg:1b,htmcs:0000ffff,txpow:1308|os:appletv1':
-        ('BCM94321', 'Apple TV (1st gen)', '2.4GHz'),
+        ('Apple TV', '1st gen', '2.4GHz'),
     'wifi4|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:581c,htagg:1b,htmcs:0000ffff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:581c,htagg:1b,htmcs:0000ffff,txpow:1308|os:appletv1':
-        ('BCM94321', 'Apple TV (1st gen)', '2.4GHz'),
+        ('Apple TV', '1st gen', '2.4GHz'),
     'wifi4|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:181c,htagg:1b,htmcs:0000ffff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:581c,htagg:1b,htmcs:0000ffff,txpow:1308|os:appletv1':
-        ('BCM94321', 'Apple TV (1st gen)', '2.4GHz'),
+        ('Apple TV', '1st gen', '2.4GHz'),
     'wifi4|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:581c,htagg:1b,htmcs:0000ffff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:181c,htagg:1b,htmcs:0000ffff,txpow:1308|os:appletv1':
-        ('BCM94321', 'Apple TV (1st gen)', '2.4GHz'),
+        ('Apple TV', '1st gen', '2.4GHz'),
 
     'wifi4|probe:0,1,45,221(001018,2),221(00904c,51),htcap:080c,htagg:1b,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:080c,htagg:1b,htmcs:000000ff,txpow:1208|os:ios':
-        ('BCM4329', 'Apple TV (2nd gen)', '5GHz'),
+        ('Apple TV', '2nd gen', '5GHz'),
     'wifi4|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:180c,htagg:1b,htmcs:000000ff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:180c,htagg:1b,htmcs:000000ff,txpow:1308|os:ios':
-        ('BCM4329', 'Apple TV (2nd gen)', '2.4GHz'),
+        ('Apple TV', '2nd gen', '2.4GHz'),
 
     'wifi4|probe:0,1,45,3,221(001018,2),221(00904c,51),htcap:0100,htagg:19,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0100,htagg:19,htmcs:000000ff,txpow:180f|name:appletv':
-        ('BCM4330', 'Apple TV (3rd gen)', '2.4GHz'),
+        ('Apple TV', '3rd gen', '2.4GHz'),
     'wifi4|probe:0,1,45,3,221(001018,2),221(00904c,51),htcap:0100,htagg:19,htmcs:000000ff|assoc:0,1,33,36,48,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0100,htagg:19,htmcs:000000ff,txpow:180f|name:appletv':
-        ('BCM4330', 'Apple TV (3rd gen)', '2.4GHz'),
+        ('Apple TV', '3rd gen', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062,htagg:1a,htmcs:000000ff,extcap:00000004|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062,htagg:1a,htmcs:000000ff,txpow:1907|os:ios':
-        ('BCM4334', 'Apple TV (3rd gen rev A)', '5GHz'),
+        ('Apple TV', '3rd gen rev A', '5GHz'),
     'wifi4|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062,htagg:1a,htmcs:000000ff,extcap:00000004|assoc:0,1,33,36,48,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062,htagg:1a,htmcs:000000ff,txpow:1907|os:ios':
-        ('BCM4334', 'Apple TV (3rd gen rev A)', '5GHz'),
+        ('Apple TV', '3rd gen rev A', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020,htagg:1a,htmcs:000000ff,extcap:00000004|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020,htagg:1a,htmcs:000000ff,txpow:1a07|os:ios':
-        ('BCM4334', 'Apple TV (3rd gen rev A)', '2.4GHz'),
+        ('Apple TV', '3rd gen rev A', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020,htagg:1a,htmcs:000000ff,extcap:00000004|assoc:0,1,33,36,48,50,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020,htagg:1a,htmcs:000000ff,txpow:1a07|os:ios':
-        ('BCM4334', 'Apple TV (3rd gen rev A)', '2.4GHz'),
+        ('Apple TV', '3rd gen rev A', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,107,191,221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0400088400000040|assoc:0,1,33,36,48,70,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e002,extcap:0400000000000040|name:appletv':
-        ('', 'Apple TV (4th gen)', '5GHz'),
+        ('Apple TV', '4th gen', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0400088400000040|assoc:0,1,50,33,36,48,70,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1502,extcap:0000000000000040|name:appletv':
-        ('', 'Apple TV (4th gen)', '2.4GHz'),
+        ('Apple TV', '4th gen', '2.4GHz'),
 
     'wifi4|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020,htagg:1a,htmcs:000000ff,extcap:00000804|assoc:0,1,48,50,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020,htagg:1a,htmcs:000000ff|os:ios':
-        ('', 'Apple Watch', '2.4GHz'),
+        ('Apple Watch', '', '2.4GHz'),
 
     'wifi4|probe:0,1,50,221(0050f2,4)|assoc:0,1,50,45,221(0050f2,2),48,htcap:000c,htagg:1b,htmcs:000000ff|os:wemo':
-        ('', 'Belkin WeMo Switch', '2.4GHz'),
+        ('Belkin WeMo', 'Switch', '2.4GHz'),
 
     'wifi4|probe:0,1,50,221(0050f2,4),221(506f9a,9),wps:BLU_DASH_M|assoc:0,1,50,45,48,127,221(0050f2,2),htcap:1172,htagg:03,htmcs:000000ff,extcap:01':
-        ('', 'BLU Dash M', '2.4GHz'),
+        ('BLU Dash', 'M', '2.4GHz'),
 
     'wifi4|probe:0,1,50,127,107,221(0050f2,4),221(506f9a,9),221(506f9a,16),extcap:00000080,wps:BLU_STUDIO_5_0_C_HD|assoc:0,1,50,45,48,127,221(0050f2,2),htcap:1172,htagg:03,htmcs:000000ff,extcap:0100008000c6':
-        ('', 'BLU Studio 5.0.C HD', '2.4GHz'),
+        ('BLU Studio', '5.0.C HD', '2.4GHz'),
 
     'wifi4|probe:0,1,50,221(0050f2,4),221(506f9a,9),wps:BLU_STUDIO_C_SUPER_CAMERA|assoc:0,1,50,45,48,127,221(0050f2,2),htcap:1172,htagg:03,htmcs:000000ff,extcap:01':
-        ('', 'BLU Studio C Super Camera', '2.4GHz'),
+        ('BLU Studio', 'C Super Camera', '2.4GHz'),
 
     'wifi4|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:112c,htagg:19,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:112c,htagg:19,htmcs:000000ff|os:brotherprinter':
-        ('', 'Brother Printer', '2.4GHz'),
+        ('Brother Printer', '', '2.4GHz'),
 
     'wifi4|probe:0,1,3,45,50,htcap:007e,htagg:00,htmcs:000000ff|assoc:0,1,45,48,50,221(0050f2,2),htcap:000c,htagg:1b,htmcs:000000ff|os:canonprinter':
-        ('', 'Canon Printer', '2.4GHz'),
+        ('Canon Printer', '', '2.4GHz'),
     'wifi4|probe:0,1,3,45,50,htcap:007e,htagg:00,htmcs:000000ff|assoc:0,1,48,50,221(0050f2,2),45,htcap:000c,htagg:1b,htmcs:000000ff|os:canonprinter':
-        ('', 'Canon Printer', '2.4GHz'),
+        ('Canon Printer', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,191,htcap:11e2,htagg:17,htmcs:0000ffff,vhtcap:038071a0,vhtrxmcs:0000fffa,vhttxmcs:0000fffa|assoc:0,1,48,45,127,191,221(0050f2,2),htcap:11e6,htagg:17,htmcs:0000ffff,vhtcap:038001a0,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000000000000040|os:chromeos':
-        ('Intel_7260', 'Chromebook Pixel 2', '5GHz'),
+        ('Chromebook', 'Pixel 2', '5GHz'),
     'wifi4|probe:0,1,45,191,htcap:11e2,htagg:17,htmcs:0000ffff,vhtcap:038071a0,vhtrxmcs:0000fffa,vhttxmcs:0000fffa|assoc:0,1,48,45,127,191,221(0050f2,2),htcap:11ee,htagg:17,htmcs:0000ffff,vhtcap:038001a0,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000000000000040|os:chromeos':
-        ('Intel_7260', 'Chromebook Pixel 2', '5GHz'),
+        ('Chromebook', 'Pixel 2', '5GHz'),
     'wifi4|probe:0,1,45,191,htcap:11e2,htagg:17,htmcs:0000ffff,vhtcap:038071a0,vhtrxmcs:0000fffa,vhttxmcs:0000fffa|assoc:0,1,33,36,48,45,127,191,221(0050f2,2),htcap:11e6,htagg:17,htmcs:0000ffff,vhtcap:038001a0,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:1600,extcap:0000000000000040|os:chromeos':
-        ('Intel_7260', 'Chromebook Pixel 2', '5GHz'),
+        ('Chromebook', 'Pixel 2', '5GHz'),
     'wifi4|probe:0,1,50,45,htcap:11e2,htagg:17,htmcs:0000ffff|assoc:0,1,50,48,45,127,221(0050f2,2),htcap:11a4,htagg:17,htmcs:0000ffff,extcap:0000000000000040|os:chromeos':
-        ('Intel_7260', 'Chromebook Pixel 2', '2.4GHz'),
+        ('Chromebook', 'Pixel 2', '2.4GHz'),
     'wifi4|probe:0,1,50,45,htcap:11e2,htagg:17,htmcs:0000ffff|assoc:0,1,50,48,45,127,221(0050f2,2),htcap:11ac,htagg:17,htmcs:0000ffff,extcap:0000000000000040|os:chromeos':
-        ('Intel_7260', 'Chromebook Pixel 2', '2.4GHz'),
+        ('Chromebook', 'Pixel 2', '2.4GHz'),
 
     'wifi4|probe:0,1,45,htcap:11ef,htagg:1b,htmcs:0000ffff|assoc:0,1,48,45,221(0050f2,2),htcap:11ef,htagg:1b,htmcs:0000ffff|os:chromeos':
-        ('AR5822', 'Chromebook 14" HP', '5GHz'),
+        ('Chromebook', 'HP 14', '5GHz'),
     'wifi4|probe:0,1,50,3,45,htcap:11ef,htagg:1b,htmcs:0000ffff|assoc:0,1,50,48,45,221(0050f2,2),htcap:11ef,htagg:1b,htmcs:0000ffff|os:chromeos':
-        ('AR5822', 'Chromebook 14" HP', '2.4GHz'),
+        ('Chromebook', 'HP 14', '2.4GHz'),
 
     'wifi4|probe:0,1,45,50,htcap:016e,htagg:03,htmcs:0000ffff|assoc:0,1,48,127,221(0050f2,2),45,htcap:016e,htagg:03,htmcs:0000ffff,extcap:00':
-        ('AR9382', 'Chromebook 11" Samsung', '5GHz'),
+        ('Chromebook', 'Samsung 11.6"', '5GHz'),
     'wifi4|probe:0,1,3,45,50,htcap:016e,htagg:03,htmcs:0000ffff|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:016e,htagg:03,htmcs:0000ffff,extcap:00':
-        ('AR9382', 'Chromebook 11" Samsung', '2.4GHz'),
+        ('Chromebook', 'Samsung 11.6"', '2.4GHz'),
 
     'wifi4|probe:0,1,3,45,50,htcap:0120,htagg:03,htmcs:00000000|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:012c,htagg:03,htmcs:000000ff,extcap:0000000000000140|oui:google':
-        ('Marvell_88W8797', 'Chromecast', '2.4GHz'),
+        ('Chromecast', 'v1', '2.4GHz'),
     'wifi4|probe:0,1,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:0000000000000040|assoc:0,1,48,127,221(0050f2,2),45,191,htcap:006e,htagg:03,htmcs:000000ff,vhtcap:33c07030,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:0400000000000140|oui:google':
-        ('Marvell_88W8887', 'Chromecast v2', '5GHz'),
+        ('Chromecast', 'v2', '5GHz'),
     'wifi4|probe:0,1,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:0000000000000040|assoc:0,1,33,36,48,127,221(0050f2,2),45,191,htcap:006e,htagg:03,htmcs:000000ff,vhtcap:33c07030,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:0400000000000140|oui:google':
-        ('Marvell_88W8887', 'Chromecast v2', '5GHz'),
+        ('Chromecast', 'v2', '5GHz'),
     'wifi4|probe:0,1,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:0000000000000040|assoc:0,1,33,36,48,127,221(0050f2,2),45,191,htcap:006e,htagg:03,htmcs:000000ff,vhtcap:33c07030,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,txpow:1308,extcap:0400000000000140|oui:google':
-        ('Marvell_88W8887', 'Chromecast v2', '5GHz'),
+        ('Chromecast', 'v2', '5GHz'),
     'wifi4|probe:0,1,3,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:0000000000000040|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:002c,htagg:03,htmcs:000000ff,extcap:0000000000000140|oui:google':
-        ('Marvell_88W8887', 'Chromecast v2', '2.4GHz'),
+        ('Chromecast', 'v2', '2.4GHz'),
 
     'wifi4|probe:0,1,45,htcap:106e,htagg:01,htmcs:000000ff|assoc:0,1,45,33,36,48,221(0050f2,2),htcap:106e,htagg:01,htmcs:000000ff,txpow:0e00|oui:dropcam':
-        ('', 'Dropcam', '5GHz'),
+        ('Dropcam', '', '5GHz'),
     'wifi4|probe:0,1,50,45,htcap:002c,htagg:01,htmcs:000000ff|assoc:0,1,50,45,48,221(0050f2,2),htcap:002c,htagg:01,htmcs:000000ff|oui:dropcam':
-        ('', 'Dropcam', '2.4GHz'),
+        ('Dropcam', '', '2.4GHz'),
 
     'wifi4|probe:0,1,50,45,htcap:002c,htagg:01,htmcs:000000ff|assoc:0,1,50,45,48,221(0050f2,2),htcap:002c,htagg:01,htmcs:000000ff|oui:ecobee':
-        ('', 'ecobee thermostat', '2.4GHz'),
+        ('ecobee thermostat', '', '2.4GHz'),
 
     'wifi4|probe:0,1,3,45,50,htcap:0162,htagg:00,htmcs:000000ff|assoc:0,1,45,48,127,50,221(0050f2,2),htcap:016e,htagg:1b,htmcs:000000ff,extcap:00|os:epsonprinter':
-        ('', 'Epson Printer', '2.4GHz'),
+        ('Epson Printer', '', '2.4GHz'),
     'wifi4|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:182c,htagg:1b,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:182c,htagg:1b,htmcs:000000ff|os:epsonprinter':
-        ('', 'Epson Printer', '2.4GHz'),
+        ('Epson Printer', '', '2.4GHz'),
     'wifi4|probe:0,1,50,221(001018,2)|assoc:0,1,48,50,221(001018,2)|os:epsonprinter':
-        ('', 'Epson Printer', '2.4GHz'),
+        ('Epson Printer', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,221(001018,2),221(00904c,51),htcap:0020,htagg:1a,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(0050f2,2),htcap:0020,htagg:1a,htmcs:000000ff|os:epsonprinter':
-        ('', 'Epson Printer', '2.4GHz'),
+        ('Epson Printer', '', '2.4GHz'),
 
     'wifi4|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:100c,htagg:19,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:100c,htagg:19,htmcs:000000ff|os:hpprinter':
-        ('', 'HP Printer', '2.4GHz'),
+        ('HP Printer', '', '2.4GHz'),
     'wifi4|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:102c,htagg:1b,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:102c,htagg:1b,htmcs:000000ff|os:hpprinter':
-        ('', 'HP Printer', '2.4GHz'),
+        ('HP Printer', '', '2.4GHz'),
     'wifi4|probe:0,1,3,45,50,htcap:0160,htagg:03,htmcs:000000ff|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:016c,htagg:03,htmcs:000000ff,extcap:00|os:hpprinter':
-        ('', 'HP Printer', '2.4GHz'),
+        ('HP Printer', '', '2.4GHz'),
     'wifi4|probe:0,1,3,45,50,htcap:0160,htagg:03,htmcs:000000ff|assoc:0,1,45,48,127,50,221(0050f2,2),htcap:016c,htagg:03,htmcs:000000ff,extcap:00000000|os:hpprinter':
-        ('', 'HP Printer', '2.4GHz'),
+        ('HP Printer', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,221(001018,2),221(00904c,51),htcap:0020,htagg:1a,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(0050f2,2),221(506f9a,9),htcap:0020,htagg:1a,htmcs:000000ff|os:hpprinter':
-        ('', 'HP Printer', '2.4GHz'),
+        ('HP Printer', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,221(001018,2),221(00904c,51),htcap:0020,htagg:1a,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(0050f2,2),htcap:0020,htagg:1a,htmcs:000000ff|os:hpprinter':
-        ('', 'HP Printer', '2.4GHz'),
+        ('HP Printer', '', '2.4GHz'),
     'wifi4|probe:0,1,3,45,50,htcap:0060,htagg:03,htmcs:000000ff|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:006c,htagg:03,htmcs:000000ff,extcap:00|os:hpprinter':
-        ('', 'HP Printer', '2.4GHz'),
+        ('HP Printer', '', '2.4GHz'),
     'wifi4|probe:0,1,3,45,50,127,htcap:010c,htagg:1b,htmcs:0000ffff,extcap:00|assoc:0,1,45,48,127,50,221(0050f2,2),htcap:016c,htagg:1b,htmcs:000000ff,extcap:00|os:hpprinter':
-        ('', 'HP Printer', '2.4GHz'),
+        ('HP Printer', '', '2.4GHz'),
     'wifi4|probe:0,1,50,221(001018,2)|assoc:0,1,48,50,221(001018,2)|os:hpprinter':
-        ('', 'HP Printer', '2.4GHz'),
+        ('HP Printer', '', '2.4GHz'),
     'wifi4|probe:0,1,3,45,50,127,htcap:010c,htagg:1b,htmcs:0000ffff,extcap:00|assoc:0,1,48,50,221(0050f2,2)|os:hpprinter':
-        ('', 'HP Printer', '2.4GHz'),
+        ('HP Printer', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,191,221(001018,2),221(00904c,51),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:03800032,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000000000000040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:03800032,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e008,extcap:0000000000000040|oui:htc':
-        ('BCM4335', 'HTC One', '5GHz'),
+        ('HTC One', '', '5GHz'),
     'wifi4|probe:0,1,3,45,127,191,221(001018,2),221(00904c,51),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:03800032,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000000000000040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:03800032,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e008,extcap:0000000000000040|oui:htc':
-        ('BCM4335', 'HTC One', '5GHz'),
+        ('HTC One', '', '5GHz'),
     'wifi4|probe:0,1,50,45,127,221(001018,2),221(00904c,51),htcap:102d,htagg:17,htmcs:000000ff,extcap:0000000000000040|assoc:0,1,33,36,48,50,45,221(001018,2),221(0050f2,2),htcap:102d,htagg:17,htmcs:000000ff,txpow:1408|oui:htc':
-        ('BCM4335', 'HTC One', '2.4GHz'),
+        ('HTC One', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),htcap:102d,htagg:17,htmcs:000000ff,extcap:0000000000000040|assoc:0,1,33,36,48,50,45,221(001018,2),221(0050f2,2),htcap:102d,htagg:17,htmcs:000000ff,txpow:1408|oui:htc':
-        ('BCM4335', 'HTC One', '2.4GHz'),
+        ('HTC One', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,wps:HTC_VLE_U|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff':
-        ('', 'HTC One S', '2.4GHz'),
+        ('HTC One', 'S', '2.4GHz'),
     'wifi4|probe:0,1,3,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,wps:HTC_VLE_U|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff':
-        ('', 'HTC One S', '2.4GHz'),
+        ('HTC One', 'S', '2.4GHz'),
 
     'wifi4|probe:0,1,45,221(0050f2,8),191,127,107,221(0050f2,4),221(506f9a,9),221(506f9a,16),htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:00000a820040,wps:HTC_One_M8|assoc:0,1,48,45,221(0050f2,2),191,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:00000a8201400040':
-        ('WCN3680', 'HTC One M8', '5GHz'),
+        ('HTC One', 'M8', '5GHz'),
     'wifi4|probe:0,1,3,45,221(0050f2,8),191,127,107,221(0050f2,4),221(506f9a,9),221(506f9a,16),htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:00000a820040,wps:HTC_One_M8|assoc:0,1,48,45,221(0050f2,2),191,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:00000a8201400040':
-        ('WCN3680', 'HTC One M8', '5GHz'),
+        ('HTC One', 'M8', '5GHz'),
     'wifi4|probe:0,1,3,45,221(0050f2,8),191,127,107,221(0050f2,4),221(506f9a,10),221(506f9a,9),221(506f9a,16),htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:000000800040,wps:HTC_One_M8|assoc:0,1,33,36,48,70,45,221(0050f2,2),191,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:1e0d,extcap:0000008001400040':
-        ('WCN3680', 'HTC One M8', '5GHz'),
+        ('HTC One', 'M8', '5GHz'),
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),127,107,221(0050f2,4),221(506f9a,9),221(506f9a,16),htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a820040,wps:HTC_One_M8|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a8201400000':
-        ('WCN3680', 'HTC One M8', '2.4GHz'),
+        ('HTC One', 'M8', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a8201400000|oui:htc':
-        ('WCN3680', 'HTC One M8', '2.4GHz'),
+        ('HTC One', 'M8', '2.4GHz'),
 
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),127,107,221(0050f2,4),221(506f9a,10),221(506f9a,9),221(506f9a,16),htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a820040,wps:831C|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,txpow:170d,extcap:00000a8201400000':
-        ('', 'HTC One M8, Sprint version', '2.4GHz'),
+        ('HTC One', 'M8, Sprint edition', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),127,107,221(0050f2,4),221(506f9a,9),221(506f9a,16),htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a820040,wps:HTC6525LVW|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,txpow:160d,extcap:00000a8201400000':
-        ('', 'HTC One M8, Verizon version', '2.4GHz'),
+        ('HTC One', 'M8, Verizon edition', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,107,191,221(506f9a,16),221(0050f2,8),221(001018,2),htcap:0063,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000088001400040|assoc:0,1,33,36,48,45,127,107,191,221(001018,2),221(0050f2,2),htcap:0063,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e009,extcap:0000088001400040|oui:htc':
-        ('BCM4356', 'HTC One M9', '5GHz'),
+        ('HTC One', 'M9', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(506f9a,16),221(0050f2,8),221(001018,2),htcap:1063,htagg:17,htmcs:000000ff,extcap:0000088001400040|assoc:0,1,50,33,36,45,127,107,221(001018,2),221(0050f2,2),htcap:1063,htagg:17,htmcs:000000ff,txpow:1309,extcap:000008800140|oui:htc':
-        ('BCM4356', 'HTC One M9', '2.4GHz'),
+        ('HTC One', 'M9', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(506f9a,16),221(0050f2,8),221(001018,2),htcap:1063,htagg:17,htmcs:000000ff,extcap:0000088001400040|assoc:0,1,50,33,36,45,127,107,221(001018,2),221(0050f2,2),htcap:1063,htagg:17,htmcs:000000ff,txpow:1309,extcap:000008800140|oui:htc':
-        ('BCM4356', 'HTC One M9', '2.4GHz'),
+        ('HTC One', 'M9', '2.4GHz'),
 
     'wifi4|probe:0,1,50,3,45,127,221(0050f2,4),221(506f9a,9),221(506f9a,16),221(0050f2,8),221(001018,2),htcap:1063,htagg:17,htmcs:000000ff,extcap:000008800140,wps:0PJA2|assoc:0,1,50,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:1063,htagg:17,htmcs:000000ff,txpow:1309,extcap:000008800140':
-        ('', 'HTC One M9, Sprint version', '2.4GHz'),
+        ('HTC One', 'M9, Sprint edition', '2.4GHz'),
 
     'wifi4|probe:0,1,50,45,3,221(0050f2,4),221(001018,2),221(00904c,51),htcap:100c,htagg:19,htmcs:000000ff,wps:_|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:100c,htagg:19,htmcs:000000ff|oui:htc':
-        ('', 'HTC One V', '2.4GHz'),
+        ('HTC One', 'V', '2.4GHz'),
 
     'wifi4|probe:0,1,45,htcap:0130,htagg:18,htmcs:000000ff|assoc:0,1,48,45,221(0050f2,2),htcap:013c,htagg:18,htmcs:000000ff|oui:htc':
-        ('', 'HTC One X', '5GHz'),
+        ('HTC One', 'X', '5GHz'),
     'wifi4|probe:0,1,50,45,htcap:0130,htagg:18,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),htcap:013c,htagg:18,htmcs:000000ff|oui:htc':
-        ('', 'HTC One X', '2.4GHz'),
+        ('HTC One', 'X', '2.4GHz'),
 
     'wifi4|probe:0,1,45,221(001018,2),221(00904c,51),htcap:080c,htagg:1b,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:080c,htagg:1b,htmcs:000000ff,txpow:1008|os:ios':
-        ('BCM4329', 'iPad (1st/2nd gen)', '5GHz'),
+        ('iPad', '1st or 2nd gen', '5GHz'),
     'wifi4|probe:0,1,45,221(001018,2),221(00904c,51),htcap:0800,htagg:1b,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0800,htagg:1b,htmcs:000000ff,txpow:1008|os:ios':
-        ('BCM4329', 'iPad (1st/2nd gen)', '5GHz'),
+        ('iPad', '1st or 2nd gen', '5GHz'),
     'wifi4|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:180c,htagg:1b,htmcs:000000ff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:180c,htagg:1b,htmcs:000000ff,txpow:1008|os:ios':
-        ('BCM4329', 'iPad (1st gen)', '2.4GHz'),
+        ('iPad', '1st gen', '2.4GHz'),
     'wifi4|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:1800,htagg:1b,htmcs:000000ff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:1800,htagg:1b,htmcs:000000ff,txpow:1008|os:ios':
-        ('BCM4329', 'iPad (1st gen)', '2.4GHz'),
+        ('iPad', '1st gen', '2.4GHz'),
     'wifi4|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:180c,htagg:1b,htmcs:000000ff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:180c,htagg:1b,htmcs:000000ff,txpow:1108|os:ios':
-        ('BCM4329', 'iPad (2nd gen)', '2.4GHz'),
+        ('iPad', '2nd gen', '2.4GHz'),
     'wifi4|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:1800,htagg:1b,htmcs:000000ff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:1800,htagg:1b,htmcs:000000ff,txpow:1108|os:ios':
-        ('BCM4329', 'iPad (2nd gen)', '2.4GHz'),
+        ('iPad', '2nd gen', '2.4GHz'),
 
     'wifi4|probe:0,1,45,3,221(001018,2),221(00904c,51),htcap:0100,htagg:19,htmcs:000000ff|assoc:0,1,33,36,48,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0100,htagg:19,htmcs:000000ff,txpow:180f|os:ios':
-        ('BCM4330', 'iPad (3rd gen)', '5GHz'),
+        ('iPad', '3rd gen', '5GHz'),
     'wifi4|probe:0,1,45,3,221(001018,2),221(00904c,51),htcap:0100,htagg:19,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0100,htagg:19,htmcs:000000ff,txpow:180f|os:ios':
-        ('BCM4330', 'iPad (3rd gen)', '5GHz'),
+        ('iPad', '3rd gen', '5GHz'),
     'wifi4|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:0100,htagg:19,htmcs:000000ff|assoc:0,1,33,36,48,50,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0100,htagg:19,htmcs:000000ff,txpow:150c|os:ios':
-        ('BCM4330', 'iPad (3rd gen)', '2.4GHz'),
+        ('iPad', '3rd gen', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:01fe,htagg:1b,htmcs:0000ffff,extcap:00000804|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:01fe,htagg:1b,htmcs:0000ffff,txpow:e708|os:ios':
-        ('BCM4334', 'iPad (4th gen or Air)', '5GHz'),
+        ('iPad', '4th gen or Air 1st gen', '5GHz'),
     'wifi4|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:01fe,htagg:1b,htmcs:0000ffff,extcap:00000804|assoc:0,1,33,36,48,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:01fe,htagg:1b,htmcs:0000ffff,txpow:e708|os:ios':
-        ('BCM4334', 'iPad (4th gen or Air)', '5GHz'),
+        ('iPad', '4th gen or Air 1st gen', '5GHz'),
     'wifi4|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:01fe,htagg:1b,htmcs:0000ffff,extcap:00000004|assoc:0,1,33,36,48,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:01fe,htagg:1b,htmcs:0000ffff,txpow:e708|os:ios':
-        ('BCM4334', 'iPad (4th gen or Air)', '5GHz'),
+        ('iPad', '4th gen or Air 1st gen', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:01bc,htagg:1b,htmcs:0000ffff,extcap:00000804|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:01bc,htagg:1b,htmcs:0000ffff,txpow:1805|os:ios':
-        ('BCM4334', 'iPad (4th gen or Air)', '2.4GHz'),
+        ('iPad', '4th gen or Air 1st gen', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:01bc,htagg:1b,htmcs:0000ffff,extcap:00000804|assoc:0,1,33,36,48,50,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:01bc,htagg:1b,htmcs:0000ffff,txpow:1805|os:ios':
-        ('BCM4334', 'iPad (4th gen or Air)', '2.4GHz'),
+        ('iPad', '4th gen or Air 1st gen', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,107,191,221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0400088400000040|assoc:0,1,33,36,48,70,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e002,extcap:0400000000000040|name:ipad':
-        ('BCM4350', 'iPad Air (2nd gen)', '5GHz'),
+        ('iPad', 'Air 2nd gen', '5GHz'),
     'wifi4|probe:0,1,45,127,107,191,221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffe,extcap:0400088400000040|assoc:0,1,33,36,48,70,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e002,extcap:0400000000000040|name:ipad':
-        ('BCM4350', 'iPad Air (2nd gen)', '5GHz'),
+        ('iPad', 'Air 2nd gen', '5GHz'),
     'wifi4|probe:0,1,45,127,107,191,221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffe,vhttxmcs:0000fffa,extcap:0400088400000040|assoc:0,1,33,36,48,70,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e002,extcap:0400000000000040|name:ipad':
-        ('BCM4350', 'iPad Air (2nd gen)', '5GHz'),
+        ('iPad', 'Air 2nd gen', '5GHz'),
     'wifi4|probe:0,1,45,127,107,191,221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0400088400000040|assoc:0,1,33,36,48,70,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e002,extcap:0400000000000040|name:ipad':
-        ('BCM4350', 'iPad Air (2nd gen)', '5GHz'),
+        ('iPad', 'Air 2nd gen', '5GHz'),
     'wifi4|probe:0,1,45,127,107,191,221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0400088400000040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e002,extcap:0400000000000040|name:ipad':
-        ('BCM4350', 'iPad Air (2nd gen)', '5GHz'),
+        ('iPad', 'Air 2nd gen', '5GHz'),
     'wifi4|probe:0,1,45,127,107,191,221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffe,extcap:0400088400000040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e002,extcap:0400000000000040|name:ipad':
-        ('BCM4350', 'iPad Air (2nd gen)', '5GHz'),
+        ('iPad', 'Air 2nd gen', '5GHz'),
     'wifi4|probe:0,1,45,127,107,191,221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f815832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0400088400000040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e002,extcap:0400000000000040|name:ipad':
-        ('BCM4350', 'iPad Air (2nd gen)', '5GHz'),
+        ('iPad', 'Air 2nd gen', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0400088400000040|assoc:0,1,50,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1502,extcap:0000000000000040|os:ios':
-        ('BCM4335', 'iPad Air (2nd gen)', '2.4GHz'),
+        ('iPad', 'Air 2nd gen', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0400088400000040|assoc:0,1,50,33,36,48,70,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1502,extcap:0000000000000040|os:ios':
-        ('BCM4335', 'iPad Air (2nd gen)', '2.4GHz'),
+        ('iPad', 'Air 2nd gen', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062,htagg:1a,htmcs:000000ff,extcap:00000004|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062,htagg:1a,htmcs:000000ff,txpow:1807|os:ios':
-        ('BCM4334', 'iPad Mini (1st gen)', '5GHz'),
+        ('iPad Mini', '1st gen', '5GHz'),
     'wifi4|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062,htagg:1a,htmcs:000000ff,extcap:00000004|assoc:0,1,33,36,48,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062,htagg:1a,htmcs:000000ff,txpow:1807|os:ios':
-        ('BCM4334', 'iPad Mini (1st gen)', '5GHz'),
+        ('iPad Mini', '1st gen', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020,htagg:1a,htmcs:000000ff,extcap:00000004|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020,htagg:1a,htmcs:000000ff,txpow:1605|os:ios':
-        ('BCM4334', 'iPad Mini (1st gen)', '2.4GHz'),
+        ('iPad Mini', '1st gen', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020,htagg:1a,htmcs:000000ff,extcap:00000004|assoc:0,1,33,36,48,50,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020,htagg:1a,htmcs:000000ff,txpow:1605|os:ios':
-        ('BCM4334', 'iPad Mini (1st gen)', '2.4GHz'),
+        ('iPad Mini', '1st gen', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:01fe,htagg:1b,htmcs:0000ffff,extcap:00000804|assoc:0,1,33,36,48,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:01fe,htagg:1b,htmcs:0000ffff,txpow:e606|os:ios':
-        ('BCM4324', 'iPad Mini (2nd gen)', '5GHz'),
+        ('iPad Mini', '2nd gen', '5GHz'),
     'wifi4|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:01fe,htagg:1b,htmcs:0000ffff,extcap:00000804|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:01fe,htagg:1b,htmcs:0000ffff,txpow:e606|os:ios':
-        ('BCM4324', 'iPad Mini (2nd gen)', '5GHz'),
+        ('iPad Mini', '2nd gen', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:01bc,htagg:1b,htmcs:0000ffff,extcap:00000804|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:01bc,htagg:1b,htmcs:0000ffff,txpow:1603|os:ios':
-        ('BCM4324', 'iPad Mini (2nd gen)', '2.4GHz'),
+        ('iPad Mini', '2nd gen', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:01bc,htagg:1b,htmcs:0000ffff,extcap:00000804|assoc:0,1,33,36,48,50,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:01bc,htagg:1b,htmcs:0000ffff,txpow:1603|os:ios':
-        ('BCM4324', 'iPad Mini (2nd gen)', '2.4GHz'),
+        ('iPad Mini', '2nd gen', '2.4GHz'),
 
     'wifi4|probe:0,1,3,50|assoc:0,1,48,50|os:ios':
-        ('', 'iPhone 2', '2.4GHz'),
+        ('iPhone 2', '', '2.4GHz'),
 
     'wifi4|probe:0,1,3,50|assoc:0,1,48,50,221(0050f2,2)|os:ios':
-        ('', 'iPhone 3', '2.4GHz'),
+        ('iPhone 3', '', '2.4GHz'),
 
     'wifi4|probe:0,1,50,3,221(001018,2)|assoc:0,1,48,50,221(001018,2),221(0050f2,2)|os:ios':
-        ('', 'iPhone 3GS', '2.4GHz'),
+        ('iPhone 3GS', '', '2.4GHz'),
 
     'wifi4|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:1800,htagg:1b,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:1800,htagg:1b,htmcs:000000ff|os:ios':
-        ('BCM4329', 'iPhone 4', '2.4GHz'),
+        ('iPhone 4', '', '2.4GHz'),
 
     'wifi4|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:0100,htagg:19,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0100,htagg:19,htmcs:000000ff|os:ios':
-        ('BCM4330', 'iPhone 4s', '2.4GHz'),
+        ('iPhone 4s', '', '2.4GHz'),
     'wifi4|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:0100,htagg:19,htmcs:000000ff|assoc:0,1,48,50,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0100,htagg:19,htmcs:000000ff|os:ios':
-        ('BCM4330', 'iPhone 4s', '2.4GHz'),
+        ('iPhone 4s', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062,htagg:1a,htmcs:000000ff,extcap:00000004|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062,htagg:1a,htmcs:000000ff,txpow:1504|os:ios':
-        ('BCM4334', 'iPhone 5', '5GHz'),
+        ('iPhone 5', '', '5GHz'),
     'wifi4|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062,htagg:1a,htmcs:000000ff,extcap:00000004|assoc:0,1,33,36,48,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062,htagg:1a,htmcs:000000ff,txpow:1504|os:ios':
-        ('BCM4334', 'iPhone 5', '5GHz'),
+        ('iPhone 5', '', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020,htagg:1a,htmcs:000000ff,extcap:00000004|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020,htagg:1a,htmcs:000000ff,txpow:1403|os:ios':
-        ('BCM4334', 'iPhone 5', '2.4GHz'),
+        ('iPhone 5', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020,htagg:1a,htmcs:000000ff,extcap:00000004|assoc:0,1,33,36,48,50,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020,htagg:1a,htmcs:000000ff,txpow:1403|os:ios':
-        ('BCM4334', 'iPhone 5', '2.4GHz'),
+        ('iPhone 5', '', '2.4GHz'),
 
-    'wifi4|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062,htagg:1a,htmcs:000000ff,extcap:00000804|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062,htagg:1a,htmcs:000000ff,txpow:1805|os:ios':
-        ('BCM4334', 'iPhone 5c', '5GHz'),
     'wifi4|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062,htagg:1a,htmcs:000000ff,extcap:00000004|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062,htagg:1a,htmcs:000000ff,txpow:1805|os:ios':
-        ('BCM4334', 'iPhone 5c', '5GHz'),
+        ('iPhone 5c', '', '5GHz'),
     'wifi4|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062,htagg:1a,htmcs:000000ff,extcap:00000804|assoc:0,1,33,36,48,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062,htagg:1a,htmcs:000000ff,txpow:1805|os:ios':
-        ('BCM4334', 'iPhone 5c', '5GHz'),
+        ('iPhone 5c', '', '5GHz'),
     'wifi4|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062,htagg:1a,htmcs:000000ff,extcap:00000004|assoc:0,1,33,36,48,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062,htagg:1a,htmcs:000000ff,txpow:1805|os:ios':
-        ('BCM4334', 'iPhone 5c', '5GHz'),
+        ('iPhone 5c', '', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020,htagg:1a,htmcs:000000ff,extcap:00000004|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020,htagg:1a,htmcs:000000ff,txpow:1704|os:ios':
-        ('BCM4334', 'iPhone 5c', '2.4GHz'),
+        ('iPhone 5c', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020,htagg:1a,htmcs:000000ff,txpow:1704|os:ios':
-        ('BCM4334', 'iPhone 5c', '2.4GHz'),
+        ('iPhone 5c', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020,htagg:1a,htmcs:000000ff,extcap:00000804|assoc:0,1,33,36,48,50,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020,htagg:1a,htmcs:000000ff,txpow:1704|os:ios':
-        ('BCM4334', 'iPhone 5c', '2.4GHz'),
+        ('iPhone 5c', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062,htagg:1a,htmcs:000000ff,extcap:00000804|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062,htagg:1a,htmcs:000000ff,txpow:1603|os:ios':
-        ('BCM4334', 'iPhone 5s', '5GHz'),
+        ('iPhone 5s', '', '5GHz'),
     'wifi4|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062,htagg:1a,htmcs:000000ff,extcap:00000804|assoc:0,1,33,36,48,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062,htagg:1a,htmcs:000000ff,txpow:1603|os:ios':
-        ('BCM4334', 'iPhone 5s', '5GHz'),
+        ('iPhone 5s', '', '5GHz'),
     'wifi4|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062,htagg:1a,htmcs:000000ff,extcap:00000004|assoc:0,1,33,36,48,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062,htagg:1a,htmcs:000000ff,txpow:1603|os:ios':
-        ('BCM4334', 'iPhone 5s', '5GHz'),
+        ('iPhone 5s', '', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020,htagg:1a,htmcs:000000ff,extcap:00000804|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020,htagg:1a,htmcs:000000ff,txpow:1805|os:ios':
-        ('BCM4334', 'iPhone 5s', '2.4GHz'),
+        ('iPhone 5s', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020,htagg:1a,htmcs:000000ff,extcap:00000804|assoc:0,1,33,36,48,50,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020,htagg:1a,htmcs:000000ff,txpow:1805|os:ios':
-        ('BCM4334', 'iPhone 5s', '2.4GHz'),
+        ('iPhone 5s', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,107,191,221(0050f2,8),221(001018,2),htcap:0063,htagg:17,htmcs:000000ff,vhtcap:0f805032,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0400088400000040|assoc:0,1,33,36,48,70,45,127,191,221(001018,2),221(0050f2,2),htcap:0063,htagg:17,htmcs:000000ff,vhtcap:0f805032,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e002,extcap:0400000000000040|os:ios':
-        ('BCM4339', 'iPhone 6/6+', '5GHz'),
+        ('iPhone 6/6+', '', '5GHz'),
     'wifi4|probe:0,1,45,127,107,191,221(0050f2,8),221(001018,2),htcap:0063,htagg:17,htmcs:000000ff,vhtcap:0f805032,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0400088400000040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:0063,htagg:17,htmcs:000000ff,vhtcap:0f805032,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e002,extcap:0400000000000040|os:ios':
-        ('BCM4339', 'iPhone 6/6+', '5GHz'),
+        ('iPhone 6/6+', '', '5GHz'),
     'wifi4|probe:0,1,45,127,107,191,221(00904c,51),221(0050f2,8),221(001018,2),htcap:0063,htagg:17,htmcs:000000ff,vhtcap:0f805032,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0400088400000040|assoc:0,1,33,36,48,70,45,127,191,221(001018,2),221(0050f2,2),htcap:0063,htagg:17,htmcs:000000ff,vhtcap:0f805032,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e002,extcap:0400000000000040|os:ios':
-        ('BCM4339', 'iPhone 6/6+', '5GHz'),
+        ('iPhone 6/6+', '', '5GHz'),
     'wifi4|probe:0,1,45,127,107,191,221(00904c,51),221(0050f2,8),221(001018,2),htcap:0063,htagg:17,htmcs:000000ff,vhtcap:0f805032,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0400088400000040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:0063,htagg:17,htmcs:000000ff,vhtcap:0f805032,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e002,extcap:0400000000000040|os:ios':
-        ('BCM4339', 'iPhone 6/6+', '5GHz'),
+        ('iPhone 6/6+', '', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(0050f2,8),221(001018,2),htcap:0021,htagg:17,htmcs:000000ff,extcap:0400088400000040|assoc:0,1,50,33,36,48,70,45,127,221(001018,2),221(0050f2,2),htcap:0021,htagg:17,htmcs:000000ff,txpow:1302,extcap:0000000000000040|os:ios':
-        ('BCM4339', 'iPhone 6', '2.4GHz'),
+        ('iPhone 6', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(0050f2,8),221(001018,2),htcap:0021,htagg:17,htmcs:000000ff,extcap:0400088400000040|assoc:0,1,50,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:0021,htagg:17,htmcs:000000ff,txpow:1302,extcap:0000000000000040|os:ios':
-        ('BCM4339', 'iPhone 6', '2.4GHz'),
+        ('iPhone 6', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(00904c,51),221(0050f2,8),221(001018,2),htcap:0021,htagg:17,htmcs:000000ff,extcap:0400088400000040|assoc:0,1,50,33,36,48,70,45,127,221(001018,2),221(0050f2,2),htcap:0021,htagg:17,htmcs:000000ff,txpow:1302,extcap:0000000000000040|os:ios':
-        ('BCM4339', 'iPhone 6', '2.4GHz'),
+        ('iPhone 6', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(0050f2,8),221(001018,2),htcap:0021,htagg:17,htmcs:000000ff,extcap:0400088400000040|assoc:0,1,50,33,36,48,70,45,127,221(001018,2),221(0050f2,2),htcap:0021,htagg:17,htmcs:000000ff,txpow:1402,extcap:0000000000000040|os:ios':
-        ('BCM4339', 'iPhone 6+', '2.4GHz'),
+        ('iPhone 6+', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(0050f2,8),221(001018,2),htcap:0021,htagg:17,htmcs:000000ff,extcap:0400088400000040|assoc:0,1,50,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:0021,htagg:17,htmcs:000000ff,txpow:1402,extcap:0000000000000040|os:ios':
-        ('BCM4339', 'iPhone 6+', '2.4GHz'),
+        ('iPhone 6+', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,107,191,221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0400088400000040|assoc:0,1,33,36,48,70,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e002,extcap:0400000000000040|os:ios':
-        ('BCM4350', 'iPhone 6s/6s+', '5GHz'),
+        ('iPhone 6s/6s+', '', '5GHz'),
     'wifi4|probe:0,1,45,127,107,191,221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffe,extcap:0400088400000040|assoc:0,1,33,36,48,70,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e002,extcap:0400000000000040|os:ios':
-        ('BCM4350', 'iPhone 6s/6s+', '5GHz'),
+        ('iPhone 6s/6s+', '', '5GHz'),
     'wifi4|probe:0,1,45,127,107,191,221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffe,vhttxmcs:0000fffa,extcap:0400088400000040|assoc:0,1,33,36,48,70,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e002,extcap:0400000000000040|os:ios':
-        ('BCM4350', 'iPhone 6s/6s+', '5GHz'),
+        ('iPhone 6s/6s+', '', '5GHz'),
     'wifi4|probe:0,1,45,127,107,191,221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0400088400000040|assoc:0,1,33,36,48,70,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e002,extcap:0400000000000040|os:ios':
-        ('BCM4350', 'iPhone 6s/6s+', '5GHz'),
+        ('iPhone 6s/6s+', '', '5GHz'),
     'wifi4|probe:0,1,45,127,107,191,221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f815832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0400088400000040|assoc:0,1,33,36,48,70,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e002,extcap:0400000000000040|os:ios':
-        ('BCM4350', 'iPhone 6s/6s+', '5GHz'),
+        ('iPhone 6s/6s+', '', '5GHz'),
     'wifi4|probe:0,1,45,127,107,191,221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f815832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0400088400000040|assoc:0,1,33,36,48,70,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f815832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e002,extcap:0400000000000040|os:ios':
-        ('BCM4350', 'iPhone 6s/6s+', '5GHz'),
+        ('iPhone 6s/6s+', '', '5GHz'),
     'wifi4|probe:0,1,45,127,107,191,221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0400088400000040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e002,extcap:0400000000000040|os:ios':
-        ('BCM4350', 'iPhone 6s/6s+', '5GHz'),
+        ('iPhone 6s/6s+', '', '5GHz'),
     'wifi4|probe:0,1,45,127,107,191,221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffe,extcap:0400088400000040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e002,extcap:0400000000000040|os:ios':
-        ('BCM4350', 'iPhone 6s/6s+', '5GHz'),
+        ('iPhone 6s/6s+', '', '5GHz'),
     'wifi4|probe:0,1,45,127,107,191,221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f815832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0400088400000040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e002,extcap:0400000000000040|os:ios':
-        ('BCM4350', 'iPhone 6s/6s+', '5GHz'),
+        ('iPhone 6s/6s+', '', '5GHz'),
     'wifi4|probe:0,1,45,127,107,191,221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0400088400000040|assoc:0,1,33,36,48,70,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f815832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e002,extcap:0400000000000040|os:ios':
-        ('BCM4350', 'iPhone 6s/6s+', '5GHz'),
+        ('iPhone 6s/6s+', '', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0400088400000040|assoc:0,1,50,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1202,extcap:0000000000000040|os:ios':
-        ('BCM4350', 'iPhone 6s/6s+', '2.4GHz'),
+        ('iPhone 6s/6s+', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:000000ff,extcap:0400088400000040|assoc:0,1,50,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1202,extcap:0000000000000040|os:ios':
-        ('BCM4350', 'iPhone 6s/6s+', '2.4GHz'),
+        ('iPhone 6s/6s+', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0400088400000040|assoc:0,1,50,33,36,48,70,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1202,extcap:0000000000000040|os:ios':
-        ('BCM4350', 'iPhone 6s/6s+', '2.4GHz'),
+        ('iPhone 6s/6s+', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:000000ff,extcap:0400088400000040|assoc:0,1,50,33,36,48,70,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1202,extcap:0000000000000040|os:ios':
-        ('BCM4350', 'iPhone 6s/6s+', '2.4GHz'),
+        ('iPhone 6s/6s+', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:000000ff,extcap:0400088400000040|assoc:0,1,50,33,36,48,70,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:000000ff,txpow:1202,extcap:0000000000000040|os:ios':
-        ('BCM4350', 'iPhone 6s/6s+', '2.4GHz'),
+        ('iPhone 6s/6s+', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(00904c,51),221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0400088400000040|assoc:0,1,50,33,36,48,70,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1202,extcap:0000000000000040|os:ios':
-        ('BCM4350', 'iPhone 6s/6s+', '2.4GHz'),
+        ('iPhone 6s/6s+', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(00904c,51),221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:000000ff,extcap:0400088400000040|assoc:0,1,50,33,36,48,70,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1202,extcap:0000000000000040|os:ios':
-        ('BCM4350', 'iPhone 6s/6s+', '2.4GHz'),
+        ('iPhone 6s/6s+', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0400088400000040|assoc:0,1,50,33,36,48,70,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:000000ff,txpow:1202,extcap:0000000000000040|os:ios':
-        ('BCM4350', 'iPhone 6s/6s+', '2.4GHz'),
+        ('iPhone 6s/6s+', '', '2.4GHz'),
 
     'wifi4|probe:0,1,3,50|assoc:0,1,48,50|os:ipodtouch1':
-        ('Marvell_W8686B22', 'iPod Touch 1st/2nd gen', '2.4GHz'),
+        ('iPod Touch', '1st or 2nd gen', '2.4GHz'),
 
     'wifi4|probe:0,1,50,221(001018,2)|assoc:0,1,48,50,221(001018,2),221(0050f2,2)|name:ipod':
-        ('BCM4329', 'iPod Touch 3rd gen', '2.4GHz'),
+        ('iPod Touch', '3rd gen', '2.4GHz'),
 
     'wifi4|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:180c,htagg:1b,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:180c,htagg:1b,htmcs:000000ff|os:ios':
-        ('BCM4329', 'iPod Touch 4th gen', '2.4GHz'),
+        ('iPod Touch', '4th gen', '2.4GHz'),
 
     'wifi4|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020,htagg:1a,htmcs:000000ff,extcap:00000004|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020,htagg:1a,htmcs:000000ff,txpow:1504|os:ios':
-        ('BCM4334', 'iPod Touch 5th gen', '5GHz'),
+        ('iPod Touch', '5th gen', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020,htagg:1a,htmcs:000000ff,extcap:00000004|assoc:0,1,33,36,48,50,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020,htagg:1a,htmcs:000000ff,txpow:1504|os:ios':
-        ('BCM4334', 'iPod Touch 5th gen', '5GHz'),
+        ('iPod Touch', '5th gen', '5GHz'),
     'wifi4|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062,htagg:1a,htmcs:000000ff,extcap:00000004|assoc:0,1,33,36,48,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062,htagg:1a,htmcs:000000ff,txpow:1706|os:ios':
-        ('BCM4334', 'iPod Touch 5th gen', '2.4GHz'),
+        ('iPod Touch', '5th gen', '2.4GHz'),
     'wifi4|probe:0,1,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0062,htagg:1a,htmcs:000000ff,extcap:00000004|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062,htagg:1a,htmcs:000000ff,txpow:1706|os:ios':
-        ('BCM4334', 'iPod Touch 5th gen', '2.4GHz'),
+        ('iPod Touch', '5th gen', '2.4GHz'),
 
     'wifi4|probe:0,1,3,45,127,191,221(001018,2),221(00904c,51),221(0050f2,8),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000080000000040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e001,extcap:0000000000000040|oui:lg':
-        ('BCM4335', 'LG G2', '5GHz'),
+        ('LG G2', '', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),221(0050f2,8),htcap:102d,htagg:17,htmcs:000000ff,extcap:0000080000000040|assoc:0,1,33,36,48,50,45,127,221(001018,2),221(0050f2,2),htcap:102d,htagg:17,htmcs:000000ff,txpow:11ff|oui:lg':
-        ('BCM4335', 'LG G2', '2.4GHz'),
+        ('LG G2', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),221(0050f2,8),htcap:102d,htagg:17,htmcs:000000ff,extcap:0000080000000040|assoc:0,1,33,36,48,50,45,221(001018,2),221(0050f2,2),htcap:102d,htagg:17,htmcs:000000ff,txpow:11ff|oui:lg':
-        ('BCM4335', 'LG G2', '2.4GHz'),
+        ('LG G2', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,221(0050f2,8),191,127,107,221(506f9a,16),htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:000000800040|assoc:0,1,33,36,48,45,221(0050f2,2),191,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31805120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:170d,extcap:00000a8201400040|oui:lg':
-        ('BCM4339', 'LG G3', '5GHz'),
+        ('LG G3', '', '5GHz'),
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),127,107,221(506f9a,16),htcap:012c,htagg:03,htmcs:000000ff,extcap:000000800040|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a8201400000|oui:lg':
-        ('BCM4339', 'LG G3', '2.4GHz'),
+        ('LG G3', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),127,107,221(506f9a,16),htcap:012c,htagg:03,htmcs:000000ff,extcap:000000800040|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,txpow:170d,extcap:00000a8201400000|oui:lg':
-        ('BCM4339', 'LG G3', '2.4GHz'),
+        ('LG G3', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),127,107,221(506f9a,16),htcap:016e,htagg:03,htmcs:000000ff,extcap:000000800040|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,txpow:170d,extcap:00000a8201400000|oui:lg':
-        ('BCM4339', 'LG G3', '2.4GHz'),
+        ('LG G3', '', '2.4GHz'),
 
     'wifi4|probe:0,1,3,45,127,107,191,221(506f9a,16),221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:016f,htagg:17,htmcs:000000ff,vhtcap:0f805932,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000088001400040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(00904c,4),221(0050f2,2),htcap:016f,htagg:17,htmcs:000000ff,vhtcap:0f805932,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:1d01,extcap:0000008001400040|oui:lg':
-        ('BCM4339', 'LG G4', '5GHz'),
+        ('LG G4', '', '5GHz'),
     'wifi4|probe:0,1,50,45,127,107,221(506f9a,16),221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:112d,htagg:17,htmcs:000000ff,extcap:0000088001400040|assoc:0,1,33,36,48,50,45,127,221(001018,2),221(0050f2,2),htcap:112d,htagg:17,htmcs:000000ff,txpow:1001,extcap:000000800140|oui:lg':
-        ('BCM4339', 'LG G4', '2.4GHz'),
+        ('LG G4', '', '2.4GHz'),
 
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,wps:LGL16C|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff':
-        ('', 'LG Lucky', '2.4GHz'),
+        ('LG Lucky', '', '2.4GHz'),
 
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,wps:LGMS323|assoc:0,1,50,48,45,221(0050f2,2),221(004096,3),htcap:012c,htagg:03,htmcs:000000ff':
-        ('QCA_WCN3360', 'LG Optimus L70', '2.4GHz'),
+        ('LG Optimus', 'L70', '2.4GHz'),
 
     'wifi4|probe:0,1,3,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:016e,htagg:03,htmcs:000000ff,wps:LG_V400|assoc:0,1,33,36,48,70,45,221(0050f2,2),127,htcap:016e,htagg:03,htmcs:000000ff,txpow:170d,extcap:00000a0200000000':
-        ('', 'LG Pad v400', '5GHz'),
+        ('LG Pad', 'v400', '5GHz'),
 
     'wifi4|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),htcap:11ac,htagg:16,htmcs:0000ffff,extcap:0000000000000040|assoc:0,1,33,36,48,50,45,127,221(001018,2),221(0050f2,2),htcap:11ac,htagg:16,htmcs:0000ffff,txpow:140a,extcap:0000000000000040|os:lgtv':
-        ('', 'LG Smart TV', '2.4GHz'),
+        ('LG Smart TV', '', '2.4GHz'),
 
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,wps:LGLS660|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff':
-        ('', 'LG Tribute', '2.4GHz'),
+        ('LG Tribute', '', '2.4GHz'),
 
     'wifi4|probe:0,1,50|assoc:0,1,50,48,221(0050f2,2)|oui:lifx':
-        ('', 'LIFX LED light bulb', '2.4GHz'),
-
-    'wifi4|probe:0,1,45,221(001018,2),221(00904c,51),htcap:087e,htagg:1b,htmcs:0000ffff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:087e,htagg:1b,htmcs:0000ffff,txpow:0f07|os:macos':
-        ('BCM43224', 'MacBook Air late 2010 (A1369)', '5GHz'),
-    'wifi4|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:187c,htagg:1b,htmcs:0000ffff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:187c,htagg:1b,htmcs:0000ffff,txpow:1207|os:macos':
-        ('BCM43224', 'MacBook Air late 2010 (A1369)', '2.4GHz'),
-
-    'wifi4|probe:0,1,45,221(00904c,51),htcap:086e,htagg:1b,htmcs:0000ffff|assoc:0,1,33,36,48,45,221(00904c,51),221(0050f2,2),htcap:086e,htagg:1b,htmcs:0000ffff,txpow:0f07|os:macos':
-        ('BCM4322', 'MacBook Air late 2011', '5GHz'),
-
-    'wifi4|probe:0,1,45,221(00904c,51),htcap:09ef,htagg:1b,htmcs:0000ffff|assoc:0,1,33,36,48,45,221(00904c,51),221(0050f2,2),htcap:09ef,htagg:1b,htmcs:0000ffff,txpow:0005|os:macos':
-        ('BCM4331', 'MacBook Pro 17" late 2011 (A1297)', '5GHz'),
-    'wifi4|probe:0,1,3,45,221(00904c,51),htcap:09ef,htagg:1b,htmcs:0000ffff|assoc:0,1,33,36,48,45,221(00904c,51),221(0050f2,2),htcap:09ef,htagg:1b,htmcs:0000ffff,txpow:0005|os:macos':
-        ('BCM4331', 'MacBook Pro 17" late 2011 (A1297)', '5GHz'),
-    'wifi4|probe:0,1,50,3,45,221(00904c,51),htcap:19ad,htagg:1b,htmcs:0000ffff|assoc:0,1,33,36,48,50,45,221(00904c,51),221(0050f2,2),htcap:19ad,htagg:1b,htmcs:0000ffff,txpow:1305|os:macos':
-        ('BCM4331', 'MacBook Pro 17" late 2011 (A1297)', '2.4GHz'),
-
-    'wifi4|probe:0,1,45,127,htcap:09ef,htagg:17,htmcs:0000ffff,extcap:0400000000000040|assoc:0,1,33,36,48,45,127,221(0050f2,2),htcap:09ef,htagg:17,htmcs:0000ffff,txpow:e007,extcap:0400000000000040|os:macos':
-        ('BCM4331', 'MacBook Pro 15" late 2013 (A1398)', '5GHz'),
-    'wifi4|probe:0,1,50,3,45,127,htcap:49ad,htagg:17,htmcs:0000ffff,extcap:0400000000000040|assoc:0,1,50,33,36,48,45,127,221(0050f2,2),htcap:49ad,htagg:17,htmcs:0000ffff,txpow:1307,extcap:0000000000000040|os:macos':
-        ('BCM4331', 'MacBook Pro 15" late 2013 (A1398)', '2.4GHz'),
-
-    'wifi4|probe:0,1,45,127,191,htcap:09ef,htagg:17,htmcs:0000ffff,vhtcap:0f8159b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0400000000000040|assoc:0,1,33,36,48,45,127,191,221(0050f2,2),htcap:09ef,htagg:17,htmcs:0000ffff,vhtcap:0f8159b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e007,extcap:0400000000000040|os:macos':
-        ('BCM4360', 'MacBook Air late 2014 (A1466)', '5GHz'),
-    'wifi4|probe:0,1,50,3,45,127,htcap:49ad,htagg:17,htmcs:0000ffff,extcap:0400000000000040|assoc:0,1,50,33,36,48,45,127,221(0050f2,2),htcap:49ad,htagg:17,htmcs:0000ffff,txpow:1407,extcap:0000000000000040|os:macos':
-        ('BCM4360', 'MacBook Air late 2014 (A1466)', '2.4GHz'),
-
-    'wifi4|probe:0,1,45,127,191,221(00904c,51),htcap:09ef,htagg:17,htmcs:0000ffff,vhtcap:0f8259b2,vhtrxmcs:0000ffea,vhttxmcs:0000ffea,extcap:0000000000000040|assoc:0,1,33,36,48,45,127,191,221(00904c,51),221(0050f2,2),htcap:09ef,htagg:17,htmcs:0000ffff,vhtcap:0f8259b2,vhtrxmcs:0000ffea,vhttxmcs:0000ffea,txpow:e808,extcap:0000000000000040|os:macos':
-        ('BCM4360', 'MacBook Pro early 2014 (A1502)', '5GHz'),
-    'wifi4|probe:0,1,50,45,127,221(00904c,51),htcap:59ad,htagg:17,htmcs:0000ffff,extcap:0000000000000040|assoc:0,1,33,36,48,50,45,127,221(00904c,51),221(0050f2,2),htcap:59ad,htagg:17,htmcs:0000ffff,txpow:1906,extcap:0000000000000040|os:macos':
-        ('BCM4360', 'MacBook Pro early 2014 (A1502)', '2.4GHz'),
+        ('LIFX LED light bulb', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,50,htcap:0102,htagg:03,htmcs:0000ffff|assoc:0,1,48,221(0050f2,2),45,htcap:010e,htagg:03,htmcs:0000ffff|oui:microsoft':
-        ('Marvell_88W8797', 'Microsoft Surface RT', '5GHz'),
+        ('Microsoft Surface', 'RT', '5GHz'),
     'wifi4|probe:0,1,45,50,htcap:0102,htagg:03,htmcs:0000ffff|assoc:0,1,33,36,48,221(0050f2,2),45,htcap:010e,htagg:03,htmcs:0000ffff|oui:microsoft':
-        ('Marvell_88W8797', 'Microsoft Surface RT', '5GHz'),
+        ('Microsoft Surface', 'RT', '5GHz'),
     'wifi4|probe:0,1,3,45,50,htcap:0102,htagg:03,htmcs:0000ffff|assoc:0,1,48,50,221(0050f2,2),45,htcap:012c,htagg:03,htmcs:0000ffff|oui:microsoft':
-        ('Marvell_88W8797', 'Microsoft Surface RT', '2.4GHz'),
+        ('Microsoft Surface', 'RT', '2.4GHz'),
 
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a0200000000|oui:motorola':
-        ('QCA_WCN3620', 'Moto E (2nd gen)', '2.4GHz'),
+        ('Moto E', '2nd gen', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,txpow:170d,extcap:00000a0200000000|oui:motorola':
-        ('QCA_WCN3620', 'Moto E (2nd gen)', '2.4GHz'),
+        ('Moto E', '2nd gen', '2.4GHz'),
 
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02|oui:motorola':
-        ('QCA_WCN3620', 'Moto G or Moto X', '2.4GHz'),
+        ('Moto G or Moto X', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,221(0050f2,8),191,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe|assoc:0,1,48,45,221(0050f2,2),191,127,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:00000a02|oui:motorola':
-        ('QCA_WCN3680', 'Moto X', '5GHz'),
+        ('Moto X', '', '5GHz'),
     'wifi4|probe:0,1,3,45,221(0050f2,8),191,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31805120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe|assoc:0,1,48,45,221(0050f2,2),191,127,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31805120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:00000a02|oui:motorola':
-        ('QCA_WCN3680', 'Moto X', '5GHz'),
+        ('Moto X', '', '5GHz'),
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),191,htcap:012c,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02|oui:motorola':
-        ('QCA_WCN3680', 'Moto X', '2.4GHz'),
+        ('Moto X', '', '2.4GHz'),
 
     'wifi4|probe:0,1,127,45,htcap:01ef,htagg:03,htmcs:0000ffff,extcap:00000a0201|assoc:0,1,48,45,221(0050f2,2),191,127,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:338001b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:00000a020100004040|oui:motorola':
-        ('', 'Moto X Style', '5GHz'),
+        ('Moto X', 'Style', '5GHz'),
     'wifi4|probe:0,1,3,45,221(0050f2,8),191,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:338001b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa|assoc:0,1,48,45,221(0050f2,2),191,127,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:338001b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:00000a020100004040|oui:motorola':
-        ('', 'Moto X Style', '5GHz'),
+        ('Moto X', 'Style', '5GHz'),
     'wifi4|probe:0,1,50,127,45,htcap:01ef,htagg:03,htmcs:0000ffff,extcap:00000a0201|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:01ad,htagg:03,htmcs:0000ffff,extcap:00000a020100000040|oui:motorola':
-        ('', 'Moto X Style', '2.4GHz'),
+        ('Moto X', 'Style', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),127,htcap:01ad,htagg:03,htmcs:0000ffff,extcap:00000a0201|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:01ad,htagg:03,htmcs:0000ffff,extcap:00000a020100000040|oui:motorola':
-        ('', 'Moto X Style', '2.4GHz'),
+        ('Moto X', 'Style', '2.4GHz'),
 
     'wifi4|probe:0,1,45,221(001018,2),221(00904c,51),htcap:082c,htagg:1b,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:082c,htagg:1b,htmcs:000000ff,txpow:0a08|oui:motorola':
-        ('BCM4329', 'Motorola Xoom', '5GHz'),
+        ('Motorola Xoom', '', '5GHz'),
     'wifi4|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:182c,htagg:1b,htmcs:000000ff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:182c,htagg:1b,htmcs:000000ff,txpow:0e08|oui:motorola':
-        ('BCM4329', 'Motorola Xoom', '2.4GHz'),
+        ('Motorola Xoom', '', '2.4GHz'),
 
     'wifi4|probe:0,1,50,45,htcap:0130,htagg:18,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),htcap:013c,htagg:18,htmcs:000000ff|oui:nest':
-        ('TI_WL1270', 'Nest Thermostat v1/v2', '2.4GHz'),
+        ('Nest Thermostat', 'v1 or v2', '2.4GHz'),
     'wifi4|probe:0,1,45,221(001018,2),221(00904c,51),htcap:0062,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062,htagg:1a,htmcs:000000ff,txpow:0f09|oui:nest':
-        ('', 'Nest Thermostat v3', '5GHz'),
+        ('Nest Thermostat', 'v3', '5GHz'),
     'wifi4|probe:0,1,50,3,45,221(001018,2),221(00904c,51),htcap:0020,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020,htagg:1a,htmcs:000000ff,txpow:150b|oui:nest':
-        ('', 'Nest Thermostat v3', '2.4GHz'),
+        ('Nest Thermostat', 'v3', '2.4GHz'),
 
     'wifi4|probe:0,1,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,wps:Nexus_4|assoc:0,1,48,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff':
-        ('QCA_WCN3360', 'Nexus 4', '5GHz'),
+        ('Nexus 4', '', '5GHz'),
     'wifi4|probe:0,1,45,221(0050f2,8),191,221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,vhtcap:31811120,vhtrxmcs:01b2fffc,vhttxmcs:01b2fffc,wps:Nexus_4|assoc:0,1,48,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff':
-        ('QCA_WCN3360', 'Nexus 4', '5GHz'),
+        ('Nexus 4', '', '5GHz'),
     'wifi4|probe:0,1,45,221(0050f2,8),191,221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,vhtcap:31811120,vhtrxmcs:01b2fffc,vhttxmcs:01b2fffc,wps:Nexus_4|assoc:0,1,33,36,48,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff,txpow:130d':
-        ('QCA_WCN3360', 'Nexus 4', '5GHz'),
+        ('Nexus 4', '', '5GHz'),
     'wifi4|probe:0,1,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,wps:Nexus_4|assoc:0,1,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02':
-        ('QCA_WCN3360', 'Nexus 4', '5GHz'),
+        ('Nexus 4', '', '5GHz'),
     'wifi4|probe:0,1,45,221(0050f2,8),191,221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,vhtcap:31811120,vhtrxmcs:01b2fffc,vhttxmcs:01b2fffc,wps:Nexus_4|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff':
-        ('QCA_WCN3360', 'Nexus 4', '5GHz'),
+        ('Nexus 4', '', '5GHz'),
     'wifi4|probe:0,1,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,wps:Nexus_4|assoc:0,1,33,36,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,txpow:170d,extcap:00000a02':
-        ('QCA_WCN3360', 'Nexus 4', '5GHz'),
+        ('Nexus 4', '', '5GHz'),
     'wifi4|probe:0,1,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,33,36,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,txpow:170d,extcap:00000a02|oui:lg':
-        ('QCA_WCN3360', 'Nexus 4', '5GHz'),
+        ('Nexus 4', '', '5GHz'),
     'wifi4|probe:0,1,50,45,221(0050f2,8),191,221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,vhtcap:31811120,vhtrxmcs:01b2fffc,vhttxmcs:01b2fffc,wps:Nexus_4|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff':
-        ('QCA_WCN3360', 'Nexus 4', '2.4GHz'),
+        ('Nexus 4', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,wps:Nexus_4|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff':
-        ('QCA_WCN3360', 'Nexus 4', '2.4GHz'),
+        ('Nexus 4', '', '2.4GHz'),
     'wifi4|probe:0,1,50,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02|oui:lg':
-        ('QCA_WCN3360', 'Nexus 4', '2.4GHz'),
+        ('Nexus 4', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02|oui:lg':
-        ('QCA_WCN3360', 'Nexus 4', '2.4GHz'),
+        ('Nexus 4', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,wps:Nexus_4|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02':
-        ('QCA_WCN3360', 'Nexus 4', '2.4GHz'),
+        ('Nexus 4', '', '2.4GHz'),
     'wifi4|probe:0,1,50,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,wps:Nexus_4|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02|oui:lg':
-        ('QCA_WCN3360', 'Nexus 4', '2.4GHz'),
+        ('Nexus 4', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,191,221(001018,2),221(00904c,51),htcap:016f,htagg:17,htmcs:000000ff,vhtcap:0f805932,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000000000000040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:016f,htagg:17,htmcs:000000ff,vhtcap:0f805932,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e003,extcap:0000000000000040|oui:lg':
-        ('BCM4339', 'Nexus 5', '5GHz'),
+        ('Nexus 5', '', '5GHz'),
     'wifi4|probe:0,1,3,45,127,191,221(001018,2),221(00904c,51),htcap:016f,htagg:17,htmcs:000000ff,vhtcap:0f805932,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000000000000040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:016f,htagg:17,htmcs:000000ff,vhtcap:0f805932,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e003,extcap:0000000000000040|oui:lg':
-        ('BCM4339', 'Nexus 5', '5GHz'),
+        ('Nexus 5', '', '5GHz'),
     'wifi4|probe:0,1,45,127,191,221(001018,2),221(00904c,51),htcap:016f,htagg:17,htmcs:000000ff,vhtcap:0f805932,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000000000000040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:016f,htagg:17,htmcs:000000ff,vhtcap:0f805932,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e003,extcap:0000000000000040|oui:lg':
-        ('BCM4339', 'Nexus 5', '5GHz'),
+        ('Nexus 5', '', '5GHz'),
     'wifi4|probe:0,1,45,127,191,221(001018,2),221(00904c,51),htcap:016f,htagg:17,htmcs:000000ff,vhtcap:0f805932,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000000000000040|assoc:0,1,33,36,45,127,191,221(001018,2),221(0050f2,2),htcap:016f,htagg:17,htmcs:000000ff,vhtcap:0f805932,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e003,extcap:0000000000000040|oui:lg':
-        ('BCM4339', 'Nexus 5', '5GHz'),
+        ('Nexus 5', '', '5GHz'),
     'wifi4|probe:0,1,45,127,107,191,221(506f9a,16),221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:016f,htagg:17,htmcs:000000ff,vhtcap:0f805932,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000088001400040|assoc:0,1,33,36,48,45,127,70,191,221(001018,2),221(00904c,4),221(0050f2,2),htcap:016f,htagg:17,htmcs:000000ff,vhtcap:0f805932,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e003,extcap:0000008001400040|oui:lg':
-        ('BCM4339', 'Nexus 5', '5GHz'),
+        ('Nexus 5', '', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),htcap:112d,htagg:17,htmcs:000000ff,extcap:0000000000000040|assoc:0,1,33,36,48,50,45,221(001018,2),221(0050f2,2),htcap:112d,htagg:17,htmcs:000000ff,txpow:1303|oui:lg':
-        ('BCM4339', 'Nexus 5', '2.4GHz'),
+        ('Nexus 5', '', '2.4GHz'),
     'wifi4|probe:0,1,50,45,127,221(001018,2),221(00904c,51),htcap:112d,htagg:17,htmcs:000000ff,extcap:0000000000000040|assoc:0,1,33,36,48,50,45,221(001018,2),221(0050f2,2),htcap:112d,htagg:17,htmcs:000000ff,txpow:1303|oui:lg':
-        ('BCM4339', 'Nexus 5', '2.4GHz'),
+        ('Nexus 5', '', '2.4GHz'),
 
     'wifi4|probe:0,1,127,45,191,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:338061b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:00000a0201000040|assoc:0,1,48,45,221(0050f2,2),191,127,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:339071b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:0000000000000040|oui:lg':
-        ('QCA6174', 'Nexus 5X', '5GHz'),
+        ('Nexus 5X', '', '5GHz'),
     'wifi4|probe:0,1,127,extcap:00000a020100004080|assoc:0,1,48,45,221(0050f2,2),191,127,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:339071b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:000000000000004080|oui:lg':
-        ('QCA6174', 'Nexus 5X', '5GHz'),
+        ('Nexus 5X', '', '5GHz'),
     'wifi4|probe:0,1,45,221(0050f2,8),191,127,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:339071b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:000000000000004080|assoc:0,1,48,45,221(0050f2,2),191,127,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:339071b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:000000000000004080|oui:lg':
-        ('QCA6174', 'Nexus 5X', '5GHz'),
+        ('Nexus 5X', '', '5GHz'),
     'wifi4|probe:0,1,127,45,191,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:338061b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:00000a020100004080|assoc:0,1,48,45,221(0050f2,2),191,127,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:339071b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:000000000000004080|oui:lg':
-        ('QCA6174', 'Nexus 5X', '5GHz'),
+        ('Nexus 5X', '', '5GHz'),
     'wifi4|probe:0,1,127,45,191,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:338001b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:00000a020100004080|assoc:0,1,48,45,221(0050f2,2),191,127,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:339071b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:000000000000004080|oui:lg':
-        ('QCA6174', 'Nexus 5X', '5GHz'),
+        ('Nexus 5X', '', '5GHz'),
     'wifi4|probe:0,1,127,45,191,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:338061b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:00000a020100004080|assoc:0,1,33,36,48,70,45,221(0050f2,2),191,127,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:339071b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,txpow:1e08,extcap:000000000000004080|oui:lg':
-        ('QCA6174', 'Nexus 5X', '5GHz'),
+        ('Nexus 5X', '', '5GHz'),
     'wifi4|probe:0,1,127,extcap:00000a020100004080|assoc:0,1,33,36,48,70,45,221(0050f2,2),191,127,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:339071b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,txpow:1e08,extcap:000000000000004080|oui:lg':
-        ('QCA6174', 'Nexus 5X', '5GHz'),
+        ('Nexus 5X', '', '5GHz'),
     'wifi4|probe:0,1,45,221(0050f2,8),191,127,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:339071b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:000000000000004080|assoc:0,1,33,36,48,70,45,221(0050f2,2),191,127,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:339071b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,txpow:1e08,extcap:000000000000004080|oui:lg':
-        ('QCA6174', 'Nexus 5X', '5GHz'),
+        ('Nexus 5X', '', '5GHz'),
     'wifi4|probe:0,1,50,127,45,191,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:338061b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:00000a0201000040|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:01ad,htagg:03,htmcs:0000ffff,extcap:0000000000000000|oui:lg':
-        ('QCA6174', 'Nexus 5X', '2.4GHz'),
+        ('Nexus 5X', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),127,htcap:01ad,htagg:03,htmcs:0000ffff,extcap:000000000000000080|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:01ad,htagg:03,htmcs:0000ffff,extcap:000000000000000080|oui:lg':
-        ('QCA6174', 'Nexus 5X', '2.4GHz'),
+        ('Nexus 5X', '', '2.4GHz'),
     'wifi4|probe:0,1,50,127,45,191,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:338061b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:00000a020100004080|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:01ad,htagg:03,htmcs:0000ffff,extcap:000000000000000080|oui:lg':
-        ('QCA6174', 'Nexus 5X', '2.4GHz'),
+        ('Nexus 5X', '', '2.4GHz'),
     'wifi4|probe:0,1,50,127,45,191,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:338061b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:00000a020100004080|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,htcap:01ad,htagg:03,htmcs:0000ffff,txpow:1e08,extcap:000000000000000080|oui:lg':
-        ('QCA6174', 'Nexus 5X', '2.4GHz'),
+        ('Nexus 5X', '', '2.4GHz'),
     'wifi4|probe:0,1,50,127,extcap:00000a020100004080|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,htcap:01ad,htagg:03,htmcs:0000ffff,txpow:1e08,extcap:000000000000000080|oui:lg':
-        ('QCA6174', 'Nexus 5X', '2.4GHz'),
+        ('Nexus 5X', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),127,htcap:01ad,htagg:03,htmcs:0000ffff,extcap:000000000000000080|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,htcap:01ad,htagg:03,htmcs:0000ffff,txpow:1e08,extcap:000000000000000080|oui:lg':
-        ('QCA6174', 'Nexus 5X', '2.4GHz'),
+        ('Nexus 5X', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,191,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:000008800140,wps:Nexus_6|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e009,extcap:000008800140':
-        ('BCM4356', 'Nexus 6', '5GHz'),
+        ('Nexus 6', '', '5GHz'),
     'wifi4|probe:0,1,45,127,191,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:000008800140,wps:Nexus_6|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e009,extcap:000008800140':
-        ('BCM4356', 'Nexus 6', '5GHz'),
+        ('Nexus 6', '', '5GHz'),
     'wifi4|probe:0,1,45,191,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,wps:Nexus_6|assoc:0,1,33,36,48,45,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e009':
-        ('BCM4356', 'Nexus 6', '5GHz'),
+        ('Nexus 6', '', '5GHz'),
     'wifi4|probe:0,1,45,127,191,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000088001400040,wps:Nexus_6|assoc:0,1,33,36,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e009,extcap:0000088001400040':
-        ('BCM4356', 'Nexus 6', '5GHz'),
+        ('Nexus 6', '', '5GHz'),
     'wifi4|probe:0,1,45,127,191,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:000008800140,wps:Nexus_6|assoc:0,1,33,36,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e009,extcap:000008800140':
-        ('BCM4356', 'Nexus 6', '5GHz'),
+        ('Nexus 6', '', '5GHz'),
     'wifi4|probe:0,1,45,127,191,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000088001400040,wps:Nexus_6|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e009,extcap:0000088001400040':
-        ('BCM4356', 'Nexus 6', '5GHz'),
+        ('Nexus 6', '', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0000088001400040,wps:Nexus_6|assoc:0,1,50,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1209,extcap:000008800140':
-        ('BCM4356', 'Nexus 6', '2.4GHz'),
+        ('Nexus 6', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:000008800140,wps:Nexus_6|assoc:0,1,50,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1209,extcap:000008800140':
-        ('BCM4356', 'Nexus 6', '2.4GHz'),
+        ('Nexus 6', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:000008800140,wps:Nexus_6|assoc:0,1,50,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1209,extcap:000008800140':
-        ('BCM4356', 'Nexus 6', '2.4GHz'),
+        ('Nexus 6', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,wps:Nexus_6|assoc:0,1,50,33,36,48,45,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1209':
-        ('BCM4356', 'Nexus 6', '2.4GHz'),
+        ('Nexus 6', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,191,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,wps:Nexus_6P|assoc:0,1,33,36,48,45,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e002':
-        ('BCM4358', 'Nexus 6P', '5GHz'),
+        ('Nexus 6P', '', '5GHz'),
     'wifi4|probe:0,1,45,127,191,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000088001400040,wps:Nexus_6P|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e002,extcap:0000088001400040':
-        ('BCM4358', 'Nexus 6P', '5GHz'),
+        ('Nexus 6P', '', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0000088001400040,wps:Nexus_6P|assoc:0,1,50,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1402,extcap:0000088001400040':
-        ('BCM4358', 'Nexus 6P', '2.4GHz'),
+        ('Nexus 6P', '', '2.4GHz'),
 
     'wifi4|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:110c,htagg:19,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:110c,htagg:19,htmcs:000000ff|oui:asus':
-        ('BCM4330', 'Nexus 7 (2012)', '2.4GHz'),
+        ('Nexus 7', '2012 edition', '2.4GHz'),
 
     'wifi4|probe:0,1,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:016e,htagg:03,htmcs:000000ff,wps:Nexus_7|assoc:0,1,33,36,48,45,221(0050f2,2),127,htcap:016e,htagg:03,htmcs:000000ff,extcap:00000a02':
-        ('QCA_WCN3660', 'Nexus 7 (2013)', '5GHz'),
+        ('Nexus 7', '2013 edition', '5GHz'),
     'wifi4|probe:0,1,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:016e,htagg:03,htmcs:000000ff,wps:Nexus_7|assoc:0,1,33,36,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02':
-        ('QCA_WCN3660', 'Nexus 7 (2013)', '5GHz'),
+        ('Nexus 7', '2013 edition', '5GHz'),
     'wifi4|probe:0,1,45,221(0050f2,8),htcap:016e,htagg:03,htmcs:000000ff|assoc:0,1,33,36,48,45,221(0050f2,2),127,htcap:016e,htagg:03,htmcs:000000ff,extcap:00000a02|oui:asus':
-        ('QCA_WCN3660', 'Nexus 7 (2013)', '5GHz'),
+        ('Nexus 7', '2013 edition', '5GHz'),
     'wifi4|probe:0,1,45,221(0050f2,8),127,221(0050f2,4),221(506f9a,9),htcap:016e,htagg:03,htmcs:000000ff,extcap:00000a02,wps:Nexus_7|assoc:0,1,33,36,48,45,221(0050f2,2),127,htcap:016e,htagg:03,htmcs:000000ff,extcap:00000a02':
-        ('QCA_WCN3660', 'Nexus 7 (2013)', '5GHz'),
+        ('Nexus 7', '2013 edition', '5GHz'),
     'wifi4|probe:0,1,45,221(0050f2,8),221(0050f2,4),221(506f9a,10),221(506f9a,9),htcap:016e,htagg:03,htmcs:000000ff,wps:Nexus_7|assoc:0,1,33,36,48,45,221(0050f2,2),127,htcap:016e,htagg:03,htmcs:000000ff,extcap:00000a02':
-        ('QCA_WCN3660', 'Nexus 7 (2013)', '5GHz'),
+        ('Nexus 7', '2013 edition', '5GHz'),
     'wifi4|probe:0,1,45,221(0050f2,8),127,221(0050f2,4),221(506f9a,9),htcap:016e,htagg:03,htmcs:000000ff,extcap:00000a02,wps:Nexus_7|assoc:0,1,48,45,221(0050f2,2),127,htcap:016e,htagg:03,htmcs:000000ff,extcap:00000a02':
-        ('QCA_WCN3660', 'Nexus 7 (2013)', '5GHz'),
+        ('Nexus 7', '2013 edition', '5GHz'),
     'wifi4|probe:0,1,45,221(0050f2,8),127,221(0050f2,4),221(506f9a,9),htcap:016e,htagg:03,htmcs:000000ff,extcap:00000a02,wps:Nexus_7|assoc:0,1,33,36,48,45,221(0050f2,2),127,htcap:016e,htagg:03,htmcs:000000ff,txpow:1e0d,extcap:00000a02':
-        ('QCA_WCN3660', 'Nexus 7 (2013)', '5GHz'),
+        ('Nexus 7', '2013 edition', '5GHz'),
     'wifi4|probe:0,1,45,221(0050f2,8),127,221(0050f2,4),221(506f9a,9),htcap:016e,htagg:03,htmcs:000000ff,extcap:00000a02,wps:Nexus_7|assoc:0,1,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02':
-        ('QCA_WCN3660', 'Nexus 7 (2013)', '5GHz'),
+        ('Nexus 7', '2013 edition', '5GHz'),
     'wifi4|probe:0,1,45,221(0050f2,8),127,221(0050f2,4),221(506f9a,10),221(506f9a,9),htcap:016e,htagg:03,htmcs:000000ff,extcap:00000a02,wps:Nexus_7|assoc:0,1,33,36,48,45,221(0050f2,2),127,htcap:016e,htagg:03,htmcs:000000ff,txpow:1e0d,extcap:00000a02':
-        ('QCA_WCN3660', 'Nexus 7 (2013)', '5GHz'),
+        ('Nexus 7', '2013 edition', '5GHz'),
     'wifi4|probe:0,1,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:016e,htagg:03,htmcs:000000ff,wps:Nexus_7|assoc:0,1,33,36,48,45,221(0050f2,2),127,htcap:016e,htagg:03,htmcs:000000ff,txpow:1e0d,extcap:00000a02':
-        ('QCA_WCN3660', 'Nexus 7 (2013)', '5GHz'),
+        ('Nexus 7', '2013 edition', '5GHz'),
     'wifi4|probe:0,1,45,221(0050f2,8),127,221(0050f2,4),221(506f9a,9),htcap:016e,htagg:03,htmcs:000000ff,extcap:00000a02,wps:Nexus_7|assoc:0,1,33,36,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,txpow:1e0d,extcap:00000a02':
-        ('QCA_WCN3660', 'Nexus 7 (2013)', '5GHz'),
+        ('Nexus 7', '2013 edition', '5GHz'),
     'wifi4|probe:0,1,45,221(0050f2,8),htcap:016e,htagg:03,htmcs:000000ff|assoc:0,1,33,36,48,45,221(0050f2,2),127,htcap:016e,htagg:03,htmcs:000000ff,txpow:1e0d,extcap:00000a02|oui:asus':
-        ('QCA_WCN3660', 'Nexus 7 (2013)', '5GHz'),
+        ('Nexus 7', '2013 edition', '5GHz'),
     'wifi4|probe:0,1,45,htcap:016e,htagg:03,htmcs:000000ff|assoc:0,1,33,36,48,45,221(0050f2,2),127,htcap:016e,htagg:03,htmcs:000000ff,txpow:1e0d,extcap:00000a02|oui:asus':
-        ('QCA_WCN3660', 'Nexus 7 (2013)', '5GHz'),
+        ('Nexus 7', '2013 edition', '5GHz'),
     'wifi4|probe:0,1,50,45,221(0050f2,8),127,221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02,wps:Nexus_7|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02':
-        ('QCA_WCN3660', 'Nexus 7 (2013)', '2.4GHz'),
+        ('Nexus 7', '2013 edition', '2.4GHz'),
     'wifi4|probe:0,1,50,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,wps:Nexus_7|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02':
-        ('QCA_WCN3660', 'Nexus 7 (2013)', '2.4GHz'),
+        ('Nexus 7', '2013 edition', '2.4GHz'),
     'wifi4|probe:0,1,50,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02|oui:asus':
-        ('QCA_WCN3660', 'Nexus 7 (2013)', '2.4GHz'),
+        ('Nexus 7', '2013 edition', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02|oui:asus':
-        ('QCA_WCN3660', 'Nexus 7 (2013)', '2.4GHz'),
+        ('Nexus 7', '2013 edition', '2.4GHz'),
     'wifi4|probe:0,1,50,45,htcap:016e,htagg:03,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02|oui:asus':
-        ('QCA_WCN3660', 'Nexus 7 (2013)', '2.4GHz'),
+        ('Nexus 7', '2013 edition', '2.4GHz'),
     'wifi4|probe:0,1,50,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,wps:Nexus_7|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff':
-        ('QCA_WCN3660', 'Nexus 7 (2013)', '2.4GHz'),
+        ('Nexus 7', '2013 edition', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,191,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:000008800140,wps:Nexus_9|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e009,extcap:000008800140':
-        ('BCM4354', 'Nexus 9', '5GHz'),
+        ('Nexus 9', '', '5GHz'),
     'wifi4|probe:0,1,45,191,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,wps:Nexus_9|assoc:0,1,33,36,48,45,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e009':
-        ('BCM4354', 'Nexus 9', '5GHz'),
+        ('Nexus 9', '', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0000088001400040,wps:Nexus_9|assoc:0,1,50,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1309,extcap:000008800140':
-        ('BCM4354', 'Nexus 9', '2.4GHz'),
+        ('Nexus 9', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:000008800140,wps:Nexus_9|assoc:0,1,50,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:150b,extcap:000008800140':
-        ('BCM4354', 'Nexus 9', '2.4GHz'),
+        ('Nexus 9', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:000008800140,wps:Nexus_9|assoc:0,1,50,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1309,extcap:000008800140':
-        ('BCM4354', 'Nexus 9', '2.4GHz'),
+        ('Nexus 9', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,wps:Nexus_9|assoc:0,1,50,33,36,48,45,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1309':
-        ('BCM4354', 'Nexus 9', '2.4GHz'),
+        ('Nexus 9', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,221(001018,2),221(00904c,51),htcap:01fe,htagg:1b,htmcs:0000ffff|assoc:0,1,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:01fe,htagg:1b,htmcs:0000ffff|oui:samsung':
-        ('', 'Nexus 10', '5GHz'),
+        ('Nexus 10', '', '5GHz'),
     'wifi4|probe:0,1,50,3,45,221(001018,2),221(00904c,51),htcap:01bc,htagg:1b,htmcs:0000ffff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:01bc,htagg:1b,htmcs:0000ffff|oui:samsung':
-        ('', 'Nexus 10', '2.4GHz'),
+        ('Nexus 10', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,191,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000088001400040,wps:Nexus_Player|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e009,extcap:0000088001400040':
-        ('BCM4356', 'Nexus Player', '5GHz'),
+        ('Nexus Player', '', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:000008800140,wps:Nexus_Player|assoc:0,1,50,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1209,extcap:000008800140':
-        ('BCM4356', 'Nexus Player', '2.4GHz'),
+        ('Nexus Player', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0000088001400040,wps:Nexus_Player|assoc:0,1,50,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1209,extcap:000008800140':
-        ('BCM4356', 'Nexus Player', '2.4GHz'),
+        ('Nexus Player', '', '2.4GHz'),
 
     'wifi4|probe:0,1,50,45,51,127,htcap:012c,htagg:1b,htmcs:000000ff,extcap:0100000000000040|assoc:0,1,48,50,221(0050f2,2),45,51,127,htcap:012c,htagg:1b,htmcs:000000ff,extcap:0100000000000040|os:windows-phone':
-        ('', 'Nokia Lumia 635', '2.4GHz'),
+        ('Nokia Lumia', '635', '2.4GHz'),
     'wifi4|probe:0,1,50,45,htcap:012c,htagg:1b,htmcs:000000ff|assoc:0,1,48,50,221(0050f2,2),45,51,127,htcap:012c,htagg:1b,htmcs:000000ff,extcap:0100000000000040|os:windows-phone':
-        ('', 'Nokia Lumia 635', '2.4GHz'),
+        ('Nokia Lumia', '635', '2.4GHz'),
 
     'wifi4|probe:0,1,45,htcap:016e,htagg:03,htmcs:000000ff|assoc:0,1,48,45,221(0050f2,2),htcap:016e,htagg:03,htmcs:000000ff|os:windows-phone':
-        ('', 'Nokia Lumia 920', '5GHz'),
+        ('Nokia Lumia', '920', '5GHz'),
     'wifi4|probe:0,1,50,45,htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff|os:windows-phone':
-        ('', 'Nokia Lumia 920', '2.4GHz'),
+        ('Nokia Lumia', '920', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,191,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000008001000040,wps:SHIELD_Android_TV|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e007,extcap:0000008001000040':
-        ('', 'NVidia SHIELD Android TV', '5GHz'),
+        ('NVidia SHIELD', 'Android TV', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0000008001000040,wps:SHIELD_Android_TV|assoc:0,1,50,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1207,extcap:0000008001000040':
-        ('', 'NVidia SHIELD Android TV', '2.4GHz'),
+        ('NVidia SHIELD', 'Android TV', '2.4GHz'),
 
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,txpow:170d,extcap:00000a0200000000|oui:oneplus':
-        ('', 'Oneplus X', '2.4GHz'),
+        ('Oneplus', 'X', '2.4GHz'),
 
     'wifi4|probe:0,1,50,48|assoc:0,1,33,36,50,221(0050f2,2),45,221(00037f,1),221(00037f,4),48,htcap:1004,htagg:1b,htmcs:0000ffff,txpow:0f0f|os:panasonictv':
-        ('', 'Panasonic TV', '2.4GHz'),
+        ('Panasonic TV', '', '2.4GHz'),
     'wifi4|probe:0,1,50,45,221(0050f2,4),htcap:01ad,htagg:02,htmcs:0000ffff,wps:WPS_SUPPLICANT_STATION|assoc:0,1,50,45,48,221(0050f2,2),htcap:01ad,htagg:02,htmcs:0000ffff|os:panasonictv':
-        ('', 'Panasonic TV', '2.4GHz'),
+        ('Panasonic TV', '', '2.4GHz'),
 
     'wifi4|probe:0,1,50|assoc:0,1,50,48,221(005043,1)|os:playstation':
-        ('', 'Playstation 3 or 4', '2.4GHz'),
+        ('Playstation', '3 or 4', '2.4GHz'),
 
     'wifi4|probe:0,1,3,50|assoc:0,1,33,48,50,221(0050f2,2),45,htcap:010c,htagg:03,htmcs:0000ffff,txpow:1209|os:playstation':
-        ('Marvell_88W8797', 'Playstation 4', '2.4GHz'),
+        ('Playstation', '4', '2.4GHz'),
     'wifi4|probe:0,1,3,50|assoc:0,1,48,50,221(0050f2,2),45,htcap:112c,htagg:03,htmcs:0000ffff,txpow:0f06|os:playstation':
-        ('Marvell_88W8797', 'Playstation 4', '2.4GHz'),
+        ('Playstation', '4', '2.4GHz'),
     'wifi4|probe:0,1,3,50|assoc:0,1,33,48,50,221(0050f2,2),45,htcap:112c,htagg:03,htmcs:0000ffff,txpow:0f06|os:playstation':
-        ('Marvell_88W8797', 'Playstation 4', '2.4GHz'),
+        ('Playstation', '4', '2.4GHz'),
     'wifi4|probe:0,1,3,50|assoc:0,1,33,48,50,221(0050f2,2),45,htcap:010c,htagg:03,htmcs:0000ffff,txpow:0f06|os:playstation':
-        ('Marvell_88W8797', 'Playstation 4', '2.4GHz'),
+        ('Playstation', '4', '2.4GHz'),
 
     'wifi4|probe:0,1,50,221(0050f2,4),221(506f9a,9),wps:RCT6303W87DK|assoc:0,1,50,45,48,127,221(0050f2,2),htcap:1172,htagg:03,htmcs:000000ff,extcap:01':
-        ('', 'RCA 10 Viking Pro', '2.4GHz'),
+        ('RCA Viking Tablet', 'RCA 10 Viking Pro', '2.4GHz'),
 
     'wifi4|probe:0,1,50,221(0050f2,4),221(506f9a,9),wps:RCT6773W42B|assoc:0,1,50,45,48,127,221(0050f2,2),htcap:1172,htagg:03,htmcs:000000ff,extcap:01':
-        ('', 'RCA Voyager', '2.4GHz'),
+        ('RCA Voyager Tablet', 'v1', '2.4GHz'),
 
+    # RCA Voyager-II
     'wifi4|probe:0,1,50,221(0050f2,4),221(506f9a,9),wps:RCT6773W22B|assoc:0,1,50,45,48,127,221(0050f2,2),htcap:1172,htagg:03,htmcs:000000ff,extcap:01':
-        ('', 'RCA Voyager-II', '2.4GHz'),
+        ('RCA Voyager Tablet', 'v2', '2.4GHz'),
 
     # Roku model 1100, 2500 and LT model 2450
     'wifi4|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:110c,htagg:19,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:110c,htagg:19,htmcs:000000ff|os:roku':
-        ('BCM43362', 'Roku HD/LT', '2.4GHz'),
+        ('Roku', 'HD or LT', '2.4GHz'),
 
     # Roku model 1101
     'wifi4|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:186e,htagg:1a,htmcs:0000ffff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:186e,htagg:1a,htmcs:0000ffff,txpow:1208|os:roku':
-        ('', 'Roku HD-XR', '2.4GHz'),
+        ('Roku', 'HD-XR', '2.4GHz'),
 
     # Roku Streaming Stick model 3400X
     'wifi4|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:187c,htagg:1a,htmcs:0000ffff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:187c,htagg:1a,htmcs:0000ffff,txpow:1208|os:roku':
-        ('', 'Roku Streaming Stick', '2.4GHz'),
+        ('Roku', 'Streaming Stick', '2.4GHz'),
 
-    # Roku 1 models 2000, 2050, 2100, and "XD" (not sure of model number)
+    # Roku 1 models 2000, 2050, 2100, and XD
     'wifi4|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:186e,htagg:1a,htmcs:0000ffff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:186e,htagg:1a,htmcs:0000ffff,txpow:1308|os:roku':
-        ('', 'Roku 1', '2.4GHz'),
+        ('Roku', '1', '2.4GHz'),
 
     # Roku 1 model 2710 and Roku LT model 2700
     'wifi4|probe:0,1,50,3,45,221(001018,2),221(00904c,51),htcap:0020,htagg:1a,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020,htagg:1a,htmcs:000000ff|os:roku':
-        ('', 'Roku 1/LT', '2.4GHz'),
+        ('Roku', '1 or LT', '2.4GHz'),
 
     # Roku 2 models 3000, 3050, 3100, and Roku LT model 2400
     'wifi4|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:100c,htagg:19,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:100c,htagg:19,htmcs:000000ff|os:roku':
-        ('BCM4336', 'Roku 2/LT', '2.4GHz'),
+        ('Roku', '2 or LT', '2.4GHz'),
 
     # Roku 2 model 2720
     'wifi4|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:187c,htagg:1a,htmcs:0000ffff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:187c,htagg:1a,htmcs:0000ffff|os:roku':
-        ('BCM4336', 'Roku 2', '2.4GHz'),
+        ('Roku', '2', '2.4GHz'),
 
-    # Roku 3 model 4230, 4200, 4200X and Roku Streaming Stick model 3500
+    # Roku 3 model 4230, 4200, 4200X, 4230X, Roku Streaming Stick model 3500
     'wifi4|probe:0,1,45,127,221(001018,2),221(00904c,51),htcap:09bc,htagg:16,htmcs:0000ffff,extcap:0000000000000040|assoc:0,1,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:09bc,htagg:16,htmcs:0000ffff,txpow:100a,extcap:0000000000000040|os:roku':
-        ('BCM43236', 'Roku 3 or Streaming Stick', '5GHz'),
+        ('Roku', '3 or Streaming Stick', '5GHz'),
     'wifi4|probe:0,1,3,45,127,221(001018,2),221(00904c,51),htcap:09bc,htagg:16,htmcs:0000ffff,extcap:0000000000000040|assoc:0,1,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:09bc,htagg:16,htmcs:0000ffff,txpow:100a,extcap:0000000000000040|os:roku':
-        ('BCM43236', 'Roku 3 or Streaming Stick', '5GHz'),
+        ('Roku', '3 or Streaming Stick', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),htcap:19bc,htagg:16,htmcs:0000ffff,extcap:0000000000000040|assoc:0,1,33,36,48,50,45,127,221(001018,2),221(0050f2,2),htcap:19bc,htagg:16,htmcs:0000ffff,txpow:140a,extcap:0000000000000040|os:roku':
-        ('BCM43236', 'Roku 3 or Streaming Stick', '2.4GHz'),
+        ('Roku', '3 or Streaming Stick', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),htcap:193c,htagg:16,htmcs:0000ffff,extcap:0000000000000040|assoc:0,1,33,36,48,50,45,127,221(001018,2),221(0050f2,2),htcap:193c,htagg:16,htmcs:0000ffff,txpow:140a,extcap:0000000000000040|os:roku':
-        ('BCM43236', 'Roku 3 or Streaming Stick', '2.4GHz'),
+        ('Roku', '3 or Streaming Stick', '2.4GHz'),
 
     # Roku 4 model 4400
     'wifi4|probe:0,1,45,127,191,221(001018,2),htcap:01ad,htagg:17,htmcs:0000ffff,vhtcap:0f8159b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000000000000040|assoc:0,1,33,36,48,45,127,191,199,221(001018,2),221(0050f2,2),htcap:01ad,htagg:17,htmcs:0000ffff,vhtcap:0f8159b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:1109,extcap:0000000000000040|os:roku':
-        ('', 'Roku 4', '5GHz'),
+        ('Roku', '4', '5GHz'),
     'wifi4|probe:0,1,45,191,221(001018,2),htcap:01ad,htagg:17,htmcs:0000ffff,vhtcap:0f8159b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa|assoc:0,1,33,36,48,45,191,199,221(001018,2),221(0050f2,2),htcap:01ad,htagg:17,htmcs:0000ffff,vhtcap:0f8159b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:1109|os:roku':
-        ('', 'Roku 4', '5GHz'),
+        ('Roku', '4', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(001018,2),htcap:01ad,htagg:17,htmcs:0000ffff,extcap:0000000000000040|assoc:0,1,50,33,36,48,45,221(001018,2),221(0050f2,2),htcap:01ad,htagg:17,htmcs:0000ffff,txpow:1209|os:roku':
-        ('', 'Roku 4', '2.4GHz'),
+        ('Roku', '4', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,221(001018,2),htcap:01ad,htagg:17,htmcs:0000ffff|assoc:0,1,50,33,36,48,45,221(001018,2),221(0050f2,2),htcap:01ad,htagg:17,htmcs:0000ffff,txpow:1209|os:roku':
-        ('', 'Roku 4', '2.4GHz'),
+        ('Roku', '4', '2.4GHz'),
 
     'wifi4|probe:0,1,50,3,45,htcap:0020,htagg:01,htmcs:000000ff|assoc:0,1,50,45,61,48,221(0050f2,2),htcap:0020,htagg:01,htmcs:000000ff|oui:samsung':
-        ('', 'Samsung Galaxy Mini', '2.4GHz'),
+        ('Samsung Galaxy', 'Mini', '2.4GHz'),
 
     'wifi4|probe:0,1,45,3,221(0050f2,4),221(001018,2),221(00904c,51),htcap:010c,htagg:19,htmcs:000000ff,wps:Galaxy_Nexus|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:010c,htagg:19,htmcs:000000ff,txpow:0f09':
-        ('BCM4330', 'Samsung Galaxy Nexus', '5GHz'),
+        ('Samsung Galaxy Nexus', '', '5GHz'),
     'wifi4|probe:0,1,45,221(0050f2,4),221(001018,2),221(00904c,51),htcap:010c,htagg:19,htmcs:000000ff,wps:Galaxy_Nexus|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:010c,htagg:19,htmcs:000000ff,txpow:0f09':
-        ('BCM4330', 'Samsung Galaxy Nexus', '5GHz'),
+        ('Samsung Galaxy Nexus', '', '5GHz'),
     'wifi4|probe:0,1,45,3,221(0050f2,4),221(001018,2),221(00904c,51),htcap:000c,htagg:19,htmcs:000000ff,wps:_|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:000c,htagg:19,htmcs:000000ff,txpow:0f0a|oui:samsung':
-        ('BCM4330', 'Samsung Galaxy Nexus', '5GHz'),
+        ('Samsung Galaxy Nexus', '', '5GHz'),
     'wifi4|probe:0,1,50,45,221(0050f2,4),221(001018,2),221(00904c,51),htcap:110c,htagg:19,htmcs:000000ff,wps:Galaxy_Nexus|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:110c,htagg:19,htmcs:000000ff,txpow:1209':
-        ('BCM4330', 'Samsung Galaxy Nexus', '2.4GHz'),
+        ('Samsung Galaxy Nexus', '', '2.4GHz'),
     'wifi4|probe:0,1,50,45,3,221(0050f2,4),221(001018,2),221(00904c,51),htcap:110c,htagg:19,htmcs:000000ff,wps:Galaxy_Nexus|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:110c,htagg:19,htmcs:000000ff,txpow:1209':
-        ('BCM4330', 'Samsung Galaxy Nexus', '2.4GHz'),
+        ('Samsung Galaxy Nexus', '', '2.4GHz'),
     'wifi4|probe:0,1,50,45,221(0050f2,4),221(001018,2),221(00904c,51),htcap:100c,htagg:19,htmcs:000000ff,wps:_|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:100c,htagg:19,htmcs:000000ff,txpow:120a|oui:samsung':
-        ('BCM4330', 'Samsung Galaxy Nexus', '2.4GHz'),
+        ('Samsung Galaxy Nexus', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,3,221(001018,2),221(00904c,51),htcap:000c,htagg:19,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:000c,htagg:19,htmcs:000000ff,txpow:0f09|oui:samsung':
-        ('', 'Samsung Galaxy Note or S2+', '5GHz'),
+        ('Samsung Galaxy Note or S2+', '', '5GHz'),
 
     'wifi4|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:100c,htagg:19,htmcs:000000ff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:100c,htagg:19,htmcs:000000ff,txpow:1409|oui:samsung':
-        ('', 'Samsung Galaxy Note', '2.4GHz'),
+        ('Samsung Galaxy Note', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,221(001018,2),221(00904c,51),htcap:0062,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062,htagg:1a,htmcs:000000ff,txpow:0e09|oui:samsung':
-        ('BCM4330', 'Samsung Galaxy Note 2', '5GHz'),
+        ('Samsung Galaxy Note II', '', '5GHz'),
     'wifi4|probe:0,1,45,221(001018,2),221(00904c,51),htcap:0062,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062,htagg:1a,htmcs:000000ff,txpow:0e09|oui:samsung':
-        ('BCM4330', 'Samsung Galaxy Note 2', '5GHz'),
+        ('Samsung Galaxy Note II', '', '5GHz'),
     'wifi4|probe:0,1,45,3,221(001018,2),221(00904c,51),htcap:0062,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062,htagg:1a,htmcs:000000ff,txpow:0e09|oui:samsung':
-        ('BCM4330', 'Samsung Galaxy Note 2', '5GHz'),
+        ('Samsung Galaxy Note II', '', '5GHz'),
     'wifi4|probe:0,1,45,3,221(001018,2),221(00904c,51),htcap:0062,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062,htagg:1a,htmcs:000000ff,txpow:0e09|oui:samsung':
-        ('BCM4330', 'Samsung Galaxy Note 2', '5GHz'),
+        ('Samsung Galaxy Note II', '', '5GHz'),
     'wifi4|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:1020,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:1020,htagg:1a,htmcs:000000ff,txpow:1209|oui:samsung':
-        ('BCM4330', 'Samsung Galaxy Note 2', '2.4GHz'),
+        ('Samsung Galaxy Note II', '', '2.4GHz'),
     'wifi4|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:1020,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:1020,htagg:1a,htmcs:000000ff,txpow:1209|oui:samsung':
-        ('BCM4330', 'Samsung Galaxy Note 2', '2.4GHz'),
+        ('Samsung Galaxy Note II', '', '2.4GHz'),
 
     'wifi4|probe:0,1,3,45,127,191,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:016f,htagg:17,htmcs:000000ff,vhtcap:0f805932,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000080000000040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(00904c,4),221(0050f2,2),htcap:016f,htagg:17,htmcs:000000ff,vhtcap:0f805932,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e008,extcap:0000000000000040|oui:samsung':
-        ('BCM4335', 'Samsung Galaxy Note 3', '5GHz'),
+        ('Samsung Galaxy Note 3', '', '5GHz'),
     'wifi4|probe:0,1,45,127,191,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:016f,htagg:17,htmcs:000000ff,vhtcap:0f805932,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000080000000040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(00904c,4),221(0050f2,2),htcap:016f,htagg:17,htmcs:000000ff,vhtcap:0f805932,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e008,extcap:0000000000000040|oui:samsung':
-        ('BCM4335', 'Samsung Galaxy Note 3', '5GHz'),
+        ('Samsung Galaxy Note 3', '', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:112d,htagg:17,htmcs:000000ff,extcap:0000080000000040|assoc:0,1,33,36,48,50,45,221(001018,2),221(0050f2,2),htcap:112d,htagg:17,htmcs:000000ff,txpow:1208|oui:samsung':
-        ('BCM4335', 'Samsung Galaxy Note 3', '2.4GHz'),
+        ('Samsung Galaxy Note 3', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:112d,htagg:17,htmcs:000000ff,extcap:0000080000000040|assoc:0,1,33,36,48,50,45,127,221(001018,2),221(0050f2,2),htcap:112d,htagg:17,htmcs:000000ff,txpow:1208|oui:samsung':
-        ('BCM4335', 'Samsung Galaxy Note 3', '2.4GHz'),
+        ('Samsung Galaxy Note 3', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,107,191,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000088001400040|assoc:0,1,33,36,48,45,127,107,191,221(00904c,4),221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e009,extcap:0000088001400040|oui:samsung':
-        ('BCM4358', 'Samsung Galaxy Note 4', '5GHz'),
+        ('Samsung Galaxy Note 4', '', '5GHz'),
     'wifi4|probe:0,1,45,127,191,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000088001400040|assoc:0,1,33,36,48,70,45,127,191,221(00904c,4),221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e009,extcap:0000088001400040|oui:samsung':
-        ('BCM4358', 'Samsung Galaxy Note 4', '5GHz'),
+        ('Samsung Galaxy Note 4', '', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0000088001400040|assoc:0,1,50,33,36,48,45,127,107,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1509,extcap:0000088001400040|oui:samsung':
-        ('BCM4358', 'Samsung Galaxy Note 4', '2.4GHz'),
+        ('Samsung Galaxy Note 4', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0000088001400040|assoc:0,1,50,33,36,48,70,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1509,extcap:0000088001400040|oui:samsung':
-        ('BCM4358', 'Samsung Galaxy Note 4', '2.4GHz'),
+        ('Samsung Galaxy Note 4', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,107,191,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:01ef,htagg:17,htmcs:0000ffff,vhtcap:0f9118b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:00080f8401400040|assoc:0,1,33,36,48,45,127,191,199,221(00904c,4),221(001018,2),221(0050f2,2),htcap:01ef,htagg:17,htmcs:0000ffff,vhtcap:0f9118b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:1102,extcap:0000000000000040|oui:samsung':
-        ('BCM4359', 'Samsung Galaxy Note 5', '5GHz'),
+        ('Samsung Galaxy Note 5', '', '5GHz'),
     'wifi4|probe:0,1,45,127,107,191,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:01ef,htagg:17,htmcs:0000ffff,vhtcap:0f9118b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:00080f8401400040|assoc:0,1,33,36,48,70,45,127,191,199,221(00904c,4),221(001018,2),221(0050f2,2),htcap:01ef,htagg:17,htmcs:0000ffff,vhtcap:0f9118b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:1202,extcap:0000000000000040|oui:samsung':
-        ('BCM4359', 'Samsung Galaxy Note 5', '5GHz'),
+        ('Samsung Galaxy Note 5', '', '5GHz'),
     'wifi4|probe:0,1,45,127,107,191,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:01ef,htagg:17,htmcs:0000ffff,vhtcap:0f9118b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:00080f840140|assoc:0,1,33,36,48,70,45,191,199,221(00904c,4),221(001018,2),221(0050f2,2),htcap:01ef,htagg:17,htmcs:0000ffff,vhtcap:0f9118b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:1202|oui:samsung':
-        ('BCM4359', 'Samsung Galaxy Note 5', '5GHz'),
+        ('Samsung Galaxy Note 5', '', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:01ad,htagg:17,htmcs:0000ffff,extcap:00080f8401400040|assoc:0,1,50,33,36,48,45,221(001018,2),221(0050f2,2),htcap:01ad,htagg:17,htmcs:0000ffff,txpow:1202|oui:samsung':
-        ('BCM4359', 'Samsung Galaxy Note 5', '2.4GHz'),
+        ('Samsung Galaxy Note 5', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,221(001018,2),221(00904c,51),htcap:000c,htagg:19,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:000c,htagg:19,htmcs:000000ff,txpow:0f0a|oui:samsung':
-        ('', 'Samsung Galaxy S2', '5GHz'),
+        ('Samsung Galaxy S2', '', '5GHz'),
     'wifi4|probe:0,1,45,3,221(001018,2),221(00904c,51),htcap:000c,htagg:19,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:000c,htagg:19,htmcs:000000ff,txpow:0f0a|oui:samsung':
-        ('', 'Samsung Galaxy S2', '5GHz'),
+        ('Samsung Galaxy S2', '', '5GHz'),
     'wifi4|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:100c,htagg:19,htmcs:000000ff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:100c,htagg:19,htmcs:000000ff,txpow:120a|oui:samsung':
-        ('', 'Samsung Galaxy S2 or Infuse','2.4GHz'),
+        ('Samsung Galaxy S2 or Infuse', '', '2.4GHz'),
     'wifi4|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:100c,htagg:19,htmcs:000000ff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:100c,htagg:19,htmcs:000000ff,txpow:120a|oui:samsung':
-        ('', 'Samsung Galaxy S2 or Infuse','2.4GHz'),
+        ('Samsung Galaxy S2 or Infuse', '', '2.4GHz'),
 
     'wifi4|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:100c,htagg:19,htmcs:000000ff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:100c,htagg:19,htmcs:000000ff,txpow:1209|oui:samsung':
-        ('', 'Samsung Galaxy S2+', '2.4GHz'),
+        ('Samsung Galaxy S2+', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,221(001018,2),221(00904c,51),htcap:0062,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062,htagg:1a,htmcs:000000ff,txpow:1409|oui:samsung':
-        ('BCM4334', 'Samsung Galaxy S3', '5GHz'),
+        ('Samsung Galaxy S3', '', '5GHz'),
     'wifi4|probe:0,1,45,3,221(001018,2),221(00904c,51),htcap:0062,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062,htagg:1a,htmcs:000000ff,txpow:1409|oui:samsung':
-        ('BCM4334', 'Samsung Galaxy S3', '5GHz'),
+        ('Samsung Galaxy S3', '', '5GHz'),
     'wifi4|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:1020,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:1020,htagg:1a,htmcs:000000ff,txpow:1409|oui:samsung':
-        ('BCM4334', 'Samsung Galaxy S3', '2.4GHz'),
+        ('Samsung Galaxy S3', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,191,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000080000000040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(00904c,4),221(0050f2,2),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e001,extcap:0000000000000040|oui:samsung':
-        ('BCM4335', 'Samsung Galaxy S4', '5GHz'),
+        ('Samsung Galaxy S4', '', '5GHz'),
     'wifi4|probe:0,1,3,45,127,191,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000080000000040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(00904c,4),221(0050f2,2),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e001,extcap:0000000000000040|oui:samsung':
-        ('BCM4335', 'Samsung Galaxy S4', '5GHz'),
+        ('Samsung Galaxy S4', '', '5GHz'),
     'wifi4|probe:0,1,45,127,107,191,221(506f9a,16),221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000088000400040|assoc:0,1,33,36,48,45,127,107,191,221(001018,2),221(00904c,4),221(0050f2,2),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e001,extcap:0000008000400040|oui:samsung':
-        ('BCM4335', 'Samsung Galaxy S4', '5GHz'),
+        ('Samsung Galaxy S4', '', '5GHz'),
     'wifi4|probe:0,1,3,45,127,107,191,221(506f9a,16),221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000088000400040|assoc:0,1,33,36,48,45,127,107,191,221(001018,2),221(00904c,4),221(0050f2,2),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e001,extcap:0000008000400040|oui:samsung':
-        ('BCM4335', 'Samsung Galaxy S4', '5GHz'),
+        ('Samsung Galaxy S4', '', '5GHz'),
     'wifi4|probe:0,1,45,127,191,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000080000400040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(00904c,4),221(0050f2,2),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e001,extcap:0000000000400040|oui:samsung':
-        ('BCM4335', 'Samsung Galaxy S4', '5GHz'),
+        ('Samsung Galaxy S4', '', '5GHz'),
     'wifi4|probe:0,1,3,45,127,191,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000080000400040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(00904c,4),221(0050f2,2),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e001,extcap:0000000000400040|oui:samsung':
-        ('BCM4335', 'Samsung Galaxy S4', '5GHz'),
+        ('Samsung Galaxy S4', '', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(506f9a,16),221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:102d,htagg:17,htmcs:000000ff,extcap:0000088000400040|assoc:0,1,33,36,48,50,45,127,107,221(001018,2),221(0050f2,2),htcap:102d,htagg:17,htmcs:000000ff,txpow:1201,extcap:000000800040|oui:samsung':
-        ('BCM4335', 'Samsung Galaxy S4', '2.4GHz'),
+        ('Samsung Galaxy S4', '', '2.4GHz'),
     'wifi4|probe:0,1,50,45,127,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:102d,htagg:17,htmcs:000000ff,extcap:0000080000000040|assoc:0,1,33,36,48,50,45,221(001018,2),221(0050f2,2),htcap:102d,htagg:17,htmcs:000000ff,txpow:1201|oui:samsung':
-        ('BCM4335', 'Samsung Galaxy S4', '2.4GHz'),
+        ('Samsung Galaxy S4', '', '2.4GHz'),
     'wifi4|probe:0,1,50,45,127,107,221(506f9a,16),221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:102d,htagg:17,htmcs:000000ff,extcap:0000088000400040|assoc:0,1,33,36,48,50,45,127,107,221(001018,2),221(0050f2,2),htcap:102d,htagg:17,htmcs:000000ff,txpow:1201,extcap:000000800040|oui:samsung':
-        ('BCM4335', 'Samsung Galaxy S4', '2.4GHz'),
+        ('Samsung Galaxy S4', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,107,191,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000088001400040|assoc:0,1,33,36,48,45,127,107,191,221(00904c,4),221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e20b,extcap:0000088001400040|oui:samsung':
-        ('BCM4354', 'Samsung Galaxy S5', '5GHz'),
+        ('Samsung Galaxy S5', '', '5GHz'),
     'wifi4|probe:0,1,45,127,107,191,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:000008800140|assoc:0,1,33,36,48,45,127,107,191,221(00904c,4),221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e20b,extcap:000008800140|oui:samsung':
-        ('BCM4354', 'Samsung Galaxy S5', '5GHz'),
+        ('Samsung Galaxy S5', '', '5GHz'),
     'wifi4|probe:0,1,45,191,221(00904c,4),221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa|assoc:0,1,33,36,48,45,191,221(00904c,4),221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e20b|oui:samsung':
-        ('BCM4354', 'Samsung Galaxy S5', '5GHz'),
+        ('Samsung Galaxy S5', '', '5GHz'),
     'wifi4|probe:0,1,45,191,221(00904c,4),221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:9b40fffa,vhttxmcs:18dafffa|assoc:0,1,33,36,48,45,191,221(00904c,4),221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:9b40fffa,vhttxmcs:18dafffa,txpow:e20b|oui:samsung':
-        ('BCM4354', 'Samsung Galaxy S5', '5GHz'),
+        ('Samsung Galaxy S5', '', '5GHz'),
     'wifi4|probe:0,1,45,127,191,221(00904c,4),221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:000008800140|assoc:0,1,33,36,48,45,127,191,221(00904c,4),221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e20b,extcap:000008800140|oui:samsung':
-        ('BCM4354', 'Samsung Galaxy S5', '5GHz'),
+        ('Samsung Galaxy S5', '', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:000008800140|assoc:0,1,50,33,36,48,45,127,107,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1209,extcap:000008800140|oui:samsung':
-        ('BCM4354', 'Samsung Galaxy S5', '2.4GHz'),
+        ('Samsung Galaxy S5', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0000088001400040|assoc:0,1,50,33,36,48,45,127,107,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1209,extcap:000008800140|oui:samsung':
-        ('BCM4354', 'Samsung Galaxy S5', '2.4GHz'),
+        ('Samsung Galaxy S5', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:000008800140|assoc:0,1,50,33,36,48,70,45,127,107,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1209,extcap:000008800140|oui:samsung':
-        ('BCM4354', 'Samsung Galaxy S5', '2.4GHz'),
+        ('Samsung Galaxy S5', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,191,221(00904c,4),221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000088001400040|assoc:0,1,33,36,48,45,127,191,221(00904c,4),221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e002,extcap:0000088001400040|oui:samsung':
-        ('BCM4358', 'Samsung Galaxy S6', '5GHz'),
+        ('Samsung Galaxy S6', '', '5GHz'),
     'wifi4|probe:0,1,45,127,191,221(00904c,4),221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000088001400040|assoc:0,1,33,36,45,127,191,221(00904c,4),221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e002,extcap:0000088001400040|oui:samsung':
-        ('BCM4358', 'Samsung Galaxy S6', '5GHz'),
+        ('Samsung Galaxy S6', '', '5GHz'),
     'wifi4|probe:0,1,45,191,221(00904c,4),221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa|assoc:0,1,33,36,48,45,191,221(00904c,4),221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e002|oui:samsung':
-        ('BCM4358', 'Samsung Galaxy S6', '5GHz'),
+        ('Samsung Galaxy S6', '', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(00904c,4),221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0000088001400040|assoc:0,1,50,33,36,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1402,extcap:0000088001400040|oui:samsung':
-        ('BCM4358', 'Samsung Galaxy S6', '2.4GHz'),
+        ('Samsung Galaxy S6', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(00904c,4),221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0000088001400040|assoc:0,1,50,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1402,extcap:0000088001400040|oui:samsung':
-        ('BCM4358', 'Samsung Galaxy S6', '2.4GHz'),
+        ('Samsung Galaxy S6', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(00904c,4),221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0000088001400040|assoc:0,1,50,33,36,48,70,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1402,extcap:0000088001400040|oui:samsung':
-        ('BCM4358', 'Samsung Galaxy S6', '2.4GHz'),
+        ('Samsung Galaxy S6', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,107,191,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:0163,htagg:17,htmcs:0000ffff,vhtcap:0f907032,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:00080f8401400040|assoc:0,1,33,36,48,70,45,127,191,199,221(00904c,4),221(001018,2),221(0050f2,2),htcap:01ef,htagg:17,htmcs:0000ffff,vhtcap:0f9118b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:1102,extcap:0000000000000040|oui:samsung':
-        ('', 'Samsung Galaxy S7', '5GHz'),
+        ('Samsung Galaxy S7', '', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:01ad,htagg:17,htmcs:0000ffff,extcap:00080f8401400040|assoc:0,1,50,33,36,48,70,45,221(001018,2),221(0050f2,2),htcap:01ad,htagg:17,htmcs:0000ffff,txpow:1402|oui:samsung':
-        ('', 'Samsung Galaxy S7', '2.4GHz'),
+        ('Samsung Galaxy S7', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:01ad,htagg:17,htmcs:0000ffff,extcap:00080f840140|assoc:0,1,50,33,36,48,70,45,221(001018,2),221(0050f2,2),htcap:01ad,htagg:17,htmcs:0000ffff,txpow:1402|oui:samsung':
-        ('', 'Samsung Galaxy S7', '2.4GHz'),
+        ('Samsung Galaxy S7', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,107,191,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:01ef,htagg:17,htmcs:0000ffff,vhtcap:0f9178b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:00080f840140|assoc:0,1,33,36,48,70,45,191,199,221(00904c,4),221(001018,2),221(0050f2,2),htcap:01ef,htagg:17,htmcs:0000ffff,vhtcap:0f9118b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:1102|oui:samsung':
-        ('', 'Samsung Galaxy S7 Edge', '5GHz'),
+        ('Samsung Galaxy S7 Edge', '', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:1163,htagg:17,htmcs:0000ffff,extcap:00080f8401400040|assoc:0,1,50,33,36,48,70,45,221(001018,2),221(0050f2,2),htcap:01ad,htagg:17,htmcs:0000ffff,txpow:1302|oui:samsung':
-        ('', 'Samsung Galaxy S7 Edge', '2.4GHz'),
+        ('Samsung Galaxy S7 Edge', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,221(001018,2),221(00904c,51),htcap:082c,htagg:1b,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:082c,htagg:1b,htmcs:000000ff,txpow:0f08|oui:samsung':
-        ('BCM4329', 'Samsung Galaxy Tab', '5GHz'),
+        ('Samsung Galaxy Tab', '', '5GHz'),
     'wifi4|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:182c,htagg:1b,htmcs:000000ff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:182c,htagg:1b,htmcs:000000ff,txpow:1208|oui:samsung':
-        ('BCM4329', 'Samsung Galaxy Tab', '2.4GHz'),
+        ('Samsung Galaxy Tab', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,50,htcap:0162,htagg:03,htmcs:00000000|assoc:0,1,48,127,221(0050f2,2),45,htcap:016e,htagg:03,htmcs:000000ff,extcap:0400000000000140|oui:samsung':
-        ('Marvell_88W8787', 'Samsung Galaxy Tab 3', '5GHz'),
+        ('Samsung Galaxy Tab 3', '', '5GHz'),
     'wifi4|probe:0,1,45,50,htcap:0162,htagg:03,htmcs:00000000|assoc:0,1,33,36,48,127,221(0050f2,2),45,htcap:016e,htagg:03,htmcs:000000ff,txpow:1208,extcap:0400000000000140|oui:samsung':
-        ('Marvell_88W8787', 'Samsung Galaxy Tab 3', '5GHz'),
+        ('Samsung Galaxy Tab 3', '', '5GHz'),
     'wifi4|probe:0,1,3,45,50,htcap:0162,htagg:03,htmcs:00000000|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:012c,htagg:03,htmcs:000000ff,extcap:0000000000000140|oui:samsung':
-        ('Marvell_88W8787', 'Samsung Galaxy Tab 3', '2.4GHz'),
+        ('Samsung Galaxy Tab 3', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,221(0050f2,8),htcap:016e,htagg:03,htmcs:000000ff|assoc:0,1,33,36,48,45,221(0050f2,2),221(004096,3),htcap:016e,htagg:03,htmcs:000000ff,txpow:170d|oui:samsung':
-        ('APQ8026', 'Samsung Galaxy Tab 4', '5GHz'),
+        ('Samsung Galaxy Tab 4', '', '5GHz'),
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),221(004096,3),htcap:012c,htagg:03,htmcs:000000ff|oui:samsung':
-        ('APQ8026', 'Samsung Galaxy Tab 4', '2.4GHz'),
+        ('Samsung Galaxy Tab 4', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,221(0050f2,4),221(001018,2),221(00904c,51),htcap:000c,htagg:19,htmcs:000000ff,wps:_|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:000c,htagg:19,htmcs:000000ff,txpow:0c0a|oui:samsung':
-        ('BCM4330', 'Samsung Galaxy Tab 10.1', '5GHz'),
+        ('Samsung Galaxy Tab 10.1', '', '5GHz'),
     'wifi4|probe:0,1,45,3,221(0050f2,4),221(001018,2),221(00904c,51),htcap:000c,htagg:19,htmcs:000000ff,wps:_|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:000c,htagg:19,htmcs:000000ff,txpow:0c0a|oui:samsung':
-        ('BCM4330', 'Samsung Galaxy Tab 10.1', '5GHz'),
+        ('Samsung Galaxy Tab 10.1', '', '5GHz'),
     'wifi4|probe:0,1,50,45,3,221(0050f2,4),221(001018,2),221(00904c,51),htcap:100c,htagg:19,htmcs:000000ff,wps:_|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:100c,htagg:19,htmcs:000000ff,txpow:0f0a|oui:samsung':
-        ('BCM4330', 'Samsung Galaxy Tab 10.1', '2.4GHz'),
+        ('Samsung Galaxy Tab 10.1', '', '2.4GHz'),
 
     'wifi4|probe:0,1,50,3,45,221(001018,2),htcap:0020,htagg:1f,htmcs:000000ff|assoc:0,1,50,33,36,48,45,221(001018,2),221(0050f2,2),htcap:0020,htagg:1f,htmcs:000000ff,txpow:1203|os:tizen':
-        ('', 'Samsung Gear S2', '2.4GHz'),
+        ('Samsung Watch', 'Gear S2', '2.4GHz'),
 
     'wifi4|probe:0,1,45,htcap:11ee,htagg:02,htmcs:0000ffff|assoc:0,1,45,127,33,36,48,221(0050f2,2),htcap:11ee,htagg:02,htmcs:0000ffff,txpow:1100,extcap:01|os:samsungtv':
-        ('', 'Samsung Smart TV', '5GHz'),
+        ('Samsung Smart TV', '', '5GHz'),
     'wifi4|probe:0,1,50,45,htcap:01ac,htagg:02,htmcs:0000ffff|assoc:0,1,50,45,127,48,221(0050f2,2),htcap:01ac,htagg:02,htmcs:0000ffff,extcap:01|os:samsungtv':
-        ('', 'Samsung Smart TV', '2.4GHz'),
+        ('Samsung Smart TV', '', '2.4GHz'),
     'wifi4|probe:0,1,50,45,221(002d25,32),htcap:01ac,htagg:02,htmcs:0000ffff|assoc:0,1,50,48,221(0050f2,2),45,127,htcap:01ac,htagg:02,htmcs:0000ffff,extcap:01|os:samsungtv':
-        ('', 'Samsung Smart TV', '2.4GHz'),
+        ('Samsung Smart TV', '', '2.4GHz'),
     'wifi4|probe:0,1,50,45,htcap:0120,htagg:02,htmcs:000000ff|assoc:0,1,50,48,221(0050f2,2),45,127,htcap:0120,htagg:02,htmcs:000000ff,extcap:01|os:samsungtv':
-        ('', 'Samsung Smart TV', '2.4GHz'),
+        ('Samsung Smart TV', '', '2.4GHz'),
 
     'wifi4|probe:0,1,50,3,45,htcap:11ef,htagg:1b,htmcs:0000ffff|assoc:0,1,50,48,45,221(0050f2,2),htcap:11ef,htagg:1b,htmcs:0000ffff|oui:sling':
-        ('', 'Slingbox 500', '2.4GHz'),
+        ('Slingbox', '500', '2.4GHz'),
 
     'wifi4|probe:0,1,45,221(0050f2,4),htcap:11ee,htagg:02,htmcs:0000ffff,wps:Sony_BRAVIA|assoc:0,1,33,36,48,221(0050f2,2),45,127,htcap:11ee,htagg:02,htmcs:0000ffff,txpow:0500,extcap:01':
-        ('', 'Sony Bravia TV', '5GHz'),
+        ('Sony Bravia TV', '', '5GHz'),
     'wifi4|probe:0,1,50,45,127,221(0050f2,4),221(506f9a,10),221(506f9a,9),htcap:01ed,htagg:13,htmcs:0000ffff,extcap:00,wps:BRAVIA_2015|assoc:0,1,50,45,127,221(000c43,6),221(0050f2,2),48,127,htcap:008c,htagg:13,htmcs:0000ffff,extcap:00000a02':
-        ('', 'Sony Bravia TV', '2.4GHz'),
+        ('Sony Bravia TV', '', '2.4GHz'),
     'wifi4|probe:0,1,50,221(0050f2,4),221(506f9a,10),221(506f9a,9),wps:BRAVIA_4K_2015|assoc:0,1,50,45,127,221(000c43,6),221(0050f2,2),48,127,htcap:008c,htagg:13,htmcs:0000ffff,extcap:00000a02':
-        ('', 'Sony Bravia TV', '2.4GHz'),
+        ('Sony Bravia TV', '', '2.4GHz'),
 
     'wifi4|probe:0,1,3,45,221(0050f2,8),191,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffc,vhttxmcs:0000fffc|assoc:0,1,33,36,48,70,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff|oui:sony':
-        ('WCN3680', 'Sony Xperia Z Ultra', '5GHz'),
+        ('Sony Xperia', 'Z Ultra', '5GHz'),
     'wifi4|probe:0,1,3,45,221(0050f2,8),191,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffc,vhttxmcs:0000fffc|assoc:0,1,48,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff|oui:sony':
-        ('WCN3680', 'Sony Xperia Z Ultra', '5GHz'),
+        ('Sony Xperia', 'Z Ultra', '5GHz'),
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,txpow:170d,extcap:00000a0200000000|oui:sony':
-        ('WCN3680', 'Sony Xperia Z Ultra', '2.4GHz'),
+        ('Sony Xperia', 'Z Ultra', '2.4GHz'),
     'wifi4|probe:0,1,50,45,htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,txpow:170d,extcap:00000a0200000000|oui:sony':
-        ('WCN3680', 'Sony Xperia Z Ultra', '2.4GHz'),
+        ('Sony Xperia', 'Z Ultra', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,107,191,221(506f9a,16),221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815032,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000088001400040|assoc:0,1,33,36,48,70,45,127,107,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815032,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e007,extcap:0000088001400040|oui:sony':
-        ('', 'Sony Xperia Z4/Z5', '5GHz'),
+        ('Sony Xperia', 'Z4 or Z5', '5GHz'),
     'wifi4|probe:0,1,45,127,107,191,221(506f9a,16),221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000088001400040|assoc:0,1,33,36,48,70,45,127,107,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e007,extcap:0000088001400040|oui:sony':
-        ('', 'Sony Xperia Z4/Z5', '5GHz'),
+        ('Sony Xperia', 'Z4 or Z5', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(506f9a,16),221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0000088001400040|assoc:0,1,50,33,36,48,70,45,127,107,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1307,extcap:0000088001400040|oui:sony':
-        ('', 'Sony Xperia Z4/Z5', '2.4GHz'),
+        ('Sony Xperia', 'Z4 or Z5', '2.4GHz'),
 
     # TIVO-849
     'wifi4|probe:0,1,45,127,191,221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000008001|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e009,extcap:0000008001|os:tivo':
-        ('', 'TiVo BOLT', '5GHz'),
+        ('TiVo', 'BOLT', '5GHz'),
     # TIVO-746
     'wifi4|probe:0,1,50,221(00904c,51),45,48,htcap:13ce,htagg:1b,htmcs:0000ffff|assoc:0,1,33,36,50,221(0050f2,2),221(00904c,51),45,221(002163,1),221(002163,4),48,htcap:13ce,htagg:1b,htmcs:0000ffff,txpow:0f0f|os:tivo':
-        ('', 'TiVo Premiere Series 4', '2.4GHz'),
+        ('TiVo', 'Premiere Series 4', '2.4GHz'),
     # TIVO-846
     'wifi4|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:107c,htagg:19,htmcs:0000ffff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:107c,htagg:19,htmcs:0000ffff,txpow:1208|os:tivo':
-        ('', 'TiVo Roamio', '2.4GHz'),
+        ('TiVo', 'Roamio', '2.4GHz'),
     # TIVO-848
     'wifi4|probe:0,1,50|assoc:0,1,50,221(0050f2,2),45,51,48,htcap:01ac,htagg:1b,htmcs:0000ffff|os:tivo':
-        ('', 'TiVo Roamio Plus', '2.4GHz'),
+        ('TiVo', 'Roamio Plus', '2.4GHz'),
     # TiVo-652 HD and HD XL, TIVO-648, and TIVO-750 have the same signature
     'wifi4|probe:0,1,50,221(001018,2)|assoc:0,1,48,50,221(001018,2)|os:tivo':
-        ('', 'TiVo Series 3/4', '2.4GHz'),
+        ('TiVo', 'Series3 or Series4', '2.4GHz'),
 
-    'wifi4|probe:0,1,50,221(0050f2,4),wps:Ralink_Wireless_Linux_Client|assoc:0,1,50,45,127,221(000c43,6),221(0050f2,2),48,htcap:000c,htagg:12,htmcs:000000ff,extcap:01000000|os:visiotv':
-        ('', 'Vizio Smart TV', '2.4GHz'),
-    'wifi4|probe:0,1,50,221(0050f2,4),wps:Ralink_Wireless_Linux_Client|assoc:0,1,50,45,127,221(000c43,6),221(0050f2,2),48,htcap:000c,htagg:13,htmcs:000000ff,extcap:01|os:visiotv':
-        ('', 'Vizio Smart TV', '2.4GHz'),
-    'wifi4|probe:0,1,50,45,127,221(0050f2,4),htcap:106e,htagg:12,htmcs:000000ff,extcap:00,wps:Ralink_Wireless_Linux_Client|assoc:0,1,50,45,127,221(000c43,6),221(0050f2,2),48,htcap:000c,htagg:12,htmcs:000000ff,extcap:01000000|os:visiotv':
-        ('', 'Vizio Smart TV', '2.4GHz'),
-    'wifi4|probe:0,1,50,221(0050f2,4),wps:Ralink_Wireless_Linux_Client|assoc:0,1,50,45,221(000c43,6),221(0050f2,2),48,htcap:000c,htagg:13,htmcs:000000ff|os:visiotv':
-        ('', 'Vizio Smart TV', '2.4GHz'),
-    'wifi4|probe:0,1,50,48|assoc:0,1,50,221(0050f2,2),45,51,127,48,htcap:012c,htagg:1b,htmcs:000000ff,extcap:01|os:visiotv':
-        ('', 'Vizio Smart TV', '2.4GHz'),
+    'wifi4|probe:0,1,50,221(0050f2,4),wps:Ralink_Wireless_Linux_Client|assoc:0,1,50,45,127,221(000c43,6),221(0050f2,2),48,htcap:000c,htagg:12,htmcs:000000ff,extcap:01000000|os:viziotv':
+        ('Vizio Smart TV', '', '2.4GHz'),
+    'wifi4|probe:0,1,50,221(0050f2,4),wps:Ralink_Wireless_Linux_Client|assoc:0,1,50,45,127,221(000c43,6),221(0050f2,2),48,htcap:000c,htagg:13,htmcs:000000ff,extcap:01|os:viziotv':
+        ('Vizio Smart TV', '', '2.4GHz'),
+    'wifi4|probe:0,1,50,45,127,221(0050f2,4),htcap:106e,htagg:12,htmcs:000000ff,extcap:00,wps:Ralink_Wireless_Linux_Client|assoc:0,1,50,45,127,221(000c43,6),221(0050f2,2),48,htcap:000c,htagg:12,htmcs:000000ff,extcap:01000000|os:viziotv':
+        ('Vizio Smart TV', '', '2.4GHz'),
+    'wifi4|probe:0,1,50,221(0050f2,4),wps:Ralink_Wireless_Linux_Client|assoc:0,1,50,45,221(000c43,6),221(0050f2,2),48,htcap:000c,htagg:13,htmcs:000000ff|os:viziotv':
+        ('Vizio Smart TV', '', '2.4GHz'),
+    'wifi4|probe:0,1,50,48|assoc:0,1,50,221(0050f2,2),45,51,127,48,htcap:012c,htagg:1b,htmcs:000000ff,extcap:01|os:viziotv':
+        ('Vizio Smart TV', '', '2.4GHz'),
 
     'wifi4|probe:0,1,50,221(001018,2)|assoc:0,1,48,50,221(001018,2)|os:wii':
-        ('BCM4318', 'Wii', '2.4GHz'),
+        ('Wii', '', '2.4GHz'),
 
     'wifi4|probe:0,1,50,45,3,221(00904c,51),htcap:100c,htagg:19,htmcs:000000ff|assoc:0,1,48,50,45,221(00904c,51),221(0050f2,2),htcap:100c,htagg:19,htmcs:000000ff|os:wii':
-        ('BCM43362', 'Wii-U', '2.4GHz'),
-
-    'wifi4|probe:0,1,50,45,htcap:016e,htagg:03,htmcs:000000ff|assoc:0,1,48,50,221(0050f2,2),45,221(00904c,51),127,htcap:016e,htagg:03,htmcs:000000ff,extcap:0100008000000000|os:windows':
-        ('', 'Windows 802.11n PC', '2.4GHz'),
+        ('Wii-U', '', '2.4GHz'),
 
     'wifi4|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:110c,htagg:19,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:110c,htagg:19,htmcs:000000ff|oui:withings':
-        ('', 'Withings Scale', '2.4GHz'),
+        ('Withings Scale', '', '2.4GHz'),
 
     'wifi4|probe:0,1,3,45,50,127,htcap:010c,htagg:1b,htmcs:0000ffff,extcap:00|assoc:0,1,45,48,50,221(0050f2,2),htcap:010c,htagg:1b,htmcs:000000ff|oui:microsoft':
-        ('', 'Xbox', '5GHz'),
+        ('Xbox', '', '5GHz'),
     'wifi4|probe:0,1,3|assoc:0,1,48,33,36,221(0050f2,2),txpow:1405|oui:microsoft':
-        ('', 'Xbox', '5GHz'),
+        ('Xbox', '', '5GHz'),
     'wifi4|probe:0,1,3,45,50,htcap:016e,htagg:03,htmcs:0000ffff|assoc:0,1,33,48,50,127,221(0050f2,2),45,htcap:012c,htagg:03,htmcs:0000ffff,txpow:1208,extcap:0000000000000140|oui:microsoft':
-        ('', 'Xbox', '5GHz'),
+        ('Xbox', '', '5GHz'),
     'wifi4|probe:0,1,50|assoc:0,1,3,33,36,50,221(0050f2,2),45,221(00037f,1),221(00037f,4),48,htcap:104c,htagg:00,htmcs:000000ff,txpow:0f0f|oui:microsoft':
-        ('', 'Xbox', '2.4GHz'),
+        ('Xbox', '', '2.4GHz'),
     'wifi4|probe:0,1,50,48|assoc:0,1,3,33,36,50,221(0050f2,2),45,221(00037f,1),221(00037f,4),48,htcap:104c,htagg:00,htmcs:0000ffff,txpow:0f0f|oui:microsoft':
-        ('', 'Xbox', '2.4GHz'),
+        ('Xbox', '', '2.4GHz'),
     'wifi4|probe:0,1,45,50,htcap:058f,htagg:03,htmcs:0000ffff|assoc:0,1,33,36,48,221(0050f2,2),45,htcap:058f,htagg:03,htmcs:0000ffff,txpow:1208|oui:microsoft':
-        ('', 'Xbox', '2.4GHz'),
+        ('Xbox', '', '2.4GHz'),
     'wifi4|probe:0,1,3,50|assoc:0,1,33,48,50,127,127,221(0050f2,2),45,htcap:012c,htagg:03,htmcs:0000ffff,txpow:1208,extcap:0000000000000140|oui:microsoft':
-        ('', 'Xbox', '2.4GHz'),
+        ('Xbox', '', '2.4GHz'),
 
     'wifi4|probe:0,1,3,45,50,htcap:058f,htagg:03,htmcs:0000ffff|assoc:0,1,48,50,221(0050f2,2),45,htcap:058d,htagg:03,htmcs:0000ffff|oui:microsoft':
-        ('Marvell_88W8897', 'Xbox One', '2.4GHz'),
+        ('Xbox', 'One', '2.4GHz'),
     'wifi4|probe:0,1,45,50,htcap:058f,htagg:03,htmcs:0000ffff|assoc:0,1,48,50,221(0050f2,2),45,htcap:058d,htagg:03,htmcs:0000ffff|oui:microsoft':
-        ('Marvell_88W8897', 'Xbox One', '2.4GHz'),
+        ('Xbox', 'One', '2.4GHz'),
     'wifi4|probe:0,1|assoc:0,1,50,45,127,221(000c43,0),221(0050f2,2),33,48,htcap:008d,htagg:02,htmcs:0000ffff,txpow:0805,extcap:0100000000000000|oui:microsoft':
-        ('', 'Xbox One', '2.4GHz'),
+        ('Xbox', 'One', '2.4GHz'),
     'wifi4|probe:0,1,50|assoc:0,1,50,45,127,221(000c43,0),221(0050f2,2),33,48,htcap:008d,htagg:02,htmcs:0000ffff,txpow:0805,extcap:0100000000000000|oui:microsoft':
-        ('', 'Xbox One', '2.4GHz'),
+        ('Xbox', 'One', '2.4GHz'),
 
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,33,48,70,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff,txpow:170d|oui:xiaomi':
-        ('', 'Xiaomi Redmi 3', '2.4GHz'),
+        ('Xiaomi Redmi', '3', '2.4GHz'),
 
     'wifi4|probe:0,1,50,221(0050f2,4),221(506f9a,9),wps:Z820|assoc:0,1,50,45,48,127,221(0050f2,2),htcap:1172,htagg:03,htmcs:000000ff,extcap:01':
-        ('', 'ZTE Obsidian', '2.4GHz'),
+        ('ZTE Obsidian', '', '2.4GHz'),
 }
 
 
@@ -1178,9 +1158,9 @@ def identify_wifi_device(signature, mac):
     mac: MAC address of the client, a string of the form 'qq:rr:ss:tt:uu:vv'
 
   Returns:
-    A tuple describing the Wifi chipset and the type of device.
+    A tuple describing the model of the device.
 
-    If we know what it is, this will be (ChipName, ModelName, PerformanceInfo)
+    If we know what it is, this will be (Genus, Species, PerformanceInfo)
 
     If the signature is not known, calculate a SHA256 of the signature and
     return (SHA256, 'Unknown', PerformanceInfo)

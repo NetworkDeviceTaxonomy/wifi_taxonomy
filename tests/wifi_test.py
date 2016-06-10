@@ -36,16 +36,20 @@ class WifiTaxonomyTest(unittest.TestCase):
     self.assertEqual(3, len(taxonomy))
     self.assertEqual('802.11n n:1,w:20', taxonomy[2])
 
-    signature = ('wifi4|probe:0,1,45,221(00904c,51),htcap:09ef,htagg:1b,'
-        'htmcs:0000ffff|assoc:0,1,33,36,48,45,221(00904c,51),221(0050f2,2),'
-        'htcap:09ef,htagg:1b,htmcs:0000ffff,txpow:0005')
-    taxonomy = wifi.identify_wifi_device(signature, '3c:15:c2:00:00:01')
-    expected = 'BCM4331;MacBook Pro 17" late 2011 (A1297);802.11n n:2,w:40'
+    signature = ('wifi4|probe:0,1,45,191,221(0050f2,4),221(506f9a,9),'
+                 '221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,'
+                 'vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,'
+                 'extcap:000008800140,wps:Nexus_6|assoc:0,1,33,36,48,45,'
+                 '127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,'
+                 'htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,'
+                 'vhttxmcs:0000fffa,txpow:e009,extcap:000008800140')
+    taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:02')
+    expected = 'Nexus 6;;802.11ac n:2,w:80'
     self.assertEqual(';'.join(taxonomy), expected)
     self.assertEqual(3, len(taxonomy))
-    self.assertEqual('BCM4331', taxonomy[0])
-    self.assertEqual('MacBook Pro 17" late 2011 (A1297)', taxonomy[1])
-    self.assertEqual('802.11n n:2,w:40', taxonomy[2])
+    self.assertEqual('Nexus 6', taxonomy[0])
+    self.assertEqual('', taxonomy[1])
+    self.assertEqual('802.11ac n:2,w:80', taxonomy[2])
 
   def testNameLookup(self):
     signature = ('wifi4|probe:0,1,45,3,221(001018,2),221(00904c,51),htcap:0100,'
@@ -59,7 +63,8 @@ class WifiTaxonomyTest(unittest.TestCase):
     self.assertEqual(3, len(taxonomy))
     self.assertEqual('Unknown', taxonomy[1])
     taxonomy = wifi.identify_wifi_device(signature, 'c8:69:cd:5e:b5:43')
-    self.assertEqual('Apple TV (3rd gen)', taxonomy[1])
+    self.assertEqual('Apple TV', taxonomy[0])
+    self.assertEqual('3rd gen', taxonomy[1])
 
   def testChecksumWhenNoIdentification(self):
     taxonomy = wifi.identify_wifi_device('wifi|probe:1,2,3,4,htcap:0|assoc:1',
@@ -76,23 +81,25 @@ class WifiTaxonomyTest(unittest.TestCase):
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
     self.assertIn('Unknown', taxonomy[1])
     taxonomy = wifi.identify_wifi_device(signature, 'b4:52:7e:00:00:01')
-    self.assertIn('Sony Xperia Z Ultra', taxonomy[1])
+    self.assertIn('Sony Xperia', taxonomy[0])
     taxonomy = wifi.identify_wifi_device(signature, 'f8:f1:b6:00:00:01')
-    self.assertIn('Moto E (2nd gen)', taxonomy[1])
+    self.assertIn('Moto E', taxonomy[0])
+    self.assertIn('2nd gen', taxonomy[1])
 
     # Test one of the OUIs with multiple vendors listed.
     signature = ('wifi4|probe:0,1,3,45,50,htcap:0120,htagg:03,htmcs:00000000|'
                  'assoc:0,1,48,50,127,221(0050f2,2),45,htcap:012c,'
                  'htagg:03,htmcs:000000ff,extcap:0000000000000140|oui:google')
     taxonomy = wifi.identify_wifi_device(signature, '6c:ad:f8:00:00:01')
-    self.assertEqual('Chromecast', taxonomy[1])
+    self.assertEqual('Chromecast', taxonomy[0])
+    self.assertEqual('v1', taxonomy[1])
 
   def testOS(self):
     signature = 'wifi4|probe:0,1,50|assoc:0,1,50,48,221(0050f2,2)'
     taxonomy = wifi.identify_wifi_device(signature, '00:00:01:00:00:01')
     self.assertIn('Unknown', taxonomy[1])
     taxonomy = wifi.identify_wifi_device(signature, '28:ef:01:00:00:01')
-    self.assertIn('Kindle', taxonomy[1])
+    self.assertIn('Kindle', taxonomy[0])
 
   def testCommonSignature(self):
     signature = ('wifi4|probe:0,1,50,45,221(001018,2),221(00904c,51),'
