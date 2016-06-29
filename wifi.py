@@ -50,8 +50,14 @@ database = {
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a0200000000|oui:amazon':
         ('Amazon Fire Phone', '', '2.4GHz'),
 
+    'wifi4|probe:0,1,221(0050f2,4),221(506f9a,9),wps:AFTS|assoc:0,1,45,191,127,221(000c43,6),221(0050f2,2),htcap:008e,htagg:1f,htmcs:0000ffff,vhtcap:31c139b0,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:0000000000000040':
+        ('Amazon Fire TV', '2015 (2nd gen)', '5GHz'),
     'wifi4|probe:0,1,50,45,127,221(0050f2,4),221(506f9a,9),htcap:01ed,htagg:1f,htmcs:0000ffff,extcap:00,wps:AFTS|assoc:0,1,50,45,127,221(000c43,6),221(0050f2,2),48,127,htcap:008c,htagg:1f,htmcs:0000ffff,extcap:00000a02':
         ('Amazon Fire TV', '', '2.4GHz'),
+    'wifi4|probe:0,1,50,45,127,221(0050f2,4),221(506f9a,9),htcap:01ef,htagg:1f,htmcs:0000ffff,extcap:00,wps:AFTS|assoc:0,1,50,45,127,221(000c43,6),221(0050f2,2),48,127,htcap:008c,htagg:1f,htmcs:0000ffff,extcap:00000a02':
+        ('Amazon Fire TV', '2015 (2nd gen)', '2.4GHz'),
+    'wifi4|probe:0,1,50,221(0050f2,4),221(506f9a,9),wps:AFTS|assoc:0,1,50,45,127,221(000c43,6),221(0050f2,2),48,127,htcap:008c,htagg:1f,htmcs:0000ffff,extcap:00000a02':
+        ('Amazon Fire TV', '2015 (2nd gen)', '2.4GHz'),
 
     'wifi4|probe:0,1,45,221(001018,2),221(00904c,51),htcap:007e,htagg:1b,htmcs:0000ffff|assoc:0,1,33,36,48,45,221(001018,2),221(0050f2,2),htcap:007e,htagg:1b,htmcs:0000ffff,txpow:e50d|oui:amazon':
         ('Amazon Fire TV Stick', '', '5GHz'),
@@ -59,15 +65,16 @@ database = {
         ('Amazon Fire TV Stick', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,htcap:11ee,htagg:02,htmcs:0000ffff|assoc:0,1,33,36,48,221(0050f2,2),45,127,htcap:11ee,htagg:02,htmcs:0000ffff,txpow:0e00,extcap:01|oui:amazon':
-        ('Amazon Kindle', '', '5GHz'),
+        ('Amazon Echo', '', '5GHz'),
+    'wifi4|probe:0,1,50,45,htcap:01ac,htagg:02,htmcs:0000ffff|assoc:0,1,50,48,221(0050f2,2),45,127,htcap:01ac,htagg:02,htmcs:0000ffff,extcap:01|oui:amazon':
+        ('Amazon Echo', '', '2.4GHz'),
+
     'wifi4|probe:0,1,50|assoc:0,1,50,48,221(0050f2,2)|oui:amazon':
         ('Amazon Kindle', '', '2.4GHz'),
     'wifi4|probe:0,1,50|assoc:0,1,50,221(0050f2,2)|oui:amazon':
         ('Amazon Kindle', 'Keyboard 3', '2.4GHz'),
-    'wifi4|probe:0,1,50,45,htcap:01ac,htagg:02,htmcs:0000ffff|assoc:0,1,50,48,221(0050f2,2),45,127,htcap:01ac,htagg:02,htmcs:0000ffff,extcap:01|oui:amazon':
-        ('Amazon Kindle', '', '2.4GHz'),
     'wifi4|probe:0,1,50,45,htcap:002c,htagg:01,htmcs:000000ff|assoc:0,1,50,45,48,221(0050f2,2),htcap:002c,htagg:01,htmcs:000000ff|oui:amazon':
-        ('Amazon Kindle', 'Voyage or Paperwhite (2012)', '2.4GHz'),
+        ('Amazon Kindle', 'Voyage, Paperwhite, or 4th gen', '2.4GHz'),
 
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:1130,htagg:18,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),htcap:1130,htagg:18,htmcs:000000ff|oui:amazon':
         ('Amazon Kindle', 'Fire 7" (2011 edition)', '2.4GHz'),
@@ -724,7 +731,11 @@ database = {
 
     'wifi4|probe:0,1,45,127,191,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000008001000040,wps:SHIELD_Android_TV|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e007,extcap:0000008001000040':
         ('NVidia SHIELD', 'Android TV', '5GHz'),
+    'wifi4|probe:0,1,45,127,191,221(0050f2,4),221(506f9a,9),221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000088001400040,wps:SHIELD_Android_TV|assoc:0,1,33,36,48,70,45,127,191,221(00904c,51),221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e007,extcap:0000088001400040':
+        ('NVidia SHIELD', 'Android TV', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(0050f2,4),221(506f9a,9),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0000008001000040,wps:SHIELD_Android_TV|assoc:0,1,50,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1207,extcap:0000008001000040':
+        ('NVidia SHIELD', 'Android TV', '2.4GHz'),
+    'wifi4|probe:0,1,50,3,45,127,221(0050f2,4),221(506f9a,9),221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0000088001400040,wps:SHIELD_Android_TV|assoc:0,1,50,33,36,48,70,45,127,221(00904c,51),221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1207,extcap:0000088001400040':
         ('NVidia SHIELD', 'Android TV', '2.4GHz'),
 
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,txpow:170d,extcap:00000a0200000000|oui:oneplus':
@@ -808,6 +819,10 @@ database = {
         ('Roku', '2 or 3 or Streaming Stick', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),htcap:193c,htagg:16,htmcs:0000ffff,extcap:0000000000000040|assoc:0,1,33,36,48,50,45,127,221(001018,2),221(0050f2,2),htcap:193c,htagg:16,htmcs:0000ffff,txpow:140a,extcap:0000000000000040|os:roku':
         ('Roku', '2 or 3 or Streaming Stick', '2.4GHz'),
+
+    # Roku 3 model 4230RW
+    'wifi4|probe:0,1,45,127,221(001018,2),221(00904c,51),htcap:093c,htagg:16,htmcs:0000ffff,extcap:0000000000000040|assoc:0,1,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:093c,htagg:16,htmcs:0000ffff,txpow:110a,extcap:0000000000000040|os:roku':
+        ('Roku', '3', '5GHz'),
 
     # Roku 4 model 4400
     'wifi4|probe:0,1,45,127,191,221(001018,2),htcap:01ad,htagg:17,htmcs:0000ffff,vhtcap:0f8159b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000000000000040|assoc:0,1,33,36,48,45,127,191,199,221(001018,2),221(0050f2,2),htcap:01ad,htagg:17,htmcs:0000ffff,vhtcap:0f8159b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:1109,extcap:0000000000000040|os:roku':
@@ -1002,10 +1017,22 @@ database = {
 
     'wifi4|probe:0,1,45,221(0050f2,4),htcap:11ee,htagg:02,htmcs:0000ffff,wps:Sony_BRAVIA|assoc:0,1,33,36,48,221(0050f2,2),45,127,htcap:11ee,htagg:02,htmcs:0000ffff,txpow:0500,extcap:01':
         ('Sony Bravia TV', '', '5GHz'),
+    'wifi4|probe:0,1,45,221(0050f2,4),221(506f9a,10),221(506f9a,9),htcap:11ef,htagg:13,htmcs:0000ffff,wps:BRAVIA_2015|assoc:0,1,45,127,221(000c43,6),221(0050f2,2),48,127,htcap:01ef,htagg:13,htmcs:0000ffff,extcap:00000a02':
+        ('Sony Bravia TV', '2015 model', '5GHz'),
+    'wifi4|probe:0,1,221(0050f2,4),221(506f9a,10),221(506f9a,9),wps:BRAVIA_2015|assoc:0,1,45,127,221(000c43,6),221(0050f2,2),48,127,htcap:01ef,htagg:13,htmcs:0000ffff,extcap:00000a02':
+        ('Sony Bravia TV', '2015 model', '5GHz'),
+    'wifi4|probe:0,1,50,45,221(0050f2,4),221(506f9a,10),221(506f9a,9),htcap:01ad,htagg:02,htmcs:0000ffff,wps:Sony_BRAVIA|assoc:0,1,50,45,127,48,221(0050f2,2),htcap:01ad,htagg:02,htmcs:0000ffff,extcap:01':
+        ('Sony Bravia TV', '', '2.4GHz'),
+    'wifi4|probe:0,1,50,45,221(0050f2,4),htcap:01ac,htagg:02,htmcs:0000ffff,wps:Sony_BRAVIA|assoc:0,1,50,48,221(0050f2,2),45,127,htcap:01ac,htagg:02,htmcs:0000ffff,extcap:01':
+        ('Sony Bravia TV', '', '2.4GHz'),
     'wifi4|probe:0,1,50,45,127,221(0050f2,4),221(506f9a,10),221(506f9a,9),htcap:01ed,htagg:13,htmcs:0000ffff,extcap:00,wps:BRAVIA_2015|assoc:0,1,50,45,127,221(000c43,6),221(0050f2,2),48,127,htcap:008c,htagg:13,htmcs:0000ffff,extcap:00000a02':
-        ('Sony Bravia TV', '', '2.4GHz'),
+        ('Sony Bravia TV', '2015 model', '2.4GHz'),
+    'wifi4|probe:0,1,50,45,127,221(0050f2,4),221(506f9a,10),221(506f9a,9),htcap:11ef,htagg:13,htmcs:0000ffff,extcap:00,wps:BRAVIA_2015|assoc:0,1,50,45,127,221(000c43,6),221(0050f2,2),48,127,htcap:01ad,htagg:13,htmcs:0000ffff,extcap:00000a02':
+        ('Sony Bravia TV', '2015 model', '2.4GHz'),
     'wifi4|probe:0,1,50,221(0050f2,4),221(506f9a,10),221(506f9a,9),wps:BRAVIA_4K_2015|assoc:0,1,50,45,127,221(000c43,6),221(0050f2,2),48,127,htcap:008c,htagg:13,htmcs:0000ffff,extcap:00000a02':
-        ('Sony Bravia TV', '', '2.4GHz'),
+        ('Sony Bravia TV', '2015 model', '2.4GHz'),
+    'wifi4|probe:0,1,50,221(0050f2,4),221(506f9a,10),221(506f9a,9),wps:BRAVIA_2015|assoc:0,1,50,45,127,221(000c43,6),221(0050f2,2),48,127,htcap:01ad,htagg:13,htmcs:0000ffff,extcap:00000a02':
+        ('Sony Bravia TV', '2015 model', '2.4GHz'),
 
     'wifi4|probe:0,1,3,45,221(0050f2,8),191,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffc,vhttxmcs:0000fffc|assoc:0,1,33,36,48,70,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff|oui:sony':
         ('Sony Xperia', 'Z Ultra', '5GHz'),
@@ -1026,6 +1053,17 @@ database = {
     # TIVO-849
     'wifi4|probe:0,1,45,127,191,221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000008001|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e009,extcap:0000008001|os:tivo':
         ('TiVo', 'BOLT', '5GHz'),
+    'wifi4|probe:0,1,45,127,191,221(00904c,51),221(001018,2),htcap:01ef,htagg:17,htmcs:0000ffff,vhtcap:0f8159b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000008001000040|assoc:0,1,33,36,48,45,127,191,221(00904c,51),221(001018,2),221(0050f2,2),htcap:01ef,htagg:17,htmcs:0000ffff,vhtcap:0f8159b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e007,extcap:0000008001000040|os:tivo':
+        ('TiVo', 'BOLT', '5GHz'),
+    'wifi4|probe:0,1,45,127,191,221(001018,2),htcap:01ef,htagg:17,htmcs:0000ffff,vhtcap:0f8159b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000008001000040|assoc:0,1,33,36,48,45,127,191,221(00904c,51),221(001018,2),221(0050f2,2),htcap:01ef,htagg:17,htmcs:0000ffff,vhtcap:0f8159b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e007,extcap:0000008001000040|os:tivo':
+        ('TiVo', 'BOLT', '5GHz'),
+    'wifi4|probe:0,1,50,3,45,127,221(00904c,51),221(001018,2),htcap:01ad,htagg:17,htmcs:0000ffff,extcap:0000008001000040|assoc:0,1,50,33,36,48,45,127,221(00904c,51),221(001018,2),221(0050f2,2),htcap:01ad,htagg:17,htmcs:0000ffff,txpow:1207,extcap:0000008001000040|os:tivo':
+        ('TiVo', 'BOLT', '2.4GHz'),
+    'wifi4|probe:0,1,50,3,45,127,221(001018,2),htcap:01ad,htagg:17,htmcs:0000ffff,extcap:0000008001000040|assoc:0,1,50,33,36,48,45,127,221(00904c,51),221(001018,2),221(0050f2,2),htcap:01ad,htagg:17,htmcs:0000ffff,txpow:1207,extcap:0000008001000040|os:tivo':
+        ('TiVo', 'BOLT', '2.4GHz'),
+    'wifi4|probe:0,1,50,3,45,127,221(00904c,51),221(001018,2),htcap:01ad,htagg:17,htmcs:0000ffff,extcap:0000008001000040|assoc:0,1,50,33,36,48,45,127,221(00904c,51),221(001018,2),221(0050f2,2),htcap:01ad,htagg:17,htmcs:0000ffff,txpow:1207,extcap:0000008001000040|os:tivo':
+        ('TiVo', 'BOLT', '2.4GHz'),
+
     # TIVO-746
     'wifi4|probe:0,1,50,221(00904c,51),45,48,htcap:13ce,htagg:1b,htmcs:0000ffff|assoc:0,1,33,36,50,221(0050f2,2),221(00904c,51),45,221(002163,1),221(002163,4),48,htcap:13ce,htagg:1b,htmcs:0000ffff,txpow:0f0f|os:tivo':
         ('TiVo', 'Premiere Series 4', '2.4GHz'),
@@ -1083,6 +1121,8 @@ database = {
     'wifi4|probe:0,1,3,50|assoc:0,1,33,48,50,127,127,221(0050f2,2),45,htcap:012c,htagg:03,htmcs:0000ffff,txpow:1208,extcap:0000000000000140|oui:microsoft':
         ('Xbox', '', '2.4GHz'),
 
+    'wifi4|probe:0,1,45,50,htcap:058f,htagg:03,htmcs:0000ffff|assoc:0,1,33,36,221(0050f2,2),45,htcap:058f,htagg:03,htmcs:0000ffff,txpow:1208|oui:microsoft':
+        ('Xbox', 'One', '5GHz'),
     'wifi4|probe:0,1,3,45,50,htcap:058f,htagg:03,htmcs:0000ffff|assoc:0,1,48,50,221(0050f2,2),45,htcap:058d,htagg:03,htmcs:0000ffff|oui:microsoft':
         ('Xbox', 'One', '2.4GHz'),
     'wifi4|probe:0,1,45,50,htcap:058f,htagg:03,htmcs:0000ffff|assoc:0,1,48,50,221(0050f2,2),45,htcap:058d,htagg:03,htmcs:0000ffff|oui:microsoft':
