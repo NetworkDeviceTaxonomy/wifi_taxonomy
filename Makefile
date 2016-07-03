@@ -2,10 +2,13 @@ PYTHON?=python
 
 all: build
 
-test: wifi_signature
+test: wifi_signature anonymize_pcap
 	set -e; \
 	for d in $(wildcard tests/*_test.py); do \
 		PYTHONPATH=./taxonomy $(PYTHON) $$d; \
+	done
+	for d in $(wildcard tests/*_test.sh); do \
+		$$d; \
 	done
 	PYTHONPATH=./taxonomy $(PYTHON) ./pcaptest.py
 
@@ -30,12 +33,13 @@ BINDIR=$(DESTDIR)/bin
 
 CFLAGS += -g -Os -Wall -Werror $(EXTRACFLAGS)
 LDFLAGS += $(EXTRALDFLAGS)
-
-SRCS = wifi_signature.c
 INCS =
 
-wifi_signature: $(SRCS) $(INCS)
-	$(CC) $(CFLAGS) $(SRCS) -o $@ $(LDFLAGS) -lpcap
+wifi_signature: wifi_signature.o $(INCS)
+	$(CC) $(CFLAGS) -I$(HOSTDIR)/usr/include wifi_signature.c -o $@ $(LDFLAGS) -lpcap
+
+anonymize_pcap: anonymize_pcap.o $(INCS)
+	$(CC) $(CFLAGS) -I$(HOSTDIR)/usr/include anonymize_pcap.c -o $@ $(LDFLAGS) -lpcap
 
 clean:
-	rm -f wifi_signature *.o
+	rm -f wifi_signature anonymize_pcap *.o
