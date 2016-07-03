@@ -51,6 +51,8 @@ database = {
     'd8:50:e6': ['asus'],
     'f8:32:e4': ['asus'],
 
+    '58:67:1a': ['barnes&noble'],
+
     '30:8c:fb': ['dropcam'],
 
     '00:1a:11': ['google'],
@@ -245,6 +247,7 @@ database = {
     'b8:57:d8': ['samsung'],
     'b8:5a:73': ['samsung'],
     'b8:5e:7b': ['samsung'],
+    'bc:14:85': ['samsung'],
     'bc:20:a4': ['samsung'],
     'bc:72:b1': ['samsung'],
     'bc:8c:cd': ['samsung'],
@@ -279,7 +282,11 @@ database = {
     '58:48:22': ['sony'],
     'b4:52:7e': ['sony'],
 
+    '10:08:c1': ['toshiba'],
+
     'a4:8d:3b': ['vizio'],
+
+    'b4:79:a7': ['wink'],
 
     '00:24:e4': ['withings'],
 

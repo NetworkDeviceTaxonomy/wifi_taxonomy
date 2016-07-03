@@ -45,13 +45,22 @@ regression = [
   ('', './testdata/pcaps/Samsung Exhibit 2.4GHz.pcap'),
   ('', './testdata/pcaps/Samsung Fascinate 2.4GHz.pcap'),
   ('', './testdata/pcaps/Samsung Galaxy Tab 2 2.4GHz.pcap'),
+  ('', './testdata/pcaps/Samsung Galaxy 4G 2.4GHz SGH-T959V.pcap'),
   ('', './testdata/pcaps/Samsung Infuse 5GHz.pcap'),
   ('', './testdata/pcaps/Samsung Vibrant 2.4GHz.pcap'),
+  ('', './testdata/pcaps/Sony Ericsson Xperia X10 2.4GHz.pcap'),
 
   # Names where the identified species doesn't exactly match the filename,
   # usually because multiple devices are too similar to distinguish. We name
   # the file for the specific device which was captured, and add an entry
   # here for the best identification which we can manage.
+  ('Amazon Kindle', './testdata/pcaps/Amazon Kindle 4th gen 2.4GHz 9023.pcap'),
+  ('Amazon Kindle', './testdata/pcaps/Amazon Kindle 4th gen 2.4GHz B00E.pcap'),
+  ('Amazon Kindle', './testdata/pcaps/Amazon Kindle Paperwhite 2012 2.4GHz B024.pcap'),
+  ('Amazon Kindle', './testdata/pcaps/Amazon Kindle Touch 2.4GHz Broadcast Probe B011.pcap'),
+  ('Amazon Kindle', './testdata/pcaps/Amazon Kindle Touch 2.4GHz Specific Probe B011.pcap'),
+  ('Amazon Kindle', './testdata/pcaps/Amazon Kindle Voyage 2.4GHz B013.pcap'),
+  ('Amazon Kindle', './testdata/pcaps/Amazon Kindle Voyage 2.4GHz B054.pcap'),
   ('iPad 1st or 2nd gen', './testdata/pcaps/iPad 1st gen 5GHz.pcap'),
   ('iPad 1st or 2nd gen', './testdata/pcaps/iPad 2nd gen 5GHz.pcap'),
   ('iPad 4th gen or Air 1st gen', './testdata/pcaps/iPad (4th gen) 5GHz.pcap'),
