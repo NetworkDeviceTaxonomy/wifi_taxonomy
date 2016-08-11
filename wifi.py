@@ -641,6 +641,8 @@ database = {
         ('Nexus 5X', '', '5GHz'),
     'wifi4|probe:0,1,127,45,191,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:338061b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:00000a020100004080|assoc:0,1,33,36,48,70,45,221(0050f2,2),191,127,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:339071b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,txpow:1e08,extcap:000000000000004080|oui:lg':
         ('Nexus 5X', '', '5GHz'),
+    'wifi4|probe:0,1,127,45,191,htcap:01ad,htagg:03,htmcs:0000ffff,vhtcap:338061b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:00000a020100004080|assoc:0,1,33,36,48,70,45,221(0050f2,2),191,127,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:339071b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,txpow:1e08,extcap:000000000000004080|oui:lg':
+        ('Nexus 5X', '', '5GHz'),
     'wifi4|probe:0,1,127,extcap:00000a020100004080|assoc:0,1,33,36,48,70,45,221(0050f2,2),191,127,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:339071b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,txpow:1e08,extcap:000000000000004080|oui:lg':
         ('Nexus 5X', '', '5GHz'),
     'wifi4|probe:0,1,45,221(0050f2,8),191,127,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:339071b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:000000000000004080|assoc:0,1,33,36,48,70,45,221(0050f2,2),191,127,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:339071b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,txpow:1e08,extcap:000000000000004080|oui:lg':
@@ -652,6 +654,8 @@ database = {
     'wifi4|probe:0,1,50,127,45,191,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:338061b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:00000a020100004080|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:01ad,htagg:03,htmcs:0000ffff,extcap:000000000000000080|oui:lg':
         ('Nexus 5X', '', '2.4GHz'),
     'wifi4|probe:0,1,50,127,45,191,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:338061b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:00000a020100004080|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,htcap:01ad,htagg:03,htmcs:0000ffff,txpow:1e08,extcap:000000000000000080|oui:lg':
+        ('Nexus 5X', '', '2.4GHz'),
+    'wifi4|probe:0,1,50,127,45,191,htcap:01ad,htagg:03,htmcs:0000ffff,vhtcap:338061b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:00000a020100004080|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,htcap:01ad,htagg:03,htmcs:0000ffff,txpow:1e08,extcap:000000000000000080|oui:lg':
         ('Nexus 5X', '', '2.4GHz'),
     'wifi4|probe:0,1,50,127,extcap:00000a020100004080|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,htcap:01ad,htagg:03,htmcs:0000ffff,txpow:1e08,extcap:000000000000000080|oui:lg':
         ('Nexus 5X', '', '2.4GHz'),
