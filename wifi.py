@@ -470,6 +470,9 @@ database = {
     'wifi4|probe:0,1,50,3,45,127,107,221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0400088400000040|assoc:0,1,50,33,36,48,70,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:000000ff,txpow:1202,extcap:0000000000000040|os:ios':
         ('iPhone 6s/6s+', '', '2.4GHz'),
 
+    'wifi4|probe:0,1,45,127,107,191,221(0017f2,10),221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f807032,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:00000884|assoc:0,1,33,36,48,70,54,45,127,191,199,221(0017f2,10),221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f811032,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:13f9,extcap:000008|os:ios':
+        ('iPhone 7', '', '5GHz'),
+
     'wifi4|probe:0,1,45,127,107,191,221(0050f2,8),221(001018,2),htcap:0063,htagg:17,htmcs:000000ff,vhtcap:0f805032,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0400088400000040|assoc:0,1,33,36,45,127,221(001018,2),221(0050f2,2),htcap:0063,htagg:17,htmcs:000000ff,txpow:e002,extcap:000008|os:ios':
         ('iPhone SE', '', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(0050f2,8),221(001018,2),htcap:0021,htagg:17,htmcs:000000ff,extcap:0400088400000040|assoc:0,1,50,33,36,45,127,221(001018,2),221(0050f2,2),htcap:0021,htagg:17,htmcs:000000ff,txpow:1402,extcap:0000000000000040|os:ios':
@@ -785,6 +788,9 @@ database = {
         ('Panasonic TV', '', '2.4GHz'),
     'wifi4|probe:0,1,50,45,221(0050f2,4),htcap:01ad,htagg:02,htmcs:0000ffff,wps:WPS_SUPPLICANT_STATION|assoc:0,1,50,45,48,221(0050f2,2),htcap:01ad,htagg:02,htmcs:0000ffff|os:panasonictv':
         ('Panasonic TV', '', '2.4GHz'),
+
+    'wifi4|probe:0,1|assoc:0,1,221(005043,1)|os:playstation':
+        ('Playstation', '3', '2.4GHz'),
 
     'wifi4|probe:0,1,50|assoc:0,1,50,48,221(005043,1)|os:playstation':
         ('Playstation', '3 or 4', '2.4GHz'),
