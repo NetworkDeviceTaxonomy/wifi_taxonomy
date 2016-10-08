@@ -2,21 +2,20 @@ PYTHON?=python
 
 all: build
 
-test: tax_signature
+test: wifi_signature
 	set -e; \
 	for d in $(wildcard tests/*_test.py); do \
-		PYTHONPATH=. $(PYTHON) $$d; \
+		PYTHONPATH=./taxonomy $(PYTHON) $$d; \
 	done
-	PYTHONPATH=. $(PYTHON) ./pcaptest.py
+	PYTHONPATH=./taxonomy $(PYTHON) ./pcaptest.py
 
 PREFIX=/usr
 
 build:
-	PYTHONPATH=$(TARGETPYTHONPATH) $(HOSTDIR)/usr/bin/python setup.py build
+	cd ./taxonomy && $(HOSTDIR)/usr/bin/python setup.py build
 
 install:
-	PYTHONPATH=$(TARGETPYTHONPATH) $(HOSTDIR)/usr/bin/python setup.py install --prefix=$(DESTDIR)$(PREFIX)
-	install -D -m 755 wtax $(DESTDIR)/bin
+	cd ./taxonomy && $(HOSTDIR)/usr/bin/python setup.py install --prefix=$(DESTDIR)$(PREFIX)
 
 install-libs:
 	@echo "No libs to install."
@@ -32,11 +31,11 @@ BINDIR=$(DESTDIR)/bin
 CFLAGS += -g -Os -Wall -Werror $(EXTRACFLAGS)
 LDFLAGS += $(EXTRALDFLAGS)
 
-SRCS = tax_signature.c
+SRCS = wifi_signature.c
 INCS =
 
-tax_signature: $(SRCS) $(INCS)
+wifi_signature: $(SRCS) $(INCS)
 	$(CC) $(CFLAGS) $(SRCS) -o $@ $(LDFLAGS) -lpcap
 
 clean:
-	rm -f tax_signature *.o
+	rm -f wifi_signature *.o

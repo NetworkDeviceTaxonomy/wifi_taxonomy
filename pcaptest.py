@@ -110,7 +110,7 @@ regression = [
 
 
 def get_taxonomy_from_pcap(filename):
-  (mac, sig) = subprocess.check_output(['./tax_signature', '-f', filename]).split()
+  (mac, sig) = subprocess.check_output(['./wifi_signature', '-f', filename]).split()
   return (mac, sig)
 
 
