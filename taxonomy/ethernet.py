@@ -58,9 +58,13 @@ database = {
     '30:8c:fb': ['dropcam'],
 
     '00:1a:11': ['google'],
+    '3c:5a:b4': ['google'],
     '54:60:09': ['google'],
+    '94:95:a0': ['google'],
     '94:eb:2c': ['google'],
     'a4:77:33': ['google'],
+    'f4:03:04': ['google'],
+    'f4:f5:d8': ['google'],
     'f4:f5:e8': ['google'],
     'f8:8f:ca': ['google'],
 

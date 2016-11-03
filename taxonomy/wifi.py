@@ -176,12 +176,19 @@ database = {
         ('Chromecast', 'v1', '2.4GHz'),
     'wifi4|probe:0,1,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:0000000000000040|assoc:0,1,48,127,221(0050f2,2),45,191,htcap:006e,htagg:03,htmcs:000000ff,vhtcap:33c07030,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:0400000000000140|oui:google':
         ('Chromecast', 'v2', '5GHz'),
+    'wifi4|probe:0,1,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:0000000000000040|assoc:0,1,48,127,221(0050f2,2),45,191,htcap:006e,htagg:03,htmcs:000000ff,vhtcap:33c07030,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:0100000000000040|oui:google':
+        ('Chromecast', 'v2', '5GHz'),
     'wifi4|probe:0,1,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:0000000000000040|assoc:0,1,33,36,48,127,221(0050f2,2),45,191,htcap:006e,htagg:03,htmcs:000000ff,vhtcap:33c07030,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:0400000000000140|oui:google':
         ('Chromecast', 'v2', '5GHz'),
     'wifi4|probe:0,1,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:0000000000000040|assoc:0,1,33,36,48,127,221(0050f2,2),45,191,htcap:006e,htagg:03,htmcs:000000ff,vhtcap:33c07030,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,txpow:1308,extcap:0400000000000140|oui:google':
         ('Chromecast', 'v2', '5GHz'),
     'wifi4|probe:0,1,3,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:0000000000000040|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:002c,htagg:03,htmcs:000000ff,extcap:0000000000000140|oui:google':
         ('Chromecast', 'v2', '2.4GHz'),
+
+    'wifi4|probe:0,1,45,50,59,127,191,htcap:0163,htagg:03,htmcs:00000000,vhtcap:33d071b0,vhtrxmcs:0168fffa,vhttxmcs:0168fffa,extcap:040000000100004000|assoc:0,1,48,59,127,221(0050f2,2),45,191,199,htcap:016f,htagg:03,htmcs:0000ffff,vhtcap:33d071b0,vhtrxmcs:009cfffa,vhttxmcs:009cfffa,extcap:050000000000004000|oui:google':
+        ('Chromecast', 'Ultra', '5GHz'),
+    'wifi4|probe:0,1,3,45,50,59,127,191,htcap:0163,htagg:03,htmcs:00000000,vhtcap:33d071b0,vhtrxmcs:0168fffa,vhttxmcs:0168fffa,extcap:040000000100004000|assoc:0,1,33,48,50,59,70,127,221(0050f2,2),45,199,htcap:012d,htagg:03,htmcs:0000ffff,txpow:1400,extcap:040000000000014000|oui:google':
+        ('Chromecast', 'Ultra', '2.4GHz'),
 
     'wifi4|probe:0,1,45,221(001018,2),221(00904c,51),htcap:007c,htagg:1a,htmcs:0000ffff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:007c,htagg:1a,htmcs:0000ffff,txpow:1408|os:directv':
         ('DirecTV', 'HR44 or HD54', '5GHz'),
@@ -208,6 +215,11 @@ database = {
         ('Epson Printer', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,221(001018,2),221(00904c,51),htcap:0020,htagg:1a,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(0050f2,2),htcap:0020,htagg:1a,htmcs:000000ff|os:epsonprinter':
         ('Epson Printer', '', '2.4GHz'),
+
+    'wifi4|probe:0,1,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:0000000020000040|assoc:0,1,48,127,221(0050f2,2),45,191,htcap:006e,htagg:03,htmcs:000000ff,vhtcap:33c07030,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:0000000020000040|oui:google':
+        ('Google Home', '', '5GHz'),
+    'wifi4|probe:0,1,3,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:0000000020000040|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:002c,htagg:03,htmcs:000000ff,extcap:0000000020000040|oui:google':
+        ('Google Home', '', '2.4GHz'),
 
     'wifi4|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:100c,htagg:19,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:100c,htagg:19,htmcs:000000ff|os:hpprinter':
         ('HP Printer', '', '2.4GHz'),
@@ -552,6 +564,10 @@ database = {
 
     'wifi4|probe:0,1,45,127,107,191,221(0017f2,10),221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f807032,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:00000884|assoc:0,1,33,36,48,70,54,45,127,191,199,221(0017f2,10),221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f811032,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:13f9,extcap:000008|os:ios':
         ('iPhone 7', '', '5GHz'),
+    'wifi4|probe:0,1,45,127,107,191,221(0017f2,10),221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f817032,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:00000884|assoc:0,1,33,36,48,45,191,221(0017f2,10),221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f817032,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:13f9|os:ios':
+        ('iPhone 7+', '', '5GHz'),
+    'wifi4|probe:0,1,50,3,45,127,107,221(0017f2,10),221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:000000ff,extcap:00000884|assoc:0,1,50,33,36,48,70,45,221(0017f2,10),221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:13f9|os:ios':
+        ('iPhone 7+', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,107,191,221(0050f2,8),221(001018,2),htcap:0063,htagg:17,htmcs:000000ff,vhtcap:0f805032,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0400088400000040|assoc:0,1,33,36,45,127,221(001018,2),221(0050f2,2),htcap:0063,htagg:17,htmcs:000000ff,txpow:e002,extcap:000008|os:ios':
         ('iPhone SE', '', '5GHz'),
@@ -868,6 +884,15 @@ database = {
         ('Panasonic TV', '', '2.4GHz'),
     'wifi4|probe:0,1,50,45,221(0050f2,4),htcap:01ad,htagg:02,htmcs:0000ffff,wps:WPS_SUPPLICANT_STATION|assoc:0,1,50,45,48,221(0050f2,2),htcap:01ad,htagg:02,htmcs:0000ffff|os:panasonictv':
         ('Panasonic TV', '', '2.4GHz'),
+
+    'wifi4|probe:0,1,45,221(0050f2,8),191,127,htcap:01ef,htagg:1f,htmcs:0000ffff,vhtcap:339071b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:040000000000004080|assoc:0,1,33,36,48,70,45,221(0050f2,2),191,127,htcap:01ef,htagg:1f,htmcs:0000ffff,vhtcap:339071b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,txpow:1e08,extcap:04000a020100004080|oui:htc':
+        ('Pixel Phone', '', '5GHz'),
+    'wifi4|probe:0,1,45,191,221(0050f2,8),127,htcap:01ef,htagg:df,htmcs:0000ffff,vhtcap:338001b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:04000a020100004080|assoc:0,1,48,45,221(0050f2,2),191,127,htcap:01ef,htagg:1f,htmcs:0000ffff,vhtcap:339071b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:04000a020100004080|oui:htc':
+        ('Pixel Phone', '', '5GHz'),
+    'wifi4|probe:0,1,50,3,45,221(0050f2,8),127,htcap:01ad,htagg:1f,htmcs:0000ffff,extcap:040000000000000080|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,htcap:01ad,htagg:1f,htmcs:0000ffff,txpow:1e08,extcap:04000a020100000080|oui:htc':
+        ('Pixel Phone', '', '2.4GHz'),
+    'wifi4|probe:0,1,50,45,191,221(0050f2,8),3,127,htcap:01ef,htagg:df,htmcs:0000ffff,vhtcap:33800192,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:04000a020100004080|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:01ad,htagg:1f,htmcs:0000ffff,extcap:04000a020100000080|oui:htc':
+        ('Pixel Phone', '', '2.4GHz'),
 
     'wifi4|probe:0,1|assoc:0,1,221(005043,1)|os:playstation':
         ('Playstation', '3', '2.4GHz'),
