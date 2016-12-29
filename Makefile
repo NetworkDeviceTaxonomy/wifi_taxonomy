@@ -41,4 +41,4 @@ anonymize_pcap: anonymize_pcap.o $(INCS)
 	$(CC) $(CFLAGS) -I$(HOSTDIR)/usr/include anonymize_pcap.c -o $@ $(LDFLAGS) -lpcap
 
 clean:
-	rm -f wifi_signature anonymize_pcap *.o
+	rm -f wifi_signature anonymize_pcap *.o taxonomy/*.pyc taxonomy/*.pyo

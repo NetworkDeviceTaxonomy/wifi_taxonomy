@@ -1,3 +1,4 @@
 /build
 wifi_signature
 anonymize_pcap
+*.o
