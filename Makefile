@@ -10,7 +10,6 @@ test: wifi_signature anonymize_pcap
 	for d in $(wildcard tests/*_test.sh); do \
 		$$d; \
 	done
-	PYTHONPATH=./taxonomy $(PYTHON) ./pcaptest.py
 
 PREFIX=/usr
 
