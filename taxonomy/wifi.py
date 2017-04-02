@@ -205,7 +205,7 @@ database = {
         ('Dropcam', '', '2.4GHz'),
 
     'wifi4|probe:0,1,50,45,htcap:002c,htagg:01,htmcs:000000ff|assoc:0,1,50,45,48,221(0050f2,2),htcap:002c,htagg:01,htmcs:000000ff|oui:ecobee':
-        ('ecobee thermostat', '', '2.4GHz'),
+        ('ecobee thermostat', 'ecobee3', '2.4GHz'),
 
     'wifi4|probe:0,1,3,45,50,htcap:0162,htagg:00,htmcs:000000ff|assoc:0,1,45,48,127,50,221(0050f2,2),htcap:016e,htagg:1b,htmcs:000000ff,extcap:00|os:epsonprinter':
         ('Epson Printer', '', '2.4GHz'),
@@ -216,10 +216,16 @@ database = {
     'wifi4|probe:0,1,50,3,45,221(001018,2),221(00904c,51),htcap:0020,htagg:1a,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(0050f2,2),htcap:0020,htagg:1a,htmcs:000000ff|os:epsonprinter':
         ('Epson Printer', '', '2.4GHz'),
 
+    'wifi4|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:110c,htagg:19,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:110c,htagg:19,htmcs:000000ff|oui:firstalert':
+        ('First Alert thermostat', '', '2.4GHz'),
+
     'wifi4|probe:0,1,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:0000000020000040|assoc:0,1,48,127,221(0050f2,2),45,191,htcap:006e,htagg:03,htmcs:000000ff,vhtcap:33c07030,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:0000000020000040|oui:google':
         ('Google Home', '', '5GHz'),
     'wifi4|probe:0,1,3,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:0000000020000040|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:002c,htagg:03,htmcs:000000ff,extcap:0000000020000040|oui:google':
         ('Google Home', '', '2.4GHz'),
+
+    'wifi4|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:100c,htagg:19,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:100c,htagg:19,htmcs:000000ff|oui:ademco':
+        ('Honeywell thermostat', '', '2.4GHz'),
 
     'wifi4|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:100c,htagg:19,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:100c,htagg:19,htmcs:000000ff|os:hpprinter':
         ('HP Printer', '', '2.4GHz'),
@@ -762,8 +768,11 @@ database = {
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),221(0050f2,4),221(506f9a,9),htcap:012c,htagg:03,htmcs:000000ff,wps:LGLS660|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff':
         ('LG Tribute', '', '2.4GHz'),
 
+    # LHA19
+    'wifi4|probe:0,1,50,45,htcap:0120,htagg:01,htmcs:000000ff|assoc:0,1,50,48,221(0050f2,2),45,127,htcap:0120,htagg:01,htmcs:000000ff,extcap:01|oui:lifx':
+        ('LIFX smart bulb', '', '2.4GHz'),
     'wifi4|probe:0,1,50|assoc:0,1,50,48,221(0050f2,2)|oui:lifx':
-        ('LIFX LED light bulb', '', '2.4GHz'),
+        ('LIFX smart bulb', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,50,htcap:0102,htagg:03,htmcs:0000ffff|assoc:0,1,48,221(0050f2,2),45,htcap:010e,htagg:03,htmcs:0000ffff|oui:microsoft':
         ('Microsoft Surface', 'RT', '5GHz'),
@@ -1465,6 +1474,12 @@ database = {
         ('Toshiba Smart TV', '', '2.4GHz'),
     'wifi4|probe:0,1,50,45,127,221(0050f2,4),htcap:106e,htagg:13,htmcs:0000ffff,extcap:00,wps:Ralink_Wireless_Linux_Client|assoc:0,1,50,45,127,221(000c43,6),221(0050f2,2),48,htcap:000c,htagg:13,htmcs:0000ffff,extcap:01|oui:toshiba':
         ('Toshiba Smart TV', '', '2.4GHz'),
+
+    'wifi4|probe:0,1,50,45,htcap:0120,htagg:01,htmcs:000000ff|assoc:0,1,50,48,221(0050f2,2),45,127,htcap:0120,htagg:01,htmcs:000000ff,extcap:01|name:LB100':
+        ('TP-Link smart bulb', '', '2.4GHz'),
+
+    'wifi4|probe:0,1,50,45,htcap:0120,htagg:01,htmcs:000000ff|assoc:0,1,50,48,221(0050f2,2),45,127,htcap:0120,htagg:01,htmcs:000000ff,extcap:01|name:HS105':
+        ('TP-Link smart plug', '', '2.4GHz'),
 
     # P602ui-B3
     'wifi4|probe:0,1,50,221(0050f2,4),wps:_|assoc:0,33,36,1,48,221(0050f2,2),45,127,htcap:106e,htagg:1f,htmcs:0000ffff,txpow:150d,extcap:0000000000000000|os:viziotv':

@@ -23,6 +23,8 @@
 # otherwise very similar, such as distinguishing LG G2 from Samsung
 # Galaxy S4.
 database = {
+    '00:d0:2d': ['ademco'],
+
     '00:bb:3a': ['amazon'],
     '0c:47:c9': ['amazon'],
     '10:ae:60': ['amazon'],
@@ -183,7 +185,7 @@ database = {
     '60:f1:89': ['murata', 'samsung'],
     '78:4b:87': ['murata', 'samsung'],
     '90:b6:86': ['murata', 'samsung'],
-    '98:f1:70': ['murata', 'samsung'],
+    '98:f1:70': ['murata', 'samsung', 'firstalert'],
     'f0:27:65': ['murata', 'samsung'],
     'fc:c2:de': ['murata', 'samsung'],
     'fc:db:b3': ['murata', 'samsung'],
