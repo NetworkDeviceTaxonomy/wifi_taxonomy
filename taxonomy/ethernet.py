@@ -198,6 +198,7 @@ database = {
     '00:26:37': ['samsung'],
     '08:d4:2b': ['samsung'],
     '08:ec:a9': ['samsung'],
+    '0c:89:10': ['samsung'],
     '10:30:47': ['samsung'],
     '14:32:d1': ['samsung'],
     '14:49:e0': ['samsung'],

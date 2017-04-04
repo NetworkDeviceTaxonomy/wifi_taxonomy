@@ -1379,6 +1379,9 @@ database = {
     # UN46ES7100F
     'wifi4|probe:0,1,45,221(002d25,32),htcap:11ee,htagg:02,htmcs:0000ffff|assoc:0,1,33,36,48,221(0050f2,2),45,127,htcap:11ee,htagg:02,htmcs:0000ffff,txpow:0e00,extcap:01|os:samsungtv':
         ('Samsung Smart TV', '', '5GHz'),
+    # UN40JU7100F
+    'wifi4|probe:0,1,45,127,191,221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000000000000040|assoc:0,1,33,36,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e009,extcap:0000000000000040|os:tizen':
+        ('Samsung Smart TV', '', '5GHz'),
     # UN40JU6500
     'wifi4|probe:0,1,45,191,221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa|assoc:0,1,33,36,48,45,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e009|os:tizen':
         ('Samsung Smart TV', '', '5GHz'),
@@ -1388,7 +1391,7 @@ database = {
         ('Samsung Smart TV', '', '2.4GHz'),
     'wifi4|probe:0,1,50,45,htcap:0120,htagg:02,htmcs:000000ff|assoc:0,1,50,48,221(0050f2,2),45,127,htcap:0120,htagg:02,htmcs:000000ff,extcap:01|os:samsungtv':
         ('Samsung Smart TV', '', '2.4GHz'),
-    # UN40JU6500, probably more
+    # UN40JU6500, UN40JU7100F, probably more
     'wifi4|probe:0,1,50,3,45,127,221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0000000000000040|assoc:0,1,50,33,36,48,45,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1209|os:tizen':
         ('Samsung Smart TV', '', '2.4GHz'),
     # UN40JU6500, probably more
@@ -1413,6 +1416,8 @@ database = {
     'wifi4|probe:0,1,50,45,221(0050f2,4),221(506f9a,10),221(506f9a,9),htcap:01ad,htagg:02,htmcs:0000ffff,wps:Sony_BRAVIA|assoc:0,1,50,45,127,48,221(0050f2,2),htcap:01ad,htagg:02,htmcs:0000ffff,extcap:01':
         ('Sony Bravia TV', '', '2.4GHz'),
     'wifi4|probe:0,1,50,45,221(0050f2,4),htcap:01ac,htagg:02,htmcs:0000ffff,wps:Sony_BRAVIA|assoc:0,1,50,48,221(0050f2,2),45,127,htcap:01ac,htagg:02,htmcs:0000ffff,extcap:01':
+        ('Sony Bravia TV', '', '2.4GHz'),
+    'wifi4|probe:0,1,50,45,221(0050f2,4),htcap:01ac,htagg:02,htmcs:0000ffff,wps:Sony_BRAVIA|assoc:0,1,50,221(0050f2,2),45,127,htcap:01ac,htagg:02,htmcs:0000ffff,extcap:01':
         ('Sony Bravia TV', '', '2.4GHz'),
     'wifi4|probe:0,1,50,45,127,221(0050f2,4),221(506f9a,10),221(506f9a,9),htcap:01ed,htagg:13,htmcs:0000ffff,extcap:00,wps:BRAVIA_2015|assoc:0,1,50,45,127,221(000c43,6),221(0050f2,2),48,127,htcap:008c,htagg:13,htmcs:0000ffff,extcap:00000a02':
         ('Sony Bravia TV', '2015 model', '2.4GHz'),
