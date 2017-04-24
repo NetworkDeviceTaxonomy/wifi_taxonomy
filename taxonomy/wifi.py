@@ -1396,18 +1396,20 @@ database = {
         ('Samsung Galaxy S5', '', '5GHz'),
     'wifi4|probe:0,1,45,127,191,221(00904c,4),221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:000008800140|assoc:0,1,33,36,48,45,127,191,221(00904c,4),221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e20b,extcap:000008800140|oui:samsung':
         ('Samsung Galaxy S5', '', '5GHz'),
-    'wifi4|probe:0,1,50,3,45,127,107,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:000008800140|assoc:0,1,50,33,36,48,45,127,107,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1209,extcap:000008800140|oui:samsung':
-        ('Samsung Galaxy S5', '', '2.4GHz'),
-    'wifi4|probe:0,1,50,3,45,127,107,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0000088001400040|assoc:0,1,50,33,36,48,45,127,107,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1209,extcap:000008800140|oui:samsung':
-        ('Samsung Galaxy S5', '', '2.4GHz'),
-    'wifi4|probe:0,1,50,3,45,127,107,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:000008800140|assoc:0,1,50,33,36,48,70,45,127,107,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1209,extcap:000008800140|oui:samsung':
-        ('Samsung Galaxy S5', '', '2.4GHz'),
-    'wifi4|probe:0,1,50,3,45,127,107,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0000088001400040|assoc:0,1,50,33,36,48,45,127,107,199,221(00904c,4),221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1209,extcap:0000088001400040|oui:samsung':
-        ('Samsung Galaxy S5', '', '2.4GHz'),
 
     # SM-G900F non-US version
     'wifi4|probe:0,1,45,127,107,191,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:52e9fffa,vhttxmcs:3e04fffa,extcap:000008800140|assoc:0,1,33,36,48,45,127,107,191,221(00904c,4),221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:52e9fffa,vhttxmcs:3e04fffa,txpow:e009,extcap:000008800140|oui:samsung':
         ('Samsung Galaxy S5', '', '5GHz'),
+
+    # Samsung Galaxy Tab S 2.4GHz signature is identical to S5.
+    'wifi4|probe:0,1,50,3,45,127,107,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:000008800140|assoc:0,1,50,33,36,48,45,127,107,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1209,extcap:000008800140|oui:samsung':
+        ('Samsung Galaxy S5 or Tab S', '', '2.4GHz'),
+    'wifi4|probe:0,1,50,3,45,127,107,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0000088001400040|assoc:0,1,50,33,36,48,45,127,107,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1209,extcap:000008800140|oui:samsung':
+        ('Samsung Galaxy S5 or Tab S', '', '2.4GHz'),
+    'wifi4|probe:0,1,50,3,45,127,107,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:000008800140|assoc:0,1,50,33,36,48,70,45,127,107,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1209,extcap:000008800140|oui:samsung':
+        ('Samsung Galaxy S5 or Tab S', '', '2.4GHz'),
+    'wifi4|probe:0,1,50,3,45,127,107,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0000088001400040|assoc:0,1,50,33,36,48,45,127,107,199,221(00904c,4),221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1209,extcap:0000088001400040|oui:samsung':
+        ('Samsung Galaxy S5 or Tab S', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,191,221(00904c,4),221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000088001400040|assoc:0,1,33,36,48,45,127,191,221(00904c,4),221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e002,extcap:0000088001400040|oui:samsung':
         ('Samsung Galaxy S6', '', '5GHz'),
@@ -1492,6 +1494,10 @@ database = {
         ('Samsung Galaxy Tab A', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,txpow:170d,extcap:00000a8201400000|oui:samsung':
         ('Samsung Galaxy Tab A', '', '2.4GHz'),
+
+    'wifi4|probe:0,1,45,127,107,191,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:000008800140|assoc:0,1,33,36,48,45,127,107,191,221(00904c,4),221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e009,extcap:000008800140|oui:samsung':
+        ('Samsung Galaxy Tab S', '', '5GHz'),
+    # Galaxy Tab S 2.4GHz signature is identical to Galaxy S5. See above for "Galaxy S5 or Tab S"
 
     'wifi4|probe:0,1,50,3,45,221(001018,2),htcap:0020,htagg:1f,htmcs:000000ff|assoc:0,1,50,33,36,48,45,221(001018,2),221(0050f2,2),htcap:0020,htagg:1f,htmcs:000000ff,txpow:1203|os:tizen':
         ('Samsung Watch', 'Gear S2', '2.4GHz'),
