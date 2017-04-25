@@ -864,15 +864,42 @@ database = {
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,txpow:170d,extcap:00000a0200000000|oui:motorola':
         ('Moto E', '2nd gen', '2.4GHz'),
 
+    'wifi4|probe:0,1,50,3,45,221(0050f2,8),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a0201|assoc:0,1,50,33,48,70,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff,txpow:160d|oui:motorola':
+        ('Moto G', '3rd gen', '2.4GHz'),
+
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02|oui:motorola':
         ('Moto G or Moto X', '', '2.4GHz'),
+    'wifi4|probe:0,1,50,3,45,221(0050f2,8),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a0201|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff|oui:motorola':
+        ('Moto G or Moto X', '', '2.4GHz'),
+    'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff|oui:motorola':
+        ('Moto G or Moto X', '', '2.4GHz'),
 
-    'wifi4|probe:0,1,45,221(0050f2,8),191,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe|assoc:0,1,48,45,221(0050f2,2),191,127,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:00000a02|oui:motorola':
-        ('Moto X', '', '5GHz'),
-    'wifi4|probe:0,1,3,45,221(0050f2,8),191,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31805120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe|assoc:0,1,48,45,221(0050f2,2),191,127,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31805120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:00000a02|oui:motorola':
-        ('Moto X', '', '5GHz'),
+    # Proprietary VHT rates on 2.4GHz means this must be a Moto X, not Moto G.
+    # This signature has been noted from both 1st and 2nd gen Moto X.
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),191,htcap:012c,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02|oui:motorola':
         ('Moto X', '', '2.4GHz'),
+
+    'wifi4|probe:0,1,45,221(0050f2,8),191,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe|assoc:0,1,48,45,221(0050f2,2),191,127,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:00000a02|oui:motorola':
+        ('Moto X', '1st gen', '5GHz'),
+    'wifi4|probe:0,1,3,45,221(0050f2,8),191,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31805120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe|assoc:0,1,48,45,221(0050f2,2),191,127,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31805120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:00000a02|oui:motorola':
+        ('Moto X', '1st gen', '5GHz'),
+    'wifi4|probe:0,1,45,221(0050f2,8),191,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe|assoc:0,1,33,36,48,45,221(0050f2,2),191,127,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:1e0d,extcap:00000a02|oui:motorola':
+        ('Moto X', '1st gen', '5GHz'),
+
+    'wifi4|probe:0,1,3,45,221(0050f2,8),191,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31903120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:00000a0201|assoc:0,1,48,45,221(0050f2,2),191,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31907120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000000000000040|oui:motorola':
+        ('Moto X', '2nd gen', '5GHz'),
+    'wifi4|probe:0,1,3,45,221(0050f2,8),191,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31903120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:00000a0201|assoc:0,1,48,45,221(0050f2,2),191,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31903120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000000000000040|oui:motorola':
+        ('Moto X', '2nd gen', '5GHz'),
+    'wifi4|probe:0,1,3,45,221(0050f2,8),191,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31907120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:00000a0201|assoc:0,1,33,36,48,70,45,221(0050f2,2),191,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31907120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:120d,extcap:0000000000000040|oui:motorola':
+        ('Moto X', '2nd gen', '5GHz'),
+    'wifi4|probe:0,1,3,45,221(0050f2,8),191,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31907120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:00000a0201|assoc:0,1,48,45,221(0050f2,2),191,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31907120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000000000000040|oui:motorola':
+        ('Moto X', '2nd gen', '5GHz'),
+    'wifi4|probe:0,1,45,221(0050f2,8),191,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:00000a0201|assoc:0,1,33,36,48,70,45,221(0050f2,2),191,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31907120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:120d,extcap:0000000000000040|oui:motorola':
+        ('Moto X', '2nd gen', '5GHz'),
+    'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,33,48,70,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff,txpow:0d0d|oui:motorola':
+        ('Moto X', '2nd gen', '2.4GHz'),
+    'wifi4|probe:0,1,50,3,45,221(0050f2,8),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a0201|assoc:0,1,50,33,48,70,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff,txpow:0d0d|oui:motorola':
+        ('Moto X', '2nd gen', '2.4GHz'),
 
     'wifi4|probe:0,1,127,45,htcap:01ef,htagg:03,htmcs:0000ffff,extcap:00000a0201|assoc:0,1,48,45,221(0050f2,2),191,127,htcap:01ef,htagg:03,htmcs:0000ffff,vhtcap:338001b2,vhtrxmcs:030cfffa,vhttxmcs:030cfffa,extcap:00000a020100004040|oui:motorola':
         ('Moto X', 'Style', '5GHz'),
@@ -887,6 +914,27 @@ database = {
         ('Motorola Xoom', '', '5GHz'),
     'wifi4|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:182c,htagg:1b,htmcs:000000ff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:182c,htagg:1b,htmcs:000000ff,txpow:0e08|oui:motorola':
         ('Motorola Xoom', '', '2.4GHz'),
+
+    'wifi4|probe:0,1,45,221(0050f2,8),htcap:016e,htagg:03,htmcs:000000ff|assoc:0,1,48,45,221(0050f2,2),127,htcap:016e,htagg:03,htmcs:000000ff,extcap:00000802|oui:motorola':
+        ('Moto Z', '', '5GHz'),
+    'wifi4|probe:0,1,45,221(0050f2,8),127,htcap:016e,htagg:03,htmcs:000000ff,extcap:00000a0201|assoc:0,1,33,36,48,70,45,221(0050f2,2),htcap:016e,htagg:03,htmcs:000000ff,txpow:100d|oui:motorola':
+        ('Moto Z', '', '5GHz'),
+    'wifi4|probe:0,1,50,3,45,221(0050f2,8),127,htcap:016e,htagg:03,htmcs:000000ff,extcap:00000a0201|assoc:0,1,48,45,221(0050f2,2),htcap:016e,htagg:03,htmcs:000000ff|oui:motorola':
+        ('Moto Z', '', '5GHz'),
+    'wifi4|probe:0,1,45,221(0050f2,8),127,htcap:016e,htagg:03,htmcs:000000ff,extcap:00000a0201|assoc:0,1,48,45,221(0050f2,2),127,htcap:016e,htagg:03,htmcs:000000ff,extcap:00000802|oui:motorola':
+        ('Moto Z', '', '5GHz'),
+    'wifi4|probe:0,1,45,221(0050f2,8),127,htcap:016e,htagg:03,htmcs:000000ff,extcap:00000a0201|assoc:0,1,48,45,221(0050f2,2),htcap:016e,htagg:03,htmcs:000000ff|oui:motorola':
+        ('Moto Z', '', '5GHz'),
+    'wifi4|probe:0,1,50,3,45,221(0050f2,8),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a0201|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000802|oui:motorola':
+        ('Moto Z', '', '2.4GHz'),
+    'wifi4|probe:0,1,50,3,45,221(0050f2,8),127,htcap:016e,htagg:03,htmcs:000000ff,extcap:00000a0201|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000802|oui:motorola':
+        ('Moto Z', '', '2.4GHz'),
+    'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,33,48,70,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff,txpow:120d|oui:motorola':
+        ('Moto Z', '', '2.4GHz'),
+    'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000802|oui:motorola':
+        ('Moto Z', '', '2.4GHz'),
+    'wifi4|probe:0,1,50,3,45,221(0050f2,8),127,htcap:016e,htagg:03,htmcs:000000ff,extcap:00000a0201|assoc:0,1,50,33,48,70,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff,txpow:120d|oui:motorola':
+        ('Moto Z', '', '2.4GHz'),
 
     'wifi4|probe:0,1,50,45,htcap:0130,htagg:18,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),htcap:013c,htagg:18,htmcs:000000ff|oui:nest':
         ('Nest Thermostat', 'v1 or v2', '2.4GHz'),
