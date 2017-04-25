@@ -752,6 +752,8 @@ database = {
         ('LG G3', '', '5GHz'),
     'wifi4|probe:0,1,45,221(0050f2,8),191,127,107,221(506f9a,16),htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31805120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:000000800040|assoc:0,1,48,45,221(0050f2,2),191,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31805120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:00000a8201400040|oui:lg':
         ('LG G3', '', '5GHz'),
+    'wifi4|probe:0,1,45,221(0050f2,8),191,127,107,221(506f9a,16),htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:000000800040|assoc:0,1,48,45,221(0050f2,2),191,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31805120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:00000a8201400040|oui:lg':
+        ('LG G3', '', '5GHz'),
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),127,107,221(506f9a,16),htcap:012c,htagg:03,htmcs:000000ff,extcap:000000800040|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a8201400000|oui:lg':
         ('LG G3', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),127,107,221(506f9a,16),htcap:012c,htagg:03,htmcs:000000ff,extcap:000000800040|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,txpow:170d,extcap:00000a8201400000|oui:lg':
@@ -764,6 +766,12 @@ database = {
     # new 5GHz txpow:e003 signatures go in the 'LG G4 or Nexus 5' section below
     'wifi4|probe:0,1,3,45,127,107,191,221(506f9a,16),221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:016f,htagg:17,htmcs:000000ff,vhtcap:0f805932,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000088001400040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(00904c,4),221(0050f2,2),htcap:016f,htagg:17,htmcs:000000ff,vhtcap:0f805932,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:1d01,extcap:0000008001400040|oui:lg':
         ('LG G4', '', '5GHz'),
+    'wifi4|probe:0,1,3,45,127,107,191,221(506f9a,16),221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:016f,htagg:17,htmcs:000000ff,vhtcap:0f805932,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000088001400040|assoc:0,1,33,36,48,45,127,70,191,221(001018,2),221(00904c,4),221(0050f2,2),htcap:016f,htagg:17,htmcs:000000ff,vhtcap:0f805932,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:1d01,extcap:0000008001400040|oui:lg':
+        ('LG G4', '', '5GHz'),
+    'wifi4|probe:0,1,45,127,107,191,221(506f9a,16),221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:016f,htagg:17,htmcs:000000ff,vhtcap:0f805932,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000088001400040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(00904c,4),221(0050f2,2),htcap:016f,htagg:17,htmcs:000000ff,vhtcap:0f805932,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:1d01,extcap:0000088001400040|oui:lg':
+        ('LG G4', '', '5GHz'),
+    'wifi4|probe:0,1,3,45,127,107,191,221(506f9a,16),221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:016f,htagg:17,htmcs:000000ff,vhtcap:0f805932,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000088001400040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(00904c,4),221(0050f2,2),htcap:016f,htagg:17,htmcs:000000ff,vhtcap:0f805932,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:1d01,extcap:0000088001400040|oui:lg':
+        ('LG G4', '', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(506f9a,16),221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:112d,htagg:17,htmcs:000000ff,extcap:0000088001400040|assoc:0,1,33,36,48,50,45,127,221(001018,2),221(0050f2,2),htcap:112d,htagg:17,htmcs:000000ff,txpow:1203,extcap:000000800140|oui:lg':
         ('LG G4', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(506f9a,16),221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:112d,htagg:17,htmcs:000000ff,extcap:0000088001400040|assoc:0,1,33,36,48,50,45,127,221(001018,2),221(00904c,4),221(0050f2,2),htcap:112d,htagg:17,htmcs:000000ff,txpow:1203,extcap:0000088001400040|oui:lg':
@@ -772,8 +780,14 @@ database = {
         ('LG G4', '', '2.4GHz'),
     'wifi4|probe:0,1,50,45,127,107,221(506f9a,16),221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:112d,htagg:17,htmcs:000000ff,extcap:0000088001400040|assoc:0,1,33,36,48,50,45,127,221(001018,2),221(0050f2,2),htcap:112d,htagg:17,htmcs:000000ff,txpow:1001,extcap:000000800140|oui:lg':
         ('LG G4', '', '2.4GHz'),
+    'wifi4|probe:0,1,50,45,127,107,221(506f9a,16),221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:112d,htagg:17,htmcs:000000ff,extcap:0000088001400040|assoc:0,1,33,36,48,50,45,127,221(001018,2),221(00904c,4),221(0050f2,2),htcap:112d,htagg:17,htmcs:000000ff,txpow:1001,extcap:0000088001400040|oui:lg':
+        ('LG G4', '', '2.4GHz'),
+    'wifi4|probe:0,1,50,3,45,127,107,221(506f9a,16),221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:112d,htagg:17,htmcs:000000ff,extcap:0000088001400040|assoc:0,1,33,36,48,50,45,127,221(001018,2),221(00904c,4),221(0050f2,2),htcap:112d,htagg:17,htmcs:000000ff,txpow:1001,extcap:0000088001400040|oui:lg':
+        ('LG G4', '', '2.4GHz'),
+    'wifi4|probe:0,1,50,3,45,127,107,221(506f9a,16),221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:112d,htagg:17,htmcs:000000ff,extcap:0000088001400040|assoc:0,1,33,36,48,50,45,127,70,221(001018,2),221(0050f2,2),htcap:112d,htagg:17,htmcs:000000ff,txpow:1001,extcap:000000800140|oui:lg':
+        ('LG G4', '', '2.4GHz'),
 
-    # LG G4 (LG-H815 model) and Nexus 5 use the same TX Power IE, indistinguishable in 5GHz band
+    # some LG G4s use the same txpow as Nexus 5, indistinguishable in 5GHz band
     'wifi4|probe:0,1,45,127,107,191,221(506f9a,16),221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:016f,htagg:17,htmcs:000000ff,vhtcap:0f805932,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000088001400040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(00904c,4),221(0050f2,2),htcap:016f,htagg:17,htmcs:000000ff,vhtcap:0f805932,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e003,extcap:0000088001400040|oui:lg':
         ('LG G4 or Nexus 5', '', '5GHz'),
     'wifi4|probe:0,1,45,127,107,191,221(506f9a,16),221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:016f,htagg:17,htmcs:000000ff,vhtcap:0f805932,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000088001400040|assoc:0,1,33,36,48,45,127,70,191,221(001018,2),221(00904c,4),221(0050f2,2),htcap:016f,htagg:17,htmcs:000000ff,vhtcap:0f805932,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e003,extcap:0000008001400040|oui:lg':
