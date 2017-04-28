@@ -873,11 +873,11 @@ database = {
         ('Moto G or Moto X', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff|oui:motorola':
         ('Moto G or Moto X', '', '2.4GHz'),
-
-    # Proprietary VHT rates on 2.4GHz means this must be a Moto X, not Moto G.
-    # This signature has been noted from both 1st and 2nd gen Moto X.
+    # Proprietary VHT rates on 2.4GHz
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),191,htcap:012c,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a02|oui:motorola':
-        ('Moto X', '', '2.4GHz'),
+        ('Moto G or Moto X', '', '2.4GHz'),
+    'wifi4|probe:0,1,50,3,45,221(0050f2,8),191,htcap:012c,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff|oui:motorola':
+        ('Moto G or Moto X', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,221(0050f2,8),191,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe|assoc:0,1,48,45,221(0050f2,2),191,127,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:31800120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:00000a02|oui:motorola':
         ('Moto X', '1st gen', '5GHz'),
@@ -1427,7 +1427,11 @@ database = {
         ('Samsung Galaxy S3', '', '5GHz'),
     'wifi4|probe:0,1,45,3,221(001018,2),221(00904c,51),htcap:0062,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062,htagg:1a,htmcs:000000ff,txpow:1409|oui:samsung':
         ('Samsung Galaxy S3', '', '5GHz'),
+    'wifi4|probe:0,1,45,3,221(001018,2),221(00904c,51),htcap:0062,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062,htagg:1a,htmcs:000000ff,txpow:1009|oui:samsung':
+        ('Samsung Galaxy S3', '', '5GHz'),
     'wifi4|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:1020,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:1020,htagg:1a,htmcs:000000ff,txpow:1409|oui:samsung':
+        ('Samsung Galaxy S3', '', '2.4GHz'),
+    'wifi4|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:1020,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:1020,htagg:1a,htmcs:000000ff,txpow:1409|oui:samsung':
         ('Samsung Galaxy S3', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,191,221(001018,2),221(00904c,51),221(00904c,4),221(0050f2,8),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000080000000040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(00904c,4),221(0050f2,2),htcap:006f,htagg:17,htmcs:000000ff,vhtcap:0f805832,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:e001,extcap:0000000000000040|oui:samsung':
