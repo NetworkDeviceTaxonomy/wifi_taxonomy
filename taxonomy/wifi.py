@@ -1766,6 +1766,17 @@ database = {
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,33,48,70,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff,txpow:170d|oui:xiaomi':
         ('Xiaomi Redmi', '3', '2.4GHz'),
 
+    'wifi4|probe:0,1,45,221(0050f2,8),191,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:33907120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe|assoc:0,1,33,36,48,70,45,221(0050f2,2),191,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:33907120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,txpow:140d,extcap:0000000000000040|oui:xiaomi':
+        ('Xiaomi Redmi Note', '3', '5GHz'),
+    'wifi4|probe:0,1,45,221(0050f2,8),191,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:33907120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:00000a0201|assoc:0,1,48,45,221(0050f2,2),191,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:33907120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000000000000040|oui:xiaomi':
+        ('Xiaomi Redmi Note', '3', '5GHz'),
+    'wifi4|probe:0,1,45,221(0050f2,8),191,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:33903120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe|assoc:0,1,48,45,221(0050f2,2),191,127,htcap:016e,htagg:03,htmcs:000000ff,vhtcap:33903120,vhtrxmcs:0000fffe,vhttxmcs:0000fffe,extcap:0000000000000040|oui:xiaomi':
+        ('Xiaomi Redmi Note', '3', '5GHz'),
+    'wifi4|probe:0,1,50,3,45,221(0050f2,8),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a0201|assoc:0,1,50,48,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff|oui:xiaomi':
+        ('Xiaomi Redmi Note', '3', '2.4GHz'),
+    'wifi4|probe:0,1,50,3,45,221(0050f2,8),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a0201|assoc:0,1,50,33,48,70,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff,txpow:140d|oui:xiaomi':
+        ('Xiaomi Redmi Note', '3', '2.4GHz'),
+
     'wifi4|probe:0,1,45,221(0050f2,8),191,127,htcap:016f,htagg:1f,htmcs:000000ff,vhtcap:33907132,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:040000000000004080|assoc:0,1,33,36,48,70,45,221(0050f2,2),191,127,htcap:016f,htagg:1f,htmcs:000000ff,vhtcap:33907132,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,txpow:1408,extcap:040000000000004080|oui:xiaomi':
         ('Xiaomi Mi', '5', '5GHz'),
     'wifi4|probe:0,1,45,191,3,127,htcap:016f,htagg:df,htmcs:000000ff,vhtcap:33800132,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:04000a020100004080|assoc:0,1,33,36,48,70,45,221(0050f2,2),191,127,htcap:016f,htagg:1f,htmcs:000000ff,vhtcap:33907132,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,txpow:1408,extcap:040000000000004080|oui:xiaomi':
