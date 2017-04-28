@@ -132,6 +132,8 @@ database = {
 
     '24:fd:52': ['liteon', 'sling'],
 
+    'fc:3d:93': ['longcheer', 'cherry'],
+
     '00:0d:3a': ['microsoft'],
     '00:12:5a': ['microsoft'],
     '00:17:fa': ['microsoft'],
@@ -260,6 +262,7 @@ database = {
     'a0:0b:ba': ['samsung'],
     'a4:08:ea': ['samsung'],
     'a8:06:00': ['samsung'],
+    'a8:9f:ba': ['samsung', 'lava'],
     'ac:36:13': ['samsung'],
     'ac:5f:3e': ['samsung'],
     'b0:47:bf': ['samsung'],
@@ -300,6 +303,8 @@ database = {
     'fc:19:10': ['samsung'],
     'fc:f1:36': ['samsung'],
 
+    'a0:f8:95': ['shenzen', 'micromax'],
+
     '00:d9:d1': ['sony'],
     '28:0d:fc': ['sony'],
     '30:17:c8': ['sony'],
@@ -312,6 +317,8 @@ database = {
 
     '00:6b:9e': ['vizio'],
     'a4:8d:3b': ['vizio'],
+
+    '54:14:73': ['wingtech', 'micromax'],
 
     'b4:79:a7': ['wink'],
 
