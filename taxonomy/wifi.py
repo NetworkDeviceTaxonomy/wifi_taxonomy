@@ -38,7 +38,10 @@ import ethernet
 
 database = {
     'wifi4|probe:0,1,50,127,107,221(0050f2,4),221(506f9a,9),221(506f9a,16),extcap:00000080,wps:5042T|assoc:0,1,50,45,48,127,221(0050f2,2),htcap:1172,htagg:03,htmcs:000000ff,extcap:01':
-        ('Alcatel OneTouch', 'Pop Astro', '2.4GHz'),
+        ('Alcatel One Touch', 'Pop Astro', '2.4GHz'),
+
+    'wifi4|probe:0,1,50,221(0050f2,4),221(506f9a,9),wps:ALCATEL_ONE_TOUCH_Fierce|assoc:0,1,50,45,127,221(0050f2,2),48,htcap:1172,htagg:03,htmcs:000000ff,extcap:01':
+        ('Alcatel One Touch', 'Fierce 2', '2.4GHz'),
 
     'wifi4|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:110c,htagg:19,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:110c,htagg:19,htmcs:000000ff|oui:amazon':
         ('Amazon Dash Button', '', '2.4GHz'),
@@ -120,6 +123,14 @@ database = {
         ('Apple Watch', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(001018,2),221(00904c,51),221(0050f2,8),htcap:0020,htagg:1a,htmcs:000000ff,extcap:00000804|assoc:0,1,48,50,45,70,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020,htagg:1a,htmcs:000000ff|os:ios':
         ('Apple Watch', '', '2.4GHz'),
+
+    'wifi4|probe:0,1,50,3,45,221(0050f2,4),221(506f9a,10),221(506f9a,9),221(001018,2),htcap:0020,htagg:17,htmcs:000000ff,wps:ASUS_Z007|assoc:0,1,50,33,36,48,45,221(001018,2),221(0050f2,2),htcap:0020,htagg:17,htmcs:000000ff,txpow:140d':
+        ('ASUS Zenfone', 'C', '2.4GHz'),
+
+    'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a0200000000|oui:asus':
+        ('ASUS Zenfone', '5', '2.4GHz'),
+    'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,txpow:160d,extcap:00000a0200000000|oui:asus':
+        ('ASUS Zenfone', '5', '2.4GHz'),
 
     'wifi4|probe:0,1,50,45,htcap:1030,htagg:18,htmcs:000000ff|assoc:0,1,50,46,48,45,221(0050f2,2),htcap:1030,htagg:18,htmcs:000000ff|oui:barnes&noble':
         ('Barnes & Noble Nook', 'Color', '2.4GHz'),
@@ -1321,6 +1332,17 @@ database = {
         ('Roku', '4 or TV', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,221(001018,2),htcap:01ad,htagg:17,htmcs:0000ffff|assoc:0,1,50,33,36,48,45,221(001018,2),221(0050f2,2),htcap:01ad,htagg:17,htmcs:0000ffff,txpow:1209|os:roku':
         ('Roku', '4 or TV', '2.4GHz'),
+
+    'wifi4|probe:0,1,50,3,45,221(001018,2),htcap:0020,htagg:17,htmcs:000000ff|assoc:0,1,50,33,36,48,45,221(001018,2),221(0050f2,2),htcap:0020,htagg:17,htmcs:000000ff,txpow:120b|oui:samsung':
+        ('Samsung Galaxy Ace 4', '', '2.4GHz'),
+
+    'wifi4|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:100c,htagg:19,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:100c,htagg:19,htmcs:000000ff|oui:samsung':
+        ('Samsung Galaxy Core 2', '', '2.4GHz'),
+
+    'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a0200000000|oui:samsung':
+        ('Samsung Galaxy Core Prime', '', '2.4GHz'),
+    'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,txpow:170d,extcap:00000a0200000000|oui:samsung':
+        ('Samsung Galaxy Core Prime', '', '2.4GHz'),
 
     'wifi4|probe:0,1,50,3,45,221(001018,2),htcap:0020,htagg:1f,htmcs:000000ff|assoc:0,1,50,33,36,48,45,221(001018,2),221(0050f2,2),htcap:0020,htagg:1f,htmcs:000000ff,txpow:1203|oui:samsung':
         ('Samsung Galaxy Grand Prime', '', '2.4GHz'),
