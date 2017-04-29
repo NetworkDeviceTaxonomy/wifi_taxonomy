@@ -1826,9 +1826,51 @@ database = {
         ('Xiaomi Mi', '5', '5GHz'),
     'wifi4|probe:0,1,45,191,3,127,htcap:016f,htagg:df,htmcs:000000ff,vhtcap:33800132,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:04000a020100004080|assoc:0,1,33,36,48,70,45,221(0050f2,2),191,127,htcap:016f,htagg:1f,htmcs:000000ff,vhtcap:33907132,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,txpow:1408,extcap:040000000000004080|oui:xiaomi':
         ('Xiaomi Mi', '5', '5GHz'),
+    'wifi4|probe:0,1,45,191,221(0050f2,8),127,htcap:016f,htagg:1f,htmcs:000000ff,vhtcap:33800132,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:04000a020100004080|assoc:0,1,33,36,48,70,45,221(0050f2,2),191,127,htcap:016f,htagg:1f,htmcs:000000ff,vhtcap:33907132,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,txpow:1408,extcap:0400000000000040|oui:xiaomi':
+        ('Xiaomi Mi', '5', '5GHz'),
+    'wifi4|probe:0,1,45,191,221(0050f2,8),127,htcap:016f,htagg:df,htmcs:000000ff,vhtcap:33800132,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:04000a020100004080|assoc:0,1,48,45,221(0050f2,2),191,127,htcap:016f,htagg:1f,htmcs:000000ff,vhtcap:33903132,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:0400080200000040|oui:xiaomi':
+        ('Xiaomi Mi', '5', '5GHz'),
+    'wifi4|probe:0,1,45,221(0050f2,8),191,127,htcap:016f,htagg:1f,htmcs:000000ff,vhtcap:33903132,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:0400000000000040|assoc:0,1,48,45,221(0050f2,2),191,127,htcap:016f,htagg:1f,htmcs:000000ff,vhtcap:33903132,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:0400080200000040|oui:xiaomi':
+        ('Xiaomi Mi', '5', '5GHz'),
+    'wifi4|probe:0,1,45,221(0050f2,8),191,127,htcap:016f,htagg:1f,htmcs:000000ff,vhtcap:33907132,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:0400000000000040|assoc:0,1,33,36,48,70,45,221(0050f2,2),191,127,htcap:016f,htagg:1f,htmcs:000000ff,vhtcap:33907132,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,txpow:1e08,extcap:0400000000000040|oui:xiaomi':
+        ('Xiaomi Mi', '5', '5GHz'),
+    'wifi4|probe:0,1,45,221(0050f2,8),191,127,htcap:016f,htagg:1f,htmcs:000000ff,vhtcap:33907132,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:04000a0201000040|assoc:0,1,48,45,221(0050f2,2),191,127,htcap:016f,htagg:1f,htmcs:000000ff,vhtcap:33907132,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:0400080200000040|oui:xiaomi':
+        ('Xiaomi Mi', '5', '5GHz'),
+    'wifi4|probe:0,1,45,221(0050f2,8),191,127,htcap:016f,htagg:1f,htmcs:000000ff,vhtcap:33907132,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:04000a020100004080|assoc:0,1,48,45,221(0050f2,2),191,127,htcap:016f,htagg:1f,htmcs:000000ff,vhtcap:33907132,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:0400080200000040|oui:xiaomi':
+        ('Xiaomi Mi', '5', '5GHz'),
+    'wifi4|probe:0,1,45,221(0050f2,8),191,127,htcap:016f,htagg:1f,htmcs:000000ff,vhtcap:33907132,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:040000000000004080|assoc:0,1,33,36,48,70,45,221(0050f2,2),191,127,htcap:016f,htagg:1f,htmcs:000000ff,vhtcap:33907132,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,txpow:1408,extcap:0400000000000040|oui:xiaomi':
+        ('Xiaomi Mi', '5', '5GHz'),
+    'wifi4|probe:0,1,45,221(0050f2,8),191,127,htcap:016f,htagg:1f,htmcs:000000ff,vhtcap:33903132,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:040000000000004080|assoc:0,1,48,45,221(0050f2,2),191,127,htcap:016f,htagg:1f,htmcs:000000ff,vhtcap:33903132,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:0400080200000040|oui:xiaomi':
+        ('Xiaomi Mi', '5', '5GHz'),
+    'wifi4|probe:0,1,45,191,221(0050f2,8),3,127,htcap:016f,htagg:df,htmcs:000000ff,vhtcap:33800132,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:04000a0201000040|assoc:0,1,48,45,221(0050f2,2),191,127,htcap:016f,htagg:1f,htmcs:000000ff,vhtcap:33907132,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:0400080200000040|oui:xiaomi':
+        ('Xiaomi Mi', '5', '5GHz'),
+    'wifi4|probe:0,1,45,191,221(0050f2,8),127,htcap:016f,htagg:df,htmcs:000000ff,vhtcap:33800132,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:04000a020100004080|assoc:0,1,48,45,221(0050f2,2),191,127,htcap:016f,htagg:1f,htmcs:000000ff,vhtcap:33907132,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:0400080200000040|oui:xiaomi':
+        ('Xiaomi Mi', '5', '5GHz'),
+    'wifi4|probe:0,1,45,191,221(0050f2,8),3,127,htcap:016f,htagg:df,htmcs:000000ff,vhtcap:33800132,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:04000a0201000040|assoc:0,1,33,36,48,70,45,221(0050f2,2),191,127,htcap:016f,htagg:1f,htmcs:000000ff,vhtcap:33907132,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,txpow:1e08,extcap:0400000000000040|oui:xiaomi':
+        ('Xiaomi Mi', '5', '5GHz'),
     'wifi4|probe:0,1,50,45,191,3,127,htcap:016f,htagg:df,htmcs:000000ff,vhtcap:33800132,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:04000a020100004080|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,htcap:012d,htagg:1f,htmcs:000000ff,txpow:1408,extcap:040000000000000080|oui:xiaomi':
         ('Xiaomi Mi', '5', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),127,htcap:012d,htagg:1f,htmcs:000000ff,extcap:040000000000000080|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,htcap:012d,htagg:1f,htmcs:000000ff,txpow:1408,extcap:040000000000000080|oui:xiaomi':
+        ('Xiaomi Mi', '5', '2.4GHz'),
+    'wifi4|probe:0,1,50,3,45,221(0050f2,8),127,htcap:012d,htagg:1f,htmcs:000000ff,extcap:040000000000000080|assoc:0,1,50,33,48,70,45,221(0050f2,2),htcap:012d,htagg:1f,htmcs:000000ff,txpow:1408|oui:xiaomi':
+        ('Xiaomi Mi', '5', '2.4GHz'),
+    'wifi4|probe:0,1,50,45,191,221(0050f2,8),3,127,htcap:016f,htagg:df,htmcs:000000ff,vhtcap:33800132,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:04000a0201000040|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012d,htagg:1f,htmcs:000000ff,extcap:04000802|oui:xiaomi':
+        ('Xiaomi Mi', '5', '2.4GHz'),
+    'wifi4|probe:0,1,50,3,45,221(0050f2,8),127,htcap:012d,htagg:1f,htmcs:000000ff,extcap:04000a0201|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012d,htagg:1f,htmcs:000000ff,extcap:04000802|oui:xiaomi':
+        ('Xiaomi Mi', '5', '2.4GHz'),
+    'wifi4|probe:0,1,50,3,45,221(0050f2,8),127,htcap:012d,htagg:1f,htmcs:000000ff,extcap:04|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012d,htagg:1f,htmcs:000000ff,extcap:04000802|oui:xiaomi':
+        ('Xiaomi Mi', '5', '2.4GHz'),
+    'wifi4|probe:0,1,50,45,191,221(0050f2,8),3,127,htcap:016f,htagg:df,htmcs:000000ff,vhtcap:33800132,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:04000a0201000040|assoc:0,1,50,33,48,70,45,221(0050f2,2),htcap:012d,htagg:1f,htmcs:000000ff,txpow:1408|oui:xiaomi':
+        ('Xiaomi Mi', '5', '2.4GHz'),
+    'wifi4|probe:0,1,50,45,221(0050f2,8),3,127,htcap:012f,htagg:1f,htmcs:000000ff,extcap:04000a020100004080|assoc:0,1,50,33,48,70,45,221(0050f2,2),htcap:012d,htagg:1f,htmcs:000000ff,txpow:1408|oui:xiaomi':
+        ('Xiaomi Mi', '5', '2.4GHz'),
+    'wifi4|probe:0,1,50,3,45,221(0050f2,8),191,127,htcap:012d,htagg:1f,htmcs:000000ff,vhtcap:33907112,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:04000a020100004080|assoc:0,1,50,48,45,221(0050f2,2),127,221(00904c,4),htcap:012d,htagg:1f,htmcs:000000ff,extcap:0400080200000040|oui:xiaomi':
+        ('Xiaomi Mi', '5', '2.4GHz'),
+    'wifi4|probe:0,1,50,3,45,221(0050f2,8),191,127,htcap:012d,htagg:1f,htmcs:000000ff,vhtcap:33903112,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:040000000000004080|assoc:0,1,50,48,45,221(0050f2,2),127,221(00904c,4),htcap:012d,htagg:1f,htmcs:000000ff,extcap:0400080200000040|oui:xiaomi':
+        ('Xiaomi Mi', '5', '2.4GHz'),
+    'wifi4|probe:0,1,50,3,45,221(0050f2,8),127,htcap:012d,htagg:1f,htmcs:000000ff,extcap:04000a0201|assoc:0,1,50,33,48,70,45,221(0050f2,2),htcap:012d,htagg:1f,htmcs:000000ff,txpow:1408|oui:xiaomi':
+        ('Xiaomi Mi', '5', '2.4GHz'),
+    'wifi4|probe:0,1,50,45,221(0050f2,8),3,127,htcap:012f,htagg:1f,htmcs:000000ff,extcap:04000a020100004080|assoc:0,1,50,48,45,221(0050f2,2),127,221(00904c,4),htcap:012d,htagg:1f,htmcs:000000ff,extcap:0400080200000040|oui:xiaomi':
         ('Xiaomi Mi', '5', '2.4GHz'),
 
     'wifi4|probe:0,1,50,221(0050f2,4),221(506f9a,9),wps:Z820|assoc:0,1,50,45,48,127,221(0050f2,2),htcap:1172,htagg:03,htmcs:000000ff,extcap:01':
