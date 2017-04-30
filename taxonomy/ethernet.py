@@ -326,6 +326,7 @@ database = {
 
     '00:24:e4': ['withings'],
 
+    '14:f6:5a': ['xiaomi'],
     '64:cc:2e': ['xiaomi'],
     '8c:be:be': ['xiaomi'],
 }
