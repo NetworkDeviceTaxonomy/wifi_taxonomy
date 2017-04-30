@@ -1393,6 +1393,9 @@ database = {
     'wifi4|probe:0,1,50,3,45,221(001018,2),htcap:0020,htagg:17,htmcs:000000ff|assoc:0,1,50,33,36,48,45,221(001018,2),221(0050f2,2),htcap:0020,htagg:17,htmcs:000000ff,txpow:130b|oui:samsung':
         ('Samsung Galaxy J1', '', '2.4GHz'),
 
+    'wifi4|probe:0,1,50,3,45,221(001018,2),htcap:0020,htagg:1f,htmcs:000000ff|assoc:0,1,50,33,36,48,45,221(001018,2),221(0050f2,2),htcap:0020,htagg:1f,htmcs:000000ff,txpow:1202|oui:samsung':
+        ('Samsung Galaxy J2', '', '2.4GHz'),
+
     'wifi4|probe:0,1,50,3,45,127,221(001018,2),htcap:0020,htagg:1f,htmcs:000000ff,extcap:0000008001|assoc:0,1,50,33,36,48,45,221(001018,2),221(0050f2,2),htcap:0020,htagg:1f,htmcs:000000ff,txpow:1302|oui:samsung':
         ('Samsung Galaxy J3', '', '2.4GHz'),
 
