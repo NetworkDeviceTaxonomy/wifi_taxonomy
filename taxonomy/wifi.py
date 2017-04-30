@@ -912,12 +912,17 @@ database = {
     'wifi4|probe:0,1,50|assoc:0,1,50,48,221(0050f2,2)|oui:lifx':
         ('LIFX smart bulb', '', '2.4GHz'),
 
-    'wifi4|probe:0,1,50,221(0050f2,4),221(506f9a,9),wps:Micromax_D303|assoc:0,1,50,45,48,127,221(0050f2,2),htcap:1172,htagg:03,htmcs:000000ff,extcap:01|oui:micromax':
+    'wifi4|probe:0,1,50,221(0050f2,4),221(506f9a,9),wps:Micromax_D303|assoc:0,1,50,45,48,127,221(0050f2,2),htcap:1172,htagg:03,htmcs:000000ff,extcap:01':
         ('Micromax Bolt', '', '2.4GHz'),
-    'wifi4|probe:0,1,50,45,htcap:102c,htagg:1f,htmcs:000000ff|assoc:0,1,50,48,221(0050f2,2),45,htcap:102c,htagg:1f,htmcs:000000ff|oui:micromax':
-        ('Micromax Q335', '', '2.4GHz'),
+
+    'wifi4|probe:0,1,50,221(0050f2,4),221(506f9a,9),wps:Micromax_AQ4501|assoc:0,1,50,45,48,127,221(0050f2,2),htcap:1172,htagg:03,htmcs:000000ff,extcap:01':
+        ('Micromax Canvas', 'A1', '2.4GHz'),
+
     'wifi4|probe:0,1,50,221(0050f2,4),221(506f9a,9),wps:Micromax_A106|assoc:0,1,50,45,48,127,221(0050f2,2),htcap:1172,htagg:03,htmcs:000000ff,extcap:01':
         ('Micromax Canvas Unite', '2', '2.4GHz'),
+
+    'wifi4|probe:0,1,50,45,htcap:102c,htagg:1f,htmcs:000000ff|assoc:0,1,50,48,221(0050f2,2),45,htcap:102c,htagg:1f,htmcs:000000ff|oui:micromax':
+        ('Micromax Q335', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,50,htcap:0102,htagg:03,htmcs:0000ffff|assoc:0,1,48,221(0050f2,2),45,htcap:010e,htagg:03,htmcs:0000ffff|oui:microsoft':
         ('Microsoft Surface', 'RT', '5GHz'),
