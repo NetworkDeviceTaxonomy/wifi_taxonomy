@@ -83,6 +83,8 @@ database = {
         ('Amazon Kindle', 'Fire 7" (2011 edition)', '2.4GHz'),
     'wifi4|probe:0,1,50,221(0050f2,4),221(506f9a,9),wps:KFFOWI|assoc:0,1,50,45,48,127,221(0050f2,2),htcap:1172,htagg:03,htmcs:000000ff,extcap:01':
         ('Amazon Kindle', 'Fire 7" (2015 edition)', '2.4GHz'),
+    'wifi4|probe:0,1,50,221(0050f2,4),221(506f9a,9),wps:KFFOWI|assoc:0,1,50,45,48,127,221(0050f2,2),htcap:0130,htagg:03,htmcs:000000ff,extcap:00':
+        ('Amazon Kindle', 'Fire 7" (2015 edition)', '2.4GHz'),
 
     'wifi4|probe:0,1,45,221(001018,2),221(00904c,51),htcap:081e,htagg:1b,htmcs:0000ffff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:081e,htagg:1b,htmcs:0000ffff,txpow:0008|os:appletv1':
         ('Apple TV', '1st gen', '5GHz'),
