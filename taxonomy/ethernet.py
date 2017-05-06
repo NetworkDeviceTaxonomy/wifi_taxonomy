@@ -195,6 +195,7 @@ database = {
     '78:4b:87': ['murata', 'samsung'],
     '90:b6:86': ['murata', 'samsung'],
     '98:f1:70': ['murata', 'samsung', 'firstalert'],
+    'b0:72:bf': ['murata', 'samsung'],
     'f0:27:65': ['murata', 'samsung'],
     'fc:c2:de': ['murata', 'samsung'],
     'fc:db:b3': ['murata', 'samsung'],
