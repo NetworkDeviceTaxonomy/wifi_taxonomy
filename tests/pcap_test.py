@@ -24,8 +24,8 @@ regression = [
   # devices for which we have a pcap but have decided not to add
   # to the database
   ('', './testdata/pcaps/ASUS Transformer TF300 2.4GHz.pcap'),
-  ('', './testdata/pcaps/Blackberry Bold 9930 2.4GHz.pcap'),
-  ('', './testdata/pcaps/Blackberry Bold 9930 5GHz.pcap'),
+  ('', './testdata/pcaps/Blackberry Bold 9930 2.4GHz GFRG210 Specific Probe.pcap'),
+  ('', './testdata/pcaps/Blackberry Bold 9930 5GHz GFRG210 Specific Probe.pcap'),
   ('', './testdata/pcaps/HTC Evo 2.4GHz.pcap'),
   ('', './testdata/pcaps/HTC Incredible 2.4GHz.pcap'),
   ('', './testdata/pcaps/HTC Inspire 2.4GHz.pcap'),
