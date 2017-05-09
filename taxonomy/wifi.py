@@ -523,13 +523,13 @@ database = {
         ('iPad Mini', '4th gen', '5GHz'),
 
     'wifi4|probe:0,1,3,50|assoc:0,1,48,50|os:ios':
-        ('iPhone 2', '', '2.4GHz'),
+        ('iPhone 1', '', '2.4GHz'),
 
     'wifi4|probe:0,1,3,50|assoc:0,1,48,50,221(0050f2,2)|os:ios':
-        ('iPhone 3', '', '2.4GHz'),
+        ('iPhone 3G', '', '2.4GHz'),
 
     'wifi4|probe:0,1,50,3,221(001018,2)|assoc:0,1,48,50,221(001018,2),221(0050f2,2)|os:ios':
-        ('iPhone 3GS', '', '2.4GHz'),
+        ('iPod Touch 2nd gen or iPhone 3GS', '', '2.4GHz'),
 
     'wifi4|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:1800,htagg:1b,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:1800,htagg:1b,htmcs:000000ff|os:ios':
         ('iPhone 4', '', '2.4GHz'),
@@ -788,7 +788,7 @@ database = {
         ('iPhone SE', '', '2.4GHz'),
 
     'wifi4|probe:0,1,3,50|assoc:0,1,48,50|os:ipodtouch1':
-        ('iPod Touch', '1st or 2nd gen', '2.4GHz'),
+        ('iPod Touch', '1st gen', '2.4GHz'),
 
     'wifi4|probe:0,1,50,221(001018,2)|assoc:0,1,48,50,221(001018,2),221(0050f2,2)|name:ipod':
         ('iPod Touch', '3rd gen', '2.4GHz'),
