@@ -201,20 +201,43 @@ database = {
 
     'wifi4|probe:0,1,3,45,50,htcap:0120,htagg:03,htmcs:00000000|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:012c,htagg:03,htmcs:000000ff,extcap:0000000000000140|oui:google':
         ('Chromecast', 'v1', '2.4GHz'),
-    'wifi4|probe:0,1,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:0000000000000040|assoc:0,1,48,127,221(0050f2,2),45,191,htcap:006e,htagg:03,htmcs:000000ff,vhtcap:33c07030,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:0400000000000140|oui:google':
+    'wifi4|probe:0,1,3,45,50,htcap:0120,htagg:03,htmcs:00000000|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:112c,htagg:03,htmcs:000000ff,extcap:0400080200000040|oui:google':
+        ('Chromecast', 'v1', '2.4GHz'),
+
+    'wifi4|probe:0,1,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:0000000000000040|assoc:0,1,48,127,221(0050f2,2),45,191,htcap:006e,htagg:03,htmcs:000000ff,vhtcap:33c07030,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:0400000000000140|name:chromecast':
         ('Chromecast', 'v2', '5GHz'),
-    'wifi4|probe:0,1,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:0000000000000040|assoc:0,1,48,127,221(0050f2,2),45,191,htcap:006e,htagg:03,htmcs:000000ff,vhtcap:33c07030,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:0100000000000040|oui:google':
+    'wifi4|probe:0,1,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:0000000020000040|assoc:0,1,33,36,48,127,221(0050f2,2),45,191,htcap:006e,htagg:03,htmcs:000000ff,vhtcap:33c07030,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,txpow:1308,extcap:0000000020000040|name:chromecast':
         ('Chromecast', 'v2', '5GHz'),
-    'wifi4|probe:0,1,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:0000000000000040|assoc:0,1,33,36,48,127,221(0050f2,2),45,191,htcap:006e,htagg:03,htmcs:000000ff,vhtcap:33c07030,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:0400000000000140|oui:google':
+    'wifi4|probe:0,1,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:0000000000000040|assoc:0,1,48,127,221(0050f2,2),45,191,htcap:006e,htagg:03,htmcs:000000ff,vhtcap:33c07030,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:0100000000000040|name:chromecast':
         ('Chromecast', 'v2', '5GHz'),
-    'wifi4|probe:0,1,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:0000000000000040|assoc:0,1,33,36,48,127,221(0050f2,2),45,191,htcap:006e,htagg:03,htmcs:000000ff,vhtcap:33c07030,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,txpow:1308,extcap:0400000000000140|oui:google':
+    'wifi4|probe:0,1,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:0000000000000040|assoc:0,1,33,36,48,127,221(0050f2,2),45,191,htcap:006e,htagg:03,htmcs:000000ff,vhtcap:33c07030,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:0400000000000140|name:chromecast':
         ('Chromecast', 'v2', '5GHz'),
-    'wifi4|probe:0,1,3,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:0000000000000040|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:002c,htagg:03,htmcs:000000ff,extcap:0000000000000140|oui:google':
+    'wifi4|probe:0,1,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:0000000000000040|assoc:0,1,33,36,48,127,221(0050f2,2),45,191,htcap:006e,htagg:03,htmcs:000000ff,vhtcap:33c07030,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,txpow:1308,extcap:0400000000000140|name:chromecast':
+        ('Chromecast', 'v2', '5GHz'),
+    'wifi4|probe:0,1,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:0000000020000040|assoc:0,1,48,127,221(0050f2,2),45,191,htcap:006e,htagg:03,htmcs:000000ff,vhtcap:33c07030,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:0000000020000040|name:chromecast':
+        ('Chromecast', 'v2', '5GHz'),
+    'wifi4|probe:0,1,3,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:0000000000000040|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:002c,htagg:03,htmcs:000000ff,extcap:0000000000000140|name:chromecast':
+        ('Chromecast', 'v2', '2.4GHz'),
+    'wifi4|probe:0,1,3,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:0000000020000040|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:002c,htagg:03,htmcs:000000ff,extcap:0000000020000040|name:chromecast':
+        ('Chromecast', 'v2', '2.4GHz'),
+    'wifi4|probe:0,1,3,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:0000000020000040|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:102c,htagg:03,htmcs:000000ff,extcap:0000000020000040|name:chromecast':
         ('Chromecast', 'v2', '2.4GHz'),
 
     'wifi4|probe:0,1,45,50,59,127,191,htcap:0163,htagg:03,htmcs:00000000,vhtcap:33d071b0,vhtrxmcs:0168fffa,vhttxmcs:0168fffa,extcap:040000000100004000|assoc:0,1,48,59,127,221(0050f2,2),45,191,199,htcap:016f,htagg:03,htmcs:0000ffff,vhtcap:33d071b0,vhtrxmcs:009cfffa,vhttxmcs:009cfffa,extcap:050000000000004000|oui:google':
         ('Chromecast', 'Ultra', '5GHz'),
+    'wifi4|probe:0,1,45,50,59,127,191,htcap:016f,htagg:03,htmcs:00000000,vhtcap:33d071b0,vhtrxmcs:0168fffa,vhttxmcs:0168fffa,extcap:040000000100004000|assoc:0,1,48,59,127,221(0050f2,2),45,191,199,htcap:016f,htagg:03,htmcs:0000ffff,vhtcap:33d071b0,vhtrxmcs:009cfffa,vhttxmcs:009cfffa,extcap:040008020000004000|oui:google':
+        ('Chromecast', 'Ultra', '5GHz'),
+    'wifi4|probe:0,1,45,50,59,127,191,htcap:016f,htagg:03,htmcs:00000000,vhtcap:33d071b0,vhtrxmcs:0168fffa,vhttxmcs:0168fffa,extcap:040000000100004000|assoc:0,1,33,36,48,59,70,127,221(0050f2,2),45,191,199,htcap:016f,htagg:03,htmcs:0000ffff,vhtcap:33d071b0,vhtrxmcs:009cfffa,vhttxmcs:009cfffa,txpow:1400,extcap:040000000000014000|oui:google':
+        ('Chromecast', 'Ultra', '5GHz'),
+    'wifi4|probe:0,1,45,50,59,127,191,221(0050f2,8),htcap:016f,htagg:03,htmcs:00000000,vhtcap:33d071b0,vhtrxmcs:0168fffa,vhttxmcs:0168fffa,extcap:040000000100004000|assoc:0,1,33,36,48,59,70,127,221(0050f2,2),45,191,199,htcap:016f,htagg:03,htmcs:0000ffff,vhtcap:33d071b0,vhtrxmcs:009cfffa,vhttxmcs:009cfffa,txpow:1400,extcap:040000000000014000|oui:google':
+        ('Chromecast', 'Ultra', '5GHz'),
     'wifi4|probe:0,1,3,45,50,59,127,191,htcap:0163,htagg:03,htmcs:00000000,vhtcap:33d071b0,vhtrxmcs:0168fffa,vhttxmcs:0168fffa,extcap:040000000100004000|assoc:0,1,33,48,50,59,70,127,221(0050f2,2),45,199,htcap:012d,htagg:03,htmcs:0000ffff,txpow:1400,extcap:040000000000014000|oui:google':
+        ('Chromecast', 'Ultra', '2.4GHz'),
+    'wifi4|probe:0,1,3,45,50,59,127,191,htcap:016f,htagg:03,htmcs:00000000,vhtcap:33d071b0,vhtrxmcs:0168fffa,vhttxmcs:0168fffa,extcap:040000000100004000|assoc:0,1,33,48,50,59,70,127,221(0050f2,2),45,199,htcap:012d,htagg:03,htmcs:0000ffff,txpow:1400,extcap:040000000000014000|oui:google':
+        ('Chromecast', 'Ultra', '2.4GHz'),
+    'wifi4|probe:0,1,3,45,50,59,127,191,htcap:016f,htagg:03,htmcs:00000000,vhtcap:33d071b0,vhtrxmcs:0168fffa,vhttxmcs:0168fffa,extcap:040000000100004000|assoc:0,1,48,50,59,127,221(0050f2,2),45,199,htcap:112d,htagg:03,htmcs:0000ffff,extcap:040008020000004000|oui:google':
+        ('Chromecast', 'Ultra', '2.4GHz'),
+    'wifi4|probe:0,1,3,45,50,59,127,191,htcap:0163,htagg:03,htmcs:00000000,vhtcap:33d071b0,vhtrxmcs:0249fff0,vhttxmcs:0249fff0,extcap:040000000100004000|assoc:0,1,48,50,59,127,221(0050f2,2),45,htcap:112d,htagg:03,htmcs:0000ffff,extcap:040008020000004000|oui:google':
         ('Chromecast', 'Ultra', '2.4GHz'),
 
     'wifi4|probe:0,1,45,221(001018,2),221(00904c,51),htcap:007c,htagg:1a,htmcs:0000ffff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:007c,htagg:1a,htmcs:0000ffff,txpow:1408|os:directv':
@@ -248,7 +271,11 @@ database = {
 
     'wifi4|probe:0,1,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:0000000020000040|assoc:0,1,48,127,221(0050f2,2),45,191,htcap:006e,htagg:03,htmcs:000000ff,vhtcap:33c07030,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,extcap:0000000020000040|oui:google':
         ('Google Home', '', '5GHz'),
+    'wifi4|probe:0,1,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:0000000000000040|assoc:0,1,33,36,48,127,221(0050f2,2),45,191,htcap:006e,htagg:03,htmcs:000000ff,vhtcap:33c07030,vhtrxmcs:0186fffe,vhttxmcs:0186fffe,txpow:1308,extcap:0400000000000140|oui:google':
+        ('Google Home', '', '5GHz'),
     'wifi4|probe:0,1,3,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:0000000020000040|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:002c,htagg:03,htmcs:000000ff,extcap:0000000020000040|oui:google':
+        ('Google Home', '', '2.4GHz'),
+    'wifi4|probe:0,1,3,45,50,127,191,htcap:0062,htagg:03,htmcs:00000000,vhtcap:33c07030,vhtrxmcs:0124fffc,vhttxmcs:0124fffc,extcap:0000000020000040|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:102c,htagg:03,htmcs:000000ff,extcap:0000000020000040|oui:google':
         ('Google Home', '', '2.4GHz'),
 
     'wifi4|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:100c,htagg:19,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:100c,htagg:19,htmcs:000000ff|oui:ademco':
@@ -2083,6 +2110,8 @@ def depersonalize_hostname(hostname):
     return 'iphone'
   if 'ipod' in h:
     return 'ipod'
+  if 'chromecast' in h:
+    return 'chromecast'
   return hostname
 
 
@@ -2133,4 +2162,4 @@ if __name__ == '__main__':
     a = k.split('|')
     if len(a) > 3:
       sig = '|'.join(a[0:3])
-      print 'SHA:' + hashlib.sha256(sig).hexdigest() + ' ' + name + ' (unqualified)'
+      print 'SHA:' + hashlib.sha256(sig).hexdigest() + ' ' + name + ' (unqualified)' + ' ' + sig
