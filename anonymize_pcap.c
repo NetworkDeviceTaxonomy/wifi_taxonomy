@@ -200,11 +200,15 @@ int main(int argc, char **argv)
   char outfile[PATH_MAX];
   struct stat in_st, out_st;
   FILE *pcapfp, *outfp;
+  unsigned char macbyte = 0;
 
-  while ((opt = getopt(argc, argv, "f:")) != -1) {
+  while ((opt = getopt(argc, argv, "f:m:")) != -1) {
     switch(opt){
       case 'f':
         filename = optarg;
+        break;
+      case 'm':
+        macbyte = strtol(optarg, NULL, 0);
         break;
       default:
         usage(argv[0]);
@@ -291,12 +295,15 @@ int main(int argc, char **argv)
     }
 
     /* Anonymize the MAC addresses (but preserve OUI). */
-    mlme->sa[3] = mlme->sa[4] = mlme->sa[5] = 0;
+    mlme->sa[3] = mlme->sa[4] = 0;
+    mlme->sa[5] = macbyte;
     if (!is_broadcast_mac(mlme->da)) {
-      mlme->da[3] = mlme->da[4] = mlme->da[5] = 0;
+      mlme->da[3] = mlme->da[4] = 0;
+      mlme->da[5] = macbyte;
     }
     if (!is_broadcast_mac(mlme->bssid)) {
-      mlme->bssid[3] = mlme->bssid[4] = mlme->bssid[5] = 0;
+      mlme->bssid[3] = mlme->bssid[4] = 0;
+      mlme->bssid[5] = macbyte;
     }
 
     pcap_dump((u_char *)outhandle, &hdr, pkt);
