@@ -184,9 +184,19 @@ database = {
         ('Chromebook', 'Pixel 2', '5GHz'),
     'wifi4|probe:0,1,45,191,htcap:11e2,htagg:17,htmcs:0000ffff,vhtcap:038071a0,vhtrxmcs:0000fffa,vhttxmcs:0000fffa|assoc:0,1,33,36,48,45,127,191,221(0050f2,2),htcap:11e6,htagg:17,htmcs:0000ffff,vhtcap:038001a0,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:1600,extcap:0000000000000040|os:chromeos':
         ('Chromebook', 'Pixel 2', '5GHz'),
+    'wifi4|probe:0,1,45,127,191,htcap:11e2,htagg:17,htmcs:0000ffff,vhtcap:038071a0,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000000001000040|assoc:0,1,48,45,127,191,221(0050f2,2),htcap:11e6,htagg:17,htmcs:0000ffff,vhtcap:038001a0,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000000001000040|os:chromeos':
+        ('Chromebook', 'Pixel 2', '5GHz'),
+    'wifi4|probe:0,1,45,127,191,htcap:11e2,htagg:17,htmcs:0000ffff,vhtcap:038071a0,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000000001000040|assoc:0,1,33,36,48,45,127,191,221(0050f2,2),htcap:11e6,htagg:17,htmcs:0000ffff,vhtcap:038001a0,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:1600,extcap:0000000001000040|os:chromeos':
+        ('Chromebook', 'Pixel 2', '5GHz'),
+    'wifi4|probe:0,1,45,191,htcap:11e2,htagg:17,htmcs:0000ffff,vhtcap:038071a0,vhtrxmcs:0000fffa,vhttxmcs:0000fffa|assoc:0,1,48,45,127,191,221(0050f2,2),htcap:11e6,htagg:17,htmcs:0000ffff,vhtcap:038031a0,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000000001000040|os:chromeos':
+        ('Chromebook', 'Pixel 2', '5GHz'),
     'wifi4|probe:0,1,50,45,htcap:11e2,htagg:17,htmcs:0000ffff|assoc:0,1,50,48,45,127,221(0050f2,2),htcap:11a4,htagg:17,htmcs:0000ffff,extcap:0000000000000040|os:chromeos':
         ('Chromebook', 'Pixel 2', '2.4GHz'),
     'wifi4|probe:0,1,50,45,htcap:11e2,htagg:17,htmcs:0000ffff|assoc:0,1,50,48,45,127,221(0050f2,2),htcap:11ac,htagg:17,htmcs:0000ffff,extcap:0000000000000040|os:chromeos':
+        ('Chromebook', 'Pixel 2', '2.4GHz'),
+    'wifi4|probe:0,1,50,45,127,htcap:11e2,htagg:17,htmcs:0000ffff,extcap:0000000001000040|assoc:0,1,50,48,45,127,221(0050f2,2),htcap:11a4,htagg:17,htmcs:0000ffff,extcap:0000000001000040|os:chromeos':
+        ('Chromebook', 'Pixel 2', '2.4GHz'),
+    'wifi4|probe:0,1,50,45,htcap:11e2,htagg:17,htmcs:0000ffff|assoc:0,1,50,48,45,127,221(0050f2,2),htcap:11a4,htagg:17,htmcs:0000ffff,extcap:0000000001000040|os:chromeos':
         ('Chromebook', 'Pixel 2', '2.4GHz'),
 
     'wifi4|probe:0,1,45,htcap:11ef,htagg:1b,htmcs:0000ffff|assoc:0,1,48,45,221(0050f2,2),htcap:11ef,htagg:1b,htmcs:0000ffff|os:chromeos':
@@ -194,10 +204,18 @@ database = {
     'wifi4|probe:0,1,50,3,45,htcap:11ef,htagg:1b,htmcs:0000ffff|assoc:0,1,50,48,45,221(0050f2,2),htcap:11ef,htagg:1b,htmcs:0000ffff|os:chromeos':
         ('Chromebook', 'HP 14', '2.4GHz'),
 
-    'wifi4|probe:0,1,45,50,htcap:016e,htagg:03,htmcs:0000ffff|assoc:0,1,48,127,221(0050f2,2),45,htcap:016e,htagg:03,htmcs:0000ffff,extcap:00':
-        ('Chromebook', 'Samsung 11.6"', '5GHz'),
-    'wifi4|probe:0,1,3,45,50,htcap:016e,htagg:03,htmcs:0000ffff|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:016e,htagg:03,htmcs:0000ffff,extcap:00':
-        ('Chromebook', 'Samsung 11.6"', '2.4GHz'),
+    'wifi4|probe:0,1,45,50,htcap:016e,htagg:03,htmcs:0000ffff|assoc:0,1,48,127,221(0050f2,2),45,htcap:016e,htagg:03,htmcs:0000ffff,extcap:00|os:chromeos':
+        ('Chromebook', 'Samsung 2012 model', '5GHz'),
+    'wifi4|probe:0,1,45,50,htcap:016e,htagg:03,htmcs:0000ffff|assoc:0,1,48,127,221(0050f2,2),45,htcap:016e,htagg:03,htmcs:0000ffff,extcap:04|os:chromeos':
+        ('Chromebook', 'Samsung 2012 model', '5GHz'),
+    'wifi4|probe:0,1,3,45,50,htcap:016e,htagg:03,htmcs:0000ffff|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:016e,htagg:03,htmcs:0000ffff,extcap:00|os:chromeos':
+        ('Chromebook', 'Samsung 2012 model', '2.4GHz'),
+    'wifi4|probe:0,1,3,45,htcap:016e,htagg:03,htmcs:0000ffff|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:016e,htagg:03,htmcs:0000ffff,extcap:00|os:chromeos':
+        ('Chromebook', 'Samsung 2012 model', '2.4GHz'),
+    'wifi4|probe:0,1,3,45,50,htcap:016e,htagg:03,htmcs:0000ffff|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:016e,htagg:03,htmcs:0000ffff,extcap:04|os:chromeos':
+        ('Chromebook', 'Samsung 2012 model', '2.4GHz'),
+    'wifi4|probe:0,1,3,45,htcap:016e,htagg:03,htmcs:0000ffff|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:016e,htagg:03,htmcs:0000ffff,extcap:04|os:chromeos':
+        ('Chromebook', 'Samsung 2012 model', '2.4GHz'),
 
     'wifi4|probe:0,1,3,45,50,htcap:0120,htagg:03,htmcs:00000000|assoc:0,1,48,50,127,221(0050f2,2),45,htcap:012c,htagg:03,htmcs:000000ff,extcap:0000000000000140|oui:google':
         ('Chromecast', 'v1', '2.4GHz'),
