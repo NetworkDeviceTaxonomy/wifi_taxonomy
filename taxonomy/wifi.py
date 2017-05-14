@@ -150,14 +150,14 @@ database = {
         ('ASUS ZenFone', 'AR', '2.4GHz'),
 
     'wifi4|probe:0,1,50,3,45,221(0050f2,4),221(506f9a,10),221(506f9a,9),221(001018,2),htcap:0020,htagg:17,htmcs:000000ff,wps:ASUS_Z007|assoc:0,1,50,33,36,48,45,221(001018,2),221(0050f2,2),htcap:0020,htagg:17,htmcs:000000ff,txpow:140d':
-        ('ASUS Zenfone', 'C', '2.4GHz'),
+        ('ASUS ZenFone', 'C', '2.4GHz'),
 
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,extcap:00000a0200000000|oui:asus':
-        ('ASUS Zenfone', '5', '2.4GHz'),
+        ('ASUS ZenFone', '5', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,33,48,70,45,221(0050f2,2),127,htcap:012c,htagg:03,htmcs:000000ff,txpow:160d,extcap:00000a0200000000|oui:asus':
-        ('ASUS Zenfone', '5', '2.4GHz'),
+        ('ASUS ZenFone', '5', '2.4GHz'),
     'wifi4|probe:0,1,50,45,3,221(0050f2,4),221(506f9a,9),221(001018,2),221(00904c,51),htcap:110c,htagg:19,htmcs:000000ff,wps:ASUS_T00F|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:110c,htagg:19,htmcs:000000ff':
-        ('ASUS Zenfone', '5', '2.4GHz'),
+        ('ASUS ZenFone', '5', '2.4GHz'),
 
     'wifi4|probe:0,1,50,45,htcap:1030,htagg:18,htmcs:000000ff|assoc:0,1,50,46,48,45,221(0050f2,2),htcap:1030,htagg:18,htmcs:000000ff|oui:barnes&noble':
         ('Barnes & Noble Nook', 'Color', '2.4GHz'),
