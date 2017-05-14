@@ -42,6 +42,7 @@ database = {
     '08:62:66': ['asus'],
     '10:bf:48': ['asus'],
     '1c:87:2c': ['asus'],
+    '2c:4d:54': ['asus'],
     '2c:56:dc': ['asus'],
     '30:85:a9': ['asus'],
     '50:46:5d': ['asus'],
@@ -55,6 +56,8 @@ database = {
     'f8:32:e4': ['asus'],
 
     '58:67:1a': ['barnes&noble'],
+
+    '00:16:d4': ['compal'],
 
     '2c:b0:5d': ['dish'],
 
@@ -163,6 +166,7 @@ database = {
     '3c:43:8e': ['motorola'],
     '40:78:6a': ['motorola'],
     '44:80:eb': ['motorola'],
+    '54:27:58': ['motorola'],
     '5c:51:88': ['motorola'],
     '60:be:b5': ['motorola'],
     '80:6c:1b': ['motorola'],
