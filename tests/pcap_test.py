@@ -235,6 +235,7 @@ regression = [
   ('Moto G or Moto X', './testdata/pcaps/Moto X 1st gen 2.4GHz Google Wifi An5.1 Broadcast Probe.pcap'),
   ('Moto G or Moto X', './testdata/pcaps/Moto X 1st gen 2.4GHz OnHub An5.1 Broadcast Probe.pcap'),
   ('Nest Thermostat v1 or v2', './testdata/pcaps/Nest Thermostat 2.4GHz.pcap'),
+  ('Playstation 3 or 4', './testdata/pcaps/Playstation 3 2.4GHz Google Wifi OS 4.8 model CECH-4301A Specific Probe.pcap'),
   ('Roku 2 or 3 or Streaming Stick', './testdata/pcaps/Roku 3 2.4GHz 4230.pcap'),
   ('Roku 2 or 3 or Streaming Stick', './testdata/pcaps/Roku 3 5GHz 4230.pcap'),
   ('Roku 4 or TV', './testdata/pcaps/Roku 4 2.4GHz.pcap'),

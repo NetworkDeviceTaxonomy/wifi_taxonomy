@@ -1410,6 +1410,8 @@ database = {
         ('Playstation', '4', '2.4GHz'),
     'wifi4|probe:0,1,3,50|assoc:0,1,221(0050f2,2),45,htcap:012c,htagg:03,htmcs:0000ffff|os:playstation':
         ('Playstation', '4', '2.4GHz'),
+    'wifi4|probe:0,1,3,50|assoc:0,1,48,50,221(0050f2,2),45,htcap:012c,htagg:03,htmcs:0000ffff|os:playstation':
+        ('Playstation', '4', '2.4GHz'),
 
     'wifi4|probe:0,1,45,221(0050f2,4),221(506f9a,9),221(001018,2),221(00904c,51),htcap:0062,htagg:1a,htmcs:000000ff,wps:_|assoc:0,1,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062,htagg:1a,htmcs:000000ff|oui:compal':
         ('Project Tango Devkit', '', '5GHz'),
@@ -1977,12 +1979,19 @@ database = {
         ('Xbox', '', '2.4GHz'),
     'wifi4|probe:0,1,50,48|assoc:0,1,3,33,36,50,221(0050f2,2),45,221(00037f,1),221(00037f,4),48,htcap:104c,htagg:00,htmcs:0000ffff,txpow:0f0f|oui:microsoft':
         ('Xbox', '', '2.4GHz'),
-    'wifi4|probe:0,1,45,50,htcap:058f,htagg:03,htmcs:0000ffff|assoc:0,1,33,36,48,221(0050f2,2),45,htcap:058f,htagg:03,htmcs:0000ffff,txpow:1208|oui:microsoft':
-        ('Xbox', '', '2.4GHz'),
     'wifi4|probe:0,1,3,50|assoc:0,1,33,48,50,127,127,221(0050f2,2),45,htcap:012c,htagg:03,htmcs:0000ffff,txpow:1208,extcap:0000000000000140|oui:microsoft':
         ('Xbox', '', '2.4GHz'),
 
+    'wifi4|probe:0,1,3,50|assoc:0,1,45,48,50,221(0050f2,2),htcap:11ed,htagg:1b,htmcs:000000ff|oui:microsoft':
+        ('Xbox', '360', '2.4GHz'),
+    'wifi4|probe:0,1,3,45,50,127,htcap:11ed,htagg:1b,htmcs:0000ffff,extcap:04|assoc:0,1,45,48,50,221(0050f2,2),htcap:11ed,htagg:1b,htmcs:000000ff|oui:microsoft':
+        ('Xbox', '360', '2.4GHz'),
+    'wifi4|probe:0,1,3,50|assoc:0,1,45,48,50,221(0050f2,2),htcap:010c,htagg:1b,htmcs:000000ff|oui:microsoft':
+        ('Xbox', '360', '2.4GHz'),
+
     'wifi4|probe:0,1,45,50,htcap:058f,htagg:03,htmcs:0000ffff|assoc:0,1,33,36,221(0050f2,2),45,htcap:058f,htagg:03,htmcs:0000ffff,txpow:1208|oui:microsoft':
+        ('Xbox', 'One', '5GHz'),
+    'wifi4|probe:0,1,45,50,htcap:058f,htagg:03,htmcs:0000ffff|assoc:0,1,48,221(0050f2,2),45,htcap:058f,htagg:03,htmcs:0000ffff|oui:microsoft':
         ('Xbox', 'One', '5GHz'),
     'wifi4|probe:0,1,3,45,50,htcap:058f,htagg:03,htmcs:0000ffff|assoc:0,1,48,50,221(0050f2,2),45,htcap:058d,htagg:03,htmcs:0000ffff|oui:microsoft':
         ('Xbox', 'One', '2.4GHz'),
@@ -1991,6 +2000,11 @@ database = {
     'wifi4|probe:0,1|assoc:0,1,50,45,127,221(000c43,0),221(0050f2,2),33,48,htcap:008d,htagg:02,htmcs:0000ffff,txpow:0805,extcap:0100000000000000|oui:microsoft':
         ('Xbox', 'One', '2.4GHz'),
     'wifi4|probe:0,1,50|assoc:0,1,50,45,127,221(000c43,0),221(0050f2,2),33,48,htcap:008d,htagg:02,htmcs:0000ffff,txpow:0805,extcap:0100000000000000|oui:microsoft':
+        ('Xbox', 'One', '2.4GHz'),
+
+    'wifi4|probe:0,1,45,50,htcap:058f,htagg:03,htmcs:0000ffff|assoc:0,1,33,36,48,221(0050f2,2),45,htcap:058f,htagg:03,htmcs:0000ffff,txpow:1208|oui:microsoft':
+        ('Xbox', 'One', '2.4GHz'),
+    'wifi4|probe:0,1,3,45,50,htcap:058f,htagg:03,htmcs:0000ffff|assoc:0,1,48,50,221(0050f2,2),45,htcap:158d,htagg:03,htmcs:0000ffff|oui:microsoft':
         ('Xbox', 'One', '2.4GHz'),
 
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),htcap:012c,htagg:03,htmcs:000000ff|assoc:0,1,50,33,48,70,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff,txpow:170d|oui:xiaomi':
