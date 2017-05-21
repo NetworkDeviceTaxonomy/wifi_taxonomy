@@ -1462,15 +1462,25 @@ database = {
     'wifi4|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:187c,htagg:1a,htmcs:0000ffff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:187c,htagg:1a,htmcs:0000ffff|os:roku':
         ('Roku', '2', '2.4GHz'),
 
+    # Roku 2 model 4210X
+    'wifi4|probe:0,1,50,45,127,221(001018,2),221(00904c,51),htcap:193c,htagg:16,htmcs:0000ffff,extcap:0000000000000040|assoc:0,1,33,36,48,50,45,127,221(001018,2),221(0050f2,2),htcap:193c,htagg:16,htmcs:0000ffff,txpow:140a,extcap:0000000000000040|os:roku':
+        ('Roku', '2', '2.4GHz'),
+
     # Roku 3 model 4230, 4200, 4200X, 4230X, Roku Streaming Stick model 3500, Roku 2 model 4210X
     'wifi4|probe:0,1,45,127,221(001018,2),221(00904c,51),htcap:09bc,htagg:16,htmcs:0000ffff,extcap:0000000000000040|assoc:0,1,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:09bc,htagg:16,htmcs:0000ffff,txpow:100a,extcap:0000000000000040|os:roku':
-        ('Roku', '2 or 3 or Streaming Stick', '5GHz'),
+        ('Roku', '2, 3, TV, or Streaming Stick', '5GHz'),
     'wifi4|probe:0,1,3,45,127,221(001018,2),221(00904c,51),htcap:09bc,htagg:16,htmcs:0000ffff,extcap:0000000000000040|assoc:0,1,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:09bc,htagg:16,htmcs:0000ffff,txpow:100a,extcap:0000000000000040|os:roku':
-        ('Roku', '2 or 3 or Streaming Stick', '5GHz'),
+        ('Roku', '2, 3, TV, or Streaming Stick', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),htcap:19bc,htagg:16,htmcs:0000ffff,extcap:0000000000000040|assoc:0,1,33,36,48,50,45,127,221(001018,2),221(0050f2,2),htcap:19bc,htagg:16,htmcs:0000ffff,txpow:140a,extcap:0000000000000040|os:roku':
-        ('Roku', '2 or 3 or Streaming Stick', '2.4GHz'),
+        ('Roku', '2, 3, TV, or Streaming Stick', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(001018,2),221(00904c,51),htcap:193c,htagg:16,htmcs:0000ffff,extcap:0000000000000040|assoc:0,1,33,36,48,50,45,127,221(001018,2),221(0050f2,2),htcap:193c,htagg:16,htmcs:0000ffff,txpow:140a,extcap:0000000000000040|os:roku':
-        ('Roku', '2 or 3 or Streaming Stick', '2.4GHz'),
+        ('Roku', '2, 3, TV, or Streaming Stick', '2.4GHz'),
+    'wifi4|probe:0,1,50,45,127,221(001018,2),221(00904c,51),htcap:19bc,htagg:16,htmcs:0000ffff,extcap:0000000000000040|assoc:0,1,33,36,48,50,45,127,221(001018,2),221(0050f2,2),htcap:19bc,htagg:16,htmcs:0000ffff,txpow:140a,extcap:0000000000000040|os:roku':
+        ('Roku', '2, 3, TV, or Streaming Stick', '2.4GHz'),
+
+    # Roku Streaming Stick model 3600
+    'wifi4|probe:0,1,50,45,221(001018,2),221(00904c,51),htcap:187c,htagg:1a,htmcs:0000ffff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:187c,htagg:1a,htmcs:0000ffff,txpow:1208|os:roku':
+        ('Roku', 'Streaming Stick', '2.4GHz'),
 
     # Roku 3 model 4230RW
     'wifi4|probe:0,1,45,127,221(001018,2),221(00904c,51),htcap:093c,htagg:16,htmcs:0000ffff,extcap:0000000000000040|assoc:0,1,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:093c,htagg:16,htmcs:0000ffff,txpow:110a,extcap:0000000000000040|os:roku':
@@ -1478,13 +1488,13 @@ database = {
 
     # Roku 4 model 4400 or Roku TV NP-YW
     'wifi4|probe:0,1,45,127,191,221(001018,2),htcap:01ad,htagg:17,htmcs:0000ffff,vhtcap:0f8159b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000000000000040|assoc:0,1,33,36,48,45,127,191,199,221(001018,2),221(0050f2,2),htcap:01ad,htagg:17,htmcs:0000ffff,vhtcap:0f8159b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:1109,extcap:0000000000000040|os:roku':
-        ('Roku', '4 or TV', '5GHz'),
+        ('Roku', '4, TV, or Premiere', '5GHz'),
     'wifi4|probe:0,1,45,191,221(001018,2),htcap:01ad,htagg:17,htmcs:0000ffff,vhtcap:0f8159b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa|assoc:0,1,33,36,48,45,191,199,221(001018,2),221(0050f2,2),htcap:01ad,htagg:17,htmcs:0000ffff,vhtcap:0f8159b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:1109|os:roku':
-        ('Roku', '4 or TV', '5GHz'),
+        ('Roku', '4, TV, or Premiere', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,221(001018,2),htcap:01ad,htagg:17,htmcs:0000ffff,extcap:0000000000000040|assoc:0,1,50,33,36,48,45,221(001018,2),221(0050f2,2),htcap:01ad,htagg:17,htmcs:0000ffff,txpow:1209|os:roku':
-        ('Roku', '4 or TV', '2.4GHz'),
+        ('Roku', '4, TV, or Premiere', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,221(001018,2),htcap:01ad,htagg:17,htmcs:0000ffff|assoc:0,1,50,33,36,48,45,221(001018,2),221(0050f2,2),htcap:01ad,htagg:17,htmcs:0000ffff,txpow:1209|os:roku':
-        ('Roku', '4 or TV', '2.4GHz'),
+        ('Roku', '4, TV, or Premiere', '2.4GHz'),
 
     'wifi4|probe:0,1,50,3,45,221(001018,2),htcap:0020,htagg:17,htmcs:000000ff|assoc:0,1,50,33,36,48,45,221(001018,2),221(0050f2,2),htcap:0020,htagg:17,htmcs:000000ff,txpow:120b|oui:samsung':
         ('Samsung Galaxy Ace 4', '', '2.4GHz'),
