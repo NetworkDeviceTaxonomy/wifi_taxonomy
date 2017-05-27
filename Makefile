@@ -42,3 +42,4 @@ anonymize_pcap: anonymize_pcap.o $(INCS)
 
 clean:
 	rm -f wifi_signature anonymize_pcap *.o taxonomy/*.pyc taxonomy/*.pyo
+	rm -rf taxonomy/build
