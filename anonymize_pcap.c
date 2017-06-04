@@ -295,14 +295,17 @@ int main(int argc, char **argv)
     }
 
     /* Anonymize the MAC addresses (but preserve OUI). */
-    mlme->sa[3] = mlme->sa[4] = 0;
+    mlme->sa[3] &= 0xF0; /* preserve 4 bits for MA-M */
+    mlme->sa[4] = 0;
     mlme->sa[5] = macbyte;
     if (!is_broadcast_mac(mlme->da)) {
-      mlme->da[3] = mlme->da[4] = 0;
+      mlme->da[3] &= 0xF0;
+      mlme->da[4] = 0;
       mlme->da[5] = macbyte;
     }
     if (!is_broadcast_mac(mlme->bssid)) {
-      mlme->bssid[3] = mlme->bssid[4] = 0;
+      mlme->bssid[3] &= 0xF0;
+      mlme->bssid[4] = 0;
       mlme->bssid[5] = macbyte;
     }
 

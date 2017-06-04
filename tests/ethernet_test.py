@@ -23,9 +23,18 @@ import ethernet
 
 
 class EthernetTaxonomyTest(unittest.TestCase):
-  def testLookupOS(self):
-    self.assertEqual(ethernet.LookupOUI('f8:a9:d0'), ['lg'])
-    self.assertEqual(ethernet.LookupOUI('ff:ff:ff'), [])
+  def testLookupOUI(self):
+    self.assertEqual(ethernet.LookupOUI('f8:a9:d0:00:00:00'), ['lg'])
+    self.assertEqual(ethernet.LookupOUI('ff:ff:ff:00:00:00'), [])
+
+  def testLookupAddressCase(self):
+    self.assertEqual(ethernet.LookupOUI('F8:A9:D0:00:00:00'), ['lg'])
+
+  def testLookupMA_M(self):
+    ethernet.database['00:00:00:1'] = ['testOUI36']
+    self.assertEqual(ethernet.LookupOUI('00:00:00:00:00:00'), [])
+    self.assertEqual(ethernet.LookupOUI('00:00:00:10:00:00'), ['testOUI36'])
+    self.assertEqual(ethernet.LookupOUI('00:00:00:20:00:00'), [])
 
 
 if __name__ == '__main__':

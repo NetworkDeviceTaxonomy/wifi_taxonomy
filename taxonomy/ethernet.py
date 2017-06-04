@@ -354,5 +354,6 @@ database = {
 def LookupOUI(mac):
   """Return a list of manufacturer(s) from a MAC address."""
   mac = mac.lower().split(':')
-  oui = ':'.join(mac[0:3])
-  return database.get(oui, [])
+  oui24 = ':'.join(mac[0:3])
+  oui36 = ':'.join(mac[0:3] + [mac[3][0]])
+  return database.get(oui36, []) + database.get(oui24, [])
