@@ -50,6 +50,8 @@ database = {
     'f0:d2:f1': ['amazon'],
     'fc:a6:67': ['amazon'],
 
+    'a4:58:0f:6': ['astro'],
+
     '08:60:6e': ['asus'],
     '08:62:66': ['asus'],
     '10:bf:48': ['asus'],

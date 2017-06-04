@@ -1935,6 +1935,10 @@ database = {
     'wifi4|probe:0,1,50,45,htcap:0120,htagg:01,htmcs:000000ff|assoc:0,1,50,48,221(0050f2,2),45,127,htcap:0120,htagg:01,htmcs:000000ff,extcap:01|name:HS105':
         ('TP-Link smart plug', '', '2.4GHz'),
 
+    # https://www.hellotwist.com
+    'wifi4|probe:0,1,50,3,45,127,htcap:0172,htagg:13,htmcs:000000ff,extcap:0000000000000040|assoc:0,1,50,48,45,127,221(0050f2,2),htcap:013c,htagg:13,htmcs:000000ff,extcap:0000000000000040|oui:astro':
+        ('Twist Speaker', '', '2.4GHz'),
+
     # P602ui-B3
     'wifi4|probe:0,1,50,221(0050f2,4),wps:_|assoc:0,33,36,1,48,221(0050f2,2),45,127,htcap:106e,htagg:1f,htmcs:0000ffff,txpow:150d,extcap:0000000000000000|os:viziotv':
         ('Vizio Smart TV', '', '5GHz'),
