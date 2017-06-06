@@ -282,6 +282,7 @@ database = {
     '94:35:0a': ['samsung'],
     '94:b1:0a': ['samsung'],
     'a0:0b:ba': ['samsung'],
+    'a0:cc:2b': ['samsung'],
     'a4:08:ea': ['samsung'],
     'a8:06:00': ['samsung'],
     'a8:9f:ba': ['samsung', 'lava'],

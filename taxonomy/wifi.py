@@ -1757,27 +1757,37 @@ database = {
         ('Samsung Galaxy S7 Edge', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,127,107,191,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),221(00904c,92),htcap:01ef,htagg:1b,htmcs:0000ffff,vhtcap:0f9119b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000088001400040|assoc:0,1,33,36,48,70,45,127,191,221(00904c,4),221(001018,2),221(0050f2,2),221(00904c,92),htcap:01ef,htagg:1b,htmcs:0000ffff,vhtcap:0f9119b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:1103,extcap:0000000000000040|oui:samsung':
-        ('Samsung Galaxy S8', '', '5GHz'),
+        ('Samsung Galaxy S8/S8+', '', '5GHz'),
     'wifi4|probe:0,1,45,127,107,191,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),221(00904c,92),htcap:01ef,htagg:1b,htmcs:0000ffff,vhtcap:0f9179b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000088001400040|assoc:0,1,33,36,48,70,45,127,191,221(00904c,4),221(001018,2),221(0050f2,2),221(00904c,92),htcap:01ef,htagg:1b,htmcs:0000ffff,vhtcap:0f9119b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:1103,extcap:0000000000000040|oui:samsung':
-        ('Samsung Galaxy S8', '', '5GHz'),
+        ('Samsung Galaxy S8/S8+', '', '5GHz'),
     'wifi4|probe:0,1,45,127,107,191,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),221(00904c,92),htcap:01ef,htagg:1b,htmcs:0000ffff,vhtcap:0f9159b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000088001400040|assoc:0,1,33,36,45,127,191,199,221(00904c,4),221(001018,2),221(0050f2,2),221(00904c,92),htcap:01ef,htagg:1b,htmcs:0000ffff,vhtcap:0f9159b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:1203,extcap:0000080000000040|oui:samsung':
-        ('Samsung Galaxy S8', '', '5GHz'),
+        ('Samsung Galaxy S8/S8+', '', '5GHz'),
     'wifi4|probe:0,1,45,127,107,191,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),221(00904c,92),htcap:01ef,htagg:1b,htmcs:0000ffff,vhtcap:0f9119b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000088001400040|assoc:0,1,33,36,48,45,127,191,221(00904c,4),221(001018,2),221(0050f2,2),221(00904c,92),htcap:01ef,htagg:1b,htmcs:0000ffff,vhtcap:0f9139b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:1203,extcap:0000080000000040|oui:samsung':
-        ('Samsung Galaxy S8', '', '5GHz'),
+        ('Samsung Galaxy S8/S8+', '', '5GHz'),
     'wifi4|probe:0,1,45,127,107,191,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),221(00904c,92),htcap:01ef,htagg:1b,htmcs:0000ffff,vhtcap:0f9179b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000088001400040|assoc:0,1,33,36,48,45,127,191,221(00904c,4),221(001018,2),221(0050f2,2),221(00904c,92),htcap:01ef,htagg:1b,htmcs:0000ffff,vhtcap:0f9139b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:1203,extcap:0000080000000040|oui:samsung':
-        ('Samsung Galaxy S8', '', '5GHz'),
+        ('Samsung Galaxy S8/S8+', '', '5GHz'),
     'wifi4|probe:0,1,45,127,107,191,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),221(00904c,92),htcap:01ad,htagg:1b,htmcs:0000ffff,vhtcap:0f9179b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000088001400040|assoc:0,1,33,36,48,45,127,191,221(00904c,4),221(001018,2),221(0050f2,2),221(00904c,92),htcap:01ef,htagg:1b,htmcs:0000ffff,vhtcap:0f9119b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:1203,extcap:0000080000000040|oui:samsung':
-        ('Samsung Galaxy S8', '', '5GHz'),
+        ('Samsung Galaxy S8/S8+', '', '5GHz'),
     'wifi4|probe:0,1,45,127,107,191,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),221(00904c,92),htcap:01ad,htagg:1b,htmcs:0000ffff,vhtcap:0f9119b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000088001400040|assoc:0,1,33,36,48,45,127,191,221(00904c,4),221(001018,2),221(0050f2,2),221(00904c,92),htcap:01ef,htagg:1b,htmcs:0000ffff,vhtcap:0f9119b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:1203,extcap:0000080000000040|oui:samsung':
-        ('Samsung Galaxy S8', '', '5GHz'),
+        ('Samsung Galaxy S8/S8+', '', '5GHz'),
+    'wifi4|probe:0,1,45,127,107,191,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),221(00904c,92),htcap:01ad,htagg:1b,htmcs:0000ffff,vhtcap:0f9179b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000088001400040|assoc:0,1,33,36,48,70,45,127,191,221(00904c,4),221(001018,2),221(0050f2,2),221(00904c,92),htcap:01ef,htagg:1b,htmcs:0000ffff,vhtcap:0f9119b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:1103,extcap:0000000000000040|oui:samsung':
+        ('Samsung Galaxy S8/S8+', '', '5GHz'),
+    'wifi4|probe:0,1,45,127,107,191,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),221(00904c,92),htcap:01ad,htagg:1b,htmcs:0000ffff,vhtcap:0f9139b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000088001400040|assoc:0,1,33,36,48,70,45,127,191,221(00904c,4),221(001018,2),221(0050f2,2),221(00904c,92),htcap:01ef,htagg:1b,htmcs:0000ffff,vhtcap:0f9119b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:1103,extcap:0000000000000040|oui:samsung':
+        ('Samsung Galaxy S8/S8+', '', '5GHz'),
+    'wifi4|probe:0,1,45,127,107,191,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),221(00904c,92),htcap:01ef,htagg:1b,htmcs:0000ffff,vhtcap:0f9179b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000088001400040|assoc:0,1,33,36,48,45,127,191,221(00904c,4),221(001018,2),221(0050f2,2),221(00904c,92),htcap:01ef,htagg:1b,htmcs:0000ffff,vhtcap:0f9139b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:1103,extcap:0000080000000040|oui:samsung':
+        ('Samsung Galaxy S8/S8+', '', '5GHz'),
+    'wifi4|probe:0,1,45,127,107,191,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),221(00904c,92),htcap:01ef,htagg:1b,htmcs:0000ffff,vhtcap:0f9139b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000088001400040|assoc:0,1,33,36,48,45,127,191,221(00904c,4),221(001018,2),221(0050f2,2),221(00904c,92),htcap:01ef,htagg:1b,htmcs:0000ffff,vhtcap:0f9139b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:1103,extcap:0000080000000040|oui:samsung':
+        ('Samsung Galaxy S8/S8+', '', '5GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),221(00904c,92),htcap:01ad,htagg:1b,htmcs:0000ffff,extcap:0000088001400040|assoc:0,1,50,33,36,48,70,45,127,221(001018,2),221(0050f2,2),221(00904c,92),htcap:01ad,htagg:1b,htmcs:0000ffff,txpow:1503,extcap:0000000000000040|oui:samsung':
-        ('Samsung Galaxy S8', '', '2.4GHz'),
+        ('Samsung Galaxy S8/S8+', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),221(00904c,92),htcap:11ef,htagg:1b,htmcs:0000ffff,extcap:0000088001400040|assoc:0,1,33,36,48,45,221(001018,2),221(0050f2,2),221(00904c,92),htcap:01ad,htagg:1b,htmcs:000000ff,txpow:1503|oui:samsung':
-        ('Samsung Galaxy S8', '', '2.4GHz'),
+        ('Samsung Galaxy S8/S8+', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),221(00904c,92),htcap:11ef,htagg:1b,htmcs:0000ffff,extcap:0000088001400040|assoc:0,1,50,33,36,48,45,127,199,221(00904c,4),221(001018,2),221(0050f2,2),221(00904c,92),htcap:01ad,htagg:1b,htmcs:0000ffff,txpow:1503,extcap:0000080000000040|oui:samsung':
-        ('Samsung Galaxy S8', '', '2.4GHz'),
+        ('Samsung Galaxy S8/S8+', '', '2.4GHz'),
     'wifi4|probe:0,1,50,3,45,127,107,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),221(00904c,92),htcap:01ad,htagg:1b,htmcs:0000ffff,extcap:0000088001400040|assoc:0,1,50,33,36,48,45,127,199,221(00904c,4),221(001018,2),221(0050f2,2),221(00904c,92),htcap:01ad,htagg:1b,htmcs:0000ffff,txpow:1503,extcap:0000080000000040|oui:samsung':
-        ('Samsung Galaxy S8', '', '2.4GHz'),
+        ('Samsung Galaxy S8/S8+', '', '2.4GHz'),
+    'wifi4|probe:0,1,50,3,45,127,107,221(506f9a,16),221(00904c,4),221(0050f2,8),221(001018,2),221(00904c,92),htcap:11ef,htagg:1b,htmcs:0000ffff,extcap:0000088001400040|assoc:0,1,50,33,36,48,70,45,127,221(001018,2),221(0050f2,2),221(00904c,92),htcap:01ad,htagg:1b,htmcs:0000ffff,txpow:1503,extcap:0000000000000040|oui:samsung':
+        ('Samsung Galaxy S8/S8+', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,221(001018,2),221(00904c,51),htcap:082c,htagg:1b,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:082c,htagg:1b,htmcs:000000ff,txpow:0f08|oui:samsung':
         ('Samsung Galaxy Tab', '', '5GHz'),
