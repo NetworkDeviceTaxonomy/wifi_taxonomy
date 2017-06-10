@@ -291,9 +291,9 @@ database = {
         ('Dish Network Receiver', '', '2.4GHz'),
 
     'wifi4|probe:0,1,45,htcap:106e,htagg:01,htmcs:000000ff|assoc:0,1,45,33,36,48,221(0050f2,2),htcap:106e,htagg:01,htmcs:000000ff,txpow:0e00|oui:dropcam':
-        ('Dropcam', '', '5GHz'),
+        ('Dropcam', 'Pro', '5GHz'),
     'wifi4|probe:0,1,50,45,htcap:002c,htagg:01,htmcs:000000ff|assoc:0,1,50,45,48,221(0050f2,2),htcap:002c,htagg:01,htmcs:000000ff|oui:dropcam':
-        ('Dropcam', '', '2.4GHz'),
+        ('Dropcam', 'HD or Pro', '2.4GHz'),
 
     'wifi4|probe:0,1,50,45,htcap:002c,htagg:01,htmcs:000000ff|assoc:0,1,50,45,48,221(0050f2,2),htcap:002c,htagg:01,htmcs:000000ff|oui:ecobee':
         ('ecobee thermostat', 'ecobee3', '2.4GHz'),
@@ -1111,9 +1111,27 @@ database = {
     'wifi4|probe:0,1,50,3,45,221(0050f2,8),127,htcap:016e,htagg:03,htmcs:000000ff,extcap:00000a0201|assoc:0,1,50,33,48,70,45,221(0050f2,2),htcap:012c,htagg:03,htmcs:000000ff,txpow:120d|oui:motorola':
         ('Moto Z', '', '2.4GHz'),
 
+    'wifi4|probe:0,1,45,127,191,221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:03800032,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000008001000040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e007,extcap:0000008001000040|oui:nest':
+        ('Nest Cam', 'IQ', '5GHz'),
+    'wifi4|probe:0,1,45,127,191,221(001018,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0000008001000040|assoc:0,1,33,36,48,45,127,191,221(001018,2),221(0050f2,2),htcap:006f,htagg:17,htmcs:0000ffff,vhtcap:0f815832,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,txpow:e007,extcap:0000008001000040|oui:nest':
+        ('Nest Cam', 'IQ', '5GHz'),
+    'wifi4|probe:0,1,50,3,45,127,221(001018,2),htcap:002d,htagg:17,htmcs:0000ffff,extcap:0000008001000040|assoc:0,1,50,33,36,48,45,127,221(001018,2),221(0050f2,2),htcap:002d,htagg:17,htmcs:0000ffff,txpow:1307,extcap:0000008001000040|oui:nest':
+        ('Nest Cam', 'IQ', '2.4GHz'),
+
+    'wifi4|probe:0,1,45,htcap:106e,htagg:01,htmcs:000000ff|assoc:0,1,45,33,36,48,221(0050f2,2),htcap:106e,htagg:01,htmcs:000000ff,txpow:1000|oui:nest':
+        ('Nest Cam', 'Indoor', '5GHz'),
+    'wifi4|probe:0,1,50,45,htcap:002c,htagg:01,htmcs:000000ff|assoc:0,1,50,45,48,221(0050f2,2),htcap:002c,htagg:01,htmcs:000000ff|oui:nest':
+        ('Nest Cam', 'Indoor', '2.4GHz'),
+
+    'wifi4|probe:0,1,50,45,3,221(001018,2),221(00904c,51),htcap:110c,htagg:18,htmcs:000000ff|assoc:0,1,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:110c,htagg:18,htmcs:000000ff|oui:nest':
+        ('Nest Protect', '', '2.4GHz'),
+
     'wifi4|probe:0,1,50,45,htcap:0130,htagg:18,htmcs:000000ff|assoc:0,1,50,48,45,221(0050f2,2),htcap:013c,htagg:18,htmcs:000000ff|oui:nest':
         ('Nest Thermostat', 'v1 or v2', '2.4GHz'),
+
     'wifi4|probe:0,1,45,221(001018,2),221(00904c,51),htcap:0062,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0062,htagg:1a,htmcs:000000ff,txpow:0f09|oui:nest':
+        ('Nest Thermostat', 'v3', '5GHz'),
+    'wifi4|probe:0,1,45,221(001018,2),221(00904c,51),htcap:0020,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,48,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020,htagg:1a,htmcs:000000ff,txpow:0f09|oui:nest':
         ('Nest Thermostat', 'v3', '5GHz'),
     'wifi4|probe:0,1,50,3,45,221(001018,2),221(00904c,51),htcap:0020,htagg:1a,htmcs:000000ff|assoc:0,1,33,36,48,50,45,221(001018,2),221(00904c,51),221(0050f2,2),htcap:0020,htagg:1a,htmcs:000000ff,txpow:150b|oui:nest':
         ('Nest Thermostat', 'v3', '2.4GHz'),

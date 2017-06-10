@@ -218,7 +218,7 @@ database = {
     'fc:c2:de': ['murata', 'samsung'],
     'fc:db:b3': ['murata', 'samsung'],
 
-    '18:b4:30': ['nest', 'dropcam'],
+    '18:b4:30': ['nest'],
 
     'b0:ee:45': ['nvidia'],
 
