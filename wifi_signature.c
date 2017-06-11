@@ -14,11 +14,19 @@
  * limitations under the License.
  */
 
+#include <linux/audit.h>
+#include <linux/filter.h>
+#include <linux/seccomp.h>
 #include <pcap.h>
+#include <stddef.h>
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/prctl.h>
+#include <sys/resource.h>
+#include <sys/syscall.h>
+#include <sys/time.h>
 #include <unistd.h>
 
 #include <endian.h>
@@ -57,6 +65,71 @@ struct ieee80211_mgmt {
 
 #define ASSOC_REQ         0
 #define PROBE_REQ         4
+
+
+/* from the very helpful https://eigenstate.org/notes/seccomp */
+void enable_seccomp()
+{
+  #define ArchField offsetof(struct seccomp_data, arch)
+  #define Allow(syscall) \
+    BPF_JUMP(BPF_JMP+BPF_JEQ+BPF_K, __NR_##syscall, 0, 1), \
+    BPF_STMT(BPF_RET+BPF_K, SECCOMP_RET_ALLOW)
+
+  struct sock_filter filter[] = {
+    /* validate arch */
+#ifdef __x86_64__
+    BPF_STMT(BPF_LD+BPF_W+BPF_ABS, ArchField),
+    BPF_JUMP(BPF_JMP+BPF_JEQ+BPF_K, AUDIT_ARCH_X86_64, 1, 0),
+    BPF_STMT(BPF_RET+BPF_K, SECCOMP_RET_KILL),
+#else
+#error Please add support for this architecture to the SECCOMP BPF code.
+#endif
+
+    /* load syscall */
+    BPF_STMT(BPF_LD+BPF_W+BPF_ABS, offsetof(struct seccomp_data, nr)),
+
+    /* list of allowed syscalls */
+    Allow(exit_group),
+    Allow(read),
+    Allow(close),
+    Allow(munmap),
+    Allow(mmap),
+
+    /* printf calls fstat, only allow stdout or stderr */
+    BPF_JUMP(BPF_JMP+BPF_JEQ+BPF_K, __NR_fstat, 0, 5),
+    BPF_STMT(BPF_LD|BPF_W|BPF_ABS, (offsetof(struct seccomp_data, args[0]))),
+    BPF_JUMP(BPF_JMP|BPF_JSET|BPF_K, STDOUT_FILENO, 0, 1),
+    BPF_STMT(BPF_RET+BPF_K, SECCOMP_RET_ALLOW),
+    BPF_JUMP(BPF_JMP|BPF_JSET|BPF_K, STDERR_FILENO, 0, 1),
+    BPF_STMT(BPF_RET+BPF_K, SECCOMP_RET_ALLOW),
+
+    /* only allow write to stdout or stderr */
+    BPF_JUMP(BPF_JMP+BPF_JEQ+BPF_K, __NR_write, 0, 5),
+    BPF_STMT(BPF_LD|BPF_W|BPF_ABS, (offsetof(struct seccomp_data, args[0]))),
+    BPF_JUMP(BPF_JMP|BPF_JSET|BPF_K, STDOUT_FILENO, 0, 1),
+    BPF_STMT(BPF_RET+BPF_K, SECCOMP_RET_ALLOW),
+    BPF_JUMP(BPF_JMP|BPF_JSET|BPF_K, STDERR_FILENO, 0, 1),
+    BPF_STMT(BPF_RET+BPF_K, SECCOMP_RET_ALLOW),
+
+    /* and if we don't match above, die */
+    BPF_STMT(BPF_RET+BPF_K, SECCOMP_RET_KILL),
+  };
+
+  struct sock_fprog filterprog = {
+    .len = sizeof(filter)/sizeof(filter[0]),
+    .filter = filter
+  };
+
+  /* set up the restricted environment */
+  if (prctl(PR_SET_NO_NEW_PRIVS, 1, 0, 0, 0)) {
+    perror("prctl(PR_SET_NO_NEW_PRIVS)");
+    exit(1);
+  }
+  if (prctl(PR_SET_SECCOMP, SECCOMP_MODE_FILTER, &filterprog) == -1) {
+    perror("prctl(PR_SET_SECCOMP, SECCOMP_MODE_FILTER)");
+    exit(1);
+  }
+}
 
 
 /* from hostap/src/ap/taxonomy.c */
@@ -294,6 +367,8 @@ int usage(const char *progname)
 int main(int argc, char **argv)
 {
   int opt;
+  struct rlimit lim;
+  FILE *pcapfp;
   pcap_t *handle;
   char errbuf[PCAP_ERRBUF_SIZE];
   struct pcap_pkthdr hdr;
@@ -318,8 +393,32 @@ int main(int argc, char **argv)
     usage(argv[0]);
   }
 
-  if ((handle = pcap_open_offline(filename, errbuf)) == NULL) {
+  if ((pcapfp = fopen(filename, "rb")) == NULL) {
+    perror("fopen(pcapfile)");
+    exit(1);
+  }
+
+  /* No more files should be opened after this. */
+  if (getrlimit(RLIMIT_NOFILE, &lim)) {
+    perror("getrlimit");
+    exit(1);
+  }
+  lim.rlim_cur = 0;
+  if (setrlimit(RLIMIT_NOFILE, &lim)) {
+    perror("setrlimit");
+    exit(1);
+  }
+
+  /* We're about to parse packets, limit damage if we process
+   * something malicious. */
+  enable_seccomp();
+
+  if ((handle = pcap_fopen_offline(pcapfp, errbuf)) == NULL) {
     perror("Cannot open pcap file");
+    exit(1);
+  }
+  if (pcap_datalink(handle) != DLT_IEEE802_11_RADIO) {
+    fprintf(stderr, "pcap file is not DLT_IEEE802_11_RADIO");
     exit(1);
   }
 
