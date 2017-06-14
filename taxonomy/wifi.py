@@ -2028,6 +2028,8 @@ database = {
         ('Xbox', '360', '2.4GHz'),
     'wifi4|probe:0,1,3,45,50,127,htcap:11ed,htagg:1b,htmcs:0000ffff,extcap:04|assoc:0,1,45,48,50,221(0050f2,2),htcap:11ed,htagg:1b,htmcs:000000ff|oui:microsoft':
         ('Xbox', '360', '2.4GHz'),
+    'wifi4|probe:0,1,3,45,127,htcap:192d,htagg:17,htmcs:000000ff,extcap:05|assoc:0,1,45,221(0050f2,2),htcap:112d,htagg:17,htmcs:000000ff|oui:microsoft':
+        ('Xbox', '360', '2.4GHz'),
     'wifi4|probe:0,1,3,50|assoc:0,1,45,48,50,221(0050f2,2),htcap:010c,htagg:1b,htmcs:000000ff|oui:microsoft':
         ('Xbox', '360', '2.4GHz'),
 
