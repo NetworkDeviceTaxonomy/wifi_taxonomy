@@ -263,6 +263,12 @@ int main(int argc, char **argv)
     struct ieee80211_radiotap_hdr *rtap;
     struct ieee80211_mgmt *mlme;
     uint16_t fc, type, subtype;
+    uint8_t *crc;
+
+    if (hdr.caplen != hdr.len) {
+      printf("Truncated packet, %d != %d\n", hdr.caplen, hdr.len);
+      continue;
+    }
 
     rtap = (struct ieee80211_radiotap_hdr *)pkt;
     mlme = (struct ieee80211_mgmt *)(pkt + rtap->it_len);
@@ -309,6 +315,8 @@ int main(int argc, char **argv)
       mlme->bssid[5] = macbyte;
     }
 
+    crc = (uint8_t *)rtap + hdr.caplen - 4;
+    memset(crc, 0, 4);
     pcap_dump((u_char *)outhandle, &hdr, pkt);
   }
 
