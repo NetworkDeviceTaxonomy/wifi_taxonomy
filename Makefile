@@ -1,6 +1,6 @@
 PYTHON?=python
 
-all: build
+all: wifi_signature anonymize_pcap fix_pcap_snaplen build
 
 test: wifi_signature anonymize_pcap
 	set -e; \
@@ -34,12 +34,19 @@ CFLAGS += -g -Os -Wall -Werror $(EXTRACFLAGS)
 LDFLAGS += $(EXTRALDFLAGS)
 INCS =
 
+%.o : %.c
+	$(CC) -c $(CFLAGS) $< -o $@
+
 wifi_signature: wifi_signature.o $(INCS)
 	$(CC) $(CFLAGS) -I$(HOSTDIR)/usr/include wifi_signature.c -o $@ $(LDFLAGS) -lpcap
 
 anonymize_pcap: anonymize_pcap.o $(INCS)
 	$(CC) $(CFLAGS) -I$(HOSTDIR)/usr/include anonymize_pcap.c -o $@ $(LDFLAGS) -lpcap
 
+fix_pcap_snaplen: fix_pcap_snaplen.o $(INCS)
+	$(CC) $(CFLAGS) -I$(HOSTDIR)/usr/include fix_pcap_snaplen.c -o $@ $(LDFLAGS)
+
 clean:
-	rm -f wifi_signature anonymize_pcap *.o taxonomy/*.pyc taxonomy/*.pyo
+	rm -f wifi_signature anonymize_pcap fix_pcap_snaplen
+	rm -f *.o taxonomy/*.pyc taxonomy/*.pyo
 	rm -rf taxonomy/build
