@@ -20,7 +20,7 @@ import subprocess
 import sys
 import wifi
 
-regression = [
+client_regression = [
   # devices for which we have a pcap but have decided not to add
   # to the database
   ('', './testdata/pcaps/ASUS Transformer TF300 2.4GHz.pcap'),
@@ -384,9 +384,28 @@ regression = [
   ('Sony Xperia Z4 or Z5', './testdata/pcaps/Sony Xperia Z4 Tablet 2.4GHz.pcap'),
 ]
 
+ap_regression = [
+  # Names where the identified species doesn't exactly match the filename,
+  # usually because multiple devices are too similar to distinguish. We name
+  # the file for the specific device which was captured, and add an entry
+  # here for the best identification which we can manage.
+  ('Aruba AP-22x', './testdata/ap_pcaps/Aruba AP-224 5GHz SVL-MAT3-1-ch132.pcap'),
+  ('Aruba AP-22x', './testdata/ap_pcaps/Aruba AP-224 5GHz MTV-PR55-1-ch157.pcap'),
+  ('Aruba AP-22x', './testdata/ap_pcaps/Aruba AP-225 5GHz MTV-45-1-ch100.pcap'),
+  ('Aruba AP-22x', './testdata/ap_pcaps/Aruba AP-225 5GHz MTV-47-1-ch40.pcap'),
+  ('Aruba AP-22x', './testdata/ap_pcaps/Aruba AP-225 5GHz MTV-GWC5-1-ch157.pcap'),
+  ('Aruba AP-22x', './testdata/ap_pcaps/Aruba AP-225 5GHz SVL-MP2-1-ch60.pcap'),
+  ('Aruba AP-27x', './testdata/ap_pcaps/Aruba AP-275 5GHz SLV-MP2-1-ch36.pcap'),
+  ('Aruba AP-27x', './testdata/ap_pcaps/Aruba AP-277 5GHz MTV-CL2-2-ch128.pcap'),
+  ('Google Fiber GFRG2x0', './testdata/ap_pcaps/Google Fiber GFRG210 5GHz gfrg200-46.51.2.pcap'),
+]
 
-def get_taxonomy_from_pcap(filename):
-  (mac, sig) = subprocess.check_output(['./wifi_signature', '-f', filename]).split()
+
+def get_taxonomy_from_pcap(filename, ap_mode):
+  process = ['./wifi_signature', '-f', filename]
+  if ap_mode:
+    process.append('-b')
+  (mac, sig) = subprocess.check_output(process).split()
   return (mac, sig)
 
 
@@ -400,8 +419,8 @@ def get_model(filename):
   return filename[0:offset].strip()
 
 
-def check_pcap(expected_model, pcap):
-  mac, sig = get_taxonomy_from_pcap(pcap)
+def check_pcap(expected_model, pcap, ap_mode=False):
+  mac, sig = get_taxonomy_from_pcap(pcap, ap_mode)
   genus, species, _ = wifi.identify_wifi_device(sig, mac)
   actual_model = genus + " " + species if species else genus
   if expected_model and expected_model != actual_model:
@@ -416,17 +435,28 @@ def check_pcap(expected_model, pcap):
 if __name__ == '__main__':
   dhcp.DHCP_LEASES_FILE = 'testdata/dhcp.leases'
   dhcp.DHCP_SIGNATURE_FILE = 'testdata/dhcp.signatures'
-  pcaps = glob.glob('./testdata/pcaps/*.pcap')
   rc = 0
 
-  for (expected_model, pcap) in regression:
-    pcaps.remove(pcap)
-    if check_pcap(expected_model, pcap):
+  client_pcaps = glob.glob('./testdata/pcaps/*.pcap')
+  for (expected_model, pcap) in client_regression:
+    client_pcaps.remove(pcap)
+    if check_pcap(expected_model, pcap, False):
       rc = 1
 
-  for pcap in pcaps:
+  for pcap in client_pcaps:
     expected_model = get_model(os.path.basename(pcap))
-    if not expected_model or check_pcap(expected_model, pcap):
+    if not expected_model or check_pcap(expected_model, pcap, False):
+      rc = 1
+
+  ap_pcaps = glob.glob('./testdata/ap_pcaps/*.pcap')
+  for (expected_model, pcap) in ap_regression:
+    ap_pcaps.remove(pcap)
+    if check_pcap(expected_model, pcap, True):
+      rc = 1
+
+  for pcap in ap_pcaps:
+    expected_model = get_model(os.path.basename(pcap))
+    if not expected_model or check_pcap(expected_model, pcap, True):
       rc = 1
 
   sys.exit(rc)

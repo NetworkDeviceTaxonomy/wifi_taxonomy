@@ -2179,6 +2179,46 @@ database = {
 
     'wifi4|probe:0,1,50,221(0050f2,4),221(506f9a,9),wps:Z820|assoc:0,1,50,45,48,127,221(0050f2,2),htcap:1172,htagg:03,htmcs:000000ff,extcap:01':
         ('ZTE Obsidian', '', '2.4GHz'),
+
+
+    # ACCESS POINT SIGNATURES
+
+    'wifi4|beacon:0,1,3,5,48,45,61,127,221(0050f2,2),221(000b86,1),htcap:01ce,htagg:1b,htmcs:0000ffff,extcap:0000080000000000,cap:0411':
+        ('Aruba AP-105', '', '5GHz'),
+
+    'wifi4|beacon:0,1,3,5,7,32,35,48,11,45,61,127,221(0050f2,2),221(000b86,1),221(000b86,1),htcap:01ef,htagg:1b,htmcs:0000ffff,extcap:0000080000000000,cap:0511':
+        ('Aruba AP-135', '', '5GHz'),
+    'wifi4|beacon:0,1,3,5,7,32,35,48,45,61,127,221(0050f2,2),221(000b86,1),221(000b86,1),htcap:01ef,htagg:1b,htmcs:0000ffff,extcap:0000080000000000,cap:0511':
+        ('Aruba AP-135', '', '5GHz'),
+
+    'wifi4|beacon:0,1,3,5,7,32,35,48,11,45,61,127,191,192,195,221(000b86,1),221(000b86,1),221(0050f2,2),htcap:09ef,htagg:17,htmcs:0000ffff,vhtcap:0f825991,vhtrxmcs:0000ffea,vhttxmcs:0000ffea,extcap:0400080000000040,cap:1111':
+        ('Aruba AP-22x', '', '5GHz'),
+    'wifi4|beacon:0,1,3,5,7,32,35,48,11,45,61,127,191,192,195,221(000b86,1),221(000b86,1),221(0050f2,2),htcap:09ef,htagg:17,htmcs:0000ffff,vhtcap:0f8259b1,vhtrxmcs:0000ffea,vhttxmcs:0000ffea,extcap:0400080000000040,cap:1111':
+        ('Aruba AP-22x', '', '5GHz'),
+
+    'wifi4|beacon:0,1,3,5,7,32,35,48,11,45,61,127,191,192,195,221(000b86,1),221(000b86,1),221(0050f2,2),htcap:09ad,htagg:17,htmcs:0000ffff,vhtcap:0f825991,vhtrxmcs:0000ffea,vhttxmcs:0000ffea,extcap:0400080000000040,cap:1111':
+        ('Aruba AP-27x', '', '5GHz'),
+
+    'wifi4|beacon:0,1,3,5,7,32,35,11,48,45,61,74,127,191,192,195,221(0050f2,2),221(000b86,1),221(000b86,1),htcap:09ef,htagg:1b,htmcs:0000ffff,vhtcap:338b7991,vhtrxmcs:0000ffaa,vhttxmcs:0000ffaa,extcap:0100080000000040,cap:0111':
+        ('Aruba AP-325', '', '5GHz'),
+
+    'wifi4|beacon:0,1,3,5,7,32,42,45,61,127,221(0050f2,2),48,191,192,221(002686,1),htcap:09ef,htagg:17,htmcs:0000ffff,vhtcap:3fc359b2,vhtrxmcs:0000ffaa,vhttxmcs:0000ffaa,extcap:0000000000000040,cap:0511':
+        ('AT&T U-verse 5268AC', '', '5GHz'),
+
+    'wifi4|beacon:0,1,3,5,7,32,48,70,45,61,127,191,192,221(0050f2,2),htcap:010e,htagg:1b,htmcs:0000ffff,vhtcap:01800010,vhtrxmcs:0000ffea,vhttxmcs:0000ffea,extcap:0400000000000140,cap:1111':
+        ('Google Fiber GFRG2x0', '', '5GHz'),
+
+    'wifi4|beacon:0,1,3,5,7,48,45,61,127,191,192,221(0050f2,2),htcap:01ef,htagg:1b,htmcs:0000ffff,vhtcap:338001b2,vhtrxmcs:0000ffea,vhttxmcs:0000ffea,extcap:0400080200000040,cap:0031':
+        ('Google OnHub', '', '5GHz'),
+
+    'wifi4|beacon:0,1,3,5,7,48,45,61,127,191,192,221(0050f2,2),htcap:01ef,htagg:1b,htmcs:0000ffff,vhtcap:338139b2,vhtrxmcs:0000fffa,vhttxmcs:0000fffa,extcap:0400080200000040,cap:0031':
+        ('Google Wifi', '', '5GHz'),
+
+    'wifi4|beacon:0,1,3,5,7,48,59,45,61,127,221(0050f2,2),htcap:01ce,htagg:1b,htmcs:0000ffff,extcap:0400000000000040,cap:0011':
+        ('NetGEAR WNDR3800', '', '5GHz'),
+
+    'wifi4|beacon:0,1,3,5,7,32,45,61,74,127,191,192,195,221(0050f2,2),221(00037f,1),48,221(0050f2,1),221(0050f2,4),htcap:09ef,htagg:1b,htmcs:0000ffff,vhtcap:338001b2,vhtrxmcs:0000ffea,vhttxmcs:0000ffea,extcap:0100000000000040,cap:0511':
+        ('Technicolor DPC3941B', '', '5GHz'),
 }
 
 
@@ -2195,18 +2235,20 @@ def performance_characteristics(signature):
     width: channel width as a string: '20', '40', '80', '160', '80+80', '??'
   """
   segments = signature.split('|')
-  assoc = ''
+  vhtseg = ''
   for segment in segments:
     # There are a few kindof broken devices which
     # include a vhtcap in their Probe even though
     # they are not 802.11ac devices. They didn't
     # notice because its the Association which
-    # really counts. So only look at the Association.
-    if segment.startswith('assoc:'):
-      assoc = segment
-  if not assoc:
+    # really counts. For client devices, only look
+    # at the Association. For APs, look at the
+    # Beacon.
+    if segment.startswith('assoc:') or segment.startswith('beacon:'):
+      vhtseg = segment
+  if not vhtseg:
     return ''
-  fields = assoc.split(',')
+  fields = vhtseg.split(',')
   vht_nss = ht_nss = 0
   vht_width = ht_width = ''
   for field in fields:

@@ -160,10 +160,15 @@ int is_broadcast_mac(uint8_t *mac)
 }
 
 
-void rewrite_ssid(uint8_t *ie, size_t ie_len)
+/*
+ * Walk through the Information Elements in a packet, overwriting
+ * data fields containing potentially sensitive information from
+ * a specific customer configuration.
+ */
+void anonymize_IEs(uint8_t *ie, size_t ie_len)
 {
   while (ie_len >= 2) {
-    u8 id, elen;
+    uint8_t id, elen;
 
     id = *ie++;
     elen = *ie++;
@@ -175,9 +180,16 @@ void rewrite_ssid(uint8_t *ie, size_t ie_len)
 
     /* Replace SSID with 'XXXXXXXX' */
     if ((id == 0) && (elen > 0)) {
-      int i;
-      for (i = 0; i < elen; ++i) {
-        ie[i] = 'X';
+      memset(ie, 'X', elen);
+    }
+
+    if ((id == 221) && (elen >= 6)) {
+      /* Vendor specific */
+      int is_aruba = (ie[0] == 0x00 && ie[1] == 0x0b && ie[2] == 0x86);
+      if (is_aruba && ie[3] == 0x01 && ie[4] == 0x03) {
+        /* AP Name */
+        memset(&ie[6], 'X', elen - 6);
+        /* Note: not sure what ie[5] is, but it is not part of the AP name. */
       }
     }
 
@@ -279,25 +291,25 @@ int main(int argc, char **argv)
     if (type == 0 && subtype == ASSOC_REQ) {
       uint8_t *ie = mlme->u.assoc_req.variable;
       size_t ie_len = hdr.caplen - (ie - (uint8_t *)mlme) - rtap->it_len - 4;
-      rewrite_ssid(ie, ie_len);
+      anonymize_IEs(ie, ie_len);
     }
 
     if (type == 0 && subtype == PROBE_REQ) {
       uint8_t *ie = mlme->u.probe_req.variable;
       size_t ie_len = hdr.caplen - (ie - (uint8_t *)mlme) - rtap->it_len - 4;
-      rewrite_ssid(ie, ie_len);
+      anonymize_IEs(ie, ie_len);
     }
 
     if (type == 0 && subtype == PROBE_RESP) {
       uint8_t *ie = mlme->u.probe_resp.variable;
       size_t ie_len = hdr.caplen - (ie - (uint8_t *)mlme) - rtap->it_len - 4;
-      rewrite_ssid(ie, ie_len);
+      anonymize_IEs(ie, ie_len);
     }
 
     if (type == 0 && subtype == BEACON) {
       uint8_t *ie = mlme->u.beacon.variable;
       size_t ie_len = hdr.caplen - (ie - (uint8_t *)mlme) - rtap->it_len - 4;
-      rewrite_ssid(ie, ie_len);
+      anonymize_IEs(ie, ie_len);
     }
 
     /* Anonymize the MAC addresses (but preserve OUI). */

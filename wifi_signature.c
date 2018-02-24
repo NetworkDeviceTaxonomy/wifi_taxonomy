@@ -60,11 +60,18 @@ struct ieee80211_mgmt {
     struct {
       uint8_t variable[0];
     } __attribute__ ((packed)) probe_req;
+    struct {
+      uint8_t timestamp[8];
+      uint16_t interval;
+      uint16_t cap;
+      uint8_t variable[0];
+    } __attribute__ ((packed)) beacon;
   } u;
 } __attribute__ ((packed));
 
 #define ASSOC_REQ         0
 #define PROBE_REQ         4
+#define BEACON            8
 
 
 /* from the very helpful https://eigenstate.org/notes/seccomp */
@@ -94,6 +101,7 @@ void enable_seccomp()
     Allow(close),
     Allow(munmap),
     Allow(mmap),
+    Allow(lseek),
 
     /* printf calls fstat, only allow stdout or stderr */
     BPF_JUMP(BPF_JMP+BPF_JEQ+BPF_K, __NR_fstat, 0, 5),
@@ -363,10 +371,14 @@ int usage(const char *progname)
   exit(1);
 }
 
+char probe_sig[4096] = {0};
+char assoc_sig[4096] = {0};
+char beacon_sig[4096] = {0};
 
 int main(int argc, char **argv)
 {
   int opt;
+  int beacon_mode = 0;
   struct rlimit lim;
   FILE *pcapfp;
   pcap_t *handle;
@@ -374,12 +386,15 @@ int main(int argc, char **argv)
   struct pcap_pkthdr hdr;
   const uint8_t *pkt;
   const char *filename = NULL;
+  uint16_t beacon_cap = 0;
   char mac[18];
-  char probe_sig[4096] = {0};
-  char assoc_sig[4096] = {0};
+  int exit_code = 0;
 
-  while ((opt = getopt(argc, argv, "f:")) != -1) {
+  while ((opt = getopt(argc, argv, "bf:")) != -1) {
     switch(opt){
+      case 'b':
+        beacon_mode = 1;
+        break;
       case 'f':
         filename = optarg;
         break;
@@ -414,7 +429,7 @@ int main(int argc, char **argv)
   enable_seccomp();
 
   if ((handle = pcap_fopen_offline(pcapfp, errbuf)) == NULL) {
-    perror("Cannot open pcap file");
+    fprintf(stderr, "Cannot open pcap file: %s", errbuf);
     exit(1);
   }
   if (pcap_datalink(handle) != DLT_IEEE802_11_RADIO) {
@@ -436,28 +451,51 @@ int main(int argc, char **argv)
     type = (fc >> 2) & 0x0003;
     subtype = (fc >> 4) & 0x000f;
 
-    if (type == 0 && subtype == ASSOC_REQ) {
-      ie = mlme->u.assoc_req.variable;
-      ie_len = hdr.caplen - (ie - (const uint8_t *)mlme) - rtap->it_len - 4;
-      ie_to_string(assoc_sig, sizeof(assoc_sig), ie, ie_len);
-    }
+    if (beacon_mode) {
+      if (type == 0 && subtype == BEACON) {
+        ie = mlme->u.beacon.variable;
+        beacon_cap = mlme->u.beacon.cap;
+        ie_len = hdr.caplen - (ie - (const uint8_t *)mlme) - rtap->it_len - 4;
+        ie_to_string(beacon_sig, sizeof(beacon_sig), ie, ie_len);
 
-    if (type == 0 && subtype == PROBE_REQ) {
-      snprintf(mac, sizeof(mac), "%02hhx:%02hhx:%02hhx:%02hhx:%02hhx:%02hhx",
-          mlme->sa[0], mlme->sa[1], mlme->sa[2],
-          mlme->sa[3], mlme->sa[4], mlme->sa[5]);
+        snprintf(mac, sizeof(mac), "%02hhx:%02hhx:%02hhx:%02hhx:%02hhx:%02hhx",
+            mlme->sa[0], mlme->sa[1], mlme->sa[2],
+            mlme->sa[3], mlme->sa[4], mlme->sa[5]);
+      }
+    } else {
+      if (type == 0 && subtype == ASSOC_REQ) {
+        ie = mlme->u.assoc_req.variable;
+        ie_len = hdr.caplen - (ie - (const uint8_t *)mlme) - rtap->it_len - 4;
+        ie_to_string(assoc_sig, sizeof(assoc_sig), ie, ie_len);
+      }
 
-      ie = mlme->u.probe_req.variable;
-      ie_len = hdr.caplen - (ie - (const uint8_t *)mlme) - rtap->it_len - 4;
-      ie_to_string(probe_sig, sizeof(probe_sig), ie, ie_len);
+      if (type == 0 && subtype == PROBE_REQ) {
+        snprintf(mac, sizeof(mac), "%02hhx:%02hhx:%02hhx:%02hhx:%02hhx:%02hhx",
+            mlme->sa[0], mlme->sa[1], mlme->sa[2],
+            mlme->sa[3], mlme->sa[4], mlme->sa[5]);
+
+        ie = mlme->u.probe_req.variable;
+        ie_len = hdr.caplen - (ie - (const uint8_t *)mlme) - rtap->it_len - 4;
+        ie_to_string(probe_sig, sizeof(probe_sig), ie, ie_len);
+      }
     }
   }
 
-  printf("%s wifi4|probe:%s|assoc:%s\n", mac, probe_sig, assoc_sig);
-
-  if (strlen(probe_sig) && strlen(assoc_sig) && strlen(mac)) {
-    exit(0);
+  if (strlen(mac) == 0) {
+    exit_code = 1;
   }
 
-  exit(1);
+  if (beacon_mode) {
+    printf("%s wifi4|beacon:%s,cap:%04x\n", mac, beacon_sig, beacon_cap);
+    if (strlen(beacon_sig) == 0) {
+      exit_code = 1;
+    }
+  } else {
+    printf("%s wifi4|probe:%s|assoc:%s\n", mac, probe_sig, assoc_sig);
+    if (strlen(probe_sig) == 0 || strlen(assoc_sig) == 0) {
+      exit_code = 1;
+    }
+  }
+
+  exit(exit_code);
 }
