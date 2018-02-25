@@ -72,6 +72,13 @@ database = {
     'wifi4|probe:0,1,50,45,htcap:01ac,htagg:02,htmcs:0000ffff|assoc:0,1,50,48,221(0050f2,2),45,127,htcap:01ac,htagg:02,htmcs:0000ffff,extcap:01|oui:amazon':
         ('Amazon Echo', '', '2.4GHz'),
 
+    'wifi4|probe:0,1,221(0050f2,4),221(506f9a,9),wps:AEOBC|assoc:0,1,36,45,48,127,221(0050f2,2),htcap:1172,htagg:03,htmcs:000000ff,extcap:01':
+        ('Amazon Echo', 'Dot', '5GHz'),
+    'wifi4|probe:0,1,221(0050f2,4),221(506f9a,9),wps:AEOBC|assoc:0,1,36,45,48,127,221(0050f2,2),htcap:0130,htagg:03,htmcs:000000ff,extcap:00':
+        ('Amazon Echo', 'Dot', '5GHz'),
+    'wifi4|probe:0,1,50,221(0050f2,4),221(506f9a,9),wps:AEOBC|assoc:0,1,50,36,45,48,127,221(0050f2,2),htcap:0130,htagg:03,htmcs:000000ff,extcap:00':
+        ('Amazon Echo', 'Dot', '2.4GHz'),
+
     'wifi4|probe:0,1,50|assoc:0,1,50,48,221(0050f2,2)|oui:amazon':
         ('Amazon Kindle', '', '2.4GHz'),
     'wifi4|probe:0,1,50|assoc:0,1,50,221(0050f2,2)|oui:amazon':
