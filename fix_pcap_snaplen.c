@@ -20,7 +20,7 @@
  * MAXIMUM_SNAPLEN of 256k or it would print an error and exit. 10/2015
  *
  * https://github.com/the-tcpdump-group/libpcap/commit/2be9c29d45fb1fab8e9549342a30c160b7dea3e1
- * softened the check somewhat, making it print and error and truncate the
+ * softened the check somewhat, making it print an error and truncate the
  * length it would allow to MAXIMUM_SNAPLEN but not exit. 5/2017
  *
  * As of 2/2018, there are a number of Linux distributions which contain the
@@ -29,7 +29,7 @@
  *
  * Many pcaps in this repo were captured using Apple's Wi-Fi Diagnostics, which
  * sets the snaplen to 512k, though there are no packets in any pcap which
- * are more than a few hundred bytes. We used this program to rewrite the
+ * are more than a few hundred bytes. We use this program to rewrite the
  * snaplen of files checked into the repository.
  */
 
